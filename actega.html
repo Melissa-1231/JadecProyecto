@@ -197,49 +197,74 @@
 
   </main>
 
-  <!-- Footer Corporativo -->
+  <!-- Footer Corporativo (5 Columnas) -->
   <footer class="site-footer">
     <div class="footer-container">
       <div class="footer-grid">
+        <!-- Columna 1: Información Corporativa & Contacto -->
         <div class="footer-brand">
           <div class="logo">
-            <div class="logo-icon">
-              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="3.5" class="logo-circle-bg"/>
-                <path d="M12 24C12 17.3726 17.3726 12 24 12V17C20.134 17 17 20.134 17 24H12Z" fill="currentColor" class="logo-path-primary"/>
-                <circle cx="25" cy="25" r="5" fill="currentColor" class="logo-dot-accent"/>
-              </svg>
-            </div>
-            <div class="logo-text">
-              <a href="index.html" class="logo" aria-label="JADEC Soluciones Químicas - Inicio">
-                <img src="images/logo/jadec-logo.png" alt="Logotipo Corporativo de JADEC Soluciones Químicas" class="logo-img" width="180" height="48">
-              </a>
-              <span class="logo-tagline">Soluciones Químicas</span>
-            </div>
+            <a href="index.html" class="logo-link" aria-label="JADEC Soluciones Químicas - Inicio">
+              <picture>
+                <source srcset="images/logo/jadec-logo.webp" type="image/webp">
+                <img src="images/logo/jadec-logo.png" alt="Logotipo Corporativo de JADEC Soluciones Químicas" class="logo-img" width="180" height="48" loading="lazy">
+              </picture>
+            </a>
           </div>
           <p class="footer-desc">
-            Socio estratégico en el suministro de materias primas, resinas, solventes y aditivos para la industria de recubrimientos, tintas y adhesivos.
+            Distribuidor autorizado en México de adhesivos industriales, barnices y tintas para empaque, artes gráficas y recubrimientos.
           </p>
+          <div class="footer-brand-info">
+            <p>55 4339 0652</p>
+            <p>administracion@jadec.mx</p>
+            <p>Ecatepec de Morelos, Estado de México</p>
+            <p>Lunes a viernes, horario de oficina</p>
+          </div>
+          <button type="button" class="btn btn-green" data-open-modal>
+            <span>Contactar ventas &rarr;</span>
+          </button>
         </div>
 
+        <!-- Columna 2: Líneas de Producto -->
         <div class="footer-col">
-          <h4 class="footer-heading">Navegación</h4>
+          <h4 class="footer-heading">LÍNEAS DE PRODUCTO</h4>
           <ul class="footer-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="index.html#nosotros">Nosotros</a></li>
-            <li><a href="index.html#industrias-atendidas">Industrias</a></li>
-            <li><a href="index.html#ventajas">Ventajas JADEC</a></li>
-            <li><a href="index.html#productos">Catálogo de Productos</a></li>
+            <li><a href="adhesivos.html">Adhesivos industriales</a></li>
+            <li><a href="actega.html">Barnices UV &amp; Base agua</a></li>
+            <li><a href="tintas.html">Tintas</a></li>
+            <li><a href="index.html#productos">Ver todas las líneas</a></li>
           </ul>
         </div>
 
-        <div class="footer-col" id="atencion-tecnica">
-          <h4 class="footer-heading">Contacto Comercial</h4>
-          <div class="footer-contact-item">
-            <strong>Ventas y Servicio Técnico:</strong>
-            <p>contacto@jadec-quimica.com</p>
-            <p>+52 (55) 5836-9000</p>
-          </div>
+        <!-- Columna 3: Industrias -->
+        <div class="footer-col">
+          <h4 class="footer-heading">INDUSTRIAS</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#industrias-atendidas">Sacos y bolsas de papel</a></li>
+            <li><a href="index.html#industrias-atendidas">Tintas y barnices</a></li>
+            <li><a href="index.html#industrias-atendidas">Adhesivos</a></li>
+            <li><a href="index.html#industrias-atendidas">Etiquetas y mangas</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: Marcas -->
+        <div class="footer-col">
+          <h4 class="footer-heading">MARCAS</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Jadec</a></li>
+            <li><a href="actega.html">Actega</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 5: Compañía -->
+        <div class="footer-col">
+          <h4 class="footer-heading">COMPAÑÍA</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#nosotros">Nosotros</a></li>
+            <li><a href="index.html#ventajas">Ventajas</a></li>
+            <li><a href="index.html#industrias-atendidas">Industrias atendidas</a></li>
+            <li><a href="index.html#industrias">Contacto</a></li>
+          </ul>
         </div>
       </div>
 
