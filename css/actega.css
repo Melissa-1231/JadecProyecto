@@ -1,0 +1,530 @@
+/* ==========================================================================
+   JADEC (Soluciones Químicas) - Hoja de Estilos: Catálogo ACTEGA (css/actega.css)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Override & Variables Específicas de ACTEGA
+   -------------------------------------------------------------------------- */
+:root {
+  --color-actega-green: #20BF55;
+  --color-actega-green-hover: #199E44;
+  --color-actega-green-bg: #EAF9F0;
+  --bg-actega-beige: #F4F3ED;
+}
+
+/* --------------------------------------------------------------------------
+   2. Botón de Acción Verde Obligatorio (.btn-green)
+   -------------------------------------------------------------------------- */
+.btn-green,
+button.btn-green,
+a.btn-green {
+  background-color: var(--color-actega-green) !important;
+  color: #FFFFFF !important;
+  border: 1px solid var(--color-actega-green) !important;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  border-radius: var(--radius-md, 6px);
+  padding: 13px 28px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(32, 191, 85, 0.25);
+  transition: all var(--transition-fast, 0.2s cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.btn-green:hover,
+button.btn-green:hover,
+a.btn-green:hover {
+  background-color: var(--color-actega-green-hover) !important;
+  border-color: var(--color-actega-green-hover) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(32, 191, 85, 0.35);
+}
+
+.btn-green:active,
+button.btn-green:active,
+a.btn-green:active {
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   3. Portada (Hero Section Fullscreen)
+   -------------------------------------------------------------------------- */
+.hero-actega {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Optimización: Se utiliza WebP de alta resolución (4K/8K) para nitidez óptima sin sacrificar rendimiento */
+  background-image: url('../assets/barniz-4.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 120px 24px 140px;
+  color: #FFFFFF;
+}
+
+.hero-actega-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(7, 23, 43, 0.90) 0%, rgba(10, 37, 64, 0.85) 60%, rgba(5, 19, 36, 0.92) 100%);
+  z-index: 1;
+}
+
+.hero-actega-container {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.hero-actega-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(32, 191, 85, 0.15);
+  color: var(--color-actega-green);
+  border: 1px solid rgba(32, 191, 85, 0.35);
+  padding: 6px 18px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.825rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+}
+
+.hero-actega-badge .badge-dot {
+  background-color: var(--color-actega-green);
+}
+
+.hero-actega-title {
+  font-size: clamp(2.3rem, 5.5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.hero-actega-desc {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--text-on-dark-muted, #98A2B3);
+  max-width: 720px;
+  margin: 0 auto 36px;
+}
+
+.hero-actega-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Divisor de Olas SVG Superpuestas (.actega-wave-divider)
+   ========================================================================== */
+.actega-wave-divider {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.actega-wave-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 120px;
+}
+
+/* Capa 1: Verde Translúcido (Onda profunda) */
+.actega-wave-layer-1 {
+  fill: var(--color-actega-green, #20BF55);
+  fill-opacity: 0.3;
+}
+
+/* Capa 2: Verde Intermedio (Onda media) */
+.actega-wave-layer-2 {
+  fill: var(--color-actega-green, #20BF55);
+  fill-opacity: 0.55;
+}
+
+/* Capa 3: Sólido fusionado con el fondo beige (#F4F3ED) */
+.actega-wave-layer-3 {
+  fill: var(--bg-actega-beige, #F4F3ED);
+}
+
+/* --------------------------------------------------------------------------
+   4. Sección de Productos ACTEGA (.productos-actega-section)
+   -------------------------------------------------------------------------- */
+.bg-actega-beige {
+  background-color: var(--bg-actega-beige);
+}
+
+.productos-actega-section {
+  padding: 90px 24px 110px;
+}
+
+.section-subtitle-green {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-actega-green);
+  margin-bottom: 8px;
+}
+
+.actega-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  max-width: 1100px;
+  margin: 48px auto 0;
+}
+
+/* --------------------------------------------------------------------------
+   5. Tarjetas Horizontales Grandes (.actega-card)
+   -------------------------------------------------------------------------- */
+.actega-card {
+  display: flex;
+  flex-direction: row;
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg, 12px);
+  overflow: hidden;
+  border: 1px solid var(--border-light, #EAECF0);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all var(--transition-normal, 0.3s cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.actega-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(10, 37, 64, 0.10);
+  border-color: rgba(32, 191, 85, 0.4);
+}
+
+.actega-card-img-wrap {
+  flex: 0 0 45%;
+  min-height: 340px;
+  position: relative;
+  overflow: hidden;
+}
+
+.actega-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.actega-card:hover .actega-card-img {
+  transform: scale(1.04);
+}
+
+.actega-card-body {
+  flex: 1 1 55%;
+  padding: 44px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.actega-card-sub {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-actega-green);
+  margin-bottom: 6px;
+}
+
+.actega-card-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--color-royal-blue, #0A2540);
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.actega-card-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary, #344054);
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+/* Lista de Características con Viñeta Verde y Separadores Limpios */
+.actega-feature-list {
+  list-style: none;
+  margin: 0 0 32px 0;
+  padding: 0;
+  width: 100%;
+}
+
+.actega-feature-list li {
+  position: relative;
+  padding: 11px 0 11px 24px;
+  font-size: 0.92rem;
+  color: var(--text-secondary, #344054);
+  border-bottom: 1px solid var(--border-light, #EAECF0);
+  line-height: 1.5;
+}
+
+.actega-feature-list li:last-child {
+  border-bottom: none;
+}
+
+.actega-feature-list li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 18px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-actega-green);
+}
+
+/* --------------------------------------------------------------------------
+   6. Responsividad para Tablets y Móviles
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .actega-card {
+    flex-direction: column;
+  }
+
+  .actega-card-img-wrap {
+    flex: none;
+    width: 100%;
+    min-height: 260px;
+    max-height: 320px;
+  }
+
+  .actega-card-body {
+    padding: 32px 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-actega {
+    padding: 100px 16px 90px;
+    min-height: 85vh;
+  }
+
+  .actega-wave-divider svg {
+    height: 70px;
+  }
+
+  .hero-actega-title {
+    font-size: 2rem;
+  }
+
+  .hero-actega-desc {
+    font-size: 1rem;
+    margin-bottom: 28px;
+  }
+
+  .productos-actega-section {
+    padding: 60px 16px 80px;
+  }
+
+  .actega-card-body {
+    padding: 24px 20px;
+  }
+
+  .actega-card-title {
+    font-size: 1.5rem;
+  }
+
+  .btn-green {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. Desplazamiento Fluido y Compensación del Header Fijo (Scroll Margin)
+   -------------------------------------------------------------------------- */
+#barnices-uv,
+#barnices-agua,
+#atencion-tecnica {
+  scroll-margin-top: 120px;
+}
+
+/* Resalte Activo y Hover de Navegación */
+.site-nav .nav-link:hover {
+  color: var(--color-actega-green, #20BF55);
+}
+
+/* ==========================================================================
+   8. Barra Superior Corporativa Rediseñada (.topbar)
+   ========================================================================== */
+.topbar {
+  background-color: var(--color-royal-dark, #07172B);
+  color: var(--text-on-dark-muted, #98A2B3);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  height: var(--topbar-height, 40px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.topbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: var(--max-width, 1240px);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+}
+
+.topbar-brand-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #E2E8F0;
+  white-space: nowrap;
+}
+
+.topbar-dot-orange {
+  width: 8px;
+  height: 8px;
+  background-color: #F97316;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px rgba(249, 115, 22, 0.6);
+}
+
+.topbar-tech-contact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  color: var(--text-on-dark-muted, #98A2B3);
+  white-space: nowrap;
+}
+
+.topbar-tech-label {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.topbar-tech-link {
+  color: #E2E8F0;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast, 0.2s cubic-bezier(0.4, 0, 0.2, 1)), opacity var(--transition-fast, 0.2s cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.topbar-tech-link:hover {
+  color: #FFFFFF;
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.topbar-tech-sep {
+  opacity: 0.35;
+  margin: 0 2px;
+}
+
+/* ==========================================================================
+   9. Header & Logotipo Secundario Derecho + Botón INICIO Verde (.btn-header-inicio)
+   ========================================================================== */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo-secundario-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logo-secundario-derecha {
+  max-height: 36px;
+  width: auto;
+  max-width: 130px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Botón INICIO Verde Sólido con Flecha */
+.btn-header-inicio {
+  background-color: var(--color-actega-green, #20BF55);
+  color: #FFFFFF !important;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  border: none;
+  border-radius: var(--radius-md, 6px);
+  padding: 8px 18px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(32, 191, 85, 0.25);
+  transition: all var(--transition-fast, 0.2s cubic-bezier(0.4, 0, 0.2, 1));
+  white-space: nowrap;
+}
+
+.btn-header-inicio:hover {
+  background-color: var(--color-actega-green-hover, #199E44);
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(32, 191, 85, 0.35);
+}
+
+.btn-header-inicio:active {
+  transform: translateY(0);
+}
+
+.btn-header-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform var(--transition-fast, 0.2s ease);
+}
+
+.btn-header-inicio:hover .btn-header-icon {
+  transform: translateX(-2px);
+}
+
+@media (max-width: 640px) {
+  .header-actions {
+    gap: 12px;
+  }
+
+  .logo-secundario-derecha {
+    max-height: 28px;
+  }
+
+  .btn-header-inicio {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}

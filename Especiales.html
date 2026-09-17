@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soluciones Especializadas ACTEGA® — DAKA Productos Químicos</title>
+  
+  <!-- Tipografías de marca -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #1E1054;
+      --ink-2: #281A66;
+      --paper: #ECEAE1;
+      --paper-2: #DFDCCC;
+      --steel: #2E5C8C;
+      --orange: #E2571C;
+      --graphite: #1B1B18;
+      --line: #C6C2AE;
+      --white: #FBFAF6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--paper);
+      color: var(--graphite);
+      line-height: 1.6;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== HEADER BARRA SUPERIOR CUSTOM ===== */
+    .nav-bar-custom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 15px 5%;
+      background: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-grupo-izq {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .logo-daka {
+      height: 55px;
+      width: auto;
+    }
+
+    .nav-titulo {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--ink);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      margin-left: 6vw;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #E55300;
+    }
+
+    .nav-grupo-der {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo-actega {
+      height: 40px;
+      width: auto;
+    }
+
+    .btn-regresar {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border: 1px solid var(--steel);
+      color: var(--ink);
+      text-decoration: none;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-regresar:hover {
+      background: var(--steel);
+      color: var(--white);
+    }
+
+    .btn-regresar svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    @media (max-width: 860px) {
+      .nav-bar-custom {
+        flex-direction: column;
+        justify-content: center;
+        gap: 15px;
+      }
+      .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-left: 0;
+        margin-top: 10px;
+        text-align: center;
+      }
+    }
+
+    /* ===== CENEFA PRINCIPAL HERO ===== */
+    .hero-soluciones {
+      width: 100%;
+      border-bottom: 4px solid var(--steel);
+    }
+
+    .hero-soluciones-split {
+      display: flex;
+      align-items: stretch;
+      width: 100%;
+      min-height: 380px;
+      background-color: var(--ink);
+      overflow: hidden;
+    }
+
+    .hero-img-izq {
+      width: 50%;
+      position: relative;
+    }
+
+    .hero-img-izq img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-texto-der {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 5%;
+      text-align: left;
+    }
+
+    .hero-texto-der .hero-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--steel);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .hero-texto-der h1 {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-size: 44px;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.05;
+    }
+
+    .hero-texto-der p {
+      font-size: 17px;
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    /* Responsivo (Móviles - max-width: 860px) */
+    @media (max-width: 860px) {
+      .hero-soluciones-split {
+        flex-direction: column;
+      }
+
+      .hero-img-izq {
+        width: 100%;
+        min-height: 250px;
+      }
+
+      .hero-texto-der {
+        width: 100%;
+        padding: 40px 20px;
+      }
+    }
+
+    .sec-padding {
+      padding: 64px 0;
+    }
+
+    .sec-head {
+      margin-bottom: 40px;
+    }
+    .sec-head-idx {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--steel);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .sec-head h2 {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .sec-head-desc {
+      font-size: 16px;
+      color: #42423B;
+      max-width: 720px;
+    }
+
+    /* ===== GRID DINÁMICO TIPO PÓSTER (6 TARJETAS) ===== */
+    .grid-seis-dinamico {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      width: 100%;
+    }
+
+    .tarjeta-interactiva {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      min-height: 400px;
+      display: flex;
+      align-items: flex-end;
+      cursor: pointer;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      background-color: var(--ink);
+    }
+
+    .tarjeta-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .tarjeta-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .tarjeta-info {
+      position: relative;
+      z-index: 2;
+      padding: 30px;
+      width: 100%;
+      background: linear-gradient(to top, rgba(15,23,42, 0.95) 0%, rgba(15,23,42, 0.7) 60%, transparent 100%);
+      color: var(--white);
+    }
+
+    .tarjeta-info .tarjeta-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--orange);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      font-weight: 600;
+      display: block;
+    }
+
+    .tarjeta-info h4 {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+      line-height: 1.15;
+    }
+
+    .tarjeta-info p {
+      font-size: 13.5px;
+      color: rgba(251, 250, 246, 0.88);
+      line-height: 1.5;
+    }
+
+    /* Hover Effects */
+    .tarjeta-interactiva:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.25);
+    }
+
+    .tarjeta-interactiva:hover .tarjeta-bg img {
+      transform: scale(1.1);
+    }
+
+    /* Responsivo Grid */
+    @media (max-width: 992px) {
+      .grid-seis-dinamico {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .grid-seis-dinamico {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .tarjeta-interactiva {
+        min-height: 360px;
+      }
+    }
+
+    /* ===== SECCIÓN BARNICES UV (GRID 1X2) ===== */
+    .grid-dos-etiquetas {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      width: 100%;
+    }
+
+    .tarjeta-uv {
+      background: var(--white, #ffffff);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .tarjeta-uv:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    }
+
+    .tarjeta-uv-img {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+    }
+
+    .tarjeta-uv-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .tarjeta-uv:hover .tarjeta-uv-img img {
+      transform: scale(1.05);
+    }
+
+    .tarjeta-uv-info {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .tarjeta-uv-info h3 {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-size: 28px;
+      color: var(--ink);
+      margin-bottom: 15px;
+    }
+
+    .tarjeta-uv-info p {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* ===== CENEFA SEPARADORA ===== */
+    .cenefa-divisor {
+      width: 100%;
+      padding: 60px 5%;
+      background: linear-gradient(135deg, var(--ink) 0%, #1a1040 100%);
+      text-align: center;
+      border-top: 4px solid #E55300;
+    }
+
+    .cenefa-divisor .wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cenefa-divisor h2 {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-size: clamp(24px, 3vw, 36px);
+      color: var(--white);
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+
+    .divisor-linea {
+      width: 60px;
+      height: 3px;
+      background-color: #E55300;
+      margin-top: 20px;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 860px) {
+      .grid-dos-etiquetas {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .cenefa-divisor {
+        padding: 40px 5%;
+      }
+    }
+
+    footer {
+      background: var(--ink);
+      color: var(--paper-2);
+      text-align: center;
+      padding: 32px 0;
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+    }
+  </style>
+</head>
+<body>
+
+
+<header class="nav-bar-custom">
+  <!-- Grupo Izquierdo -->
+  <div class="nav-grupo-izq">
+    <a href="index.html" style="display: flex; align-items: center;">
+      <img src="images/logo/daka-logo.png" alt="Daka Logo" class="logo-daka">
+    </a>
+    <span class="nav-titulo">BARNICES</span>
+    
+    <!-- NUEVOS ENLACES DE NAVEGACIÓN -->
+    <nav class="nav-links">
+      <a href="#barnices-base-agua">Línea de barnices base agua</a>
+      <a href="#barnices-base-uv">Barnices para base UV</a>
+    </nav>
+  </div>
+  
+  <!-- Bloque Derecho: Actega + Botón -->
+  <div class="nav-grupo-der">
+    <a href="index.html" style="display: flex; align-items: center;">
+      <img src="images/logo/actega-logo.png" alt="Actega Logo" class="logo-actega">
+    </a>
+    <a href="flexografia.html" class="btn-regresar">
+      <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      Regresar
+    </a>
+  </div>
+</header>
+
+<!-- Subpage Hero / Cenefa Principal -->
+<section class="hero-soluciones">
+  <div class="hero-soluciones-split">
+    <!-- Mitad Izquierda: Imagen -->
+    <div class="hero-img-izq">
+      <img src="https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=1200&q=80" alt="Soluciones Especializadas ACTEGA®">
+    </div>
+    
+    <!-- Mitad Derecha: Texto sobre Azul -->
+    <div class="hero-texto-der">
+      <span class="hero-tag">TECNOLOGÍAS DE ALTO DESEMPEÑO</span>
+      <h1>SOLUCIONES ESPECIALIZADAS ACTEGA®</h1>
+      <p>Recubrimientos UV avanzados, formulaciones de baja migración para empaque alimentario y acabados sostenibles desarrollados para responder a las exigencias técnicas más complejas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contenido Principal (PASO 2: Grid Interactivo con 6 Tarjetas con Imagen) -->
+<main class="sec-padding" id="barnices-base-agua" style="background: var(--paper-2);">
+  <div class="wrap">
+    
+    
+
+    <div class="grid-seis-dinamico">
+      
+      <!-- Tarjeta 1: Cajas Plegables -->
+      <article class="tarjeta-interactiva">
+        <div class="tarjeta-bg">
+          <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80" 
+               alt="Cajas Plegables y Sustratos no absorbentes" loading="lazy">
+        </div>
+        <div class="tarjeta-info">
+          <span class="tarjeta-tag">CAJAS PLEGABLES &amp; SUSTRATOS NO ABSORBENTES</span>
+          <h4>Acabado de Máximo Brillo y Resistencia</h4>
+          <p>
+            Los recubrimientos UV ofrecen un alto nivel de acabado para cajas plegables e impresión comercial. En particular, los recubrimientos UV son la primera opción para cartones laminados y estampados, y para sustratos no absorbentes. Con los recubrimientos UV de <strong>ACTEGA®</strong>, usted logra un nivel de brillo máximo con excelente resistencia a rayaduras y raspaduras, lo que permite lograr los efectos más atractivos en el punto de venta.
+          </p>
+        </div>
+      </article>
+
+      <!-- Tarjeta 2: Sostenibilidad -->
+      <article class="tarjeta-interactiva">
+        <div class="tarjeta-bg">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" 
+               alt="Sostenibilidad y Bajas Emisiones VOC" loading="lazy">
+        </div>
+        <div class="tarjeta-info">
+          <span class="tarjeta-tag">SOSTENIBILIDAD / BAJAS EMISIONES &amp; VOC</span>
+          <h4>Recubrimientos UV "Ecológicos" Sostenibles</h4>
+          <p>
+            Los recubrimientos UV de <strong>ACTEGA®</strong> han sido siempre considerados "ecológicos" y no dañan el medioambiente, ya que ofrecen las emisiones, las huellas de carbono y los VOC (Compuestos Orgánicos Volátiles) más bajos, en comparación con muchas otras químicas convencionales del mercado.
+          </p>
+        </div>
+      </article>
+
+      <!-- Tarjeta 3: Impresión Comercial -->
+      <article class="tarjeta-interactiva">
+        <div class="tarjeta-bg">
+          <img src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&w=800&q=80" 
+               alt="Impresión Comercial Pliegos y Banda de Papel" loading="lazy">
+        </div>
+        <div class="tarjeta-info">
+          <span class="tarjeta-tag">IMPRESIÓN COMERCIAL (PLIEGOS &amp; BANDA DE PAPEL)</span>
+          <h4>Impresión Comercial y Revistas de Alto Brillo</h4>
+          <p>
+            Los recubrimientos UV ofrecen una selección de posibilidades de acabado para impresión comercial. Por ejemplo, permiten la producción altamente eficiente de revistas y piezas publicitarias de alto brillo con secado inmediato y resistencia óptima al manejo frecuente.
+          </p>
+        </div>
+      </article>
+
+      <!-- Tarjeta 4: Tren de Tinta -->
+      <article class="tarjeta-interactiva">
+        <div class="tarjeta-bg">
+          <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80" 
+               alt="Aplicación Especial en Tren de Tinta" loading="lazy">
+        </div>
+        <div class="tarjeta-info">
+          <span class="tarjeta-tag">APLICACIÓN ESPECIAL EN TREN DE TINTA</span>
+          <h4>Formulaciones UV para Tren de Tinta</h4>
+          <p>
+            <strong>ACTEGA®</strong> tiene una serie de recubrimientos UV que están especialmente formulados para aplicaciones para tren de tinta. Las instalaciones de impresión con la capacidad de curar tintas UV, pero que no tienen torres de recubrimiento UV designadas, pueden aprovechar al máximo estos recubrimientos para tren de tinta.
+          </p>
+        </div>
+      </article>
+
+      <!-- Tarjeta 5: Diversidad Óptica -->
+      <article class="tarjeta-interactiva">
+        <div class="tarjeta-bg">
+          <img src="https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=800&q=80" 
+               alt="Diversidad Óptica y Niveles Mate" loading="lazy">
+        </div>
+        <div class="tarjeta-info">
+          <span class="tarjeta-tag">DIVERSIDAD ÓPTICA &amp; NIVELES MATE</span>
+          <h4>Recubrimientos UV Mate de Alta Variedad</h4>
+          <p>
+            Los recubrimientos UV mate tienen la capacidad de cambiar, en gran medida, el aspecto de imágenes específicas y crear una diversidad óptica en la totalidad de la página impresa. <strong>ACTEGA®</strong> ofrece una serie de recubrimientos UV que incorpora un rango de niveles "mate" para aplicaciones para banda de papel, de pliegos y de serigrafía.
+          </p>
+        </div>
+      </article>
+
+      <!-- Tarjeta 6: Impresión Digital -->
+      <article class="tarjeta-interactiva">
+        <div class="tarjeta-bg">
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" 
+               alt="Alta Velocidad y Datos Variables Digital" loading="lazy">
+        </div>
+        <div class="tarjeta-info">
+          <span class="tarjeta-tag">ALTA VELOCIDAD &amp; DATOS VARIABLES</span>
+          <h4>Recubrimientos UV para Impresión Digital</h4>
+          <p>
+            En los últimos años, la industria gráfica ha migrado hacia aplicaciones digitales de datos variables de alta velocidad. Con esta nueva tecnología, la necesidad de aumentar los niveles de brillo sobre los tóneres digitales opacos y las películas de recubrimiento uniforme sobre los sustratos digitales porosos se han convertido en un área de gran interés técnico.
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</main>
+
+<!-- CENEFA SEPARADORA -->
+<div class="cenefa-divisor">
+  <div class="wrap">
+    <h2>INNOVACIÓN Y RENDIMIENTO EN CADA GOTA</h2>
+    <div class="divisor-linea"></div>
+  </div>
+</div>
+
+<!-- Nueva Sección: Soluciones en Barnices UV -->
+<section id="barnices-base-uv" style="padding: 80px 5%; background-color: var(--paper-2, #f5f5f5);">
+  <div class="wrap">
+    <h2 style="font-family: 'Big Shoulders Display', sans-serif; font-size: 42px; color: var(--ink); text-align: center; margin-bottom: 48px;">
+      SOLUCIONES EN BARNICES UV
+    </h2>
+    
+    <div class="grid-dos-etiquetas">
+      <!-- Etiqueta 1 -->
+      <article class="tarjeta-uv">
+        <div class="tarjeta-uv-img">
+          <!-- Imagen Placeholder -->
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop" alt="Barniz UV 1">
+        </div>
+        <div class="tarjeta-uv-info">
+          <h3>Tipo de Barniz UV 1</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </article>
+
+      <!-- Etiqueta 2 -->
+      <article class="tarjeta-uv">
+        <div class="tarjeta-uv-img">
+          <!-- Imagen Placeholder -->
+          <img src="https://images.unsplash.com/photo-1618005191255-081686762391?q=80&w=600&auto=format&fit=crop" alt="Barniz UV 2">
+        </div>
+        <div class="tarjeta-uv-info">
+          <h3>Tipo de Barniz UV 2</h3>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>DAKA Productos Químicos S.A. de C.V. — Distribuidor Autorizado ACTEGA® Artes Gráficas</p>
+  </div>
+</footer>
+
+</body>
+</html>

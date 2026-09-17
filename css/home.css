@@ -1,0 +1,920 @@
+/* ==========================================================================
+   JADEC (Soluciones Químicas) - CSS de Inicio (css/home.css)
+   Componentes del Hero Banner y Tarjetas Horizontales (.h-card)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Hero Section Full Screen (.intro-fullscreen)
+   -------------------------------------------------------------------------- */
+.intro-fullscreen {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - var(--header-height, 80px));
+  height: calc(100vh - var(--header-height, 80px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--color-royal-dark);
+}
+
+.intro-fullscreen .hero-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr;
+  align-items: center;
+  gap: 56px;
+}
+
+.intro-fullscreen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(6, 11, 36, 0.90) 0%,
+    rgba(26, 43, 136, 0.70) 50%,
+    rgba(35, 137, 218, 0.55) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.intro-container {
+  position: relative;
+  z-index: 3;
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+/* Columna Izquierda: Mensaje Principal */
+.intro-content {
+  color: #FFFFFF;
+}
+
+.intro-content .hero-title {
+  font-size: 3.15rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin: 20px 0 18px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.intro-content .hero-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.6;
+  margin-bottom: 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Columna Derecha: Acciones y Estadísticas Corporativas */
+.hero-side-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+  background: rgba(7, 23, 43, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-xl, 16px);
+  padding: 36px 32px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+}
+
+/* Fichas de Acción del Hero (.hero-fichas-container & .ficha-action) */
+.hero-fichas-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.ficha-action {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-light, #EAECF0);
+  border-radius: var(--radius-md, 8px);
+  padding: 16px 20px;
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  text-align: left;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.ficha-action:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-accent-green, #20BF55);
+}
+
+.ficha-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md, 8px);
+  background-color: rgba(32, 191, 85, 0.10);
+  color: var(--color-accent-green, #20BF55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.ficha-action:hover .ficha-icon {
+  background-color: var(--color-accent-green, #20BF55);
+  color: #FFFFFF;
+}
+
+.ficha-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.ficha-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.ficha-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-royal-blue, #0A2540);
+  line-height: 1.3;
+}
+
+.ficha-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted, #667085);
+  line-height: 1.35;
+  font-weight: 400;
+}
+
+.ficha-arrow {
+  color: var(--text-muted, #667085);
+  opacity: 0.5;
+  transition: transform var(--transition-fast), opacity var(--transition-fast), color var(--transition-fast);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ficha-arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+.ficha-action:hover .ficha-arrow {
+  opacity: 1;
+  color: var(--color-cyan-blue, #00A8E8);
+  transform: translateX(3px);
+}
+
+/* Estadísticas adaptadas a la columna derecha */
+.hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  width: 100%;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-number {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.35;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   NUEVO: Separador de Olas (Wave Divider) Hero -> Nosotros
+   -------------------------------------------------------------------------- */
+.wave-divider {
+  position: absolute;
+  bottom: -1px; /* Evita que el navegador renderice una línea blanca de sub-píxeles */
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  z-index: 4; /* Se ubica por encima del gradiente del hero */
+  pointer-events: none; /* Asegura que la curva no bloquee clics accidentales */
+}
+
+.wave-divider svg {
+  width: 100%;
+  height: 12vw; /* Escala dinámicamente con el ancho de pantalla */
+  min-height: 60px;
+  max-height: 180px;
+  display: block;
+}
+#industrias {
+  border-top: none;
+}
+
+/* --------------------------------------------------------------------------
+   2. Sección Identificación / Nosotros (.bg-identificacion)
+   -------------------------------------------------------------------------- */
+.bg-identificacion {
+  background-color: #F4F3ED; /* Tono beige del diseño gráfico proporcionado */
+  padding: 80px 24px;
+}
+
+.identificacion-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.identificacion-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--color-royal-blue);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  /* Efecto tipográfico para simular la fuente condensada */
+  transform: scaleY(1.1);
+  transform-origin: left;
+}
+
+.identificacion-divider {
+  border: none;
+  border-top: 1px solid #D6D5CF;
+  margin-bottom: 5px;
+}
+
+.identificacion-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 10px;
+}
+
+.identificacion-data {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.data-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.data-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-cyan-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+}
+
+.data-value {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-royal-blue);
+  line-height: 1.4;
+}
+
+.identificacion-text p {
+  font-size: 1.05rem;
+  color: #4A4A4A;
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+.identificacion-text p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   3. Tarjetas de Productos Verticales (.v-card)
+   -------------------------------------------------------------------------- */
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.v-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-mid);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(26, 43, 136, 0.05);
+  transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+}
+
+.v-card:hover {
+  box-shadow: 0 12px 24px rgba(26, 43, 136, 0.12);
+  transform: translateY(-4px);
+}
+
+.v-card-image {
+  width: 100%;
+  height: 260px; /* Altura fija para que ambas imágenes se vean idénticas */
+  position: relative;
+  background-color: #F8F9FA;
+}
+
+.v-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.v-card-content {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Permite que el contenido empuje el botón al fondo si los textos varían en tamaño */
+}
+
+.v-card-subtitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-cyan-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.v-card-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-royal-blue);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.v-card-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.v-card-features {
+  margin-bottom: 32px;
+  list-style: none;
+  padding: 0;
+  flex-grow: 1; /* Ayuda a que el botón se mantenga anclado al fondo */
+}
+
+.v-card-features li {
+  position: relative;
+  padding: 10px 0 10px 20px;
+  border-bottom: 1px dashed var(--border-mid);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.v-card-features li:last-child {
+  border-bottom: none;
+}
+
+.v-card-features li::before {
+  content: '•';
+  color: var(--color-accent-green);
+  position: absolute;
+  left: 0;
+  top: 10px;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.btn-action-full {
+  background-color: var(--color-accent-green, #20BF55);
+  color: #FFFFFF;
+  border-radius: 50px;
+  padding: 14px 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  width: 100%; /* Botón de lado a lado */
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(32, 191, 85, 0.25);
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  margin-top: auto;
+}
+
+.btn-action-full:hover {
+  background-color: var(--color-accent-green-hover, #199E44);
+  box-shadow: 0 6px 16px rgba(32, 191, 85, 0.35);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   4. Banner CTA Oscuro (.section-cta-dark)
+   -------------------------------------------------------------------------- */
+.section-cta-dark {
+  background-color: var(--color-royal-blue);
+  color: #FFFFFF;
+  padding: 100px 24px 110px;
+  position: relative;
+  text-align: center;
+  border-top: none;
+}
+
+.cta-dark-container {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cta-dark-title {
+  font-size: 2.35rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.cta-dark-desc {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.65;
+  margin-bottom: 38px;
+  max-width: 720px;
+}
+
+.cta-dark-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.btn-cta-cyan,
+.btn-cta-green {
+  background-color: var(--color-accent-green, #20BF55);
+  color: #FFFFFF;
+  border: 1px solid var(--color-accent-green, #20BF55);
+  padding: 14px 28px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(32, 191, 85, 0.35);
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn-cta-cyan:hover,
+.btn-cta-green:hover {
+  background-color: var(--color-accent-green-hover, #199E44);
+  border-color: var(--color-accent-green-hover, #199E44);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(32, 191, 85, 0.45);
+}
+
+.btn-cta-white {
+  background-color: #FFFFFF;
+  color: var(--color-royal-blue);
+  border: 1px solid #FFFFFF;
+  padding: 14px 28px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-cta-white:hover {
+  background-color: #F8FAFC;
+  color: var(--color-accent-green, #20BF55);
+  border-color: var(--color-accent-green, #20BF55);
+  transform: translateY(-2px);
+}
+
+.cta-dark-footer {
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  width: 100%;
+}
+
+.cta-dark-footer p {
+  font-family: 'IBM Plex Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.85rem;
+  color: var(--text-on-dark-muted, #98A2B3);
+  line-height: 1.6;
+}
+
+.cta-dark-link {
+  color: var(--color-cyan-blue);
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.cta-dark-link:hover {
+  color: var(--color-cyan-light);
+}
+
+/* --------------------------------------------------------------------------
+   5. Sección Industrias Atendidas (.bg-beige & .ind-atendida-card)
+   -------------------------------------------------------------------------- */
+.bg-beige {
+  background-color: #F4F3ED;
+  padding: 80px 24px;
+}
+
+.industrias-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-royal-blue);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  transform: scaleY(1.05);
+  transform-origin: left;
+}
+
+.industrias-divider {
+  border: none;
+  border-top: 1px solid #D6D5CF;
+  margin-bottom: 36px;
+}
+
+.industrias-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.ind-atendida-card {
+  background-color: #FFFFFF;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px rgba(10, 37, 64, 0.04);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+}
+
+.ind-atendida-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(10, 37, 64, 0.08);
+}
+
+.ind-img-box {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background-color: #EAEAEA;
+  overflow: hidden;
+}
+
+.ind-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.ind-atendida-card:hover .ind-img-box img {
+  transform: scale(1.05);
+}
+
+.ind-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: rgba(255, 255, 255, 0.92);
+  color: var(--color-cyan-blue);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 4px 8px;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+}
+
+.ind-card-content {
+  padding: 20px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.ind-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-royal-blue);
+  margin-bottom: 0;
+  line-height: 1.35;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.ind-card-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-cyan-blue);
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   NUEVO: Fondo Full Screen para Ventajas Competitivas
+   -------------------------------------------------------------------------- */
+.ventajas-bg-section {
+  position: relative;
+  padding: 100px 24px;
+  overflow: hidden;
+}
+
+.ventajas-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+}
+
+.ventajas-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Gradiente oscuro con los tonos corporativos para resaltar las tarjetas blancas */
+  background: linear-gradient(135deg, rgba(6, 11, 36, 0.88) 0%, rgba(26, 43, 136, 0.75) 100%);
+  z-index: 2;
+}
+
+.content-relative {
+  position: relative;
+  z-index: 3;
+}
+
+/* Ajuste de colores para que el texto resalte sobre el fondo oscuro */
+.header-light .section-subtitle {
+  color: var(--color-cyan-light);
+}
+
+.header-light .section-title {
+  color: #FFFFFF;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.header-light .section-description {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+/* --------------------------------------------------------------------------
+   NUEVO: Separador SVG (Nosotros -> Ventajas)
+   -------------------------------------------------------------------------- */
+.bg-identificacion {
+  position: relative; /* Esencial para anclar el SVG absoluto */
+  padding-bottom: 220px; /* Aumentamos el padding inferior para darle espacio a la ola */
+}
+
+.wave-divider-nosotros {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  z-index: 5;
+  pointer-events: none;
+  /* Al tener la siguiente sección una imagen absoluta y padding superior,
+     hacemos que el SVG se desplace hacia abajo para cubrir el inicio de la imagen */
+  margin-bottom: -180px; 
+}
+
+.wave-divider-nosotros svg {
+  width: 100%;
+  height: 12vw;
+  min-height: 60px;
+  max-height: 180px;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   5. Media Queries (Adaptado para las tarjetas compactas)
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .hero-title {
+    font-size: 2.25rem;
+  }
+  .intro-content {
+    text-align: center;
+    align-items: center;
+  }
+  .intro-content .badge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-side-col {
+    align-items: center;
+    padding: 28px 24px;
+  }
+  .hero-fichas-container {
+    width: 100%;
+  }
+  .hero-stats {
+    justify-content: space-around;
+    text-align: center;
+  }
+  
+  .industrias-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .identificacion-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .h-card {
+    flex-direction: column;
+  }
+  .h-card-image {
+    height: 240px; /* Altura de imagen reducida para móviles */
+  }
+  .h-card-content {
+    padding: 24px; /* Paddings reducidos en móvil */
+  }
+  .h-card-title {
+    font-size: 1.35rem; /* Título reducido en móvil */
+  }
+  .btn-action {
+    align-self: stretch;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 1.85rem;
+  }
+  .ficha-action {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+  .ficha-icon {
+    width: 38px;
+    height: 38px;
+  }
+  .ficha-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  .ficha-title {
+    font-size: 0.98rem;
+  }
+  .ficha-desc {
+    font-size: 0.8rem;
+  }
+  .hero-stats {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+  .stat-divider {
+    display: none;
+  }
+  
+  .industrias-title {
+    font-size: 1.85rem;
+  }
+  .industrias-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .ind-img-box {
+    height: 180px;
+  }
+
+  .section-cta-dark {
+    padding: 70px 20px 80px;
+  }
+  .cta-dark-title {
+    font-size: 1.65rem;
+  }
+  .cta-dark-desc {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  .cta-dark-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .btn-cta-cyan,
+  .btn-cta-white {
+    width: 100%;
+    justify-content: center;
+  }
+  .cta-dark-footer p {
+    font-size: 0.78rem;
+  }
+  
+  .identificacion-title {
+    font-size: 2rem;
+  }
+  .data-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .data-label {
+    margin-top: 0;
+  }
+}
+@media (max-width: 992px) {
+  .showcase-grid {
+    grid-template-columns: 1fr; /* Colapsa a 1 sola columna en dispositivos móviles */
+  }
+}

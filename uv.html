@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soluciones Especializadas ACTEGA® — JADEC Productos Químicos</title>
+  
+  <!-- Favicons y Accesos Directos Móviles -->
+  <link rel="icon" type="image/x-icon" href="images/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/favicon.ico">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos y Scripts -->
+  <link rel="stylesheet" href="css/uv.css">
+  <script src="js/uv.js" defer></script>
+</head>
+<body>
+
+<!-- Header / Barra Superior Custom -->
+<header class="nav-bar-custom">
+  <!-- Columna Izquierda: Identidad JADEC -->
+  <div class="nav-grupo-izq">
+    <a href="index.html" class="logo-enlace" aria-label="JADEC Soluciones Químicas - Inicio">
+      <img src="images/logo/jadec-logo.png" alt="Logotipo Corporativo JADEC" class="logo-daka">
+    </a>
+  </div>
+  
+  <!-- Columna Derecha: Enlaces de Navegación, Logo ACTEGA, Botón Regresar y Menú Móvil -->
+  <div class="nav-grupo-der">
+    <!-- Enlaces de navegación -->
+    <nav class="nav-links" id="navLinksMenu" aria-label="Navegación de sección">
+      <a href="#barnices-base-agua">Tecnologías</a>
+      <a href="#barnices-brillantes">Línea Brillante</a>
+      <a href="#barnices-base-uv">Línea Matte</a>
+    </nav>
+
+    <!-- Logo Oficial ACTEGA -->
+    <a href="index.html" class="logo-enlace logo-actega-enlace" aria-label="Línea Oficial ACTEGA">
+      <img src="images/logo/actega-logo.png" alt="Logotipo Oficial ACTEGA" class="logo-actega">
+    </a>
+
+    <!-- Botón Regresar -->
+    <a href="actega.html" class="btn-regresar" aria-label="Regresar al catálogo de Actega">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      Regresar
+    </a>
+
+    <!-- Botón Menú Hamburguesa Móvil (Visible < 860px) -->
+    <button class="btn-menu-movil" id="btnMenuMovil" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navLinksMenu">
+      <svg class="icono-hamburguesa" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line class="line-1" x1="3" y1="6" x2="21" y2="6"></line>
+        <line class="line-2" x1="3" y1="12" x2="21" y2="12"></line>
+        <line class="line-3" x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- ==========================================================================
+     Cenefa Principal Hero (Texto Superior + Imagen Full-Width con Onda SVG)
+     ========================================================================== -->
+<section class="hero-uv-wrapper">
+  
+  <!-- 1. Bloque de Texto Introductorio (Parte Superior) -->
+  <div class="hero-uv-texto">
+    <div class="wrap">
+      <h1 class="hero-uv-title">BARNICES UV</h1>
+      <p class="hero-uv-desc">
+        Recubrimientos UV avanzados, formulaciones de baja migración para empaque alimentario y acabados sostenibles desarrollados para responder a las exigencias técnicas más complejas.
+      </p>
+    </div>
+  </div>
+
+  <!-- 2. Bloque de Imagen Full-Width con Divisor de Ondas SVG (Parte Inferior) -->
+  <div class="hero-uv-imagen">
+    <img src="assets/barniz-3.webp" alt="Recubrimientos y Barnices UV de Alto Desempeño" class="hero-uv-img" loading="eager">
+    
+    <!-- Divisor de Ondas SVG Superpuestas -->
+    <div class="hero-uv-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Capa 1: Verde Translúcido -->
+        <path class="wave-layer-1" d="M0,96L80,106.7C160,117,320,139,480,122.7C640,107,800,53,960,42.7C1120,32,1280,64,1360,80L1440,96L1440,220L1360,220C1280,220,1120,220,960,220C800,220,640,220,480,220C320,220,160,220,80,220L0,220Z"></path>
+        <!-- Capa 2: Verde Intermedio -->
+        <path class="wave-layer-2" d="M0,128L80,122.7C160,117,320,107,480,112C640,117,800,139,960,138.7C1120,139,1280,117,1360,106.7L1440,96L1440,220L1360,220C1280,220,1120,220,960,220C800,220,640,220,480,220C320,220,160,220,80,220L0,220Z"></path>
+        <!-- Capa 3: Sólido fusionado con el fondo beige (#F4F3ED) -->
+        <path class="wave-layer-3" d="M0,160L80,144C160,128,320,96,480,101.3C640,107,800,149,960,165.3C1120,181,1280,171,1360,165.3L1440,160L1440,220L1360,220C1280,220,1120,220,960,220C800,220,640,220,480,220C320,220,160,220,80,220L0,220Z"></path>
+      </svg>
+    </div>
+  </div>
+
+</section>
+
+<!-- Sección Principal: Grid de 6 Tarjetas Dinámicas -->
+<main class="sec-padding bg-paper" id="barnices-base-agua">
+  <div class="wrap">
+    
+    <div class="sec-head">
+      <span class="sec-head-idx">LÍNEA ESPECIALIZADA EN COLOR Y ACABADOS</span>
+      <h2>RECUBRIMIENTOS DE ALTO DESEMPEÑO</h2>
+      <p class="sec-head-desc">
+        Tecnología formulada para garantizar máxima adherencia, protección superior y curado instantáneo en prensas de alta velocidad.
+      </p>
+    </div>
+
+    <div class="grid-seis-dinamico">
+      
+      <!-- Tarjeta 1 -->
+      <article class="tarjeta-interactiva" tabindex="0" role="button" aria-label="Ver detalles de Acabado de Máximo Brillo y Resistencia">
+        <div class="tarjeta-bg">
+          <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80" 
+               alt="Cajas Plegables y Sustratos no absorbentes" loading="lazy">
+        </div>
+        <div class="tarjeta-info">
+          <span class="tarjeta-tag">CAJAS PLEGABLES &amp; SUSTRATOS NO ABSORBENTES</span>
+          <h4>Acabado de Máximo Brillo y Resistencia</h4>
+          <p>
+            Los recubrimientos UV ofrecen un alto nivel de acabado para cajas plegables e impresión comercial. En particular, los recubrimientos UV son la primera opción para cartones laminados y estampados, y para sustratos no absorbentes. Con los recubrimientos UV de <strong>ACTEGA®</strong>, usted logra un nivel de brillo máximo con excelente resistencia a rayaduras y raspaduras, lo que permite lograr los efectos más atractivos en el punto de venta.
+          </p>
+        </div>
+      </article>
+
+      <!-- Tarjeta 2 -->
+      <article class="tarjeta-interactiva" tabindex="0" role="button" aria-label="Ver detalles de Recubrimientos UV Ecológicos Sostenibles">
+        <div class="tarjeta-bg">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" 
+               alt="Sostenibilidad y Bajas Emisiones VOC" loading="lazy">
+        </div>
+        <div class="tarjeta-info">
+          <span class="tarjeta-tag">SOSTENIBILIDAD / BAJAS EMISIONES &amp; VOC</span>
+          <h4>Recubrimientos UV "Ecológicos" Sostenibles</h4>
+          <p>
+            Los recubrimientos UV de <strong>ACTEGA®</strong> han sido siempre considerados "ecológicos" y no dañan el medioambiente, ya que ofrecen las emisiones, las huellas de carbono y los VOC (Compuestos Orgánicos Volátiles) más bajos, en comparación con muchas otras químicas convencionales del mercado.
+          </p>
+        </div>
+      </article>
+
+      <!-- Tarjeta 3 -->
+      <article class="tarjeta-interactiva" tabindex="0" role="button" aria-label="Ver detalles de Impresión Comercial y Revistas de Alto Brillo">
+        <div class="tarjeta-bg">
+          <img src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&w=800&q=80" 
+               alt="Impresión Comercial Pliegos y Banda de Papel" loading="lazy">
+        </div>
+        <div class="tarjeta-info">
+          <span class="tarjeta-tag">IMPRESIÓN COMERCIAL (PLIEGOS &amp; BANDA DE PAPEL)</span>
+          <h4>Impresión Comercial y Revistas de Alto Brillo</h4>
+          <p>
+            Los recubrimientos UV ofrecen una selección de posibilidades de acabado para impresión comercial. Por ejemplo, permiten la producción altamente eficiente de revistas y piezas publicitarias de alto brillo con secado inmediato y resistencia óptima al manejo frecuente.
+          </p>
+        </div>
+      </article>
+
+      <!-- Tarjeta 4 -->
+      <article class="tarjeta-interactiva" tabindex="0" role="button" aria-label="Ver detalles de Formulaciones UV para Tren de Tinta">
+        <div class="tarjeta-bg">
+          <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80" 
+               alt="Aplicación Especial en Tren de Tinta" loading="lazy">
+        </div>
+        <div class="tarjeta-info">
+          <span class="tarjeta-tag">APLICACIÓN ESPECIAL EN TREN DE TINTA</span>
+          <h4>Formulaciones UV para Tren de Tinta</h4>
+          <p>
+            <strong>ACTEGA®</strong> tiene una serie de recubrimientos UV que están especialmente formulados para aplicaciones para tren de tinta. Las instalaciones de impresión con la capacidad de curar tintas UV, pero que no tienen torres de recubrimiento UV designadas, pueden aprovechar al máximo estos recubrimientos para tren de tinta.
+          </p>
+        </div>
+      </article>
+
+      <!-- Tarjeta 5 -->
+      <article class="tarjeta-interactiva" tabindex="0" role="button" aria-label="Ver detalles de Recubrimientos UV Mate de Alta Variedad">
+        <div class="tarjeta-bg">
+          <img src="https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=800&q=80" 
+               alt="Diversidad Óptica y Niveles Mate" loading="lazy">
+        </div>
+        <div class="tarjeta-info">
+          <span class="tarjeta-tag">DIVERSIDAD ÓPTICA &amp; NIVELES MATE</span>
+          <h4>Recubrimientos UV Mate de Alta Variedad</h4>
+          <p>
+            Los recubrimientos UV mate tienen la capacidad de cambiar, en gran medida, el aspecto de imágenes específicas y crear una diversidad óptica en la totalidad de la página impresa. <strong>ACTEGA®</strong> ofrece una serie de recubrimientos UV que incorpora un rango de niveles "mate" para aplicaciones para banda de papel, de pliegos y de serigrafía.
+          </p>
+        </div>
+      </article>
+
+      <!-- Tarjeta 6 -->
+      <article class="tarjeta-interactiva" tabindex="0" role="button" aria-label="Ver detalles de Recubrimientos UV para Impresión Digital">
+        <div class="tarjeta-bg">
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" 
+               alt="Alta Velocidad y Datos Variables Digital" loading="lazy">
+        </div>
+        <div class="tarjeta-info">
+          <span class="tarjeta-tag">ALTA VELOCIDAD &amp; DATOS VARIABLES</span>
+          <h4>Recubrimientos UV para Impresión Digital</h4>
+          <p>
+            En los últimos años, la industria gráfica ha migrado hacia aplicaciones digitales de datos variables de alta velocidad. Con esta nueva tecnología, la necesidad de aumentar los niveles de brillo sobre los tóneres digitales opacos y las películas de recubrimiento uniforme sobre los sustratos digitales porosos se han convertido en un área de gran interés técnico.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</main>
+
+<!-- ==========================================================================
+     Nueva Sección: BARNICES BRILLANTES (Grid de 3 Productos)
+     ========================================================================== -->
+<section class="sec-barnices-brillantes" id="barnices-brillantes">
+  <div class="wrap">
+    
+    <div class="sec-head text-center">
+      <span class="sec-head-idx">LÍNEA DE ALTO BRILLO &amp; PROTECCIÓN</span>
+      <h2>BARNICES BRILLANTES</h2>
+      <p class="sec-head-desc mx-auto">
+        Formulaciones de recubrimiento brillante de alto impacto visual, máxima resistencia al frote y secado instantáneo para aplicaciones de artes gráficas y empaque.
+      </p>
+    </div>
+
+    <div class="grid-tres-productos">
+      
+<!-- Tarjeta 1 -->
+      <article class="tarjeta-catalogo" tabindex="0" role="button" aria-label="Ver detalles de Barniz UV Alto Brillo">
+        <div class="tarjeta-catalogo-img">
+          <img src="assets/uv-2.webp" alt="Envase de Barniz UV Alto Brillo" loading="lazy">
+        </div>
+        <div class="tarjeta-catalogo-info">
+          <span class="tarjeta-catalogo-tag">UV GLOSS COATING &bull; OFFSET </span>
+          <h3 class="tarjeta-catalogo-title">ULTRASHEEN UV-9297 </h3>
+          <p class="tarjeta-catalogo-desc">
+            Barniz UV de alto rendimiento con un acabado de alto brillo, curado ultra rápido y excelente resistencia al roce. Ideal como solución versátil para aplicaciones comerciales y de empaque de alto volumen.
+          </p>
+        </div>
+      </article>
+
+<!-- Tarjeta 2 -->
+      <article class="tarjeta-catalogo" tabindex="0" role="button" aria-label="Ver detalles de Barniz Base Agua Brillante">
+        <div class="tarjeta-catalogo-img">
+          <img src="assets/uv-3.webp" alt="Envase de Barniz Base Agua Brillante" loading="lazy">
+        </div>
+        <div class="tarjeta-catalogo-info">
+          <span class="tarjeta-catalogo-tag">UV GLOSS COATING &bull; OFFSET</span>
+          <h3 class="tarjeta-catalogo-title">ULTRASHEEN UV-9613</h3>
+          <p class="tarjeta-catalogo-desc">
+            Recubrimiento UV de alto brillo, su fórmula especializada garantiza una óptima adherencia para adhesivos y folios de estampado, sin sacrificar la protección y el brillo del sustrato.
+          </p>
+        </div>
+      </article>
+
+<!-- Tarjeta 3 -->
+      <article class="tarjeta-catalogo" tabindex="0" role="button" aria-label="Ver detalles de Barniz UV Relieve y Brillo">
+        <div class="tarjeta-catalogo-img">
+          <img src="assets/uv-4.webp" alt="Envase de Barniz UV Relieve y Brillo" loading="lazy">
+        </div>
+        <div class="tarjeta-catalogo-info">
+          <span class="tarjeta-catalogo-tag">TÉRMICO &bull; OFFSET</span>
+          <h3 class="tarjeta-catalogo-title">RADKOTE 8143XS</h3>
+          <p class="tarjeta-catalogo-desc">
+            Barniz UV térmico curable, diseñado para otorgar máxima protección y un acabado estético superior en procesos de alta exigencia.
+          </p>
+        </div>
+      </article>
+
+     </div>
+     </div>
+     </section>
+
+<!-- ==========================================================================
+     Sección: BARNICES MATTE (Layout 2 Columnas: Tarjeta + Carrusel)
+     ========================================================================== -->
+<section id="barnices-base-uv" class="sec-barnices-uv">
+  <div class="wrap">
+    <div class="sec-head text-center">
+      <span class="sec-head-idx">DIVERSIDAD ÓPTICA &amp; NIVELES MATTE</span>
+      <h2>BARNICES MATTE</h2>
+      <p class="sec-head-desc mx-auto">
+        Los recubrimientos UV matte incorpora un rango de niveles para aplicaciones para banda de papel, de pliegos y de serigrafía.
+      </p>
+    </div>
+    
+    <div class="layout-dos-columnas-matte">
+      
+<!-- Columna Izquierda (45%): Tarjeta de Información Estática -->
+      <article class="card-info-matte">
+        <span class="card-info-tag">ACABADOS DE ALTA DISTINCIÓN ÓPTICA</span>
+        <h3 class="card-info-title">LÍNEA MATTE ESPECIALIZADA</h3>
+        <p class="card-info-desc">
+          ULTRASHEEN - Barniz UV secado ultrarrápido y protección duradera para aplicaciones de impresión comercial y empaque.
+        <p>  MIRACURE - Especializado que garantiza un acabado mate de alta calidad sin reflejos
+        </p>
+        
+        <div class="card-info-divider"></div>
+        
+        <span class="card-info-subtitle">CÓDIGOS Y FORMULACIONES DISPONIBLES</span>
+        <ul class="card-info-product-list">
+          <li class="card-product-item">
+            <span class="product-sku">ULTRASHEEN UV-XT9788</span>
+            <span class="product-badge">Matte coating</span>
+          </li>
+          <li class="card-product-item">
+            <span class="product-sku">MIRACURE  J9934H</span>
+            <span class="product-badge">Curable Matte</span>
+          </li>
+          <li class="card-product-item">
+            <span class="product-sku">MATTE PROPEL RVM 003890</span>
+            <span class="product-badge">Alto Deslizamiento</span>
+          </li>
+        </ul>
+      </article>
+
+<!-- Columna Derecha (55%): Carrusel Interactivo de Imágenes de Productos -->
+      <div class="carousel-matte-wrapper" id="carouselMatte">
+        <div class="carousel-matte-track-container">
+          <div class="carousel-matte-track">
+            
+<!-- Slide 1 -->
+            <div class="carousel-matte-slide active">
+              <div class="carousel-slide-inner">
+                <img src="assets/uv-5.webp" alt="Cubeta de Barniz Matte Imagecoat RVM 001228" loading="lazy">
+                <div class="carousel-slide-caption">
+                  <h4>ULTRASHEEN UV-XT9788</h4>
+                  <p> &bull; Barniz UV Curado Instantáneo</p>
+                </div>
+              </div>
+            </div>
+
+<!-- Slide 2 -->
+            <div class="carousel-matte-slide">
+              <div class="carousel-slide-inner">
+                <img src="assets/uv-6.webp" alt="Cubeta de Barniz Matte Retrocoat RVM 002450" loading="lazy">
+                <div class="carousel-slide-caption">
+                  <h4>MIRACURE  J9934H</h4>
+                  <p> &bull;Barniz UV Curable Matte</p>
+                </div>
+              </div>
+            </div>
+
+ <!-- Slide 3 -->
+            <div class="carousel-matte-slide">
+              <div class="carousel-slide-inner">
+                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80" alt="Cubeta de Barniz Matte Propel RVM 003890" loading="lazy">
+                <div class="carousel-slide-caption">
+                  <h4>MATTE PROPEL RVM 003890</h4>
+                  <p>Cubeta de 20 Kg &bull; Alta Resistencia al Roce y Rayado</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+<!-- Controles de Navegación (Flechas Circulares) -->
+        <button type="button" class="carousel-btn carousel-btn-prev" aria-label="Anterior diapositiva">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button type="button" class="carousel-btn carousel-btn-next" aria-label="Siguiente diapositiva">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+
+<!-- Paginación (Dots) -->
+        <div class="carousel-dots" role="tablist" aria-label="Paginación del carrusel">
+          <button type="button" class="carousel-dot active" role="tab" aria-selected="true" aria-label="Ir a diapositiva 1"></button>
+          <button type="button" class="carousel-dot" role="tab" aria-selected="false" aria-label="Ir a diapositiva 2"></button>
+          <button type="button" class="carousel-dot" role="tab" aria-selected="false" aria-label="Ir a diapositiva 3"></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer Corporativo Minimalista -->
+<footer>
+  <div class="wrap">
+    <p>JADEC Productos Químicos S.A. de C.V. — Distribuidor Autorizado ACTEGA® Artes Gráficas</p>
+  </div>
+</footer>
+
+</body>
+</html>

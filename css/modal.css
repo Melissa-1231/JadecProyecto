@@ -1,0 +1,356 @@
+/* ==========================================================================
+   JADEC - Estilos de Ventana Modal (css/modal.css)
+   ========================================================================== */
+
+/* Fondo oscuro y contenedor principal del modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(7, 23, 43, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  
+  /* Estado inactivo por defecto */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Estado activo controlado por JS */
+.modal-overlay.is-active,
+.modal-overlay.active,
+.modal-overlay[aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Tarjeta del modal */
+.modal-card {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 600px;
+  border-radius: var(--radius-lg, 12px);
+  padding: 36px 32px;
+  position: relative;
+  box-shadow: 0 20px 40px -10px rgba(7, 23, 43, 0.25);
+  border: 1px solid var(--border-light, #eaecf0);
+  
+  /* Animación de entrada */
+  transform: translateY(20px) scale(0.96);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-overlay.is-active .modal-card,
+.modal-overlay.active .modal-card,
+.modal-overlay[aria-hidden="false"] .modal-card {
+  transform: translateY(0) scale(1);
+}
+
+/* Botón de cierre */
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--text-muted, #667085);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm, 4px);
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: var(--color-royal-dark, #07172B);
+  background-color: #f1f5f9;
+}
+
+/* Cabecera del modal */
+.modal-header {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.modal-kicker {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-accent-green, #20BF55);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.modal-title {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--color-royal-dark, #07172B);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin: 0 0 8px;
+}
+
+.modal-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary, #344054);
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+/* Formularios */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.modal-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-royal-blue, #0A2540);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.required {
+  color: #ef4444;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border-mid, #cbd5e1);
+  border-radius: var(--radius-md, 8px);
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--color-royal-dark, #07172B);
+  background-color: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--color-cyan-blue, #00A8E8);
+  box-shadow: 0 0 0 3px rgba(0, 168, 232, 0.15);
+}
+
+.form-select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%230A2540'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px 16px;
+  padding-right: 36px;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 76px;
+}
+
+/* Errores de Validación */
+.modal-form-group.has-error .form-input,
+.modal-form-group.has-error .form-select,
+.modal-form-group.has-error .form-textarea {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+/* Casilla de Privacidad */
+.form-checkbox-group {
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.form-checkbox {
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-cyan-blue, #00A8E8);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.checkbox-text {
+  font-size: 0.78rem;
+  color: var(--text-secondary, #344054);
+  line-height: 1.45;
+}
+
+.checkbox-text a {
+  color: var(--color-cyan-blue, #00A8E8);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.checkbox-text a:hover {
+  color: var(--color-cyan-hover, #0084C7);
+}
+
+.form-checkbox-group.has-error .checkbox-text {
+  color: #ef4444;
+}
+
+/* Botones de Acción del Modal */
+.modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-light, #eaecf0);
+}
+
+.btn-modal-cancel {
+  background-color: #ffffff;
+  border: 1.5px solid var(--border-mid, #cbd5e1);
+  color: var(--color-royal-blue, #0A2540);
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  border-radius: var(--radius-md, 8px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-modal-cancel:hover {
+  border-color: var(--color-royal-blue, #0A2540);
+  background-color: #f8fafc;
+}
+
+.btn-modal-submit,
+.btn-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: var(--color-cyan-blue, #00A8E8);
+  border: 1.5px solid var(--color-cyan-blue, #00A8E8);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border-radius: var(--radius-md, 8px);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-modal-submit:hover,
+.btn-submit:hover {
+  background-color: var(--color-cyan-hover, #0084C7);
+  border-color: var(--color-cyan-hover, #0084C7);
+  transform: translateY(-1px);
+}
+
+/* Estado de éxito (Oculto por defecto mediante atributo hidden en HTML) */
+.modal-success-state {
+  text-align: center;
+  padding: 24px 16px;
+}
+
+.success-icon-wrap {
+  width: 64px;
+  height: 64px;
+  background-color: #dcfce7;
+  color: var(--color-accent-green, #20BF55);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.success-icon-wrap svg {
+  width: 32px;
+  height: 32px;
+}
+
+.success-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-royal-dark, #07172B);
+  margin-bottom: 8px;
+}
+
+/* Responsivo para el modal */
+@media (max-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  
+  .modal-card {
+    padding: 28px 20px;
+    border-radius: 12px;
+  }
+
+  .modal-title {
+    font-size: 1.35rem;
+  }
+
+  .modal-actions {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .btn-modal-cancel,
+  .btn-modal-submit,
+  .btn-submit {
+    width: 100%;
+    justify-content: center;
+  }
+}

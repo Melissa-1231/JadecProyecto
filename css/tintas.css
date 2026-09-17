@@ -1,0 +1,1499 @@
+/* ==========================================================================
+   JADEC (Soluciones Químicas) - Hoja de Estilos: Catálogo Tintas (css/tintas.css)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Variables Específicas de Tintas
+   -------------------------------------------------------------------------- */
+:root {
+  --color-tintas-green: #20BF55;
+  --color-tintas-green-hover: #199E44;
+  --color-tintas-green-bg: #EAF9F0;
+  --bg-tintas-beige: #F4F3ED;
+}
+
+/* --------------------------------------------------------------------------
+   2. Botones de Acción Verdes Obligatorios (.btn-tintas-green)
+   -------------------------------------------------------------------------- */
+.btn-tintas-green,
+button.btn-tintas-green,
+a.btn-tintas-green {
+  background-color: var(--color-tintas-green) !important;
+  color: #FFFFFF !important;
+  border: 1px solid var(--color-tintas-green) !important;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  border-radius: var(--radius-md, 6px);
+  padding: 13px 28px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(32, 191, 85, 0.25);
+  transition: all var(--transition-fast, 0.2s cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.btn-tintas-green:hover,
+button.btn-tintas-green:hover,
+a.btn-tintas-green:hover {
+  background-color: var(--color-tintas-green-hover) !important;
+  border-color: var(--color-tintas-green-hover) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(32, 191, 85, 0.35);
+}
+
+.btn-tintas-green:active,
+button.btn-tintas-green:active,
+a.btn-tintas-green:active {
+  transform: translateY(0);
+}
+
+.btn-tintas-secondary {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  border-radius: var(--radius-md, 6px);
+  padding: 13px 28px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: all var(--transition-fast, 0.2s cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.btn-tintas-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: #FFFFFF;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   3. Portada Hero Section Tintas (.hero-tintas)
+   -------------------------------------------------------------------------- */
+.hero-tintas {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('https://images.unsplash.com/photo-1629905679177-4c4e238d7237?auto=format&fit=crop&w=3840&fmt=webp&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 120px 24px 135px;
+  color: #FFFFFF;
+  overflow: hidden;
+}
+
+.hero-tintas-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(7, 23, 43, 0.88) 0%, rgba(10, 37, 64, 0.84) 60%, rgba(5, 19, 36, 0.92) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-tintas-container {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.hero-tintas-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(32, 191, 85, 0.15);
+  color: var(--color-tintas-green);
+  border: 1px solid rgba(32, 191, 85, 0.35);
+  padding: 6px 18px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.825rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+}
+
+.hero-tintas-badge .badge-dot {
+  background-color: var(--color-tintas-green);
+}
+
+.hero-tintas-title {
+  font-size: clamp(2.3rem, 5.5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.hero-tintas-desc {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--text-on-dark-muted, #98A2B3);
+  max-width: 720px;
+  margin: 0 auto 36px;
+}
+
+.hero-tintas-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Divisor de Ondas SVG Superpuestas (.hero-wave-divider) */
+.hero-wave-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.hero-wave-svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 90px;
+}
+
+.hero-wave-path-green {
+  fill: var(--color-tintas-green, #20BF55);
+  fill-opacity: 0.35;
+}
+
+.hero-wave-path-green-accent {
+  fill: var(--color-tintas-green, #20BF55);
+  fill-opacity: 0.75;
+}
+
+.hero-wave-path-bg {
+  fill: var(--bg-tintas-beige, #F4F3ED);
+}
+
+/* --------------------------------------------------------------------------
+   4. Sección de Catálogo (.tintas-catalogo)
+   -------------------------------------------------------------------------- */
+.tintas-catalogo {
+  padding: 90px 24px 110px;
+  background-color: var(--bg-tintas-beige, #F4F3ED);
+}
+
+.section-subtitle-green {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-tintas-green);
+  margin-bottom: 8px;
+}
+
+.tintas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1200px;
+  margin: 48px auto 0;
+}
+
+/* --------------------------------------------------------------------------
+   5. Tarjetas de Catálogo Oscuras de Alto Brillo (.catalog-card)
+   -------------------------------------------------------------------------- */
+.catalog-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #111625;
+  background: linear-gradient(180deg, #161D31 0%, #0D1322 100%);
+  border-radius: var(--radius-lg, 14px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              border-color 0.3s ease;
+}
+
+.catalog-card:hover,
+.catalog-card:focus-visible {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55), 0 0 24px rgba(32, 191, 85, 0.18);
+  border-color: rgba(32, 191, 85, 0.5);
+}
+
+.catalog-card:focus-visible {
+  outline: 2px solid var(--color-accent-green, #20BF55);
+  outline-offset: 3px;
+}
+
+/* Área Superior con Imagen / Degradado Vibrante */
+.catalog-card__media {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+
+.catalog-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.catalog-card:hover .catalog-card__img,
+.catalog-card:focus-visible .catalog-card__img {
+  transform: scale(1.08);
+}
+
+/* Capa de difuminado que conecta la imagen superior con el fondo oscuro */
+.catalog-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(22, 29, 49, 0) 0%, rgba(22, 29, 49, 0) 65%, rgba(17, 22, 37, 0.8) 85%, #111625 100%);
+  pointer-events: none;
+}
+
+/* Cuerpo de la Tarjeta */
+.catalog-card__body {
+  padding: 24px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+  z-index: 2;
+}
+
+/* Categoría / Eyebrow Text en Rojo/Naranja Vibrante */
+.catalog-card__category {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #FF5722;
+  margin-bottom: 12px;
+  display: block;
+  line-height: 1.2;
+}
+
+/* Título Principal */
+.catalog-card__title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.01em;
+}
+
+/* Párrafo de Descripción */
+.catalog-card__desc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+  flex-grow: 1;
+}
+
+/* Área de Acción / Botón Inferior */
+.catalog-card__action {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.catalog-card__btn {
+  font-size: 0.825rem;
+  font-weight: 800;
+  color: var(--color-accent-green, #20BF55);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.catalog-card:hover .catalog-card__btn,
+.catalog-card:focus-visible .catalog-card__btn {
+  color: #FFFFFF;
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   6. Responsividad del Catálogo
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .tintas-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .catalog-card__media {
+    height: 180px;
+  }
+
+  .catalog-card__body {
+    padding: 20px 22px 24px;
+  }
+
+  .catalog-card__title {
+    font-size: 1.22rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-tintas {
+    padding: 100px 16px 90px;
+    min-height: 80vh;
+  }
+
+  .hero-wave-svg {
+    height: 52px;
+  }
+
+  .hero-tintas-title {
+    font-size: 2rem;
+  }
+
+  .hero-tintas-desc {
+    font-size: 1rem;
+    margin-bottom: 28px;
+  }
+
+  .tintas-catalogo {
+    padding: 60px 16px 80px;
+  }
+
+  .tintas-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .btn-tintas-green {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. Sección Dividida: TINTAS BASE AGUA (.water-inks-section)
+   -------------------------------------------------------------------------- */
+.water-inks-section {
+  padding: 95px 24px 115px;
+  background-color: #FFFFFF;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+.water-inks-layout {
+  display: grid;
+  grid-template-columns: 1.38fr 1fr;
+  gap: 36px;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Columna Principal: Contenedor del Carrusel */
+.water-inks-slider-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.water-inks-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  border-radius: var(--radius-xl, 16px);
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+  background-color: #0B101E;
+  user-select: none;
+  touch-action: pan-y;
+  outline: none;
+}
+
+.water-inks-carousel:focus-visible {
+  outline: 2px solid var(--color-tintas-green, #20BF55);
+  outline-offset: 3px;
+}
+
+/* Pista Deslizante (Track) */
+.carousel-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+/* Diapositiva Individual (Slide) */
+.carousel-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #0B101E;
+}
+
+.carousel-picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.water-inks-carousel:hover .carousel-slide.is-active .carousel-img {
+  transform: scale(1.04);
+}
+
+/* Leyenda Inferior de la Diapositiva */
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  inset-inline: 0;
+  padding: 40px 28px 54px;
+  background: linear-gradient(180deg, transparent 0%, rgba(11, 16, 30, 0.75) 50%, rgba(5, 9, 18, 0.95) 100%);
+  color: #FFFFFF;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel-caption-tag {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-tintas-green, #20BF55);
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.carousel-caption-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+/* Botones de Navegación (Prev / Next) */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+.carousel-btn:hover {
+  background: var(--color-tintas-green, #20BF55);
+  border-color: var(--color-tintas-green, #20BF55);
+  color: #FFFFFF;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 18px rgba(32, 191, 85, 0.45);
+}
+
+.carousel-btn:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.carousel-btn:focus-visible {
+  outline: 2px solid var(--color-tintas-green, #20BF55);
+  outline-offset: 3px;
+}
+
+.carousel-btn--prev {
+  left: 18px;
+}
+
+.carousel-btn--next {
+  right: 18px;
+}
+
+.carousel-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Puntos de Paginación (Dots) */
+.carousel-dots {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+  background: rgba(11, 16, 30, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: var(--radius-full, 9999px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+.carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.carousel-dot.is-active {
+  background: var(--color-tintas-green, #20BF55);
+  width: 28px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(32, 191, 85, 0.55);
+}
+
+.carousel-dot:focus-visible {
+  outline: 2px solid var(--color-tintas-green, #20BF55);
+  outline-offset: 2px;
+}
+
+/* Columna Secundaria: Tarjeta Informativa Técnica */
+.water-inks-info-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.water-inks-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(17, 24, 39, 0.09);
+  border-radius: var(--radius-xl, 16px);
+  padding: 38px 34px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.water-inks-card:hover {
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  border-color: rgba(32, 191, 85, 0.3);
+}
+
+.water-inks-kicker {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-tintas-green, #20BF55);
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.water-inks-title {
+  font-size: clamp(1.9rem, 3.2vw, 2.4rem);
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.15;
+  margin: 0 0 18px 0;
+  letter-spacing: -0.02em;
+}
+
+.water-inks-desc {
+  font-size: 0.95rem;
+  color: #4B5563;
+  line-height: 1.68;
+  margin: 0 0 22px 0;
+}
+
+/* Badges de Características Técnicas */
+.water-inks-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.water-inks-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-tintas-green-bg, #EAF9F0);
+  color: #15803D;
+  font-size: 0.825rem;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: var(--radius-md, 8px);
+  border: 1px solid rgba(32, 191, 85, 0.25);
+  letter-spacing: 0.02em;
+}
+
+.water-inks-badge .badge-icon-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-tintas-green, #20BF55);
+}
+
+/* Bloque de Especificaciones / Aplicaciones */
+.water-inks-specs {
+  background-color: var(--bg-tintas-beige, #F4F3ED);
+  border-left: 3px solid var(--color-tintas-green, #20BF55);
+  border-radius: 0 var(--radius-md, 8px) var(--radius-md, 8px) 0;
+  padding: 14px 18px;
+  margin-bottom: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.water-inks-specs .spec-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.85rem;
+}
+
+.water-inks-specs .spec-label {
+  font-weight: 700;
+  color: #1F2937;
+}
+
+.water-inks-specs .spec-val {
+  color: #4B5563;
+  line-height: 1.45;
+}
+
+.water-inks-card__footer {
+  margin-top: auto;
+}
+
+.water-inks-cta {
+  width: 100%;
+  justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
+   8. Responsividad de Tintas Base Agua (< 920px y < 640px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 920px) {
+  .water-inks-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .water-inks-carousel {
+    min-height: 380px;
+    height: 380px;
+  }
+
+  .water-inks-card {
+    padding: 30px 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .water-inks-section {
+    padding: 60px 16px 80px;
+  }
+
+  .water-inks-carousel {
+    min-height: 300px;
+    height: 300px;
+    border-radius: var(--radius-lg, 12px);
+  }
+
+  .carousel-caption {
+    padding: 24px 16px 48px;
+  }
+
+  .carousel-caption-title {
+    font-size: 1rem;
+  }
+
+  .carousel-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .carousel-btn--prev {
+    left: 10px;
+  }
+
+  .carousel-btn--next {
+    right: 10px;
+  }
+
+  .water-inks-title {
+    font-size: 1.75rem;
+  }
+
+  .water-inks-card {
+    padding: 24px 18px;
+    border-radius: var(--radius-lg, 12px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. Sección Interactiva: TINTAS PANTONE (.pantone-section)
+   -------------------------------------------------------------------------- */
+.pantone-section {
+  padding: 95px 24px 115px;
+  background-color: var(--bg-tintas-beige, #F4F3ED);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.pantone-accordion {
+  display: flex;
+  width: 100%;
+  height: 520px;
+  gap: 16px;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 48px auto 0;
+}
+
+/* Panel Individual */
+.pantone-panel {
+  flex: 1 1 0;
+  min-width: 80px;
+  position: relative;
+  border-radius: var(--radius-xl, 16px);
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #0F172A;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: flex 0.65s cubic-bezier(0.25, 1, 0.35, 1),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease,
+              transform 0.4s ease;
+  user-select: none;
+  outline: none;
+}
+
+.pantone-panel:hover:not(.is-active) {
+  border-color: rgba(32, 191, 85, 0.5);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+  transform: translateY(-3px);
+}
+
+.pantone-panel:focus-visible {
+  outline: 2px solid var(--color-tintas-green, #20BF55);
+  outline-offset: 3px;
+}
+
+/* Panel Activo (Expandido) */
+.pantone-panel.is-active {
+  flex: 4 1 0;
+  cursor: default;
+  border-color: rgba(32, 191, 85, 0.6);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4), 0 0 24px rgba(32, 191, 85, 0.18);
+  transform: translateY(0);
+}
+
+/* Imagen de Fondo */
+.pantone-panel__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.5s ease;
+  filter: brightness(0.45) saturate(0.85);
+  pointer-events: none;
+}
+
+.pantone-panel.is-active .pantone-panel__bg {
+  transform: scale(1.05);
+  filter: brightness(0.65) saturate(1.15);
+}
+
+/* Capa Degradada Oscura */
+.pantone-panel__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(10, 16, 30, 0.8) 60%, rgba(5, 10, 20, 0.96) 100%);
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+/* Vista Colapsada (Vertical Kicker & Title) */
+.pantone-panel__collapsed {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 14px;
+  z-index: 2;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.pantone-panel.is-active .pantone-panel__collapsed {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+}
+
+.collapsed-num {
+  font-family: 'Inter', monospace, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-tintas-green, #20BF55);
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+.collapsed-title {
+  font-size: 0.925rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* Vista Expandida */
+.pantone-panel__expanded {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 36px;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.pantone-panel.is-active .pantone-panel__expanded {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.18s,
+              transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.18s;
+}
+
+.panel-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md, 8px);
+  background: rgba(32, 191, 85, 0.15);
+  border: 1px solid rgba(32, 191, 85, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-tintas-green, #20BF55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  margin-bottom: auto;
+}
+
+.panel-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.panel-info {
+  margin-top: auto;
+}
+
+.panel-kicker {
+  font-size: 0.775rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--color-tintas-green, #20BF55);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.panel-title {
+  font-size: clamp(1.45rem, 2.2vw, 1.85rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 14px 0;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.panel-desc {
+  font-size: 0.925rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0 0 24px 0;
+  max-width: 560px;
+}
+
+.panel-action {
+  display: flex;
+  align-items: center;
+}
+
+.btn-panel-cta {
+  padding: 12px 24px;
+  font-size: 0.875rem;
+}
+
+/* --------------------------------------------------------------------------
+   10. Responsividad de Tintas Pantone (< 880px y < 640px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 880px) {
+  .pantone-accordion {
+    flex-direction: column;
+    height: auto;
+    gap: 14px;
+  }
+
+  .pantone-panel {
+    flex: none;
+    width: 100%;
+    min-height: 72px;
+    height: 72px;
+    transition: height 0.5s cubic-bezier(0.25, 1, 0.35, 1),
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+  }
+
+  .pantone-panel.is-active {
+    flex: none;
+    height: 390px;
+  }
+
+  .pantone-panel__collapsed {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    padding: 0 22px;
+  }
+
+  .collapsed-title {
+    writing-mode: horizontal-tb;
+    transform: none;
+    font-size: 0.95rem;
+  }
+
+  .pantone-panel__expanded {
+    padding: 28px 22px;
+  }
+
+  .panel-icon-wrap {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 16px;
+  }
+
+  .panel-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .panel-title {
+    font-size: 1.35rem;
+    margin-bottom: 10px;
+  }
+
+  .panel-desc {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    margin-bottom: 18px;
+  }
+
+  .btn-panel-cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .pantone-section {
+    padding: 60px 16px 80px;
+  }
+
+  .pantone-panel.is-active {
+    height: 420px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   11. Sección Interactiva: ADITIVOS (.additives-section)
+   -------------------------------------------------------------------------- */
+.additives-section {
+  padding: 95px 24px 115px;
+  background-color: #FFFFFF;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+.additives-container {
+  display: grid;
+  grid-template-columns: 0.95fr 1.35fr;
+  gap: 40px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 48px auto 0;
+}
+
+/* Columna Izquierda: Lista de Pestañas / Índice */
+.additives-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: sticky;
+  top: 100px;
+}
+
+.additive-tab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+  padding: 16px 22px;
+  background-color: #F8F9FA;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-lg, 12px);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  outline: none;
+  overflow: hidden;
+  user-select: none;
+}
+
+.tab-indicator {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 4px;
+  border-radius: 0 4px 4px 0;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.tab-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-grow: 1;
+}
+
+.tab-name {
+  font-size: 0.975rem;
+  font-weight: 700;
+  color: #4B5563;
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+  line-height: 1.25;
+}
+
+.tab-sub {
+  font-size: 0.775rem;
+  font-weight: 500;
+  color: #9CA3AF;
+  letter-spacing: 0.02em;
+  font-style: italic;
+  transition: color 0.3s ease;
+}
+
+.tab-num {
+  font-family: 'Inter', monospace, sans-serif;
+  font-size: 0.825rem;
+  font-weight: 800;
+  color: #9CA3AF;
+  margin-left: 12px;
+  transition: color 0.3s ease;
+}
+
+.tab-arrow {
+  width: 18px;
+  height: 18px;
+  color: var(--color-tintas-green, #20BF55);
+  margin-left: 10px;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Hover en Pestaña Inactiva */
+.additive-tab:hover:not(.is-active) {
+  background-color: #F1F5F9;
+  border-color: rgba(0, 0, 0, 0.1);
+  transform: translateX(4px);
+}
+
+.additive-tab:hover:not(.is-active) .tab-name {
+  color: #111827;
+}
+
+.additive-tab:focus-visible {
+  outline: 2px solid var(--color-tintas-green, #20BF55);
+  outline-offset: 2px;
+}
+
+/* Pestaña Activa */
+.additive-tab.is-active {
+  background-color: #0B101E;
+  border-color: #0B101E;
+  box-shadow: 0 8px 24px rgba(11, 16, 30, 0.18);
+  transform: translateX(6px);
+}
+
+.additive-tab.is-active .tab-indicator {
+  background-color: var(--color-tintas-green, #20BF55);
+}
+
+.additive-tab.is-active .tab-name {
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 1.02rem;
+}
+
+.additive-tab.is-active .tab-sub {
+  color: var(--color-tintas-green, #20BF55);
+  font-weight: 600;
+}
+
+.additive-tab.is-active .tab-num {
+  color: var(--color-tintas-green, #20BF55);
+}
+
+.additive-tab.is-active .tab-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Columna Derecha: Visor de Contenido (Display Viewer) */
+.additives-display {
+  position: relative;
+  min-height: 590px;
+  border-radius: var(--radius-xl, 18px);
+  overflow: hidden;
+  background-color: #0B101E;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Panel Individual del Visor */
+.additive-panel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 44px 38px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translateY(16px);
+  z-index: 1;
+}
+
+.additive-panel.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  z-index: 2;
+}
+
+/* Imagen de Fondo del Visor */
+.additive-panel__media {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.additive-panel__picture,
+.additive-panel__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.additive-panel__img {
+  filter: brightness(0.9) saturate(1.05);
+  transform: scale(1.02);
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.5s ease;
+}
+
+.additive-panel.is-active .additive-panel__img {
+  transform: scale(1.06);
+  filter: brightness(0.95) saturate(1.1);
+}
+
+.additive-panel__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 16, 30, 0.08) 0%, rgba(11, 16, 30, 0.35) 45%, rgba(6, 10, 20, 0.95) 82%, rgba(5, 8, 16, 0.98) 100%);
+  pointer-events: none;
+}
+
+/* Contenido de Texto del Panel */
+.additive-panel__content {
+  position: relative;
+  z-index: 2;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.additive-panel__tag {
+  font-size: 0.775rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-tintas-green, #20BF55);
+  display: inline-block;
+}
+
+.additive-panel__title {
+  font-size: clamp(1.85rem, 2.8vw, 2.35rem);
+  font-weight: 900;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.additive-panel__subname {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  display: block;
+  margin-top: 4px;
+}
+
+.additive-panel__desc {
+  font-size: 0.95rem;
+  line-height: 1.68;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 620px;
+  margin: 0;
+}
+
+.additive-panel__features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.feature-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  background: rgba(32, 191, 85, 0.15);
+  border: 1px solid rgba(32, 191, 85, 0.35);
+  border-radius: var(--radius-full, 9999px);
+  color: #86EFAC;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.additive-panel__action {
+  margin-top: 8px;
+}
+
+.additive-panel__cta {
+  padding: 13px 26px;
+}
+
+/* --------------------------------------------------------------------------
+   12. Responsividad de Aditivos: Acordeón Vertical en Móvil (< 900px y < 640px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .additives-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .additives-list {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .additive-tab {
+    padding: 14px 18px;
+    transform: none !important;
+  }
+
+  .additive-tab.is-active {
+    border-radius: var(--radius-lg, 12px) var(--radius-lg, 12px) 0 0;
+    margin-bottom: 0;
+  }
+
+  .additive-tab.is-active .tab-arrow {
+    transform: rotate(90deg);
+  }
+
+  .additives-display {
+    display: none; /* En móvil, el JS ubica el panel activo directamente bajo su tab */
+  }
+
+  /* Panel en modo acordeón móvil cuando se inserta dentro de la lista */
+  .additives-list .additive-panel {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    min-height: 420px;
+    height: auto;
+    border-radius: 0 0 var(--radius-lg, 12px) var(--radius-lg, 12px);
+    padding: 30px 20px 26px;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+    background-color: #0B101E;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: none;
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+
+  .additive-panel__title {
+    font-size: 1.55rem;
+  }
+
+  .additive-panel__desc {
+    font-size: 0.885rem;
+    line-height: 1.55;
+  }
+
+  .additive-panel__cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .additives-section {
+    padding: 60px 16px 80px;
+  }
+
+  .additives-list .additive-panel {
+    min-height: 380px;
+    padding: 24px 16px 22px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   13. Cenefa Inferior Minimalista (.site-footer-simple)
+   -------------------------------------------------------------------------- */
+.site-footer-simple {
+  background-color: #161435;
+  padding: 30px 0;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-simple-container {
+  max-width: var(--max-width, 1200px);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.footer-simple-text {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #F3F4F6;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .site-footer-simple {
+    padding: 24px 0;
+  }
+
+  .footer-simple-container {
+    padding: 0 20px;
+  }
+
+  .footer-simple-text {
+    font-size: 0.825rem;
+    line-height: 1.45;
+  }
+}

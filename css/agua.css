@@ -1,0 +1,1032 @@
+/* ==========================================================================
+   JADEC (Soluciones Químicas) - Hoja de Estilos: Barnices Base Agua (css/agua.css)
+   Arquitectura Modular, Hero Dividido (Texto Superior + Imagen Panorámica con Ondas SVG)
+   ========================================================================== */
+
+:root {
+  /* Paleta Corporativa */
+  --ink: #0A2540;
+  --ink-2: #161435;
+  --paper: #F4F3ED;
+  --paper-2: #ECEAE1;
+  --steel: #00A8E8;
+  --steel-hover: #0084C7;
+  
+  /* Verde Corporativo Estandarizado */
+  --color-accent-green: #20BF55;
+  --color-accent-green-hover: #199E44;
+  --color-accent-green-bg: rgba(32, 191, 85, 0.12);
+  
+  --graphite: #1B1B18;
+  --line: #D6D5CF;
+  --white: #FFFFFF;
+
+  /* Acentos de Sección y Botones */
+  --color-orange: #E85D04;
+  --color-orange-hover: #D05303;
+  --purple-btn: #2A173B;
+  --purple-btn-hover: #3E2055;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--paper);
+  color: var(--graphite);
+  line-height: 1.6;
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Clases de Utilidad */
+.text-center {
+  text-align: center;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   1. Header / Barra Superior Custom
+   ========================================================================== */
+.nav-bar-custom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 14px 5%;
+  background: var(--white);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all 0.25s ease;
+}
+
+.nav-grupo-izq {
+  display: flex;
+  align-items: center;
+}
+
+.logo-enlace {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-daka {
+  height: 48px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
+}
+
+.nav-grupo-der {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+/* Enlaces de Navegación */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: color 0.25s ease, background-color 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  color: var(--color-accent-green);
+}
+
+.logo-actega-enlace {
+  display: flex;
+  align-items: center;
+}
+
+.logo-actega {
+  height: 34px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Botón de Retorno Estandarizado */
+.btn-regresar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border: 1.5px solid var(--color-accent-green);
+  background-color: transparent;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 6px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-regresar:hover,
+.btn-regresar:focus {
+  background-color: var(--color-accent-green);
+  color: var(--white);
+  border-color: var(--color-accent-green);
+  transform: translateX(-3px);
+  box-shadow: 0 4px 14px rgba(32, 191, 85, 0.28);
+}
+
+.btn-regresar svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  transition: transform 0.25s ease;
+}
+
+.btn-regresar:hover svg {
+  transform: translateX(-2px);
+}
+
+/* Botón Menú Hamburguesa Móvil */
+.btn-menu-movil {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1.5px solid rgba(10, 37, 64, 0.15);
+  border-radius: 6px;
+  padding: 6px 8px;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-menu-movil:hover,
+.btn-menu-movil:focus,
+.btn-menu-movil.activo {
+  color: var(--color-accent-green);
+  border-color: var(--color-accent-green);
+  background-color: var(--color-accent-green-bg);
+}
+
+.btn-menu-movil svg {
+  display: block;
+  stroke: currentColor;
+  transition: transform 0.25s ease;
+}
+
+.btn-menu-movil.activo svg {
+  transform: rotate(90deg);
+}
+
+/* ==========================================================================
+   2. Cenefa Principal Hero: Texto Superior + Imagen Panorámica con Ondas SVG
+   ========================================================================== */
+.hero-agua-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--ink, #0A2540);
+  overflow: hidden;
+}
+
+/* Bloque 1: Cenefa de Texto Superior */
+.hero-agua-texto {
+  width: 100%;
+  padding: 60px 5%;
+  background-color: var(--ink, #0A2540);
+  text-align: center;
+}
+
+.hero-agua-title {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: clamp(40px, 6vw, 68px);
+  font-weight: 900;
+  color: var(--white, #FFFFFF);
+  line-height: 1.05;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.hero-agua-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(15.5px, 1.6vw, 18px);
+  font-weight: 400;
+  color: var(--white, #FFFFFF);
+  line-height: 1.65;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Bloque 2: Cenefa de Imagen Inferior Panorámica (WebP 4K/8K) */
+.hero-agua-imagen {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 380px;
+  max-height: 620px;
+  overflow: hidden;
+  background-color: var(--ink, #0A2540);
+}
+
+.hero-agua-picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-agua-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Divisor de Ondas SVG al Pie de la Imagen */
+.agua-wave-divider {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.agua-wave-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 90px;
+}
+
+.wave-layer-1 {
+  fill: var(--color-accent-green, #20BF55);
+  fill-opacity: 0.28;
+}
+
+.wave-layer-2 {
+  fill: var(--color-accent-green, #20BF55);
+  fill-opacity: 0.52;
+}
+
+.wave-layer-3 {
+  fill: var(--paper, #F4F3ED);
+}
+
+/* ==========================================================================
+   3. Secciones Generales & Encabezados
+   ========================================================================== */
+.sec-padding {
+  padding: 60px 0 80px;
+}
+
+.bg-paper {
+  background-color: var(--paper);
+}
+
+.sec-head {
+  margin-bottom: 44px;
+}
+
+.sec-head-idx {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--color-accent-green, #20BF55);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.sec-head h2 {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 900;
+  color: var(--ink, #0A2540);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.sec-head-desc {
+  font-size: 15.5px;
+  color: #4F4F4F;
+  max-width: 680px;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   4. Sección 1: BARNICES BRILLANTES (Grid de 3 Tarjetas con Fondo Completo)
+   ========================================================================== */
+.seccion-brillantes-agua {
+  margin-top: 54px;
+}
+
+.grid-tres-brillantes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 28px;
+}
+
+.tarjeta-brillante-poster {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  min-height: 420px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  background-color: var(--ink, #0A2540);
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.tarjeta-brillante-poster:hover,
+.tarjeta-brillante-poster:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(10, 37, 64, 0.22);
+  outline: none;
+}
+
+/* Imagen de Fondo Completo */
+.tarjeta-poster-picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.tarjeta-poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.tarjeta-brillante-poster:hover .tarjeta-poster-img,
+.tarjeta-brillante-poster:focus-visible .tarjeta-poster-img {
+  transform: scale(1.06);
+}
+
+/* Capa de Degradado Inferior para Legibilidad */
+.tarjeta-poster-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  background: linear-gradient(to top, rgba(10, 37, 64, 0.96) 0%, rgba(10, 37, 64, 0.6) 55%, rgba(10, 37, 64, 0) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Contenido de Texto Superpuesto */
+.tarjeta-poster-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  padding: 32px 26px;
+}
+
+.tarjeta-poster-sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--color-orange, #E85D04);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.tarjeta-poster-title {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--white, #FFFFFF);
+  text-transform: uppercase;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.tarjeta-poster-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   5. Sección 2: BARNICES MATTE (Layout Asimétrico: Info + Carrusel 2 Slides)
+   ========================================================================== */
+.seccion-matte-agua {
+  margin-top: 70px;
+}
+
+.layout-dos-columnas-matte {
+  display: grid;
+  grid-template-columns: 38% 62%;
+  gap: 32px;
+  align-items: stretch;
+  margin-top: 28px;
+}
+
+/* Columna Izquierda: Tarjeta Estática de Información */
+.card-info-matte {
+  background-color: var(--white);
+  border-radius: 12px;
+  border-left: 6px solid var(--color-orange, #E85D04);
+  padding: 44px 38px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-info-title {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: 34px;
+  font-weight: 900;
+  color: var(--ink, #0A2540);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.card-info-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #4F4F4F;
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+/* Lista de Productos tipo "Píldora" */
+.card-product-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.card-product-item {
+  display: flex;
+  align-items: center;
+  padding: 13px 18px;
+  background-color: var(--paper, #F4F3ED);
+  border-radius: 6px;
+  border: 1px solid rgba(10, 37, 64, 0.08);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-product-item:hover {
+  background-color: var(--paper-2, #ECEAE1);
+  border-color: rgba(232, 93, 4, 0.4);
+  transform: translateX(4px);
+  box-shadow: 0 3px 10px rgba(232, 93, 4, 0.08);
+}
+
+.product-sku {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--ink, #0A2540);
+  letter-spacing: 0.02em;
+}
+
+/* Columna Derecha: Carrusel Interactivo de 2 Slides */
+.carousel-matte-wrapper {
+  position: relative;
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-matte-track-container {
+  width: 100%;
+  overflow: hidden;
+  flex: 1;
+  min-height: 460px;
+}
+
+.carousel-matte-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.carousel-matte-slide {
+  min-width: 100%;
+  flex: 0 0 100%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 28px 20px;
+}
+
+.carousel-slide-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Contenedor de Imagen con object-fit: contain (Sin recortes) */
+.carousel-slide-inner picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 350px;
+  max-height: 350px;
+  margin-bottom: 18px;
+}
+
+.carousel-slide-inner img {
+  width: 100%;
+  height: 100%;
+  max-height: 350px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 8px;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.09));
+  transition: transform 0.3s ease;
+}
+
+.carousel-slide-caption {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.carousel-slide-caption h4 {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--ink, #0A2540);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.carousel-slide-caption p {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #555555;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+/* Botones Circulares */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--purple-btn, #2A173B);
+  color: var(--white, #FFFFFF);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s ease;
+}
+
+.carousel-btn:hover,
+.carousel-btn:focus {
+  background-color: var(--purple-btn-hover, #3E2055);
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 6px 16px rgba(42, 23, 59, 0.4);
+}
+
+.carousel-btn-prev {
+  left: 16px;
+}
+
+.carousel-btn-next {
+  right: 16px;
+}
+
+.carousel-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Paginación Dots con Activo Naranja */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 0 20px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #D1D5DB;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background-color: var(--color-orange, #E85D04);
+  width: 26px;
+  border-radius: 5px;
+}
+
+/* ==========================================================================
+   6. Sección 3: BARNICES ESPECIALES (Bento Box Grid de Alto Contraste)
+   ========================================================================== */
+.seccion-especiales-agua {
+  margin-top: 70px;
+}
+
+.bento-box-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+  margin-top: 28px;
+}
+
+/* Tarjetas 1 y 2: Fila superior (3 columnas cada una = 50% de ancho) */
+.bento-card-large {
+  grid-column: span 3;
+}
+
+/* Tarjetas 3, 4 y 5: Fila inferior (2 columnas cada una = 33.33% de ancho) */
+.bento-card-medium {
+  grid-column: span 2;
+}
+
+/* Estilo Base de las Tarjetas Bento (Dark Mode / Alto Contraste) */
+.bento-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--ink, #0A2540);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 24px rgba(10, 37, 64, 0.25);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), 
+              box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1), 
+              border-color 0.35s ease;
+}
+
+.bento-card:hover,
+.bento-card:focus-visible {
+  transform: translateY(-6px);
+  border-color: rgba(32, 191, 85, 0.55);
+  box-shadow: 0 12px 32px rgba(32, 191, 85, 0.22), 0 4px 16px rgba(0, 0, 0, 0.4);
+  outline: none;
+}
+
+/* Bloque Superior Visual */
+.bento-card-visual {
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 70%, transparent 100%);
+  padding: 30px 24px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 230px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+.bento-card-large .bento-card-visual {
+  height: 250px;
+}
+
+.bento-card-visual picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.bento-card-visual img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.4));
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.bento-card:hover .bento-card-visual img,
+.bento-card:focus-visible .bento-card-visual img {
+  transform: translateY(-4px) scale(1.05);
+}
+
+/* Bloque Inferior de Texto */
+.bento-card-body {
+  padding: 26px 28px 30px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.bento-card-tag {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--color-accent-green, #20BF55);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.bento-card-title {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--white, #FFFFFF);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+
+.bento-card-large .bento-card-title {
+  font-size: 26px;
+}
+
+.bento-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   7. Footer Minimalista Estandarizado
+   ========================================================================== */
+footer {
+  background-color: var(--ink-2, #161435);
+  color: var(--white);
+  padding: 24px 0;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+footer p {
+  opacity: 0.88;
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   8. Media Queries Responsivos
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .grid-tres-brillantes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bento-box-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 860px) {
+  .nav-bar-custom {
+    padding: 12px 4%;
+  }
+
+  .nav-grupo-der {
+    gap: 12px;
+  }
+
+  .logo-daka {
+    height: 38px;
+    max-width: 135px;
+  }
+
+  .logo-actega {
+    height: 26px;
+    max-width: 85px;
+  }
+
+  .btn-regresar {
+    padding: 7px 12px;
+    font-size: 11.5px;
+    gap: 5px;
+  }
+
+  .btn-regresar svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .btn-menu-movil {
+    display: inline-flex;
+  }
+
+  /* Menú desplegable vertical en móvil */
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 20px;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid var(--color-accent-green);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 99;
+  }
+
+  .nav-links.activo {
+    max-height: 260px;
+    opacity: 1;
+    visibility: visible;
+    padding: 16px 20px 20px;
+  }
+
+  .nav-links a {
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 6px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus {
+    background-color: var(--color-accent-green-bg);
+    color: var(--color-accent-green);
+  }
+
+  /* Hero en Móviles */
+  .hero-agua-texto {
+    padding: 40px 20px 32px;
+  }
+
+  .hero-agua-imagen {
+    height: 45vh;
+    min-height: 280px;
+  }
+
+  .agua-wave-divider svg {
+    height: 60px;
+  }
+
+  /* Grid Brillantes en Tablet / Móvil */
+  .grid-tres-brillantes {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .tarjeta-brillante-poster {
+    min-height: 360px;
+  }
+
+  /* Layout Matte en Móviles (Apilado Vertical) */
+  .layout-dos-columnas-matte {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .card-info-matte {
+    padding: 28px 20px;
+  }
+
+  .carousel-matte-track-container {
+    min-height: 360px;
+  }
+
+  .carousel-slide-inner picture {
+    height: 260px;
+    max-height: 260px;
+  }
+
+  .carousel-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  /* Bento Box Grid en Móviles: todas a 1 columna (100%) */
+  .bento-box-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .bento-card-large,
+  .bento-card-medium {
+    grid-column: span 1;
+  }
+
+  .bento-card-visual,
+  .bento-card-large .bento-card-visual {
+    height: 200px;
+    padding: 24px 18px 16px;
+  }
+
+  .bento-card-body {
+    padding: 22px 20px 24px;
+  }
+}
+
+@media (max-width: 580px) {
+  .tarjeta-brillante-poster {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-agua-title {
+    font-size: 34px;
+  }
+
+  .hero-agua-desc {
+    font-size: 14.5px;
+  }
+
+  .bento-card-title {
+    font-size: 21px;
+  }
+}
+

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barnices Base Agua ACTEGA® — JADEC Productos Químicos</title>
+  
+  <!-- Favicons y Accesos Directos Móviles -->
+  <link rel="icon" type="image/x-icon" href="images/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/favicon.ico">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Hojas de Estilo y Scripts Independientes -->
+  <link rel="stylesheet" href="css/agua.css">
+  <script src="js/agua.js" defer></script>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       Header / Barra de Navegación Superior
+       ========================================================================== -->
+  <header class="nav-bar-custom">
+    <!-- Columna Izquierda: Identidad JADEC -->
+    <div class="nav-grupo-izq">
+      <a href="index.html" class="logo-enlace" aria-label="JADEC Soluciones Químicas - Inicio">
+        <img src="images/logo/jadec-logo.png" alt="Logotipo Corporativo JADEC" class="logo-daka">
+      </a>
+    </div>
+    
+    <!-- Columna Derecha: Enlaces de Navegación, Logo ACTEGA, Botón Regresar y Menú Móvil -->
+    <div class="nav-grupo-der">
+      <!-- Enlaces de navegación -->
+      <nav class="nav-links" id="navLinksMenu" aria-label="Navegación de sección">
+        <a href="#barnices-brillantes-agua">Brillantes</a>
+        <a href="#barnices-matte-agua">Línea Matte</a>
+        <a href="#barnices-especiales-agua">Especiales</a>
+      </nav>
+      <!-- Logo Oficial ACTEGA -->
+      <a href="index.html" class="logo-enlace logo-actega-enlace" aria-label="Línea Oficial ACTEGA">
+        <img src="images/logo/actega-logo.png" alt="Logotipo Oficial ACTEGA" class="logo-actega">
+      </a>
+
+      <!-- Botón Regresar -->
+      <a href="actega.html" class="btn-regresar" aria-label="Regresar al catálogo de Actega">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+        Regresar
+      </a>
+
+      <!-- Botón Menú Hamburguesa Móvil (Visible < 860px) -->
+      <button class="btn-menu-movil" id="btnMenuMovil" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navLinksMenu">
+        <svg class="icono-hamburguesa" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line class="line-1" x1="3" y1="6" x2="21" y2="6"></line>
+          <line class="line-2" x1="3" y1="12" x2="21" y2="12"></line>
+          <line class="line-3" x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       Cenefa Principal Hero: Texto Superior + Imagen Panorámica con Ondas SVG
+       ========================================================================== -->
+  <section class="hero-agua-wrapper" id="hero-agua">
+    
+    <!-- 1. Bloque de Texto Superior (Azul Oscuro Corporativo) -->
+    <div class="hero-agua-texto">
+      <div class="wrap">
+        <h1 class="hero-agua-title">BARNICES BASE AGUA</h1>
+        <p class="hero-agua-desc">
+          Formulaciones acuosas sostenibles de alto rendimiento, bajo contenido de VOC y excelente brillo y protección, diseñadas para responder a los estándares más exigentes de la industria gráfica y de empaque alimentario.
+        </p>
+      </div>
+    </div>
+
+    <!-- 2. Bloque de Imagen Inferior Panorámica con Picture WebP 4K/8K -->
+    <div class="hero-agua-imagen">
+      <picture class="hero-agua-picture">
+        <source srcset="assets/agua-2.webp" sizes="100vw" type="image/webp">
+        <img src="assets/agua-2.webp" alt="Almacén de Barnices y Recubrimientos Base Agua de Alto Desempeño" class="hero-agua-img" loading="eager">
+      </picture>
+      
+      <!-- Divisor de Ondas SVG Superpuestas en Tonos Verde Corporativo y Beige -->
+      <div class="agua-wave-divider" aria-hidden="true">
+        <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Capa 1: Verde Translúcido -->
+          <path class="wave-layer-1" d="M0,96L80,106.7C160,117,320,139,480,122.7C640,107,800,53,960,42.7C1120,32,1280,64,1360,80L1440,96L1440,220L1360,220C1280,220,1120,220,960,220C800,220,640,220,480,220C320,220,160,220,80,220L0,220Z"></path>
+          <!-- Capa 2: Verde Intermedio -->
+          <path class="wave-layer-2" d="M0,128L80,122.7C160,117,320,107,480,112C640,117,800,139,960,138.7C1120,139,1280,117,1360,106.7L1440,96L1440,220L1360,220C1280,220,1120,220,960,220C800,220,640,220,480,220C320,220,160,220,80,220L0,220Z"></path>
+          <!-- Capa 3: Sólido fusionado con el fondo beige (#F4F3ED) -->
+          <path class="wave-layer-3" d="M0,160L80,144C160,128,320,96,480,101.3C640,107,800,149,960,165.3C1120,181,1280,171,1360,165.3L1440,160L1440,220L1360,220C1280,220,1120,220,960,220C800,220,640,220,480,220C320,220,160,220,80,220L0,220Z"></path>
+        </svg>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ==========================================================================
+       Contenedor Principal de Contenido
+       ========================================================================== -->
+  <main class="sec-padding bg-paper" id="tecnologias">
+    <div class="wrap">
+      
+      <!-- ==========================================================================
+           Sección 1: BARNICES BRILLANTES (Grid de 3 Tarjetas Interactivas con Fondo Completo)
+           ========================================================================== -->
+      <section class="seccion-brillantes-agua" id="barnices-brillantes-agua">
+        
+        <!-- Encabezado Centrado de Sección -->
+        <div class="sec-head text-center">
+          <span class="sec-head-idx">ALTA REFLECTIVIDAD &amp; PROTECCIÓN</span>
+          <h2>BARNICES BRILLANTES</h2>
+          <p class="sec-head-desc mx-auto">
+            Formulaciones acuosas de alto impacto óptico, secado ultra veloz y excelente nivelación diseñadas para realzar el contraste y brillo en empaques comerciales y revistas.
+          </p>
+        </div>
+
+        <!-- Grid de 3 Tarjetas con Fondo Completo -->
+        <div class="grid-tres-brillantes">
+          
+          <!-- Tarjeta 1: GLOSSCOAT 2 -->
+          <article class="tarjeta-brillante-poster" tabindex="0" role="button" aria-label="Ver ficha técnica de GLOSSCOAT 2 - RVG000116">
+            <picture class="tarjeta-poster-picture">
+              <source srcset="assets/agua-7.webp 3840w, assets/agua-7.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px" type="image/webp">
+              <img src="assets/agua-7.webp" alt="GLOSSCOAT 2 - RVG000116 Barniz Brillante Base Agua" class="tarjeta-poster-img" loading="lazy">
+            </picture>
+            <div class="tarjeta-poster-overlay" aria-hidden="true"></div>
+            <div class="tarjeta-poster-content">
+              <span class="tarjeta-poster-sub">ACABADO ESPEJO &bull; ALTO IMPACTO</span>
+              <h3 class="tarjeta-poster-title">GLOSSCOAT 2 - RVG000116</h3>
+              <p class="tarjeta-poster-desc">
+                Barniz de altísima transparencia y nivelación que realza el contraste de color e intensifica el brillo óptico en catálogos y cartones laminados.
+              </p>
+            </div>
+          </article>
+
+          <!-- Tarjeta 2: GLOSSCOAT 3 -->
+          <article class="tarjeta-brillante-poster" tabindex="0" role="button" aria-label="Ver ficha técnica de GLOSSCOAT 3 - RVG001892">
+            <picture class="tarjeta-poster-picture">
+              <source srcset="assets/agua-3.webp 3840w, assets/agua-3.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px" type="image/webp">
+              <img src="assets/agua-3.webp" alt="GLOSSCOAT 3 - RVG001892 Barniz Brillante Base Agua" class="tarjeta-poster-img" loading="lazy">
+            </picture>
+            <div class="tarjeta-poster-overlay" aria-hidden="true"></div>
+            <div class="tarjeta-poster-content">
+              <span class="tarjeta-poster-sub">RESISTENCIA AL FROTE &bull; ENVASADO</span>
+              <h3 class="tarjeta-poster-title">GLOSSCOAT 3 - RVG001892</h3>
+              <p class="tarjeta-poster-desc">
+                Formulaciones resistentes a rayaduras, abrasión y manipulación frecuente en líneas de empacado continuo y transporte comercial.
+              </p>
+            </div>
+          </article>
+
+          <!-- Tarjeta 3: ULTRASHEEN AQ-GLOSS 900 -->
+          <article class="tarjeta-brillante-poster" tabindex="0" role="button" aria-label="Ver ficha técnica de ULTRASHEEN AQ-GLOSS 900">
+            <picture class="tarjeta-poster-picture">
+              <source srcset="assets/agua-11.webp 3840w, assets/agua-11.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px" type="image/webp">
+              <img src="assets/agua-11.webp" alt="ULTRASHEEN AQ-GLOSS 900 Recubrimiento Acuoso" class="tarjeta-poster-img" loading="lazy">
+            </picture>
+            <div class="tarjeta-poster-overlay" aria-hidden="true"></div>
+            <div class="tarjeta-poster-content">
+              <span class="tarjeta-poster-sub">MÁXIMA VELOCIDAD &bull; SECADO RÁPIDO</span>
+              <h3 class="tarjeta-poster-title">ULTRASHEEN AQ-GLOSS 900</h3>
+              <p class="tarjeta-poster-desc">
+                Recubrimiento de secado acelerado y excelente transferencia en anilox para tirajes continuos de alta productividad.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           Sección 2: BARNICES MATTE (Layout Asimétrico: Info + Carrusel 2 Slides)
+           ========================================================================== -->
+      <section class="seccion-matte-agua" id="barnices-matte-agua">
+        
+        <!-- Encabezado Centrado de Sección -->
+        <div class="sec-head text-center">
+          <span class="sec-head-idx">DIVERSIDAD ÓPTICA &amp; NIVELES MATE</span>
+          <h2>BARNICES MATTE</h2>
+        </div>
+
+        <!-- Layout Grid de 2 Columnas Asimétricas -->
+        <div class="layout-dos-columnas-matte">
+          
+          <!-- Columna Izquierda: Tarjeta Estática de Información con Píldoras -->
+          <article class="card-info-matte">
+            <h3 class="card-info-title">LÍNEA MATTE ESPECIALIZADA</h3>
+            <p class="card-info-desc">
+              Los barnices matte de ACTEGA® han sido diseñados tecnológicamente para modificar sustancialmente la reflexión de luz sobre sustratos de papel, cartón y películas flexibles.
+            </p>
+            <ul class="card-product-list">
+              <li class="card-product-item">
+                <span class="product-sku">STARKOTE AQ-3010-2</span>
+              </li>
+              <li class="card-product-item">
+                <span class="product-sku">STARKOTE AQ-3020-2</span>
+              </li>
+              <li class="card-product-item">
+                <span class="product-sku">STARKOTE AQ-3025-2</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Columna Derecha: Carrusel Interactivo de 2 Productos -->
+          <div class="carousel-matte-wrapper" id="carouselMatteAgua">
+            <div class="carousel-matte-track-container">
+              <div class="carousel-matte-track">
+                
+<!-- Slide 1 -->
+                <div class="carousel-matte-slide active">
+                  <div class="carousel-slide-inner">
+                    <picture>
+                      <source srcset="assets/agua-12.webp 3840w, assets/agua-12.webp 1920w" sizes="(max-width: 860px) 100vw, 650px" type="image/webp">
+                      <img src="assets/agua-12.webp" alt="STARKOTE AQ-454-2 Barniz Matte" loading="lazy">
+                    </picture>
+                    <div class="carousel-slide-caption">
+                      <h4>STARKOTE AQ-3010-2</h4>
+                      <p>Acabado Mate Homogéneo y Tacto Sedoso para Empaques</p>
+                    </div>
+                  </div>
+                </div>
+
+<!-- Slide 2 -->
+                <div class="carousel-matte-slide">
+                  <div class="carousel-slide-inner">
+                    <picture>
+                      <source srcset="assets/agua-12.webp 3840w, assets/agua-12.webp 1920w" sizes="(max-width: 860px) 100vw, 650px" type="image/webp">
+                      <img src="assets/agua-12.webp" alt="STARKOTE AQ-5011-2 Barniz Matte" loading="lazy">
+                    </picture>
+                    <div class="carousel-slide-caption">
+                      <h4>STARKOTE AQ-3020-2</h4>
+                      <p>Protección Antirreflejo y Secado Eficiente en Prensa</p>
+                    </div>
+                  </div>
+                </div>
+
+ <!-- Slide 3 -->
+                <div class="carousel-matte-slide active">
+                  <div class="carousel-slide-inner">
+                    <picture>
+                      <source srcset="assets/agua-8.webp 3840w, assets/agua-8.webp 1920w" sizes="(max-width: 860px) 100vw, 650px" type="image/webp">
+                      <img src="assets/agua-8.webp" alt="STARKOTE AQ-454-2 Barniz Matte" loading="lazy">
+                    </picture>
+                    <div class="carousel-slide-caption">
+                      <h4>STARKOTE AQ-3025-2</h4>
+                      <p>Acabado Mate Homogéneo y Tacto Sedoso para Empaques</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+<!-- Controles Circulares -->
+            <button type="button" class="carousel-btn carousel-btn-prev" aria-label="Anterior producto">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button type="button" class="carousel-btn carousel-btn-next" aria-label="Siguiente producto">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+
+<!-- Paginación de 2 Puntos (Dots) -->
+            <div class="carousel-dots" role="tablist" aria-label="Paginación de productos matte">
+              <button type="button" class="carousel-dot active" role="tab" aria-selected="true" aria-label="Ir a producto 1"></button>
+              <button type="button" class="carousel-dot" role="tab" aria-selected="false" aria-label="Ir a producto 2"></button>
+            </div>
+           </div>
+           </div>
+           </section>
+
+      <!-- ==========================================================================
+           SECCIÓN 3: BARNICES ESPECIALES (Bento Box Grid de Alto Contraste)
+           ========================================================================== -->
+      <section class="seccion-especiales-agua" id="barnices-especiales-agua">
+        
+        <!-- Encabezado Centrado de Sección -->
+        <div class="sec-head text-center">
+          <span class="sec-head-idx">APLICACIONES TÉCNICAS DE ALTO DESEMPEÑO</span>
+          <h2>BARNICES ESPECIALES</h2>
+          <p class="sec-head-desc mx-auto">
+            Soluciones de recubrimiento funcional formuladas para procesos que demandan termosellado, barrera antigrasa, adhesión sobre sustratos térmicos y máxima durabilidad.
+          </p>
+        </div>
+
+        <!-- Bento Box Grid (6 Columnas en Desktop) -->
+        <div class="bento-box-grid">
+          
+          <!-- Tarjeta 1 (Fila 1 - Span 3): STARKOTE AQ-5011-2 -->
+          <article class="bento-card bento-card-large" tabindex="0" role="button" aria-label="Ver ficha técnica de BLISTERKOTES AQ-8001R">
+            <div class="bento-card-visual">
+              <picture>
+                <source srcset="assets/agua-4.webp 3840w, assets/agua-4.webp 1920w" sizes="(max-width: 860px) 100vw, 550px" type="image/webp">
+                <img src="assets/agua-4.webp" alt="BLISTERKOTES AQ-8001R Barniz Termosellable" loading="lazy">
+              </picture>
+            </div>
+            <div class="bento-card-body">
+              <span class="bento-card-tag">SELLADO TÉRMICO / BLÍSTER</span>
+              <h3 class="bento-card-title">STARKOTE AQ-5011-2</h3>
+              <p class="bento-card-desc">
+                Barniz termosellable de alta resistencia diseñado para empaques blíster sobre cartón, garantizando un sellado hermético y seguro.
+              </p>
+            </div>
+          </article>
+
+          <!-- Tarjeta 2 (Fila 1 - Span 3): STARKOTE AQ-722-2 -->
+          <article class="bento-card bento-card-large" tabindex="0" role="button" aria-label="Ver ficha técnica de STARKOTE AQ-722-2">
+            <div class="bento-card-visual">
+              <picture>
+                <source srcset="assets/agua-5.webp 3840w, assets/agua-5.webp 1920w" sizes="(max-width: 860px) 100vw, 550px" type="image/webp">
+                <img src="assets/agua-5.webp" alt="STARKOTE AQ-722-2 Barniz Barrera Antigrasa" loading="lazy">
+              </picture>
+            </div>
+            <div class="bento-card-body">
+              <span class="bento-card-tag">BARRERA ANTIGRASA &amp; HUMEDAD</span>
+              <h3 class="bento-card-title">BARRIER CTG AQ-X38JM120</h3>
+              <p class="bento-card-desc">
+                Formulación acuosa con propiedades de barrera a grasas, aceites y humedad, apta para empaques secundarios de alimentos.
+              </p>
+            </div>
+          </article>
+
+          <!-- Tarjeta 3 (Fila 2 - Span 2): LINEA PERFORMA AQ -->
+          <article class="bento-card bento-card-medium" tabindex="0" role="button" aria-label="Ver ficha técnica de LINEA PERFORMA AQ">
+            <div class="bento-card-visual">
+              <picture>
+                <source srcset="assets/agua-7.webp 3840w, assets/agua-7.webp 1920w" sizes="(max-width: 860px) 100vw, 360px" type="image/webp">
+                <img src="assets/agua-7.webp" alt="LINEA PERFORMA AQ Sustratos Porosos" loading="lazy">
+              </picture>
+            </div>
+            <div class="bento-card-body">
+              <span class="bento-card-tag">ALTA POROSIDAD</span>
+              <h3 class="bento-card-title">BLISTER AQ-8001R</h3>
+              <p class="bento-card-desc">
+                Optimizado para absorción rápida y anclaje superior en papeles absorbentes, liners y cartulinas.
+              </p>
+            </div>
+          </article>
+
+          <!-- Tarjeta 4 (Fila 2 - Span 2): ACSMART THERMAL -->
+          <article class="bento-card bento-card-medium" tabindex="0" role="button" aria-label="Ver ficha técnica de ACSMART THERMAL">
+            <div class="bento-card-visual">
+              <picture>
+                <source srcset="assets/barniz-2.webp 3840w, assets/barniz-2.webp 1920w" sizes="(max-width: 860px) 100vw, 360px" type="image/webp">
+                <img src="assets/barniz-2.webp" alt="ACSMART THERMAL Papel Térmico Directo" loading="lazy">
+              </picture>
+            </div>
+            <div class="bento-card-body">
+              <span class="bento-card-tag">TRANSFERENCIA TÉRMICA</span>
+              <h3 class="bento-card-title">ACSMART THERMAL</h3>
+              <p class="bento-card-desc">
+                Formulación para papeles térmicos directos y etiquetas resistentes al calor y fricción de cabezal.
+              </p>
+            </div>
+          </article>
+
+          <!-- Tarjeta 5 (Fila 2 - Span 2): PREMIUM BARRIER AQ -->
+          <article class="bento-card bento-card-medium" tabindex="0" role="button" aria-label="Ver ficha técnica de PREMIUM BARRIER AQ">
+            <div class="bento-card-visual">
+              <picture>
+                <source srcset="assets/barniz-4.webp 3840w, assets/barniz-4.webp 1920w" sizes="(max-width: 860px) 100vw, 360px" type="image/webp">
+                <img src="assets/barniz-4.webp" alt="PREMIUM BARRIER AQ Máxima Adherencia" loading="lazy">
+              </picture>
+            </div>
+            <div class="bento-card-body">
+              <span class="bento-card-tag">MÁXIMO ANCLAJE</span>
+              <h3 class="bento-card-title">PREMIUM BARRIER AQ</h3>
+              <p class="bento-card-desc">
+                Recubrimiento de ultra adherencia sobre películas metalizadas y sustratos sintéticos de difícil anclaje.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       Footer Corporativo Minimalista
+       ========================================================================== -->
+  <footer>
+    <div class="wrap">
+      <p>JADEC Productos Químicos S.A. de C.V. — Distribuidor Autorizado ACTEGA® Artes Gráficas</p>
+    </div>
+  </footer>
+
+</body>
+</html>
