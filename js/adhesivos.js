@@ -198,9 +198,25 @@
     const cenefaNav = document.querySelector('.cenefa-adhesivos, .cenefa-subnav');
     if (!cenefaNav) return;
 
+    const cenefaToggleBtn = document.getElementById('cenefaToggleBtn');
+    const cenefaNavList = cenefaNav.querySelector('.cenefa-nav-list');
     const menuItems = cenefaNav.querySelectorAll('.cenefa-nav-item.has-megamenu, .cenefa-item.has-megamenu');
     let activeItem = null;
     let hoverTimeout = null;
+
+    // Toggle de Menú Móvil Hamburguesa
+    if (cenefaToggleBtn && cenefaNavList) {
+      cenefaToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = cenefaNavList.classList.toggle('is-mobile-open');
+        cenefaToggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        cenefaToggleBtn.setAttribute('aria-label', isOpen ? 'Cerrar menú de catálogo' : 'Abrir menú de catálogo');
+
+        if (!isOpen) {
+          closeAllMenus();
+        }
+      });
+    }
 
     function openMenu(item) {
       if (activeItem && activeItem !== item) {
@@ -235,6 +251,17 @@
       activeItem = null;
     }
 
+    function closeMobileMenu() {
+      if (cenefaNavList && cenefaNavList.classList.contains('is-mobile-open')) {
+        cenefaNavList.classList.remove('is-mobile-open');
+        if (cenefaToggleBtn) {
+          cenefaToggleBtn.setAttribute('aria-expanded', 'false');
+          cenefaToggleBtn.setAttribute('aria-label', 'Abrir menú de catálogo');
+        }
+        closeAllMenus();
+      }
+    }
+
     menuItems.forEach((item) => {
       const toggle = item.querySelector('.cenefa-toggle, .cenefa-btn');
       const panel = item.querySelector('.megamenu-panel');
@@ -252,16 +279,16 @@
         }
       });
 
-      // Hover en Desktop (>= 1024px) con retardo suave
+      // Hover en Desktop (> 992px) con retardo suave
       item.addEventListener('mouseenter', () => {
-        if (window.innerWidth >= 1024) {
+        if (window.innerWidth > 992) {
           clearTimeout(hoverTimeout);
           openMenu(item);
         }
       });
 
       item.addEventListener('mouseleave', () => {
-        if (window.innerWidth >= 1024) {
+        if (window.innerWidth > 992) {
           hoverTimeout = setTimeout(() => {
             closeMenu(item);
           }, 180);
@@ -274,26 +301,37 @@
           const targetLink = e.target.closest('a') || e.target.closest('[data-open-modal]');
           if (targetLink) {
             closeAllMenus();
+            if (window.innerWidth <= 992) {
+              closeMobileMenu();
+            }
           }
         });
       }
+    });
+
+    // Cerrar menú móvil al hacer click en enlaces directos de la cenefa
+    const directLinks = cenefaNav.querySelectorAll('.cenefa-direct-link');
+    directLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 992) {
+          closeMobileMenu();
+        }
+      });
     });
 
     // Cierre al hacer click fuera de la barra
     document.addEventListener('click', (e) => {
       if (!cenefaNav.contains(e.target)) {
         closeAllMenus();
+        closeMobileMenu();
       }
     });
 
     // Cierre con tecla Escape
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && activeItem && (!modal || modal.getAttribute('aria-hidden') === 'true')) {
-        const currentToggle = activeItem.querySelector('.cenefa-toggle, .cenefa-btn');
+      if (e.key === 'Escape' && (!modal || modal.getAttribute('aria-hidden') === 'true')) {
         closeAllMenus();
-        if (currentToggle) {
-          currentToggle.focus();
-        }
+        closeMobileMenu();
       }
     });
 

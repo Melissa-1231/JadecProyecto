@@ -74,7 +74,7 @@
       <div class="cenefa-container">
       
       <!-- Menú Horizontal de Categorías (Misma Altura) -->
-      <ul class="cenefa-nav-list">
+      <ul class="cenefa-nav-list" id="cenefaNavList">
         
 <!-- 1. APLICACIONES -->
           <li class="cenefa-nav-item has-megamenu">
@@ -288,13 +288,20 @@
         </li>
         </ul>
 
-<!-- Lado Derecho: Botón Asesor Técnico (Outline Verde) -->
+<!-- Lado Derecho: Botón Asesor Técnico (Outline Verde) y Menú Hamburguesa Móvil -->
           <div class="cenefa-actions">
           <button type="button" class="cenefa-btn-advisor" data-open-modal aria-label="Solicitar Asesor Técnico">
           <svg class="cenefa-advisor-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
           </svg>
           <span>Asesor Técnico</span>
+          </button>
+          <button type="button" class="cenefa-mobile-toggle" id="cenefaToggleBtn" aria-label="Abrir menú de catálogo" aria-expanded="false" aria-controls="cenefaNavList">
+            <svg class="cenefa-burger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
           </button>
           </div>
           </div>

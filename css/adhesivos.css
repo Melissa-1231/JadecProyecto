@@ -123,11 +123,12 @@ html {
   color: var(--color-cyan-blue);
 }
 
-/* 1.3 Lado Derecho: Botón Asesor Técnico (Outline Verde) */
+/* 1.3 Lado Derecho: Botón Asesor Técnico (Outline Verde) & Toggle Menú Móvil */
 .cenefa-actions {
   margin-left: auto; /* Anclaje al extremo derecho */
   display: flex;
   align-items: center;
+  gap: 10px;
   flex-shrink: 0;
 }
 
@@ -165,6 +166,40 @@ html {
   width: 15px;
   height: 15px;
   stroke: currentColor;
+}
+
+/* Botón Hamburguesa Móvil (Oculto por defecto en Escritorio) */
+.cenefa-mobile-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 1.5px solid #CBD5E1;
+  border-radius: var(--radius-md, 6px);
+  color: var(--color-royal-dark, #07172B);
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  cursor: pointer;
+  transition: all var(--transition-fast, 0.2s cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.cenefa-mobile-toggle:hover,
+.cenefa-mobile-toggle:focus-visible {
+  background-color: rgba(7, 23, 43, 0.04);
+  border-color: var(--color-cyan-blue, #00A8E8);
+  color: var(--color-cyan-blue, #00A8E8);
+}
+
+.cenefa-mobile-toggle[aria-expanded="true"] {
+  background-color: var(--color-royal-dark, #07172B);
+  border-color: var(--color-royal-dark, #07172B);
+  color: #FFFFFF;
+}
+
+.cenefa-burger-icon {
+  width: 20px;
+  height: 20px;
 }
 
 /* --------------------------------------------------------------------------
@@ -1733,17 +1768,6 @@ html {
    8. Media Queries Consolidadas (Orden Descendente)
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
-  .cenefa-container {
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    justify-content: flex-start;
-  }
-
-  .cenefa-container::-webkit-scrollbar {
-    display: none;
-  }
-
   .megamenu-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1762,6 +1786,118 @@ html {
 }
 
 @media (max-width: 992px) {
+  /* Cenefa de Subnavegación Móvil (.cenefa-adhesivos) */
+  .cenefa-container {
+    position: relative;
+    justify-content: space-between;
+    overflow: visible;
+  }
+
+  .cenefa-mobile-toggle {
+    display: inline-flex;
+  }
+
+  .cenefa-nav-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    box-shadow: 0 16px 32px rgba(7, 23, 43, 0.14);
+    border-top: 1px solid var(--border-light, #EAECF0);
+    border-bottom: 3px solid var(--color-cyan-blue, #00A8E8);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    max-height: 80vh;
+    overflow-y: auto;
+    pointer-events: none;
+    height: auto;
+  }
+
+  .cenefa-nav-list.is-mobile-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .cenefa-nav-item {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #EAECF0;
+  }
+
+  .cenefa-nav-item:last-child {
+    border-bottom: none;
+  }
+
+  .cenefa-toggle,
+  .cenefa-direct-link {
+    width: 100%;
+    height: auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.85rem;
+  }
+
+  .cenefa-toggle::after,
+  .cenefa-direct-link::after {
+    display: none;
+  }
+
+  /* Paneles Mega-Menú en formato Acordeón */
+  .megamenu-panel {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    border-top: none;
+    border-left: 3px solid var(--color-cyan-blue, #00A8E8);
+    background-color: #F8FAFC;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+    display: none;
+    z-index: auto;
+  }
+
+  .cenefa-nav-item.is-open .megamenu-panel {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .megamenu-container {
+    padding: 18px 16px 22px;
+  }
+
+  .megamenu-header {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+  }
+
+  .megamenu-grid,
+  .megamenu-grid-4col,
+  .megamenu-grid-formatos,
+  .megamenu-brands-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .megamenu-card-featured {
+    display: none;
+  }
+
   .page-hero {
     padding: 44px 20px 52px;
   }
@@ -1805,28 +1941,6 @@ html {
 
   .supply-content {
     padding: 24px 20px;
-  }
-
-  .megamenu-panel {
-    position: fixed;
-    top: auto;
-    left: 0;
-    right: 0;
-    width: 100vw;
-    max-height: 75vh;
-    overflow-y: auto;
-  }
-
-  .megamenu-grid,
-  .megamenu-grid-4col,
-  .megamenu-grid-formatos,
-  .megamenu-brands-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .megamenu-card-featured {
-    display: none;
   }
 
   .section-full-cta {
