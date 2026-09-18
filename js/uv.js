@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 2. Soporte de accesibilidad por teclado en tarjetas interactivas
+  // 2. Soporte de accesibilidad por teclado y animación de aparición (Scroll Reveal)
   const interactiveCards = document.querySelectorAll('.tarjeta-interactiva, .tarjeta-uv, .tarjeta-catalogo');
   interactiveCards.forEach(card => {
     card.addEventListener('keydown', (e) => {
@@ -32,6 +32,26 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Animación suave de aparición al hacer scroll (Intersection Observer)
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const cardObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.12
+    });
+
+    interactiveCards.forEach(card => {
+      card.classList.add('reveal-on-scroll');
+      cardObserver.observe(card);
+    });
+  }
 
   // 3. Inicialización del Carrusel Interactivo de Productos (Línea Matte)
   const carousel = document.getElementById('carouselMatte');

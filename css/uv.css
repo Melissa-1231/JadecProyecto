@@ -438,12 +438,12 @@ body {
 }
 
 /* ==========================================================================
-   5. Grid Dinámico Tipo Póster (6 Tarjetas)
+   5. Grid Dinámico Tipo Póster (6 Tarjetas de Recubrimientos UV)
    ========================================================================== */
 .grid-seis-dinamico {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 28px;
   width: 100%;
 }
 
@@ -451,87 +451,186 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  min-height: 420px;
+  min-height: 440px;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: var(--ink, #0A2540);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(7, 23, 43, 0.08);
   cursor: pointer;
   outline: none;
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), 
-              box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), 
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
               border-color 0.3s ease;
-  background-color: var(--ink);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  will-change: transform, box-shadow;
 }
 
+/* Contenedor de la Imagen de Fondo */
 .tarjeta-bg {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   z-index: 1;
+  overflow: hidden;
 }
 
 .tarjeta-bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  object-position: center;
+  display: block;
+  transform: scale(1.001);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+  filter: brightness(0.92) contrast(1.05);
 }
 
+/* Capa de Degradado Sofisticada (Overlay Multicapa con Alto Contraste) */
+.tarjeta-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 37, 64, 0.15) 0%,
+    rgba(10, 37, 64, 0.55) 45%,
+    rgba(7, 23, 43, 0.92) 80%,
+    rgba(5, 17, 32, 0.98) 100%
+  );
+  transition: background 0.4s ease;
+  z-index: 2;
+}
+
+/* Contenedor de Texto e Información de la Tarjeta */
 .tarjeta-info {
   position: relative;
-  z-index: 2;
-  padding: 32px 28px;
+  z-index: 3;
+  padding: 32px 28px 28px;
   width: 100%;
-  background: linear-gradient(to top, rgba(10, 37, 64, 0.96) 0%, rgba(10, 37, 64, 0.75) 60%, transparent 100%);
-  color: var(--white);
+  color: var(--white, #FFFFFF);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
-/* Tag de Categoría en Verde Corporativo */
-.tarjeta-info .tarjeta-tag {
+/* Etiqueta / Tag Superior en Verde Corporativo */
+.tarjeta-tag {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
+  font-size: 0.72rem;
+  font-weight: 700;
   letter-spacing: 0.1em;
-  color: var(--color-accent-green);
+  color: var(--color-accent-green, #20BF55);
   text-transform: uppercase;
   margin-bottom: 8px;
-  font-weight: 700;
-  display: block;
+  display: inline-block;
+  line-height: 1.4;
 }
 
-.tarjeta-info h4 {
+/* Título de la Tarjeta (H3 Semántico) */
+.tarjeta-titulo,
+.tarjeta-info h3 {
   font-family: 'Big Shoulders Display', sans-serif;
-  font-size: 24px;
-  font-weight: 800;
-  color: var(--white);
-  margin-bottom: 12px;
+  font-size: 1.65rem;
+  font-weight: 900;
+  color: var(--white, #FFFFFF);
   line-height: 1.15;
+  margin-bottom: 12px;
   letter-spacing: -0.01em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
 }
 
+/* Descripción del Producto */
+.tarjeta-desc,
 .tarjeta-info p {
-  font-size: 13.5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.865rem;
+  font-weight: 400;
   color: rgba(255, 255, 255, 0.88);
   line-height: 1.55;
+  margin: 0;
 }
 
-/* Hover Effects */
+.tarjeta-desc strong,
+.tarjeta-info p strong {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Efectos Hover e Interactividad (Elevación, Zoom y Resplandor Verde)
+   ========================================================================== */
 .tarjeta-interactiva:hover,
 .tarjeta-interactiva:focus-visible {
   transform: translateY(-8px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35), 0 0 20px rgba(32, 191, 85, 0.18);
-  border-color: rgba(32, 191, 85, 0.4);
+  box-shadow: 0 20px 40px -10px rgba(7, 23, 43, 0.35), 
+              0 0 24px rgba(32, 191, 85, 0.22);
+  border-color: rgba(32, 191, 85, 0.5);
 }
 
-.tarjeta-interactiva:hover .tarjeta-bg img {
-  transform: scale(1.08);
+.tarjeta-interactiva:hover .tarjeta-bg img,
+.tarjeta-interactiva:focus-visible .tarjeta-bg img {
+  transform: scale(1.06);
+  filter: brightness(0.98) contrast(1.08);
 }
 
+.tarjeta-interactiva:hover .tarjeta-overlay,
+.tarjeta-interactiva:focus-visible .tarjeta-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(10, 37, 64, 0.08) 0%,
+    rgba(10, 37, 64, 0.45) 45%,
+    rgba(7, 23, 43, 0.90) 78%,
+    rgba(5, 17, 32, 0.98) 100%
+  );
+}
+
+.tarjeta-interactiva:hover .tarjeta-titulo,
+.tarjeta-interactiva:focus-visible .tarjeta-titulo {
+  color: #FFFFFF;
+}
+
+/* Animación progresiva de entrada al scroll (Intersection Observer) */
+.tarjeta-interactiva.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+}
+
+.tarjeta-interactiva.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tarjeta-interactiva.reveal-on-scroll.is-revealed:hover,
+.tarjeta-interactiva.reveal-on-scroll.is-revealed:focus-visible {
+  transform: translateY(-8px);
+}
+
+/* Media Queries Responsivas (3 cols Desktop -> 2 cols Tablet -> 1 col Móvil) */
 @media (max-width: 992px) {
   .grid-seis-dinamico {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
+  }
+
+  .tarjeta-interactiva {
+    min-height: 410px;
+  }
+
+  .tarjeta-info {
+    padding: 28px 24px 24px;
+  }
+
+  .tarjeta-titulo,
+  .tarjeta-info h3 {
+    font-size: 1.5rem;
   }
 }
 
@@ -540,11 +639,27 @@ body {
     grid-template-columns: 1fr;
     gap: 20px;
   }
+
   .tarjeta-interactiva {
     min-height: 380px;
   }
+
   .tarjeta-info {
-    padding: 24px 20px;
+    padding: 24px 20px 20px;
+  }
+
+  .tarjeta-tag {
+    font-size: 0.68rem;
+  }
+
+  .tarjeta-titulo,
+  .tarjeta-info h3 {
+    font-size: 1.4rem;
+  }
+
+  .tarjeta-desc,
+  .tarjeta-info p {
+    font-size: 0.84rem;
   }
 }
 
