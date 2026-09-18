@@ -514,6 +514,143 @@ a.btn-green:active {
   transform: translateX(-2px);
 }
 
+/* --------------------------------------------------------------------------
+   9.1 Navegación Móvil & Botón Toggle Hamburguesa (#navToggle & .site-nav)
+   -------------------------------------------------------------------------- */
+
+/* Comportamiento por defecto en Escritorio (Oculto en >= 993px) */
+#navToggle,
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md, 6px);
+  z-index: 110;
+  transition: background-color var(--transition-fast, 0.2s ease);
+}
+
+#navToggle:hover,
+#navToggle:focus-visible {
+  background-color: rgba(7, 23, 43, 0.05);
+}
+
+.hamburger-bar {
+  display: block;
+  width: 22px;
+  height: 2.5px;
+  background-color: var(--color-royal-dark, #07172B);
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.2s ease,
+              background-color 0.3s ease;
+  transform-origin: center;
+}
+
+/* Animación de 3 barras a "X" al estar activo */
+#navToggle.is-active .hamburger-bar:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+  background-color: var(--color-actega-green, #20BF55);
+}
+
+#navToggle.is-active .hamburger-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+#navToggle.is-active .hamburger-bar:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+  background-color: var(--color-actega-green, #20BF55);
+}
+
+/* Comportamiento Móvil de la Navegación Principal */
+@media (max-width: 992px) {
+  .header-container {
+    position: relative;
+  }
+
+  #navToggle,
+  .nav-toggle {
+    display: flex;
+  }
+
+  .site-nav {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    border-top: 1px solid var(--border-light, #EAECF0);
+    border-bottom: 3px solid var(--color-actega-green, #20BF55);
+    box-shadow: 0 16px 32px rgba(7, 23, 43, 0.14);
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 99;
+  }
+
+  /* Estado Visible al alternar clase .is-active */
+  .site-nav.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .navlinks {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .nav-item {
+    width: 100%;
+    border-bottom: 1px solid #F1F5F9;
+  }
+
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+
+  .site-nav .nav-link {
+    display: block;
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-royal-dark, #07172B);
+    text-align: left;
+    transition: background-color var(--transition-fast, 0.2s ease),
+                color var(--transition-fast, 0.2s ease),
+                padding-left var(--transition-fast, 0.2s ease);
+  }
+
+  .site-nav .nav-link:hover,
+  .site-nav .nav-link:active {
+    background-color: var(--color-actega-green-bg, #EAF9F0);
+    color: var(--color-actega-green-hover, #199E44);
+    padding-left: 28px;
+  }
+}
+
 @media (max-width: 640px) {
   .header-actions {
     gap: 12px;
