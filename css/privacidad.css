@@ -1,0 +1,355 @@
+/* ==========================================================================
+   JADEC (Soluciones Químicas) - Estilos Aviso de Privacidad (css/privacidad.css)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Cabecera Simplificada (Header)
+   -------------------------------------------------------------------------- */
+.site-header-privacy {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--border-light, #EAECF0);
+  height: var(--header-height, 80px);
+  box-shadow: 0 2px 10px rgba(10, 37, 64, 0.04);
+  transition: all var(--transition-fast, 0.2s ease);
+}
+
+.header-privacy-container {
+  max-width: var(--max-width, 1240px);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Botón Sólido Verde de Regreso al Inicio */
+.btn-return-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--color-accent-green, #20BF55);
+  color: #FFFFFF;
+  padding: 10px 22px;
+  border-radius: var(--radius-md, 8px);
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(32, 191, 85, 0.28);
+  transition: all var(--transition-fast, 0.2s cubic-bezier(0.4, 0, 0.2, 1));
+  flex-shrink: 0;
+}
+
+.btn-return-home:hover {
+  background-color: var(--color-accent-green-hover, #199E44);
+  box-shadow: 0 6px 16px rgba(32, 191, 85, 0.38);
+  transform: translateY(-2px);
+  color: #FFFFFF;
+}
+
+.btn-return-home:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(32, 191, 85, 0.25);
+}
+
+.btn-return-home .btn-return-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast, 0.2s ease);
+}
+
+.btn-return-home:hover .btn-return-icon {
+  transform: translateX(-4px);
+}
+
+/* --------------------------------------------------------------------------
+   2. Sección de Contenido Legal
+   -------------------------------------------------------------------------- */
+.legal-section {
+  background-color: var(--bg-alt, #F4F7FA);
+  min-height: calc(100vh - var(--header-height, 80px) - 300px);
+  padding: 64px 24px 88px;
+}
+
+.legal-container {
+  max-width: 920px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.legal-card {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg, 16px);
+  border: 1px solid var(--border-light, #EAECF0);
+  box-shadow: 0 8px 24px rgba(10, 37, 64, 0.04), 0 1px 3px rgba(10, 37, 64, 0.02);
+  padding: 56px 52px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Encabezado del Documento Legal
+   -------------------------------------------------------------------------- */
+.legal-header {
+  border-bottom: 2px solid var(--border-light, #EAECF0);
+  padding-bottom: 32px;
+  margin-bottom: 40px;
+}
+
+.legal-kicker {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-cyan-hover, #0084C7);
+  background-color: var(--color-cyan-light, #E6F6FF);
+  padding: 6px 14px;
+  border-radius: var(--radius-full, 9999px);
+  margin-bottom: 16px;
+  border: 1px solid rgba(0, 168, 232, 0.2);
+}
+
+.legal-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--color-royal-dark, #07172B);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.legal-updated {
+  font-size: 0.925rem;
+  color: var(--text-muted, #667085);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legal-updated::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-accent-green, #20BF55);
+}
+
+/* --------------------------------------------------------------------------
+   4. Cuerpo del Aviso (Tipografía & Legibilidad)
+   -------------------------------------------------------------------------- */
+.legal-body {
+  color: var(--text-secondary, #344054);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.legal-body p {
+  margin-bottom: 22px;
+}
+
+.legal-body strong {
+  color: var(--color-royal-dark, #07172B);
+  font-weight: 600;
+}
+
+.legal-body em {
+  font-style: italic;
+}
+
+/* Cuadro de Información y Contacto Institucional */
+.legal-card-info {
+  background: linear-gradient(135deg, rgba(230, 246, 255, 0.6) 0%, rgba(234, 249, 240, 0.6) 100%);
+  border-left: 4px solid var(--color-accent-green, #20BF55);
+  border-radius: 0 var(--radius-md, 8px) var(--radius-md, 8px) 0;
+  padding: 24px 28px;
+  margin: 32px 0 40px;
+  font-size: 0.975rem;
+  line-height: 1.75;
+  color: var(--text-primary, #101828);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  border-top: 1px solid rgba(234, 236, 240, 0.8);
+  border-right: 1px solid rgba(234, 236, 240, 0.8);
+  border-bottom: 1px solid rgba(234, 236, 240, 0.8);
+}
+
+.legal-card-info strong {
+  color: var(--color-royal-blue, #0A2540);
+}
+
+.legal-card-info a {
+  color: var(--color-cyan-hover, #0084C7);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition-fast, 0.2s ease);
+}
+
+.legal-card-info a:hover {
+  color: var(--color-royal-dark, #07172B);
+  text-decoration: underline;
+}
+
+/* Encabezados de Secciones Legales */
+.legal-body h2 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--color-royal-blue, #0A2540);
+  margin-top: 44px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-light, #EAECF0);
+  letter-spacing: -0.01em;
+}
+
+.legal-body h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-royal-blue-mid, #10375C);
+  margin-top: 28px;
+  margin-bottom: 14px;
+}
+
+/* Listas con viñetas personalizadas */
+.legal-body ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 24px;
+}
+
+.legal-body ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 14px;
+  font-size: 1.025rem;
+  line-height: 1.75;
+  color: var(--text-secondary, #344054);
+}
+
+.legal-body ul li::before {
+  content: "•";
+  position: absolute;
+  left: 10px;
+  top: -1px;
+  color: var(--color-accent-green, #20BF55);
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.legal-body a {
+  color: var(--color-cyan-hover, #0084C7);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast, 0.2s ease);
+}
+
+.legal-body a:hover {
+  color: var(--color-royal-dark, #07172B);
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   5. Responsividad (Media Queries)
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .legal-section {
+    padding: 48px 20px 72px;
+  }
+
+  .legal-card {
+    padding: 40px 32px;
+  }
+
+  .legal-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header-privacy {
+    height: 70px;
+  }
+
+  .header-privacy-container {
+    padding: 0 16px;
+  }
+
+  .logo-img {
+    height: 40px;
+    max-width: 150px;
+  }
+
+  .btn-return-home {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    gap: 8px;
+  }
+
+  .legal-section {
+    padding: 32px 16px 56px;
+  }
+
+  .legal-card {
+    padding: 32px 20px;
+    border-radius: var(--radius-md, 12px);
+  }
+
+  .legal-header {
+    padding-bottom: 24px;
+    margin-bottom: 28px;
+  }
+
+  .legal-title {
+    font-size: 1.75rem;
+  }
+
+  .legal-body {
+    font-size: 0.975rem;
+  }
+
+  .legal-body h2 {
+    font-size: 1.25rem;
+    margin-top: 32px;
+  }
+
+  .legal-body h3 {
+    font-size: 1.05rem;
+  }
+
+  .legal-card-info {
+    padding: 20px 18px;
+    margin: 24px 0 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-return-home {
+    padding: 7px 12px;
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    gap: 6px;
+  }
+
+  .btn-return-home .btn-return-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .logo-img {
+    height: 34px;
+    max-width: 130px;
+  }
+
+  .legal-card {
+    padding: 24px 16px;
+  }
+}

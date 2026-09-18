@@ -6,7 +6,7 @@
   <meta name="description" content="Aviso de Privacidad Integral de JADEC Soluciones Químicas, S.A. de C.V. Conoce el tratamiento y protección de tus datos personales conforme a la LFPDPPP.">
   <meta name="keywords" content="JADEC, Aviso de Privacidad, Protección de Datos, LFPDPPP, Soluciones Químicas">
   
-  <link rel="canonical" href="https://www.jadec-quimica.com/aviso-privacidad.html" />
+  <link rel="canonical" href="https://www.jadec-quimica.com/aviso-privacidad.html">
   <meta property="og:title" content="Aviso de Privacidad | JADEC Soluciones Químicas">
   <meta property="og:description" content="Aviso de Privacidad Integral de JADEC Soluciones Químicas, S.A. de C.V.">
   <meta property="og:url" content="https://www.jadec-quimica.com/aviso-privacidad.html">
@@ -25,163 +25,123 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Hojas de Estilo Separadas -->
+  <!-- Hojas de Estilo Modulares -->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/modal.css">
+  <link rel="stylesheet" href="css/privacidad.css">
 </head>
 <body>
 
-  <!-- Topbar Superior Corporativa -->
-  <div class="topbar">
-    <div class="topbar-container">
-      <!-- Columna Izquierda: Identidad y Línea Autorizada -->
-      <div class="topbar-brand-meta">
-        <span class="topbar-dot-orange" aria-hidden="true"></span>
-        <span class="topbar-brand-text">JADEC PRODUCTOS QUÍMICOS S.A. DE C.V. — LÍNEA AUTORIZADA ACTEGA®</span>
-      </div>
-
-      <!-- Columna Derecha: Departamento Técnico y Contacto Directo -->
-      <div class="topbar-tech-contact">
-        <span class="topbar-tech-label">DEPARTAMENTO TÉCNICO ARTES GRÁFICAS:</span>
-        <a href="tel:+525543390652" class="topbar-tech-link">55 4339 0652</a>
-        <span class="topbar-tech-sep">|</span>
-        <a href="mailto:administracion@jadec.mx" class="topbar-tech-link">administracion@jadec.mx</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Header y Navegación Principal -->
-  <header class="site">
-    <div class="header-container">
+  <!-- Header Refactorizado (Logotipo + Botón Regresar al Inicio) -->
+  <header class="site site-header-privacy">
+    <div class="header-container header-privacy-container">
       <a href="index.html" class="logo" aria-label="JADEC Soluciones Químicas - Inicio">
         <img src="images/logo/jadec-logo.png" alt="Logotipo Corporativo de JADEC Soluciones Químicas" class="logo-img" width="180" height="48">
       </a>
 
-      <nav class="site-nav" aria-label="Navegación Principal">
-        <ul class="navlinks">
-          <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
-          <li class="nav-item"><a href="index.html#nosotros" class="nav-link">Nosotros</a></li>
-          <li class="nav-item"><a href="index.html#industrias-atendidas" class="nav-link">Industrias</a></li>
-          <li class="nav-item"><a href="index.html#ventajas" class="nav-link">Ventajas</a></li>
-          <li class="nav-item has-dropdown">
-            <a href="index.html#productos" class="nav-link">
-              Productos
-              <svg class="dropdown-chevron" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a href="adhesivos.html" class="dropdown-item">Adhesivos Industriales</a></li>
-              <li><a href="index.html#productos" class="dropdown-item">Actega Offset</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="index.html#industrias" class="nav-link">Contacto</a>
-          </li>
-        </ul>
-      </nav>
-
-      <div class="header-actions">
-        <button type="button" class="nav-toggle" id="navToggle" aria-label="Abrir Menú de Navegación">
-          <span class="hamburger-bar"></span>
-          <span class="hamburger-bar"></span>
-          <span class="hamburger-bar"></span>
-        </button>
-      </div>
+      <a href="index.html" class="btn-return-home" aria-label="Regresar a la página principal de JADEC">
+        <svg class="btn-return-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+          <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+        </svg>
+        <span>Regresar al Inicio</span>
+      </a>
     </div>
   </header>
 
   <!-- Contenido Principal: Aviso de Privacidad -->
   <main id="main-content">
-    <section class="section legal-section">
+    <section class="section legal-section" aria-labelledby="legal-title">
       <div class="legal-container">
-        
-        <header class="legal-header">
-          <span class="legal-kicker">Marco Normativo &amp; Cumplimiento LFPDPPP</span>
-          <h1 class="legal-title">Aviso de Privacidad Integral</h1>
-          <p class="legal-updated">Última actualización: Agosto de 2026</p>
-        </header>
+        <article class="legal-card">
+          
+          <header class="legal-header">
+            <span class="legal-kicker">Marco Normativo &amp; Cumplimiento LFPDPPP</span>
+            <h1 class="legal-title" id="legal-title">Aviso de Privacidad Integral</h1>
+            <p class="legal-updated">Última actualización: Agosto de 2026</p>
+          </header>
 
-        <div class="legal-body">
-          <p>
-            En cumplimiento con lo establecido por la <strong>Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</strong>, su Reglamento y los Lineamientos del Aviso de Privacidad emitidos por las autoridades mexicanas correspondientes, <strong>JADEC Soluciones Químicas, S.A. de C.V.</strong> (en lo sucesivo denominada como <em>"JADEC"</em> o <em>"El Responsable"</em>), con domicilio fiscal y operativo en Ecatepec de Morelos, Estado de México, pone a su disposición el presente Aviso de Privacidad Integral.
-          </p>
+          <div class="legal-body">
+            <p>
+              En cumplimiento con lo establecido por la <strong>Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</strong>, su Reglamento y los Lineamientos del Aviso de Privacidad emitidos por las autoridades mexicanas correspondientes, <strong>JADEC Soluciones Químicas, S.A. de C.V.</strong> (en lo sucesivo denominada como <em>"JADEC"</em> o <em>"El Responsable"</em>), con domicilio fiscal y operativo en Ecatepec de Morelos, Estado de México, pone a su disposición el presente Aviso de Privacidad Integral.
+            </p>
 
-          <div class="legal-card-info">
-            <strong>Identidad del Responsable:</strong> JADEC Soluciones Químicas, S.A. de C.V.<br>
-            <strong>Giro:</strong> Distribución y fabricación de productos químicos, resinas, tintas y adhesivos industriales.<br>
-            <strong>Contacto del Área de Privacidad:</strong> <a href="mailto:contacto@jadec-quimica.com">contacto@jadec-quimica.com</a> | <a href="mailto:administracion@jadec.mx">administracion@jadec.mx</a><br>
-            <strong>Teléfono Directo:</strong> +52 (55) 5836-9000
+            <div class="legal-card-info">
+              <strong>Identidad del Responsable:</strong> JADEC Soluciones Químicas, S.A. de C.V.<br>
+              <strong>Giro:</strong> Distribución y fabricación de productos químicos, resinas, tintas y adhesivos industriales.<br>
+              <strong>Contacto del Área de Privacidad:</strong> <a href="mailto:contacto@jadec-quimica.com">contacto@jadec-quimica.com</a> | <a href="mailto:administracion@jadec.mx">administracion@jadec.mx</a><br>
+              <strong>Teléfono Directo:</strong> +52 (55) 5836-9000
+            </div>
+
+            <h2>1. Datos Personales que Recabamos</h2>
+            <p>
+              Para llevar a cabo las finalidades comerciales, técnicas y operativas descritas en el presente aviso, JADEC podrá recabar y dar tratamiento a los siguientes datos personales de identificación, contacto y requerimientos técnicos industriales:
+            </p>
+            <ul>
+              <li><strong>Datos de Identificación y Contacto:</strong> Nombre completo, cargo o puesto en la empresa, nombre de la persona moral o planta industrial que representa, correo electrónico corporativo, número telefónico fijo y/o móvil de oficina.</li>
+              <li><strong>Datos de Facturación y Fiscales:</strong> Razón social, Registro Federal de Contribuyentes (RFC), domicilio fiscal, uso de CFDI y método de pago preferente.</li>
+              <li><strong>Datos de Proceso y Formulación Industrial:</strong> Información sobre líneas de producción, tipos de sustratos, condiciones de aplicación, temperaturas de proceso, velocidades de línea y volúmenes estimados de consumo para formulación a la medida.</li>
+            </ul>
+            <p>
+              Hacemos de su conocimiento que JADEC <strong>no recaba datos personales sensibles</strong> (tales como origen racial, estado de salud presente o futuro, información genética, creencias religiosas o preferencias personales) para las operaciones comerciales regulares.
+            </p>
+
+            <h2>2. Finalidades del Tratamiento de Datos</h2>
+            <p>
+              Los datos personales que recabamos serán utilizados estrictamente para las siguientes finalidades:
+            </p>
+            
+            <h3>Finalidades Primarias (Necesarias para la relación comercial):</h3>
+            <ul>
+              <li>Elaborar y enviar cotizaciones, listas de precios, disponibilidad de inventario y propuestas comerciales de insumos químicos, adhesivos y tintas.</li>
+              <li>Procesar órdenes de compra, coordinar entregas logísticas seguras y emisión de Certificados de Análisis (CoA) de lotes.</li>
+              <li>Brindar asesoría técnica especializada en laboratorio y pruebas de desempeño directamente en sus líneas de producción.</li>
+              <li>Emisión de comprobantes fiscales digitales por internet (CFDI), cobranza y gestión administrativa.</li>
+              <li>Atender solicitudes, dudas técnicas y requerimientos de soporte post-venta.</li>
+            </ul>
+
+            <h3>Finalidades Secundarias (Opcionales):</h3>
+            <ul>
+              <li>Envío de boletines informativos sobre nuevas formulaciones, fichas técnicas actualizadas y soluciones químicas innovadoras de marcas autorizadas (Jadec, Actega).</li>
+              <li>Evaluaciones de satisfacción en el servicio logístico y calidad técnica de producto.</li>
+            </ul>
+            <p>
+              En caso de que no desee que sus datos personales sean tratados para las finalidades secundarias, puede manifestar su negativa en cualquier momento enviando un correo a <a href="mailto:contacto@jadec-quimica.com">contacto@jadec-quimica.com</a>.
+            </p>
+
+            <h2>3. Transferencia de Datos Personales</h2>
+            <p>
+              JADEC se compromete a no transferir, comercializar ni ceder sus datos personales a terceros ajenos a nuestra organización sin su consentimiento previo y expreso, salvo las excepciones legales previstas en el <strong>Artículo 37 de la LFPDPPP</strong>, tales como autoridades competentes en cumplimiento de obligaciones fiscales o regulatorias, o empresas transportistas especializadas únicamente para la entrega física de sus pedidos de materias primas.
+            </p>
+
+            <h2>4. Derechos ARCO (Acceso, Rectificación, Cancelación y Oposición)</h2>
+            <p>
+              Usted o su representante legal debidamente acreditado tienen derecho a conocer qué datos personales tenemos de usted, para qué los utilizamos y las condiciones del uso que les damos (<strong>Acceso</strong>). Asimismo, es su derecho solicitar la corrección de su información en caso de que esté desactualizada, sea inexacta o incompleta (<strong>Rectificación</strong>); que la eliminemos de nuestros registros o bases de datos cuando considere que no está siendo utilizada adecuadamente (<strong>Cancelación</strong>); así como oponerse al uso de sus datos para fines específicos (<strong>Oposición</strong>).
+            </p>
+            <p>
+              Para ejercer cualquiera de los <strong>Derechos ARCO</strong> o para revocar el consentimiento que nos haya otorgado, deberá presentar una solicitud por escrito dirigida a nuestro Departamento de Privacidad a través del correo electrónico: <a href="mailto:contacto@jadec-quimica.com">contacto@jadec-quimica.com</a>.
+            </p>
+            <p>
+              La solicitud deberá contener:
+            </p>
+            <ul>
+              <li>Nombre del titular y correo electrónico para comunicarle la respuesta.</li>
+              <li>Documentos oficiales que acrediten la identidad del titular o, en su caso, la representación legal.</li>
+              <li>Descripción clara y precisa de los datos personales respecto de los cuales se busca ejercer alguno de los derechos ARCO.</li>
+              <li>Cualquier otro elemento o documento que facilite la localización de los datos personales.</li>
+            </ul>
+
+            <h2>5. Uso de Cookies y Tecnologías de Rastreo</h2>
+            <p>
+              Le informamos que en nuestro portal web podemos utilizar cookies técnicas y herramientas de análisis web con el único propósito de monitorear el rendimiento del sitio, facilitar la navegación y recordar preferencias de sesión. Estas herramientas no recopilan datos personales identificables con fines de venta a terceros. Puede deshabilitar o rechazar el uso de cookies configurando las opciones de privacidad de su navegador de internet.
+            </p>
+
+            <h2>6. Modificaciones al Aviso de Privacidad</h2>
+            <p>
+              El presente Aviso de Privacidad puede sufrir modificaciones, cambios o actualizaciones derivadas de nuevos requerimientos legales, de nuestras propias necesidades operativas o de cambios en nuestras líneas de distribución química. Cualquier modificación será publicada y estará permanentemente disponible para su consulta en esta misma página web (<a href="https://www.jadec-quimica.com/aviso-privacidad.html">https://www.jadec-quimica.com/aviso-privacidad.html</a>).
+            </p>
           </div>
 
-          <h2>1. Datos Personales que Recabamos</h2>
-          <p>
-            Para llevar a cabo las finalidades comerciales, técnicas y operativas descritas en el presente aviso, JADEC podrá recabar y dar tratamiento a los siguientes datos personales de identificación, contacto y requerimientos técnicos industriales:
-          </p>
-          <ul>
-            <li><strong>Datos de Identificación y Contacto:</strong> Nombre completo, cargo o puesto en la empresa, nombre de la persona moral o planta industrial que representa, correo electrónico corporativo, número telefónico fijo y/o móvil de oficina.</li>
-            <li><strong>Datos de Facturación y Fiscales:</strong> Razón social, Registro Federal de Contribuyentes (RFC), domicilio fiscal, uso de CFDI y método de pago preferente.</li>
-            <li><strong>Datos de Proceso y Formulación Industrial:</strong> Información sobre líneas de producción, tipos de sustratos, condiciones de aplicación, temperaturas de proceso, velocidades de línea y volúmenes estimados de consumo para formulación a la medida.</li>
-          </ul>
-          <p>
-            Hacemos de su conocimiento que JADEC <strong>no recaba datos personales sensibles</strong> (tales como origen racial, estado de salud presente o futuro, información genética, creencias religiosas o preferencias personales) para las operaciones comerciales regulares.
-          </p>
-
-          <h2>2. Finalidades del Tratamiento de Datos</h2>
-          <p>
-            Los datos personales que recabamos serán utilizados estrictamente para las siguientes finalidades:
-          </p>
-          
-          <h3>Finalidades Primarias (Necesarias para la relación comercial):</h3>
-          <ul>
-            <li>Elaborar y enviar cotizaciones, listas de precios, disponibilidad de inventario y propuestas comerciales de insumos químicos, adhesivos y tintas.</li>
-            <li>Procesar órdenes de compra, coordinar entregas logísticas seguras y emisión de Certificados de Análisis (CoA) de lotes.</li>
-            <li>Brindar asesoría técnica especializada en laboratorio y pruebas de desempeño directamente en sus líneas de producción.</li>
-            <li>Emisión de comprobantes fiscales digitales por internet (CFDI), cobranza y gestión administrativa.</li>
-            <li>Atender solicitudes, dudas técnicas y requerimientos de soporte post-venta.</li>
-          </ul>
-
-          <h3>Finalidades Secundarias (Opcionales):</h3>
-          <ul>
-            <li>Envío de boletines informativos sobre nuevas formulaciones, fichas técnicas actualizadas y soluciones químicas innovadoras de marcas autorizadas (Jadec, Actega).</li>
-            <li>Evaluaciones de satisfacción en el servicio logístico y calidad técnica de producto.</li>
-          </ul>
-          <p>
-            En caso de que no desee que sus datos personales sean tratados para las finalidades secundarias, puede manifestar su negativa en cualquier momento enviando un correo a <a href="mailto:contacto@jadec-quimica.com">contacto@jadec-quimica.com</a>.
-          </p>
-
-          <h2>3. Transferencia de Datos Personales</h2>
-          <p>
-            JADEC se compromete a no transferir, comercializar ni ceder sus datos personales a terceros ajenos a nuestra organización sin su consentimiento previo y expreso, salvo las excepciones legales previstas en el <strong>Artículo 37 de la LFPDPPP</strong>, tales como autoridades competentes en cumplimiento de obligaciones fiscales o regulatorias, o empresas transportistas especializadas únicamente para la entrega física de sus pedidos de materias primas.
-          </p>
-
-          <h2>4. Derechos ARCO (Acceso, Rectificación, Cancelación y Oposición)</h2>
-          <p>
-            Usted o su representante legal debidamente acreditado tienen derecho a conocer qué datos personales tenemos de usted, para qué los utilizamos y las condiciones del uso que les damos (<strong>Acceso</strong>). Asimismo, es su derecho solicitar la corrección de su información en caso de que esté desactualizada, sea inexacta o incompleta (<strong>Rectificación</strong>); que la eliminemos de nuestros registros o bases de datos cuando considere que no está siendo utilizada adecuadamente (<strong>Cancelación</strong>); así como oponerse al uso de sus datos para fines específicos (<strong>Oposición</strong>).
-          </p>
-          <p>
-            Para ejercer cualquiera de los <strong>Derechos ARCO</strong> o para revocar el consentimiento que nos haya otorgado, deberá presentar una solicitud por escrito dirigida a nuestro Departamento de Privacidad a través del correo electrónico: <a href="mailto:contacto@jadec-quimica.com">contacto@jadec-quimica.com</a>.
-          </p>
-          <p>
-            La solicitud deberá contener:
-          </p>
-          <ul>
-            <li>Nombre del titular y correo electrónico para comunicarle la respuesta.</li>
-            <li>Documentos oficiales que acrediten la identidad del titular o, en su caso, la representación legal.</li>
-            <li>Descripción clara y precisa de los datos personales respecto de los cuales se busca ejercer alguno de los derechos ARCO.</li>
-            <li>Cualquier otro elemento o documento que facilite la localización de los datos personales.</li>
-          </ul>
-
-          <h2>5. Uso de Cookies y Tecnologías de Rastreo</h2>
-          <p>
-            Le informamos que en nuestro portal web podemos utilizar cookies técnicas y herramientas de análisis web con el único propósito de monitorear el rendimiento del sitio, facilitar la navegación y recordar preferencias de sesión. Estas herramientas no recopilan datos personales identificables con fines de venta a terceros. Puede deshabilitar o rechazar el uso de cookies configurando las opciones de privacidad de su navegador de internet.
-          </p>
-
-          <h2>6. Modificaciones al Aviso de Privacidad</h2>
-          <p>
-            El presente Aviso de Privacidad puede sufrir modificaciones, cambios o actualizaciones derivadas de nuevos requerimientos legales, de nuestras propias necesidades operativas o de cambios en nuestras líneas de distribución química. Cualquier modificación será publicada y estará permanentemente disponible para su consulta en esta misma página web (<a href="https://www.jadec-quimica.com/aviso-privacidad.html">https://www.jadec-quimica.com/aviso-privacidad.html</a>).
-          </p>
-        </div>
-
+        </article>
       </div>
     </section>
   </main>
@@ -260,7 +220,6 @@
       <button type="button" class="modal-close" data-close-modal aria-label="Cerrar ventana modal">&times;</button>
       
       <div class="modal-body-content" id="modalFormContainer">
-        <!-- Cabecera del Modal -->
         <div class="modal-header">
           <span class="modal-kicker">[ SUMINISTRO MAYORISTA &mdash; JADEC ]</span>
           <h2 class="modal-title" id="modalTitle">SOLICITAR COTIZACIÓN</h2>
@@ -270,7 +229,6 @@
         </div>
 
         <form id="contactForm" class="modal-form" novalidate>
-          <!-- Fila 1: Nombre y Empresa (2 columnas) -->
           <div class="form-row">
             <div class="modal-form-group">
               <label for="fieldName" class="form-label">NOMBRE COMPLETO <span class="required">*</span></label>
@@ -282,7 +240,6 @@
             </div>
           </div>
 
-          <!-- Fila 2: Correo y Teléfono (2 columnas) -->
           <div class="form-row">
             <div class="modal-form-group">
               <label for="fieldEmail" class="form-label">CORREO ELECTRÓNICO EMPRESARIAL <span class="required">*</span></label>
@@ -294,7 +251,6 @@
             </div>
           </div>
 
-          <!-- Fila 3: Volumen de Consumo (1 columna completa) -->
           <div class="modal-form-group">
             <label for="fieldVolume" class="form-label">VOLUMEN DE CONSUMO ESTIMADO <span class="required">*</span></label>
             <select id="fieldVolume" name="volume" class="form-select" required>
@@ -305,13 +261,11 @@
             </select>
           </div>
 
-          <!-- Fila 4: Datos de Proceso (1 columna completa) -->
           <div class="modal-form-group">
             <label for="fieldProcess" class="form-label">DATOS DE PROCESO (OPCIONAL)</label>
             <textarea id="fieldProcess" name="process" class="form-textarea" rows="3" placeholder="Sustrato, velocidad de línea, temperatura de proceso, equipo de aplicación..."></textarea>
           </div>
 
-          <!-- Casilla de Privacidad -->
           <div class="form-checkbox-group">
             <label class="checkbox-label" for="fieldPrivacy">
               <input type="checkbox" id="fieldPrivacy" name="privacy" class="form-checkbox" required>
@@ -321,7 +275,6 @@
             </label>
           </div>
 
-          <!-- Botones de Acción (Alineados a la derecha) -->
           <div class="modal-actions">
             <button type="button" class="btn btn-ghost btn-modal-cancel" data-close-modal>CANCELAR</button>
             <button type="submit" class="btn btn-submit btn-modal-submit">ENVIAR SOLICITUD &rarr;</button>
@@ -329,7 +282,6 @@
         </form>
       </div>
 
-      <!-- Estado de Éxito -->
       <div class="modal-success-state" id="modalSuccessState" hidden>
         <div class="success-icon-wrap">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -347,7 +299,7 @@
     </svg>
   </button>
 
-  <script src="js/modal.js" defer></script>
-  <script src="js/scroll.js" defer></script>
+  <!-- Script Modular Específico -->
+  <script src="js/privacidad.js" defer></script>
 </body>
 </html>
