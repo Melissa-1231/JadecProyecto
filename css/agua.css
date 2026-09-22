@@ -43,6 +43,7 @@ body {
   background: var(--paper);
   color: var(--graphite);
   line-height: 1.6;
+  padding-top: 76px; /* Compensación de altura para el Smart Header fixed */
 }
 
 .wrap {
@@ -62,7 +63,7 @@ body {
 }
 
 /* ==========================================================================
-   1. Header / Barra Superior Custom
+   1. Header / Barra Superior Custom (Smart Header)
    ========================================================================== */
 .nav-bar-custom {
   display: flex;
@@ -72,11 +73,17 @@ body {
   padding: 14px 5%;
   background: var(--white);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-  position: sticky;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  position: fixed;
   top: 0;
-  z-index: 100;
-  transition: all 0.25s ease;
+  left: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Estado Smart Header: Oculto hacia arriba al hacer scroll down */
+.nav-bar-custom.nav-oculto {
+  transform: translateY(-100%);
 }
 
 .nav-grupo-izq {
@@ -96,6 +103,7 @@ body {
   max-width: 180px;
   object-fit: contain;
   display: block;
+  transition: height 0.25s ease;
 }
 
 .nav-grupo-der {
@@ -104,7 +112,7 @@ body {
   gap: 28px;
 }
 
-/* Enlaces de Navegación */
+/* Enlaces de Navegación (Desktop > 1024px) */
 .nav-links {
   display: flex;
   align-items: center;
@@ -137,6 +145,7 @@ body {
   max-width: 120px;
   object-fit: contain;
   display: block;
+  transition: height 0.25s ease;
 }
 
 /* Botón de Retorno Estandarizado */
@@ -179,7 +188,7 @@ body {
   transform: translateX(-2px);
 }
 
-/* Botón Menú Hamburguesa Móvil */
+/* Botón Menú Hamburguesa Móvil / Tablet */
 .btn-menu-movil {
   display: none;
   align-items: center;
@@ -204,11 +213,27 @@ body {
 .btn-menu-movil svg {
   display: block;
   stroke: currentColor;
-  transition: transform 0.25s ease;
 }
 
-.btn-menu-movil.activo svg {
-  transform: rotate(90deg);
+/* Transformación fluida de 3 líneas horizontales a "X" */
+.btn-menu-movil .line-1,
+.btn-menu-movil .line-2,
+.btn-menu-movil .line-3 {
+  transform-origin: 12px 12px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
+}
+
+.btn-menu-movil.activo .line-1 {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.btn-menu-movil.activo .line-2 {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.btn-menu-movil.activo .line-3 {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 /* ==========================================================================
@@ -703,129 +728,291 @@ body {
 }
 
 /* ==========================================================================
-   6. Sección 3: BARNICES ESPECIALES (Bento Box Grid de Alto Contraste)
+   6. Sección 3: BARNICES ESPECIALES (Acordeón Horizontal Interactivo Dark Mode)
    ========================================================================== */
 .seccion-especiales-agua {
   margin-top: 70px;
 }
 
-.bento-box-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 24px;
-  margin-top: 28px;
-}
-
-/* Tarjetas 1 y 2: Fila superior (3 columnas cada una = 50% de ancho) */
-.bento-card-large {
-  grid-column: span 3;
-}
-
-/* Tarjetas 3, 4 y 5: Fila inferior (2 columnas cada una = 33.33% de ancho) */
-.bento-card-medium {
-  grid-column: span 2;
-}
-
-/* Estilo Base de las Tarjetas Bento (Dark Mode / Alto Contraste) */
-.bento-card {
+.accordion-especiales {
   display: flex;
-  flex-direction: column;
-  background-color: var(--ink, #0A2540);
+  gap: 16px;
+  height: 520px;
+  margin-top: 36px;
+  width: 100%;
+}
+
+/* Tarjeta del Acordeón */
+.accordion-item {
+  position: relative;
+  flex: 1;
+  min-width: 70px;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 6px 24px rgba(10, 37, 64, 0.25);
   cursor: pointer;
-  position: relative;
-  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), 
-              box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1), 
-              border-color 0.35s ease;
-}
-
-.bento-card:hover,
-.bento-card:focus-visible {
-  transform: translateY(-6px);
-  border-color: rgba(32, 191, 85, 0.55);
-  box-shadow: 0 12px 32px rgba(32, 191, 85, 0.22), 0 4px 16px rgba(0, 0, 0, 0.4);
+  background-color: var(--ink, #0A2540);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 24px rgba(10, 37, 64, 0.35);
+  transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+              border-color 0.4s ease,
+              box-shadow 0.4s ease,
+              transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   outline: none;
 }
 
-/* Bloque Superior Visual */
-.bento-card-visual {
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 70%, transparent 100%);
-  padding: 30px 24px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 230px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-  overflow: hidden;
+.accordion-item:hover:not(.activo) {
+  border-color: rgba(32, 191, 85, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
 }
 
-.bento-card-large .bento-card-visual {
-  height: 250px;
+.accordion-item:focus-visible {
+  outline: 2px solid var(--color-accent-green, #20BF55);
+  outline-offset: 2px;
 }
 
-.bento-card-visual picture {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Tarjeta Activa */
+.accordion-item.activo {
+  flex: 5;
+  cursor: default;
+  border-color: var(--color-accent-green, #20BF55);
+  box-shadow: 0 12px 36px rgba(32, 191, 85, 0.25), 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* Imagen de Fondo y Picture */
+.accordion-picture {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
+  pointer-events: none;
 }
 
-.bento-card-visual img {
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.4));
-  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+.accordion-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.98) contrast(1.08) saturate(1.05);
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease;
 }
 
-.bento-card:hover .bento-card-visual img,
-.bento-card:focus-visible .bento-card-visual img {
-  transform: translateY(-4px) scale(1.05);
+.accordion-item:hover .accordion-bg-img {
+  transform: scale(1.05);
+  filter: brightness(1.05) contrast(1.1) saturate(1.1);
 }
 
-/* Bloque Inferior de Texto */
-.bento-card-body {
-  padding: 26px 28px 30px;
+.accordion-item.activo .accordion-bg-img {
+  transform: scale(1.02);
+  filter: brightness(1.02) contrast(1.08) saturate(1.05);
+}
+
+/* Overlay Suave para Máxima Visibilidad de Imagen */
+.accordion-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, 
+    rgba(10, 37, 64, 0.4) 0%, 
+    rgba(10, 37, 64, 0.05) 25%, 
+    rgba(10, 37, 64, 0.05) 60%, 
+    rgba(10, 37, 64, 0.72) 100%
+  );
+  z-index: 2;
+  transition: background 0.4s ease;
+  pointer-events: none;
+}
+
+.accordion-item:hover:not(.activo) .accordion-overlay {
+  background: linear-gradient(180deg, 
+    rgba(10, 37, 64, 0.25) 0%, 
+    rgba(10, 37, 64, 0) 25%, 
+    rgba(10, 37, 64, 0) 60%, 
+    rgba(10, 37, 64, 0.55) 100%
+  );
+}
+
+/* En la tarjeta activa: degradado sutil arriba (para tag y título) y abajo (para descripción y botón), dejando el centro 100% libre y visible */
+.accordion-item.activo .accordion-overlay {
+  background: linear-gradient(180deg, 
+    rgba(7, 24, 42, 0.82) 0%, 
+    rgba(7, 24, 42, 0.4) 22%, 
+    rgba(7, 24, 42, 0.02) 38%, 
+    rgba(7, 24, 42, 0.02) 62%, 
+    rgba(7, 24, 42, 0.6) 82%, 
+    rgba(7, 24, 42, 0.9) 100%
+  );
+}
+
+/* Estado Colapsado */
+.accordion-collapsed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 24px 16px;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s;
+  pointer-events: none;
 }
 
-.bento-card-tag {
+.accordion-item.activo .accordion-collapsed {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.accordion-idx {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-accent-green, #20BF55);
+  letter-spacing: 0.1em;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+.accordion-title-vertical {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--white, #FFFFFF);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Estado Expandido (Layout de 2 Bloques: Título arriba, Información abajo, Centro libre para imagen) */
+.accordion-expanded {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 34px 38px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 4;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.15s, 
+              visibility 0.4s 0.15s,
+              transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) 0.15s;
+  transform: translateY(8px);
+}
+
+.accordion-item.activo .accordion-expanded {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Bloque Superior: Tag y Título Principal */
+.accordion-expanded-top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 600px;
+}
+
+.accordion-tag {
   display: inline-block;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 11.5px;
+  font-size: 12.5px;
   font-weight: 700;
   color: var(--color-accent-green, #20BF55);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
 }
 
-.bento-card-title {
+.accordion-title-expanded {
   font-family: 'Big Shoulders Display', sans-serif;
-  font-size: 24px;
+  font-size: 40px;
   font-weight: 900;
   color: var(--white, #FFFFFF);
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  line-height: 1.15;
-  margin-bottom: 10px;
+  line-height: 1.05;
+  margin: 0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
 }
 
-.bento-card-large .bento-card-title {
-  font-size: 26px;
+/* Bloque Inferior: Descripción Técnica y Botón CTA */
+.accordion-expanded-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 580px;
 }
 
-.bento-card-desc {
+.accordion-desc {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.82);
-  line-height: 1.6;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.94);
+  line-height: 1.55;
+  margin-bottom: 18px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+
+/* Botón CTA del Acordeón */
+.btn-accordion-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--color-accent-green, #20BF55);
+  color: #0A2540;
+  padding: 13px 26px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(32, 191, 85, 0.35);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn-accordion-cta svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.btn-accordion-cta:hover,
+.btn-accordion-cta:focus-visible {
+  background-color: var(--white, #FFFFFF);
+  color: #0A2540;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(255, 255, 255, 0.35);
+  outline: none;
+}
+
+.btn-accordion-cta:hover svg,
+.btn-accordion-cta:focus-visible svg {
+  transform: translateX(4px);
 }
 
 /* ==========================================================================
@@ -847,83 +1034,227 @@ footer p {
 }
 
 /* ==========================================================================
-   8. Media Queries Responsivos
+   8. Botón Flotante: Volver al Inicio (Back to Top)
    ========================================================================== */
-@media (max-width: 1024px) {
-  .grid-tres-brillantes {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .bento-box-grid {
-    grid-template-columns: repeat(6, 1fr);
-    gap: 20px;
-  }
+.btn-volver-arriba {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--steel, #00A8E8);
+  color: var(--white, #FFFFFF);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 168, 232, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, 
+              visibility 0.3s ease, 
+              transform 0.3s ease, 
+              background-color 0.3s ease, 
+              box-shadow 0.3s ease;
+  outline: none;
 }
 
-@media (max-width: 860px) {
+.btn-volver-arriba svg {
+  display: block;
+  stroke: currentColor;
+  transition: transform 0.25s ease;
+}
+
+/* Estado Visible */
+.btn-volver-arriba.mostrar {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Interactividad (Hover / Focus) */
+.btn-volver-arriba:hover,
+.btn-volver-arriba:focus-visible {
+  background-color: var(--steel-hover, #0084C7);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 168, 232, 0.6);
+}
+
+.btn-volver-arriba:hover svg,
+.btn-volver-arriba:focus-visible svg {
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   9. Media Queries Responsivos (Breakpoints: Desktop > 1024px, Tablet 768-1024px, Móvil < 768px)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   A. Vista Tablet (768px a 1024px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  body {
+    padding-top: 66px;
+  }
+
   .nav-bar-custom {
     padding: 12px 4%;
   }
 
   .nav-grupo-der {
-    gap: 12px;
+    gap: 16px;
   }
 
   .logo-daka {
     height: 38px;
-    max-width: 135px;
+    max-width: 140px;
   }
 
   .logo-actega {
-    height: 26px;
-    max-width: 85px;
+    height: 28px;
+    max-width: 95px;
   }
 
   .btn-regresar {
-    padding: 7px 12px;
-    font-size: 11.5px;
-    gap: 5px;
-  }
-
-  .btn-regresar svg {
-    width: 13px;
-    height: 13px;
+    padding: 7px 14px;
+    font-size: 12px;
   }
 
   .btn-menu-movil {
     display: inline-flex;
   }
 
-  /* Menú desplegable vertical en móvil */
+  /* Menú desplegable vertical en Tablet: anclado a la derecha con 50% de ancho */
   .nav-links {
     position: absolute;
     top: 100%;
-    left: 0;
-    width: 100%;
+    right: 4%;
+    width: 50%;
+    max-width: 380px;
     background-color: var(--white);
     flex-direction: column;
     align-items: stretch;
-    padding: 0 20px;
+    padding: 0 16px;
     max-height: 0;
     opacity: 0;
     visibility: hidden;
     overflow: hidden;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1);
-    border-bottom: 3px solid var(--color-accent-green);
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-top: 3px solid var(--color-accent-green);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 99;
+    z-index: 999;
   }
 
   .nav-links.activo {
     max-height: 260px;
     opacity: 1;
     visibility: visible;
-    padding: 16px 20px 20px;
+    padding: 14px 16px 18px;
   }
 
   .nav-links a {
-    padding: 12px 16px;
-    font-size: 14px;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    font-weight: 700;
+    text-align: left;
+    border-radius: 6px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  }
+
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus {
+    background-color: var(--color-accent-green-bg);
+    color: var(--color-accent-green);
+  }
+
+  .grid-tres-brillantes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   B. Vista Celular (Mobile < 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  body {
+    padding-top: 58px;
+  }
+
+  .nav-bar-custom {
+    padding: 10px 4%;
+  }
+
+  .nav-grupo-der {
+    gap: 10px;
+  }
+
+  .logo-daka {
+    height: 32px;
+    max-width: 115px;
+  }
+
+  .logo-actega {
+    height: 22px;
+    max-width: 75px;
+  }
+
+  .btn-regresar {
+    padding: 6px 10px;
+    font-size: 11px;
+    gap: 4px;
+  }
+
+  .btn-regresar svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .btn-menu-movil {
+    display: inline-flex;
+    padding: 5px 6px;
+  }
+
+  /* Menú desplegable vertical en Móvil: ocupa el 100% de la pantalla */
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: var(--white);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 18px;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+    border-bottom: 3px solid var(--color-accent-green);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+  }
+
+  .nav-links.activo {
+    max-height: 240px;
+    opacity: 1;
+    visibility: visible;
+    padding: 14px 18px 18px;
+  }
+
+  .nav-links a {
+    padding: 11px 14px;
+    font-size: 13px;
     font-weight: 700;
     text-align: center;
     border-radius: 6px;
@@ -942,91 +1273,167 @@ footer p {
 
   /* Hero en Móviles */
   .hero-agua-texto {
-    padding: 40px 20px 32px;
+    padding: 36px 18px 28px;
   }
 
   .hero-agua-imagen {
-    height: 45vh;
-    min-height: 280px;
+    height: 40vh;
+    min-height: 260px;
   }
 
   .agua-wave-divider svg {
-    height: 60px;
+    height: 50px;
   }
 
-  /* Grid Brillantes en Tablet / Móvil */
+  /* Grid Brillantes en Móvil */
   .grid-tres-brillantes {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 18px;
   }
 
   .tarjeta-brillante-poster {
-    min-height: 360px;
+    min-height: 340px;
   }
 
   /* Layout Matte en Móviles (Apilado Vertical) */
   .layout-dos-columnas-matte {
     grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .card-info-matte {
-    padding: 28px 20px;
-  }
-
-  .carousel-matte-track-container {
-    min-height: 360px;
-  }
-
-  .carousel-slide-inner picture {
-    height: 260px;
-    max-height: 260px;
-  }
-
-  .carousel-btn {
-    width: 38px;
-    height: 38px;
-  }
-
-  /* Bento Box Grid en Móviles: todas a 1 columna (100%) */
-  .bento-box-grid {
-    grid-template-columns: 1fr;
     gap: 20px;
   }
 
-  .bento-card-large,
-  .bento-card-medium {
-    grid-column: span 1;
+  .card-info-matte {
+    padding: 24px 18px;
   }
 
-  .bento-card-visual,
-  .bento-card-large .bento-card-visual {
-    height: 200px;
-    padding: 24px 18px 16px;
+  .carousel-matte-track-container {
+    min-height: 340px;
   }
 
-  .bento-card-body {
-    padding: 22px 20px 24px;
+  .carousel-slide-inner picture {
+    height: 240px;
+    max-height: 240px;
+  }
+
+  .carousel-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Acordeón Especiales en Móvil: Apilado Vertical */
+  .accordion-especiales {
+    flex-direction: column;
+    height: auto;
+    gap: 14px;
+  }
+
+  .accordion-item {
+    min-height: 72px;
+    height: 72px;
+    flex: none;
+    transition: height 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+  }
+
+  .accordion-item.activo {
+    height: auto;
+    min-height: 380px;
+    flex: none;
+  }
+
+  .accordion-overlay {
+    background: linear-gradient(90deg, 
+      rgba(10, 37, 64, 0.65) 0%, 
+      rgba(10, 37, 64, 0.2) 45%, 
+      rgba(10, 37, 64, 0.05) 100%
+    );
+  }
+
+  .accordion-item.activo .accordion-overlay {
+    background: linear-gradient(180deg, 
+      rgba(7, 24, 42, 0.78) 0%, 
+      rgba(7, 24, 42, 0.35) 25%, 
+      rgba(7, 24, 42, 0.55) 75%, 
+      rgba(7, 24, 42, 0.9) 100%
+    );
+  }
+
+  .accordion-collapsed {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    padding: 0 20px;
+  }
+
+  .accordion-title-vertical {
+    writing-mode: horizontal-tb;
+    transform: none;
+    font-size: 17px;
+    letter-spacing: 0.02em;
+    white-space: normal;
+  }
+
+  .accordion-expanded {
+    position: relative;
+    padding: 24px 20px 24px;
+    transform: none;
+    gap: 24px;
+    min-height: 380px;
+  }
+
+  .accordion-title-expanded {
+    font-size: 28px;
+  }
+
+  .accordion-desc {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  /* Botón Volver al Inicio en Móviles */
+  .btn-volver-arriba {
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .btn-volver-arriba svg {
+    width: 20px;
+    height: 20px;
   }
 }
 
-@media (max-width: 580px) {
-  .tarjeta-brillante-poster {
-    min-height: 320px;
-  }
-}
-
+/* --------------------------------------------------------------------------
+   C. Pantallas Muy Pequeñas (< 480px)
+   -------------------------------------------------------------------------- */
 @media (max-width: 480px) {
   .hero-agua-title {
-    font-size: 34px;
+    font-size: 32px;
   }
 
   .hero-agua-desc {
-    font-size: 14.5px;
+    font-size: 14px;
   }
 
-  .bento-card-title {
-    font-size: 21px;
+  .accordion-title-expanded {
+    font-size: 24px;
+  }
+
+  .accordion-title-vertical {
+    font-size: 15px;
+  }
+
+  .accordion-expanded {
+    padding: 20px 16px 22px;
+  }
+
+  .btn-accordion-cta {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 16px;
+    font-size: 12px;
   }
 }
 

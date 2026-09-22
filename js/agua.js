@@ -25,10 +25,41 @@
       });
     });
 
-    // 2. Control del Menú Hamburguesa Móvil
+    // 2. Control del Smart Header (Ocultar al bajar / Mostrar al subir) y Menú Desplegable
+    const header = document.querySelector('.nav-bar-custom');
     const btnMenuMovil = document.getElementById('btnMenuMovil');
     const navLinksMenu = document.getElementById('navLinksMenu');
+    let lastScrollTop = 0;
 
+    // Lógica del Smart Header
+    if (header) {
+      const headerHeight = header.offsetHeight || 70;
+
+      window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        // Si el menú desplegable está abierto, pausamos el Smart Header para no ocultar el menú mientras el usuario navega
+        if (navLinksMenu && navLinksMenu.classList.contains('activo')) {
+          lastScrollTop = currentScroll;
+          return;
+        }
+
+        // Prevenir comportamiento errático en rebote superior (iOS bounce)
+        if (currentScroll < 0) return;
+
+        if (currentScroll > lastScrollTop && currentScroll > headerHeight) {
+          // Scrolling hacia abajo: ocultar header
+          header.classList.add('nav-oculto');
+        } else if (currentScroll < lastScrollTop) {
+          // Scrolling hacia arriba: mostrar header
+          header.classList.remove('nav-oculto');
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+      }, { passive: true });
+    }
+
+    // Lógica del Menú Desplegable (Tablet / Móvil)
     if (btnMenuMovil && navLinksMenu) {
       const toggleMenu = () => {
         const isExpanded = btnMenuMovil.getAttribute('aria-expanded') === 'true';
@@ -161,23 +192,58 @@
       });
     });
 
-    // 5. Interacción en Tarjetas de Sección 3: Barnices Especiales (Bento Box)
-    const tarjetasBento = document.querySelectorAll('.bento-card');
-    tarjetasBento.forEach(tarjeta => {
-      const tituloElemento = tarjeta.querySelector('.bento-card-title');
-      const tituloTarjeta = tituloElemento ? tituloElemento.textContent.trim() : 'Barniz Especial';
+    // 5. Interacción del Acordeón Horizontal Interactivo (Barnices Especiales)
+    const accordionItems = document.querySelectorAll('.accordion-especiales .accordion-item');
+    if (accordionItems.length > 0) {
+      accordionItems.forEach(item => {
+        const activateItem = () => {
+          if (item.classList.contains('activo')) return;
 
-      tarjeta.addEventListener('click', () => {
-        console.log('Ver detalles de:', tituloTarjeta);
+          accordionItems.forEach(otherItem => {
+            otherItem.classList.remove('activo');
+            otherItem.setAttribute('aria-selected', 'false');
+          });
+
+          item.classList.add('activo');
+          item.setAttribute('aria-selected', 'true');
+        };
+
+        // Activación por clic
+        item.addEventListener('click', (e) => {
+          // Si el clic proviene del botón CTA de solicitar información o un enlace interno, permitir su flujo
+          if (e.target.closest('a')) return;
+          activateItem();
+        });
+
+        // Accesibilidad por teclado (Enter / Space)
+        item.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            if (e.target.closest('a')) return;
+            e.preventDefault();
+            activateItem();
+          }
+        });
       });
+    }
 
-      // Accesibilidad por teclado (Enter / Space)
-      tarjeta.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          tarjeta.click();
+    // 6. Botón Flotante "Volver al Inicio" (Back to Top)
+    const btnVolverArriba = document.getElementById('btnVolverArriba');
+    if (btnVolverArriba) {
+      window.addEventListener('scroll', () => {
+        const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollPosition > 400) {
+          btnVolverArriba.classList.add('mostrar');
+        } else {
+          btnVolverArriba.classList.remove('mostrar');
         }
+      }, { passive: true });
+
+      btnVolverArriba.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
       });
-    });
+    }
   });
 })();
