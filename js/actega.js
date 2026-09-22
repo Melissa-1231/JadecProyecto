@@ -70,6 +70,16 @@
           navToggle.focus();
         }
       });
+
+      // Cerrar menú si la pantalla se redimensiona a escritorio (> 992px)
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 992 && navMenu.classList.contains('is-active')) {
+          navMenu.classList.remove('is-active');
+          navToggle.classList.remove('is-active');
+          navToggle.setAttribute('aria-expanded', 'false');
+          navToggle.setAttribute('aria-label', 'Abrir Menú de Navegación');
+        }
+      }, { passive: true });
     }
   });
 })();
