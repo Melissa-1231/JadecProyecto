@@ -87,7 +87,8 @@ a.btn-tintas-green:active {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('https://images.unsplash.com/photo-1629905679177-4c4e238d7237?auto=format&fit=crop&w=3840&fmt=webp&q=80');
+  /* Fotografía de fondo local en resolución 4K y formato WebP */
+  background-image: url('../assets/tintas-1.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -99,7 +100,8 @@ a.btn-tintas-green:active {
 .hero-tintas-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(7, 23, 43, 0.88) 0%, rgba(10, 37, 64, 0.84) 60%, rgba(5, 19, 36, 0.92) 100%);
+  /* Degradado azul corporativo con opacidad optimizada (80% - 88%) para máximo contraste y legibilidad */
+  background: linear-gradient(135deg, rgba(7, 23, 43, 0.88) 0%, rgba(10, 37, 64, 0.85) 60%, rgba(5, 19, 36, 0.88) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -217,17 +219,16 @@ a.btn-tintas-green:active {
 }
 
 /* --------------------------------------------------------------------------
-   5. Tarjetas de Catálogo Oscuras de Alto Brillo (.catalog-card)
+   5. Tarjetas de Catálogo Luminosas Premium (.catalog-card)
    -------------------------------------------------------------------------- */
 .catalog-card {
   display: flex;
   flex-direction: column;
-  background-color: #111625;
-  background: linear-gradient(180deg, #161D31 0%, #0D1322 100%);
-  border-radius: var(--radius-lg, 14px);
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg, 16px);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border-light, #EAECF0);
+  box-shadow: 0 4px 20px rgba(10, 37, 64, 0.06), 0 1px 3px rgba(10, 37, 64, 0.03);
   cursor: pointer;
   position: relative;
   outline: none;
@@ -239,43 +240,117 @@ a.btn-tintas-green:active {
 .catalog-card:hover,
 .catalog-card:focus-visible {
   transform: translateY(-8px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55), 0 0 24px rgba(32, 191, 85, 0.18);
-  border-color: rgba(32, 191, 85, 0.5);
+  box-shadow: 0 16px 36px rgba(10, 37, 64, 0.12), 0 4px 12px rgba(32, 191, 85, 0.1);
+  border-color: rgba(32, 191, 85, 0.4);
 }
 
 .catalog-card:focus-visible {
-  outline: 2px solid var(--color-accent-green, #20BF55);
+  outline: 2px solid var(--color-tintas-green, #20BF55);
   outline-offset: 3px;
 }
 
-/* Área Superior con Imagen / Degradado Vibrante */
+/* Área Superior con Fondo de Estudio Fotográfico (Ciclorama) y Envase Dominante */
 .catalog-card__media {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 310px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 45%, #FFFFFF 25%, #F6F8FB 70%, #E9EEF5 100%);
+  padding: 10px;
   overflow: hidden;
-  background-color: #FFFFFF;
+  border-bottom: 1px solid rgba(234, 236, 240, 0.8);
 }
 
+/* Sombra de Suelo (Pedestal de Estudio) */
+.catalog-card__media::after {
+  content: '';
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 58%;
+  height: 16px;
+  background: radial-gradient(ellipse at center, rgba(7, 23, 43, 0.3) 0%, rgba(7, 23, 43, 0) 72%);
+  border-radius: 50%;
+  filter: blur(4px);
+  z-index: 1;
+  transition: transform 0.45s ease, opacity 0.45s ease;
+  pointer-events: none;
+}
+
+.catalog-card:hover .catalog-card__media::after {
+  transform: translateX(-50%) scale(1.18);
+  opacity: 0.85;
+}
+
+/* Etiqueta Técnica Flotante */
+.catalog-card__tag {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(16, 24, 40, 0.1);
+  box-shadow: 0 2px 8px rgba(10, 37, 64, 0.08);
+  padding: 5px 12px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #0A2540;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tag-color-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.dot-magenta {
+  background-color: #E91E63;
+  box-shadow: 0 0 6px rgba(233, 30, 99, 0.7);
+}
+
+.dot-cyan {
+  background-color: #00A8E8;
+  box-shadow: 0 0 6px rgba(0, 168, 232, 0.7);
+}
+
+.dot-gold {
+  background-color: #D4AF37;
+  box-shadow: 0 0 6px rgba(212, 175, 55, 0.7);
+}
+
+/* Imagen del Envase en Alta Resolución y Escala Llena */
 .catalog-card__img {
+  position: relative;
+  z-index: 2;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
-  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  margin: 0 auto;
+  transform: scale(1.78);
+  transform-origin: center center;
+  filter: drop-shadow(0 14px 22px rgba(7, 23, 43, 0.22)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12)) contrast(1.05) brightness(1.02);
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              filter 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .catalog-card:hover .catalog-card__img,
 .catalog-card:focus-visible .catalog-card__img {
-  transform: scale(1.08);
-}
-
-/* Capa de difuminado que conecta la imagen superior con el fondo oscuro */
-.catalog-card__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(22, 29, 49, 0) 0%, rgba(22, 29, 49, 0) 65%, rgba(17, 22, 37, 0.8) 85%, #111625 100%);
-  pointer-events: none;
+  transform: scale(1.95) translateY(-8px);
+  filter: drop-shadow(0 26px 36px rgba(7, 23, 43, 0.35)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.18)) contrast(1.08) brightness(1.05);
 }
 
 /* Cuerpo de la Tarjeta */
@@ -284,66 +359,70 @@ a.btn-tintas-green:active {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  position: relative;
-  z-index: 2;
+  background-color: #FFFFFF;
 }
 
-/* Categoría / Eyebrow Text en Rojo/Naranja Vibrante */
+/* Categoría / Eyebrow Text en Naranja Vibrante (#FF5722) */
 .catalog-card__category {
   font-size: 0.75rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   color: #FF5722;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   display: block;
   line-height: 1.2;
 }
 
-/* Título Principal */
+/* Título Principal en Azul Oscuro Corporativo (#0A2540) */
 .catalog-card__title {
   font-size: 1.35rem;
   font-weight: 800;
-  color: #FFFFFF;
+  color: #0A2540;
   line-height: 1.25;
-  margin: 0 0 14px 0;
+  margin: 0 0 12px 0;
   letter-spacing: -0.01em;
+  transition: color var(--transition-fast, 0.2s ease);
 }
 
-/* Párrafo de Descripción */
+.catalog-card:hover .catalog-card__title {
+  color: var(--color-royal-blue-mid, #10375C);
+}
+
+/* Párrafo de Descripción en Gris Medio (#4B5563) */
 .catalog-card__desc {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.925rem;
+  color: #4B5563;
   line-height: 1.6;
-  margin: 0 0 24px 0;
+  margin: 0 0 22px 0;
   flex-grow: 1;
 }
 
-/* Área de Acción / Botón Inferior */
+/* Área de Acción / Botón Inferior en Verde Institucional */
 .catalog-card__action {
   margin-top: auto;
   padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border-light, #EAECF0);
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
 .catalog-card__btn {
-  font-size: 0.825rem;
+  font-size: 0.85rem;
   font-weight: 800;
-  color: var(--color-accent-green, #20BF55);
+  color: var(--color-tintas-green, #20BF55);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  transition: color var(--transition-fast), transform var(--transition-fast);
+  gap: 8px;
+  transition: color var(--transition-fast, 0.2s ease), transform var(--transition-fast, 0.2s ease);
 }
 
 .catalog-card:hover .catalog-card__btn,
 .catalog-card:focus-visible .catalog-card__btn {
-  color: #FFFFFF;
+  color: var(--color-tintas-green-hover, #199E44);
   transform: translateX(4px);
 }
 
@@ -357,7 +436,8 @@ a.btn-tintas-green:active {
   }
 
   .catalog-card__media {
-    height: 180px;
+    height: 260px;
+    padding: 14px 18px;
   }
 
   .catalog-card__body {
@@ -395,6 +475,11 @@ a.btn-tintas-green:active {
   .tintas-grid {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+
+  .catalog-card__media {
+    height: 250px;
+    padding: 12px 16px;
   }
 
   .btn-tintas-green {
