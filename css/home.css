@@ -10,7 +10,8 @@
   position: relative;
   width: 100%;
   min-height: calc(100vh - var(--header-height, 80px));
-  height: calc(100vh - var(--header-height, 80px));
+  height: auto;
+  padding-bottom: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -837,8 +838,18 @@
 }
 
 @media (max-width: 640px) {
+  .intro-container {
+    padding-top: 40px;
+  }
+  .hero-grid {
+    gap: 24px;
+  }
   .hero-title {
-    font-size: 1.85rem;
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+  .hero-side-col {
+    padding: 24px 16px;
   }
   .ficha-action {
     padding: 14px 16px;
@@ -862,6 +873,7 @@
     flex-direction: column;
     gap: 16px;
     align-items: center;
+    padding-bottom: 40px;
   }
   .stat-divider {
     display: none;

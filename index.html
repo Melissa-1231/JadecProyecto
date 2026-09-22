@@ -59,18 +59,16 @@
       <img src="images/logo/jadec-logo.png" alt="Logotipo Corporativo de JADEC Soluciones Químicas" class="logo-img" width="180" height="48">
       </a>
 
-      <nav class="site-nav" aria-label="Navegación Principal">
+      <nav id="siteNav" class="site-nav" aria-label="Navegación Principal">
         <ul class="navlinks">
-          
           <li class="nav-item"><a href="#nosotros" class="nav-link">Nosotros</a></li>
-          
           <li class="nav-item"><a href="#ventajas" class="nav-link">Ventajas</a></li>
           <li class="nav-item has-dropdown">
-            <a href="#productos" class="nav-link">
-              Productos
+            <a href="#productos" class="nav-link dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+              <span>Productos</span>
               <svg class="dropdown-chevron" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" aria-label="Submenú de Productos">
               <li><a href="adhesivos.html" class="dropdown-item">Adhesivos Industriales</a></li>
               <li><a href="actega.html" class="dropdown-item">Barnices UV &amp; Base agua</a></li>
               <li><a href="tintas.html" class="dropdown-item">Tintas</a></li>
@@ -84,14 +82,14 @@
       </nav>
 
       <div class="header-actions">
-        <button type="button" class="nav-toggle" id="navToggle" aria-label="Abrir Menú de Navegación">
+        <button type="button" class="nav-toggle" id="navToggle" aria-label="Abrir Menú de Navegación" aria-expanded="false" aria-controls="siteNav">
           <span class="hamburger-bar"></span>
           <span class="hamburger-bar"></span>
           <span class="hamburger-bar"></span>
-          </button>
-          </div>
-          </div>
-      </header>
+        </button>
+      </div>
+      </div>
+    </header>
 
 <!-- Contenido Principal -->
         <main id="main-content">
@@ -649,6 +647,7 @@
   </button>
 
   <!-- Scripts Modulares -->
+  <script src="js/menu.js" defer></script>
   <script src="js/modal.js" defer></script>
   <script src="js/scroll.js" defer></script>
 </body>
