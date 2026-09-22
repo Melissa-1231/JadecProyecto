@@ -125,46 +125,102 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  // 4. Control del Menú Hamburguesa Móvil
+  // 4. Control del Menú Lateral Deslizable (Off-Canvas Side Drawer)
   const btnMenuMovil = document.getElementById('btnMenuMovil');
-  const navLinksMenu = document.getElementById('navLinksMenu');
+  const navDrawerMenu = document.getElementById('navDrawerMenu');
+  const navDrawerOverlay = document.getElementById('navDrawerOverlay');
+  const btnDrawerClose = document.getElementById('btnDrawerClose');
 
-  if (btnMenuMovil && navLinksMenu) {
-    const toggleMenu = () => {
-      const isExpanded = btnMenuMovil.getAttribute('aria-expanded') === 'true';
-      btnMenuMovil.setAttribute('aria-expanded', String(!isExpanded));
-      btnMenuMovil.classList.toggle('activo');
-      navLinksMenu.classList.toggle('activo');
+  if (btnMenuMovil && navDrawerMenu) {
+    const openDrawer = () => {
+      navDrawerMenu.classList.add('is-active');
+      btnMenuMovil.classList.add('is-active');
+      btnMenuMovil.setAttribute('aria-expanded', 'true');
+      btnMenuMovil.setAttribute('aria-label', 'Cerrar menú de navegación');
+      if (navDrawerOverlay) navDrawerOverlay.classList.add('is-active');
+      document.body.style.overflow = 'hidden'; // Evitar scroll de fondo mientras el drawer está abierto
     };
 
+    const closeDrawer = () => {
+      navDrawerMenu.classList.remove('is-active');
+      btnMenuMovil.classList.remove('is-active');
+      btnMenuMovil.setAttribute('aria-expanded', 'false');
+      btnMenuMovil.setAttribute('aria-label', 'Abrir menú de navegación');
+      if (navDrawerOverlay) navDrawerOverlay.classList.remove('is-active');
+      document.body.style.overflow = '';
+    };
+
+    const toggleDrawer = () => {
+      if (navDrawerMenu.classList.contains('is-active')) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
+    };
+
+    // Alternar drawer al presionar el botón hamburguesa
     btnMenuMovil.addEventListener('click', (e) => {
       e.stopPropagation();
-      toggleMenu();
+      toggleDrawer();
     });
 
-    // Cerrar menú al hacer clic en cualquier enlace interno
-    const navLinksItems = navLinksMenu.querySelectorAll('a');
-    navLinksItems.forEach(link => {
+    // Botón de cerrar interno en el drawer
+    if (btnDrawerClose) {
+      btnDrawerClose.addEventListener('click', () => {
+        closeDrawer();
+      });
+    }
+
+    // Cerrar al hacer clic en el overlay exterior
+    if (navDrawerOverlay) {
+      navDrawerOverlay.addEventListener('click', () => {
+        closeDrawer();
+      });
+    }
+
+    // Auto-cierre al hacer clic en cualquier enlace del drawer
+    const drawerLinks = navDrawerMenu.querySelectorAll('.nav-drawer-link');
+    drawerLinks.forEach(link => {
       link.addEventListener('click', () => {
-        if (navLinksMenu.classList.contains('activo')) {
-          toggleMenu();
-        }
+        closeDrawer();
       });
     });
 
-    // Cerrar el menú al hacer clic fuera del header
-    document.addEventListener('click', (e) => {
-      if (navLinksMenu.classList.contains('activo') && !e.target.closest('.nav-bar-custom')) {
-        toggleMenu();
+    // Cerrar con la tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navDrawerMenu.classList.contains('is-active')) {
+        closeDrawer();
+        btnMenuMovil.focus();
       }
     });
 
-    // Cerrar el menú con la tecla Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navLinksMenu.classList.contains('activo')) {
-        toggleMenu();
-        btnMenuMovil.focus();
+    // Si la pantalla se redimensiona a escritorio (> 860px), cerrar drawer automáticamente
+    const mediaQueryDesktop = window.matchMedia('(min-width: 861px)');
+    mediaQueryDesktop.addEventListener('change', (e) => {
+      if (e.matches && navDrawerMenu.classList.contains('is-active')) {
+        closeDrawer();
       }
+    });
+  }
+
+  // 5. Botón Flotante Volver Arriba (Scroll to Top)
+  const btnVolverArriba = document.getElementById('btn-volver-arriba');
+  if (btnVolverArriba) {
+    // Escuchar el evento scroll para mostrar/ocultar el botón
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        btnVolverArriba.classList.add('mostrar');
+      } else {
+        btnVolverArriba.classList.remove('mostrar');
+      }
+    }, { passive: true });
+
+    // Desplazamiento fluido al inicio al hacer clic
+    btnVolverArriba.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
   }
 });

@@ -56,7 +56,7 @@ body {
 }
 
 /* ==========================================================================
-   1. Header / Barra Superior Custom
+   1. Header / Barra Superior Custom & Navegación
    ========================================================================== */
 .nav-bar-custom {
   display: flex;
@@ -69,7 +69,7 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   transition: all 0.25s ease;
 }
 
@@ -95,29 +95,31 @@ body {
 .nav-grupo-der {
   display: flex;
   align-items: center;
-  gap: 28px;
-}
-
-/* Enlaces de Navegación */
-.nav-links {
-  display: flex;
-  align-items: center;
   gap: 24px;
 }
 
-.nav-links a {
+/* Enlaces de Navegación Desktop Horizontal (Visibles únicamente en PC / Pantallas Grandes) */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav-links .nav-link {
   text-decoration: none;
   font-size: 13.5px;
   font-weight: 700;
-  color: var(--ink);
+  color: var(--ink, #0A2540);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  transition: color 0.25s ease, background-color 0.25s ease;
+  padding: 4px 0;
+  transition: color 0.2s ease;
+  position: relative;
 }
 
-.nav-links a:hover,
-.nav-links a:focus {
-  color: var(--color-accent-green);
+.nav-links .nav-link:hover,
+.nav-links .nav-link:focus {
+  color: var(--color-accent-green, #20BF55);
 }
 
 .logo-actega-enlace {
@@ -133,79 +135,230 @@ body {
   display: block;
 }
 
-/* Botón de Retorno Estandarizado */
-.btn-regresar {
+/* Botón INICIO Verde Sólido */
+.btn-header-inicio {
+  background-color: var(--color-accent-green, #20BF55);
+  color: #FFFFFF !important;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 9px 18px;
-  border: 1.5px solid var(--color-accent-green);
-  background-color: transparent;
-  color: var(--ink);
+  justify-content: center;
+  gap: 6px;
   text-decoration: none;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 13px;
-  font-weight: 700;
-  border-radius: 6px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 6px rgba(32, 191, 85, 0.25);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
 }
 
-.btn-regresar:hover,
-.btn-regresar:focus {
-  background-color: var(--color-accent-green);
-  color: var(--white);
-  border-color: var(--color-accent-green);
-  transform: translateX(-3px);
-  box-shadow: 0 4px 14px rgba(32, 191, 85, 0.28);
+.btn-header-inicio:hover {
+  background-color: var(--color-accent-green-hover, #199E44);
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(32, 191, 85, 0.35);
 }
 
-.btn-regresar svg {
+.btn-header-inicio:active {
+  transform: translateY(0);
+}
+
+.btn-header-icon {
   width: 16px;
   height: 16px;
-  fill: currentColor;
-  transition: transform 0.25s ease;
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
 }
 
-.btn-regresar:hover svg {
+.btn-header-inicio:hover .btn-header-icon {
   transform: translateX(-2px);
 }
 
-/* Botón Menú Hamburguesa Móvil */
+/* Botón Menú Hamburguesa (3 Líneas) - ESTRICTAMENTE OCULTO EN DESKTOP (PC) */
 .btn-menu-movil {
   display: none;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
   background: transparent;
-  border: 1.5px solid rgba(10, 37, 64, 0.15);
-  border-radius: 6px;
-  padding: 6px 8px;
-  color: var(--ink);
+  border: none;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 6px;
+  border-radius: 6px;
+  z-index: 1102;
+  transition: background-color 0.2s ease;
 }
 
 .btn-menu-movil:hover,
-.btn-menu-movil:focus,
-.btn-menu-movil.activo {
-  color: var(--color-accent-green);
-  border-color: var(--color-accent-green);
-  background-color: var(--color-accent-green-bg);
+.btn-menu-movil:focus-visible {
+  background-color: rgba(10, 37, 64, 0.05);
 }
 
-.btn-menu-movil svg {
+.hamburger-bar {
   display: block;
-  stroke: currentColor;
-  transition: transform 0.25s ease;
+  width: 22px;
+  height: 2.5px;
+  background-color: var(--ink, #0A2540);
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.2s ease,
+              background-color 0.3s ease;
+  transform-origin: center;
 }
 
-.btn-menu-movil.activo svg {
-  transform: rotate(90deg);
+/* Animación a 'X' verde cuando el menú está abierto */
+.btn-menu-movil.is-active .hamburger-bar:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+  background-color: var(--color-accent-green, #20BF55);
 }
 
-/* Media Query Móvil (< 860px) */
+.btn-menu-movil.is-active .hamburger-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.btn-menu-movil.is-active .hamburger-bar:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+  background-color: var(--color-accent-green, #20BF55);
+}
+
+/* ==========================================================================
+   Menú Lateral Deslizable (Off-Canvas Side Drawer)
+   ========================================================================== */
+.nav-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 37, 64, 0.4);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 1100;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.nav-drawer-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.nav-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70%;
+  max-width: 320px;
+  height: 100vh;
+  height: 100dvh;
+  background: var(--white);
+  z-index: 1101;
+  box-shadow: 10px 0 32px rgba(10, 37, 64, 0.18);
+  transform: translateX(-100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.nav-drawer.is-active {
+  transform: translateX(0);
+}
+
+.nav-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--line, #D6D5CF);
+}
+
+.nav-drawer-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-accent-green, #20BF55);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-drawer-close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--graphite, #1B1B18);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+}
+
+.nav-drawer-close:hover {
+  color: var(--color-accent-green, #20BF55);
+}
+
+.nav-drawer-links {
+  list-style: none;
+  padding: 16px 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-drawer-link {
+  display: block;
+  padding: 14px 24px;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--ink, #0A2540);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.nav-drawer-link:hover,
+.nav-drawer-link:active {
+  background-color: var(--color-accent-green-bg, rgba(32, 191, 85, 0.12));
+  color: var(--color-accent-green-hover, #199E44);
+  padding-left: 30px;
+}
+
+.nav-drawer-footer {
+  margin-top: auto;
+  padding: 22px 24px;
+  border-top: 1px solid var(--line, #D6D5CF);
+  background-color: var(--paper, #F4F3ED);
+}
+
+.nav-drawer-badge {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink, #0A2540);
+  margin-bottom: 4px;
+}
+
+.nav-drawer-desc {
+  font-size: 0.8rem;
+  color: var(--graphite, #1B1B18);
+  opacity: 0.8;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Media Queries Responsivas para Header (Móviles y Tablets <= 860px) */
 @media (max-width: 860px) {
   .nav-bar-custom {
     padding: 12px 4%;
@@ -215,75 +368,57 @@ body {
     gap: 12px;
   }
 
+  /* Ocultar enlaces horizontales en Móviles y Tablets */
+  .nav-links {
+    display: none;
+  }
+
+  /* Mostrar botón de menú hamburguesa en Móviles y Tablets */
+  .btn-menu-movil {
+    display: flex;
+  }
+
   .logo-daka {
     height: 38px;
-    max-width: 135px;
+    max-width: 140px;
   }
 
   .logo-actega {
-    height: 26px;
-    max-width: 85px;
+    height: 28px;
+    max-width: 95px;
   }
 
-  .btn-regresar {
-    padding: 7px 12px;
-    font-size: 11.5px;
-    gap: 5px;
+  .btn-header-inicio {
+    padding: 7px 14px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .nav-bar-custom {
+    padding: 10px 12px;
   }
 
-  .btn-regresar svg {
-    width: 13px;
-    height: 13px;
+  .logo-daka {
+    height: 32px;
+    max-width: 110px;
   }
 
-  .btn-menu-movil {
-    display: inline-flex;
+  .logo-actega {
+    height: 24px;
+    max-width: 72px;
   }
 
-  /* Menú desplegable vertical con fondo blanco */
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--white);
-    flex-direction: column;
-    align-items: stretch;
-    padding: 0 20px;
-    max-height: 0;
-    opacity: 0;
-    visibility: hidden;
-    overflow: hidden;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1);
-    border-bottom: 3px solid var(--color-accent-green);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 99;
+  .btn-header-inicio {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    gap: 4px;
   }
+}
 
-  .nav-links.activo {
-    max-height: 260px;
-    opacity: 1;
-    visibility: visible;
-    padding: 16px 20px 20px;
-  }
-
-  .nav-links a {
-    padding: 12px 16px;
-    font-size: 14px;
-    font-weight: 700;
-    text-align: center;
-    border-radius: 6px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  }
-
-  .nav-links a:last-child {
-    border-bottom: none;
-  }
-
-  .nav-links a:hover,
-  .nav-links a:focus {
-    background-color: var(--color-accent-green-bg);
-    color: var(--color-accent-green);
+@media (max-width: 370px) {
+  .logo-actega-enlace {
+    display: none;
   }
 }
 
@@ -1147,5 +1282,72 @@ footer p {
   footer {
     padding: 24px 16px;
     font-size: 0.825rem;
+  }
+}
+
+/* ==========================================================================
+   9. Botón Flotante Volver Arriba (.btn-volver-arriba)
+   ========================================================================== */
+.btn-volver-arriba {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--steel, #00A8E8);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(32, 191, 85, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color var(--transition-fast, 0.2s ease), box-shadow 0.3s ease;
+  z-index: 999;
+}
+
+.btn-volver-arriba svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  stroke-width: 2.8;
+  transition: transform 0.2s ease;
+}
+
+.btn-volver-arriba.mostrar {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.btn-volver-arriba:hover {
+  background-color: var(--color-accent-green-hover, #199E44);
+  box-shadow: 0 6px 24px rgba(32, 191, 85, 0.65);
+  transform: translateY(-3px) scale(1.05);
+}
+
+.btn-volver-arriba:hover svg {
+  transform: translateY(-2px);
+}
+
+.btn-volver-arriba:active {
+  transform: translateY(0) scale(0.98);
+}
+
+@media (max-width: 640px) {
+  .btn-volver-arriba {
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .btn-volver-arriba svg {
+    width: 20px;
+    height: 20px;
   }
 }

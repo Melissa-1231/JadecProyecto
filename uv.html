@@ -27,40 +27,67 @@
   <!-- Columna Izquierda: Identidad JADEC -->
   <div class="nav-grupo-izq">
     <a href="index.html" class="logo-enlace" aria-label="JADEC Soluciones Químicas - Inicio">
-      <img src="images/logo/jadec-logo.png" alt="Logotipo Corporativo JADEC" class="logo-daka">
+      <img src="images/logo/jadec-logo.png" alt="Logotipo Corporativo JADEC" class="logo-daka" width="180" height="48">
     </a>
   </div>
   
-  <!-- Columna Derecha: Enlaces de Navegación, Logo ACTEGA, Botón Regresar y Menú Móvil -->
+  <!-- Columna Derecha: Enlaces Desktop, Logo ACTEGA, Botón Regresar/Inicio, Botón Menú Hamburguesa -->
   <div class="nav-grupo-der">
-    <!-- Enlaces de navegación -->
-    <nav class="nav-links" id="navLinksMenu" aria-label="Navegación de sección">
-      <a href="#barnices-base-agua">Tecnologías</a>
-      <a href="#barnices-brillantes">Línea Brillante</a>
-      <a href="#barnices-base-uv">Línea Matte</a>
+    <!-- Enlaces de Navegación Horizontal (Visibles únicamente en PC / Escritorio) -->
+    <nav class="nav-links" id="navLinksDesktop" aria-label="Navegación Principal">
+      <a href="#barnices-base-agua" class="nav-link">Tecnologías</a>
+      <a href="#barnices-brillantes" class="nav-link">Línea Brillante</a>
+      <a href="#barnices-base-uv" class="nav-link">Línea Matte</a>
     </nav>
 
-    <!-- Logo Oficial ACTEGA -->
+    <!-- 1. Logo Oficial ACTEGA -->
     <a href="index.html" class="logo-enlace logo-actega-enlace" aria-label="Línea Oficial ACTEGA">
-      <img src="images/logo/actega-logo.png" alt="Logotipo Oficial ACTEGA" class="logo-actega">
+      <img src="images/logo/actega-logo.png" alt="Logotipo Oficial ACTEGA" class="logo-actega" width="120" height="36">
     </a>
 
-    <!-- Botón Regresar -->
-    <a href="actega.html" class="btn-regresar" aria-label="Regresar al catálogo de Actega">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-      Regresar
-    </a>
-
-    <!-- Botón Menú Hamburguesa Móvil (Visible < 860px) -->
-    <button class="btn-menu-movil" id="btnMenuMovil" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navLinksMenu">
-      <svg class="icono-hamburguesa" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <line class="line-1" x1="3" y1="6" x2="21" y2="6"></line>
-        <line class="line-2" x1="3" y1="12" x2="21" y2="12"></line>
-        <line class="line-3" x1="3" y1="18" x2="21" y2="18"></line>
+    <!-- 2. Botón INICIO Verde Sólido con Flecha -->
+    <a href="actega.html" class="btn-header-inicio" aria-label="Regresar a la página principal">
+      <svg class="btn-header-icon" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16">
+        <path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
       </svg>
+      <span>REGRESAR</span>
+    </a>
+
+    <!-- 3. Botón Menú Hamburguesa (3 Líneas) -->
+    <button type="button" class="btn-menu-movil" id="btnMenuMovil" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navDrawerMenu">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
     </button>
   </div>
 </header>
+
+<!-- Overlay Translúcido para Detección de Clics Externos -->
+<div class="nav-drawer-overlay" id="navDrawerOverlay" aria-hidden="true"></div>
+
+<!-- Panel Lateral Deslizable desde la Izquierda (Off-Canvas Side Drawer) -->
+<nav class="nav-drawer" id="navDrawerMenu" aria-label="Menú Lateral de Navegación">
+  <div class="nav-drawer-header">
+    <span class="nav-drawer-title">SECCIONES</span>
+    <button type="button" class="nav-drawer-close" id="btnDrawerClose" aria-label="Cerrar menú lateral">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <ul class="nav-drawer-links">
+    <li><a href="#barnices-base-agua" class="nav-drawer-link">Tecnologías</a></li>
+    <li><a href="#barnices-brillantes" class="nav-drawer-link">Línea Brillante</a></li>
+    <li><a href="#barnices-base-uv" class="nav-drawer-link">Línea Matte</a></li>
+  </ul>
+
+  <div class="nav-drawer-footer">
+    <span class="nav-drawer-badge">JADEC PRODUCTOS QUÍMICOS</span>
+    <p class="nav-drawer-desc">Distribuidor Autorizado ACTEGA® Artes Gráficas</p>
+  </div>
+</nav>
 
 <!-- ==========================================================================
      Cenefa Principal Hero (Texto Superior + Imagen Full-Width con Onda SVG)
@@ -113,7 +140,7 @@
       <!-- Tarjeta 1: Cajas Plegables -->
       <article class="tarjeta-interactiva" tabindex="0" role="article" aria-label="Acabado de Máximo Brillo y Resistencia para Cajas Plegables">
         <div class="tarjeta-bg">
-          <img src="assets/eiqueta-1.webp" 
+          <img src="assets/industria-1.webp" 
                alt="Recubrimiento y Barniz UV de Máximo Brillo para Cajas Plegables y Empaque Plegadizo" 
                loading="lazy" 
                width="800" 
@@ -208,7 +235,7 @@
       <!-- Tarjeta 6: Impresión Digital -->
       <article class="tarjeta-interactiva" tabindex="0" role="article" aria-label="Recubrimientos UV para Impresión Digital">
         <div class="tarjeta-bg">
-          <img src="assets/etiqueta-6.webp" 
+          <img src="assets/industria-6.webp" 
                alt="Recubrimientos y Barnices UV de Alta Adherencia para Impresión Digital y Datos Variables" 
                loading="lazy" 
                width="800" 
@@ -404,6 +431,13 @@
     <p>JADEC Productos Químicos S.A. de C.V. — Distribuidor Autorizado ACTEGA® Artes Gráficas</p>
   </div>
 </footer>
+
+<!-- Botón Flotante Volver Arriba -->
+<button type="button" id="btn-volver-arriba" class="btn-volver-arriba" aria-label="Volver al inicio de la página">
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M18 15l-6-6-6 6"/>
+  </svg>
+</button>
 
 </body>
 </html>
