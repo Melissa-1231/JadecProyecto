@@ -4,23 +4,162 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Manejo de enlaces de anclaje suave dentro de la página
-  const anchorLinks = document.querySelectorAll('a[href^="#"]');
-  anchorLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      const targetId = link.getAttribute('href');
-      if (targetId && targetId !== '#') {
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          e.preventDefault();
-          targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+  // 1. Smart Header (Ocultar al Scroll) & Menú Desplegable Responsivo con Scrollspy
+  const initSmartHeaderAndNav = () => {
+    const siteHeader = document.getElementById('siteHeader') || document.querySelector('header.site');
+    const navMenu = document.getElementById('siteNav');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.querySelectorAll('.site-nav .nav-link[href^="#"]');
+    const allAnchorLinks = document.querySelectorAll('a[href^="#"]');
+
+    // Función para abrir el menú móvil
+    const openMenu = () => {
+      if (navMenu) navMenu.classList.add('is-open');
+      if (navToggle) {
+        navToggle.classList.add('is-open');
+        navToggle.setAttribute('aria-expanded', 'true');
+        navToggle.setAttribute('aria-label', 'Cerrar menú de navegación');
+      }
+    };
+
+    // Función para cerrar el menú móvil
+    const closeMenu = () => {
+      if (navMenu) navMenu.classList.remove('is-open');
+      if (navToggle) {
+        navToggle.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Abrir menú de navegación');
+      }
+    };
+
+    // Toggle del menú móvil al hacer clic en el botón de hamburguesa
+    if (navToggle) {
+      navToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (navMenu && navMenu.classList.contains('is-open')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+    }
+
+    // Cerrar menú al hacer clic fuera del contenedor
+    document.addEventListener('click', (e) => {
+      if (navMenu && navMenu.classList.contains('is-open')) {
+        if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+          closeMenu();
         }
       }
     });
-  });
+
+    // Cerrar menú con la tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu && navMenu.classList.contains('is-open')) {
+        closeMenu();
+        if (navToggle) navToggle.focus();
+      }
+    });
+
+    // Restablecer estado al redimensionar la ventana a modo escritorio (> 992px)
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 992 && navMenu && navMenu.classList.contains('is-open')) {
+        closeMenu();
+      }
+    }, { passive: true });
+
+    // Desplazamiento suave para todos los enlaces internos y cierre automático del menú
+    allAnchorLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href');
+        if (targetId && targetId !== '#') {
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            e.preventDefault();
+            closeMenu();
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      });
+    });
+
+    // Smart Header: Ocultar al hacer scroll hacia abajo y mostrar inmediatamente al subir
+    let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    let isTicking = false;
+
+    const handleSmartScroll = () => {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollDiff = currentScroll - lastScrollTop;
+
+      // Si el menú móvil está abierto, no ocultar la cabecera
+      if (navMenu && navMenu.classList.contains('is-open')) {
+        lastScrollTop = currentScroll;
+        isTicking = false;
+        return;
+      }
+
+      // En la parte superior de la página (<= 50px), siempre visible
+      if (currentScroll <= 50) {
+        if (siteHeader) siteHeader.classList.remove('header--hidden');
+      } else if (scrollDiff > 8 && currentScroll > 80) {
+        // Scroll hacia ABAJO -> Ocultar header para liberar espacio de pantalla
+        if (siteHeader) siteHeader.classList.add('header--hidden');
+      } else if (scrollDiff < -8) {
+        // Scroll hacia ARRIBA -> Mostrar header inmediatamente
+        if (siteHeader) siteHeader.classList.remove('header--hidden');
+      }
+
+      lastScrollTop = Math.max(0, currentScroll);
+      isTicking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!isTicking) {
+        window.requestAnimationFrame(handleSmartScroll);
+        isTicking = true;
+      }
+    }, { passive: true });
+
+    // Scrollspy con IntersectionObserver para marcar la sección activa
+    const observedSections = [];
+    navLinks.forEach(link => {
+      const targetId = link.getAttribute('href');
+      if (targetId && targetId.startsWith('#')) {
+        const el = document.querySelector(targetId);
+        if (el) observedSections.push(el);
+      }
+    });
+
+    if ('IntersectionObserver' in window && observedSections.length > 0) {
+      const scrollspyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const currentId = `#${entry.target.id}`;
+            navLinks.forEach(link => {
+              const isMatch = link.getAttribute('href') === currentId;
+              link.classList.toggle('active', isMatch);
+              if (isMatch) {
+                link.setAttribute('aria-current', 'page');
+              } else {
+                link.removeAttribute('aria-current');
+              }
+            });
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '-20% 0px -65% 0px',
+        threshold: 0
+      });
+
+      observedSections.forEach(section => scrollspyObserver.observe(section));
+    }
+  };
+
+  initSmartHeaderAndNav();
 
   // 2. Personalización contextual de solicitud al hacer clic en las tarjetas del catálogo
   const catalogCards = document.querySelectorAll('.catalog-card');
