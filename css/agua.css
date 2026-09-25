@@ -734,6 +734,66 @@ body {
   margin-top: 70px;
 }
 
+/* Cabecera con Botón de Acción en Barnices Especiales */
+.title-with-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.title-with-action h2 {
+  margin-bottom: 0;
+}
+
+.btn-cotizacion-header {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-accent-green, #20BF55);
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border: 1.5px solid var(--color-accent-green, #20BF55);
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(32, 191, 85, 0.32);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.btn-cotizacion-header:hover {
+  background-color: var(--color-accent-green-hover, #199E44);
+  border-color: var(--color-accent-green-hover, #199E44);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 22px rgba(32, 191, 85, 0.45);
+}
+
+.btn-cotizacion-header:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-cotizacion-header:focus-visible {
+  outline: 2px solid var(--steel, #00A8E8);
+  outline-offset: 3px;
+}
+
+@media (max-width: 767px) {
+  .title-with-action {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
 .accordion-especiales {
   display: flex;
   gap: 16px;
@@ -985,6 +1045,8 @@ body {
   color: #0A2540;
   padding: 13px 26px;
   border-radius: 8px;
+  border: none;
+  cursor: pointer;
   font-family: 'Inter', sans-serif;
   font-size: 13px;
   font-weight: 800;
@@ -1436,4 +1498,317 @@ footer p {
     font-size: 12px;
   }
 }
+
+/* ==========================================================================
+   8. Ventana Modal de Cotización B2B (.modal-overlay, .modal-box)
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 37, 64, 0.78);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Estados Activos */
+.modal-overlay.show-modal,
+.modal-overlay.is-active,
+.modal-overlay[aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Caja de Contenido del Modal */
+.modal-box {
+  background-color: var(--white, #FFFFFF);
+  width: 100%;
+  max-width: 620px;
+  border-radius: 16px;
+  padding: 36px 32px;
+  position: relative;
+  box-shadow: 0 24px 48px -12px rgba(10, 37, 64, 0.35);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transform: translateY(20px) scale(0.96);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-overlay.show-modal .modal-box,
+.modal-overlay.is-active .modal-box,
+.modal-overlay[aria-hidden="false"] .modal-box {
+  transform: translateY(0) scale(1);
+}
+
+/* Botón de Cierre Superior */
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  color: #64748B;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: var(--ink, #0A2540);
+  background-color: #F1F5F9;
+}
+
+/* Cabecera del Modal */
+.modal-header {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.modal-kicker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent-green, #20BF55);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.modal-title {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: clamp(28px, 3.5vw, 36px);
+  font-weight: 900;
+  color: var(--ink, #0A2540);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin: 0 0 8px;
+}
+
+.modal-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  color: #4A5568;
+  line-height: 1.55;
+  margin: 0 auto;
+  max-width: 520px;
+}
+
+/* Formulario Grid */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.modal-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink, #0A2540);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.required {
+  color: #EF4444;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: var(--ink, #0A2540);
+  background-color: var(--white, #FFFFFF);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #94A3B8;
+  font-size: 0.85rem;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--steel, #00A8E8);
+  box-shadow: 0 0 0 3px rgba(0, 168, 232, 0.18);
+}
+
+.form-select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%230A2540'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px 16px;
+  padding-right: 36px;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Casilla de Privacidad */
+.form-checkbox-group {
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.form-checkbox {
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-accent-green, #20BF55);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.checkbox-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  color: #4A5568;
+  line-height: 1.45;
+}
+
+.checkbox-text a {
+  color: var(--steel, #00A8E8);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.checkbox-text a:hover {
+  color: var(--steel-hover, #0084C7);
+}
+
+/* Botones de Acción del Modal */
+.modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 18px;
+  border-top: 1px solid #E2E8F0;
+}
+
+.btn-modal-cancel {
+  background-color: var(--white, #FFFFFF);
+  border: 1.5px solid #CBD5E1;
+  color: var(--ink, #0A2540);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-modal-cancel:hover {
+  border-color: var(--ink, #0A2540);
+  background-color: #F8FAFC;
+}
+
+.btn-modal-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: var(--color-accent-green, #20BF55);
+  border: 1.5px solid var(--color-accent-green, #20BF55);
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(32, 191, 85, 0.3);
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-modal-submit:hover {
+  background-color: var(--color-accent-green-hover, #199E44);
+  border-color: var(--color-accent-green-hover, #199E44);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(32, 191, 85, 0.4);
+}
+
+/* Responsividad del Modal (< 640px) */
+@media (max-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  
+  .modal-box {
+    padding: 28px 20px 24px;
+    border-radius: 12px;
+  }
+
+  .modal-title {
+    font-size: 26px;
+  }
+
+  .modal-actions {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .btn-modal-cancel,
+  .btn-modal-submit {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 

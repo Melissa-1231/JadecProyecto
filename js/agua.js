@@ -211,14 +211,14 @@
         // Activación por clic
         item.addEventListener('click', (e) => {
           // Si el clic proviene del botón CTA de solicitar información o un enlace interno, permitir su flujo
-          if (e.target.closest('a')) return;
+          if (e.target.closest('a, button')) return;
           activateItem();
         });
 
         // Accesibilidad por teclado (Enter / Space)
         item.addEventListener('keydown', (e) => {
           if (e.key === 'Enter' || e.key === ' ') {
-            if (e.target.closest('a')) return;
+            if (e.target.closest('a, button')) return;
             e.preventDefault();
             activateItem();
           }
@@ -244,6 +244,127 @@
           behavior: 'smooth'
         });
       });
+    }
+
+    // 7. Control de Ventana Modal de Cotización (#modalCotizacion)
+    const btnCotizacionEspeciales = document.getElementById('btnCotizacionEspeciales');
+    const modalCotizacion = document.getElementById('modalCotizacion');
+    const btnCerrarModal = document.getElementById('btnCerrarModal');
+    const btnCancelarModal = document.getElementById('btnCancelarModal');
+    const formCotizacion = document.getElementById('formCotizacion');
+    const modalProcesoInput = document.getElementById('modalProceso');
+
+    if (modalCotizacion) {
+      let lastFocusedElement = null;
+
+      const openModal = (productContext = '') => {
+        lastFocusedElement = document.activeElement;
+
+        // Si se provee contexto específico de un producto (ej. STARKOTE AQ-5011-2), pre-cargar en el textarea
+        if (modalProcesoInput) {
+          if (productContext) {
+            modalProcesoInput.value = `Interés en cotización de: ${productContext}.\nRequiero propuesta de precio, formatos disponibles y ficha técnica.`;
+          } else if (!modalProcesoInput.value.trim()) {
+            modalProcesoInput.value = 'Requiero cotización para la línea de Barnices Especiales Base Agua.';
+          }
+        }
+
+        modalCotizacion.setAttribute('aria-hidden', 'false');
+        modalCotizacion.classList.add('show-modal');
+        document.body.style.overflow = 'hidden';
+
+        // Auto-enfoque accesible al primer campo del formulario
+        const primerCampo = modalCotizacion.querySelector('input:not([type="hidden"]), select, textarea');
+        if (primerCampo) {
+          setTimeout(() => primerCampo.focus(), 80);
+        }
+      };
+
+      const closeModal = () => {
+        modalCotizacion.setAttribute('aria-hidden', 'true');
+        modalCotizacion.classList.remove('show-modal');
+        document.body.style.overflow = '';
+
+        // Restaurar foco al elemento previo
+        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+          lastFocusedElement.focus();
+        } else if (btnCotizacionEspeciales) {
+          btnCotizacionEspeciales.focus();
+        }
+      };
+
+      // Apertura del modal desde el botón de la cabecera
+      if (btnCotizacionEspeciales) {
+        btnCotizacionEspeciales.addEventListener('click', (e) => {
+          e.preventDefault();
+          openModal('Barnices Especiales Base Agua');
+        });
+      }
+
+      // Apertura del modal desde las tarjetas del acordeón / carrusel (ej. STARKOTE AQ-5011-2)
+      const accordionCtaButtons = document.querySelectorAll('.btn-accordion-cta');
+      accordionCtaButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const productContext = btn.getAttribute('data-product-context') || 'STARKOTE AQ-5011-2 (Barniz Termosellable)';
+          openModal(productContext);
+        });
+      });
+
+      // Cierre mediante botón 'X'
+      if (btnCerrarModal) {
+        btnCerrarModal.addEventListener('click', (e) => {
+          e.preventDefault();
+          closeModal();
+        });
+      }
+
+      // Cierre mediante botón 'CANCELAR'
+      if (btnCancelarModal) {
+        btnCancelarModal.addEventListener('click', (e) => {
+          e.preventDefault();
+          closeModal();
+        });
+      }
+
+      // Cierre al hacer clic en el backdrop / overlay fuera de la tarjeta
+      modalCotizacion.addEventListener('click', (e) => {
+        if (e.target === modalCotizacion) {
+          closeModal();
+        }
+      });
+
+      // Cierre accesible con tecla Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalCotizacion.classList.contains('show-modal')) {
+          closeModal();
+        }
+      });
+
+      // Envío del formulario con validación nativa
+      if (formCotizacion) {
+        formCotizacion.addEventListener('submit', (e) => {
+          e.preventDefault();
+          if (formCotizacion.checkValidity()) {
+            const submitBtn = formCotizacion.querySelector('.btn-modal-submit');
+            if (submitBtn) {
+              const originalText = submitBtn.innerHTML;
+              submitBtn.disabled = true;
+              submitBtn.textContent = 'Enviando...';
+              setTimeout(() => {
+                alert('¡Gracias! Su solicitud de cotización ha sido recibida. Un asesor técnico de JADEC se pondrá en contacto.');
+                formCotizacion.reset();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+                closeModal();
+              }, 700);
+            }
+          } else {
+            formCotizacion.reportValidity();
+          }
+        });
+      }
     }
   });
 })();

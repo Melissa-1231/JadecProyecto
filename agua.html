@@ -285,7 +285,10 @@
         <!-- Encabezado Centrado de Sección -->
         <div class="sec-head text-center">
           <span class="sec-head-idx"></span>
-          <h2>BARNICES ESPECIALES</h2>
+          <div class="title-with-action">
+            <h2>BARNICES ESPECIALES</h2>
+            
+          </div>
           <p class="sec-head-desc mx-auto">
             Soluciones de recubrimiento funcional formuladas para procesos que demandan termosellado, barrera antigrasa, adhesión sobre sustratos térmicos y máxima durabilidad.
           </p>
@@ -318,13 +321,13 @@
                 <p class="accordion-desc">
                   Barniz termosellable mate. Alta adhesión y sellado seguro para líneas de empaque continuo.
                 </p>
-                <a href="#contacto" class="btn-accordion-cta">
-                  <span>SOLICITAR INFORMACIÓN</span>
+                <button type="button" class="btn-accordion-cta" data-product-context="STARKOTE AQ-5011-2 (Barniz Termosellable)">
+                  <span>SOLICITAR COTIZACIÓN</span>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
-                </a>
+                </button>
               </div>
             </div>
           </article>
@@ -353,13 +356,13 @@
                 <p class="accordion-desc">
                   Recubrimiento acuoso protector. Alta resistencia a grasas y humedad en empaques secundarios y alimentarios.
                 </p>
-                <a href="#contacto" class="btn-accordion-cta">
-                  <span>SOLICITAR INFORMACIÓN</span>
+                <button type="button" class="btn-accordion-cta" data-product-context="BARRIER CTG (Barrera Antigrasa y Aceites)">
+                  <span>SOLICITAR COTIZACIÓN</span>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
-                </a>
+                </button>
               </div>
             </div>
           </article>
@@ -388,13 +391,13 @@
                 <p class="accordion-desc">
                  Barniz de absorción ultrarrápida y anclaje superior. Ideal para liners kraft, cartulinas recicladas y papeles porosos.
                 </p>
-                <a href="#contacto" class="btn-accordion-cta">
-                  <span>SOLICITAR INFORMACIÓN</span>
+                <button type="button" class="btn-accordion-cta" data-product-context="BLISTERKOTES AQ-8001R (Absorción Ultrarrápida)">
+                  <span>SOLICITAR COTIZACIÓN</span>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
-                </a>
+                </button>
               </div>
             </div>
           </article>
@@ -423,13 +426,13 @@
                 <p class="accordion-desc">
                   Barniz base agua acabado mate. Formulación de barrera resistente a grasas y agua.
                 </p>
-                <a href="#contacto" class="btn-accordion-cta">
-                  <span>SOLICITAR INFORMACIÓN</span>
+                <button type="button" class="btn-accordion-cta" data-product-context="ACTGREEN BARRIER CTG (Transferencia Térmica Directa)">
+                  <span>SOLICITAR COTIZACIÓN</span>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
-                </a>
+                </button>
               </div>
             </div>
           </article>
@@ -458,13 +461,13 @@
                 <p class="accordion-desc">
                   Recubrimiento base agua con acabado mate y efecto 'Soft Touch'.
                 </p>
-                <a href="#contacto" class="btn-accordion-cta">
-                  <span>SOLICITAR INFORMACIÓN</span>
+                <button type="button" class="btn-accordion-cta" data-product-context="STARKOTE MATTE AQ-5014-2 (Soft Touch)">
+                  <span>SOLICITAR COTIZACIÓN</span>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
-                </a>
+                </button>
               </div>
             </div>
           </article>
@@ -492,6 +495,88 @@
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
+
+  <!-- ==========================================================================
+       Modal de Cotización B2B (Barnices Especiales / Base Agua)
+       ========================================================================== -->
+  <div id="modalCotizacion" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <!-- Botón de Cierre Superior -->
+      <button type="button" class="modal-close" id="btnCerrarModal" aria-label="Cerrar ventana modal">&times;</button>
+
+      <!-- Encabezado del Modal -->
+      <div class="modal-header">
+        <span class="modal-kicker">[ SUMINISTRO MAYORISTA &mdash; JADEC ]</span>
+        <h2 class="modal-title" id="modalTitle">SOLICITAR COTIZACIÓN</h2>
+        <p class="modal-desc">
+          Complete los datos de su empresa y proceso para recibir una propuesta técnica y comercial con disponibilidad inmediata de suministro.
+        </p>
+      </div>
+
+      <!-- Formulario Grid de 2 Columnas -->
+      <form id="formCotizacion" class="modal-form" novalidate>
+        
+        <!-- Fila 1: Nombre y Empresa (2 columnas) -->
+        <div class="form-row">
+          <div class="modal-form-group">
+            <label for="modalNombre" class="form-label">Nombre Completo <span class="required">*</span></label>
+            <input type="text" id="modalNombre" name="nombre" class="form-input" placeholder="Ej. Ing. Miguel Torres" required>
+          </div>
+          <div class="modal-form-group">
+            <label for="modalEmpresa" class="form-label">Empresa / Planta Industrial <span class="required">*</span></label>
+            <input type="text" id="modalEmpresa" name="empresa" class="form-input" placeholder="Ej. Empaques Industriales de México" required>
+          </div>
+        </div>
+
+        <!-- Fila 2: Correo y Teléfono (2 columnas) -->
+        <div class="form-row">
+          <div class="modal-form-group">
+            <label for="modalEmail" class="form-label">Correo Electrónico Empresarial <span class="required">*</span></label>
+            <input type="email" id="modalEmail" name="email" class="form-input" placeholder="m.torres@empresa.com" required>
+          </div>
+          <div class="modal-form-group">
+            <label for="modalTelefono" class="form-label">Teléfono (Opcional)</label>
+            <input type="tel" id="modalTelefono" name="telefono" class="form-input" placeholder="55 0000 0000">
+          </div>
+        </div>
+
+        <!-- Fila 3: Volumen de Consumo Estimado (Select) -->
+        <div class="modal-form-group">
+          <label for="modalVolumen" class="form-label">Volumen de Consumo Estimado <span class="required">*</span></label>
+          <select id="modalVolumen" name="volumen" class="form-select" required>
+            <option value="" disabled selected>Seleccione un formato de suministro...</option>
+            <option value="cubetas">Cubetas Industriales (20 kg a 25 kg)</option>
+            <option value="tambores">Tambores Industriales (200 kg)</option>
+            <option value="ibc">Contenedores IBC / Totes (1,000 kg)</option>
+            <option value="ensayo">Muestras para Ensayo de Línea (1 kg a 5 kg)</option>
+          </select>
+        </div>
+
+        <!-- Fila 4: Datos de Proceso (Textarea) -->
+        <div class="modal-form-group">
+          <label for="modalProceso" class="form-label">Datos de Proceso</label>
+          <textarea id="modalProceso" name="proceso" class="form-textarea" rows="3" placeholder="Sustrato, equipo de aplicación / anilox, velocidad de línea, resistencia requerida (humedad, grasa, termosellado)..."></textarea>
+        </div>
+
+        <!-- Checkbox de Privacidad -->
+        <div class="form-checkbox-group">
+          <label class="checkbox-label" for="modalPrivacidad">
+            <input type="checkbox" id="modalPrivacidad" name="privacidad" class="form-checkbox" required>
+            <span class="checkbox-text">
+              He leído y acepto el <a href="aviso-privacidad.html" target="_blank" rel="noopener noreferrer">aviso de privacidad</a> y autorizo el tratamiento de mis datos para atender esta solicitud.
+            </span>
+          </label>
+        </div>
+
+        <!-- Pie de Formulario: Acciones -->
+        <div class="modal-actions">
+          <button type="button" class="btn-modal-cancel" id="btnCancelarModal">CANCELAR</button>
+          <button type="submit" class="btn-modal-submit">ENVIAR SOLICITUD &rarr;</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
 
 </body>
 </html>
