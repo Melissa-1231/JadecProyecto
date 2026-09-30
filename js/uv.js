@@ -223,4 +223,99 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // 6. Inicialización del Carrusel Interactivo: Barnices Especiales (5 Slides)
+  const carouselEspeciales = document.getElementById('carouselEspeciales');
+  if (carouselEspeciales) {
+    const track = carouselEspeciales.querySelector('.carousel-especiales-track');
+    const slides = carouselEspeciales.querySelectorAll('.slide-especial');
+    const prevBtn = carouselEspeciales.querySelector('.carousel-btn-especial-prev');
+    const nextBtn = carouselEspeciales.querySelector('.carousel-btn-especial-next');
+    const dots = carouselEspeciales.querySelectorAll('.carousel-dot-especial');
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+
+    const getItemsPerView = () => (window.innerWidth > 900 ? 2 : 1);
+    const getGap = () => (window.innerWidth > 900 ? 28 : 20);
+
+    const updateCarousel = (index) => {
+      const itemsPerView = getItemsPerView();
+      const maxIndex = Math.max(0, totalSlides - itemsPerView);
+
+      if (index < 0) {
+        currentIndex = maxIndex;
+      } else if (index > maxIndex) {
+        currentIndex = 0;
+      } else {
+        currentIndex = index;
+      }
+
+      if (slides.length > 0) {
+        const slideWidth = slides[0].getBoundingClientRect().width;
+        const gap = getGap();
+        const offset = currentIndex * (slideWidth + gap);
+        track.style.transform = `translateX(-${offset}px)`;
+      }
+
+      // Actualizar estado activo en slides visibles
+      slides.forEach((slide, idx) => {
+        const isVisible = idx >= currentIndex && idx < currentIndex + itemsPerView;
+        slide.classList.toggle('active', isVisible);
+      });
+
+      // Actualizar dots de paginación
+      dots.forEach((dot, idx) => {
+        const isActive = idx === currentIndex;
+        dot.classList.toggle('active', isActive);
+        dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+    };
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        updateCarousel(currentIndex - 1);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        updateCarousel(currentIndex + 1);
+      });
+    }
+
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        updateCarousel(idx);
+      });
+    });
+
+    // Soporte para gestos táctiles (Swipe en móviles y tablets)
+    let startX = 0;
+    let endX = 0;
+
+    track.addEventListener('touchstart', (e) => {
+      startX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    track.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].screenX;
+      if (startX - endX > 45) {
+        updateCarousel(currentIndex + 1); // Swipe hacia la izquierda -> siguiente
+      } else if (endX - startX > 45) {
+        updateCarousel(currentIndex - 1); // Swipe hacia la derecha -> anterior
+      }
+    }, { passive: true });
+
+    // Recalcular posición al redimensionar ventana con debounce
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        updateCarousel(currentIndex);
+      }, 100);
+    });
+
+    // Inicialización al cargar la página
+    updateCarousel(0);
+  }
 });
