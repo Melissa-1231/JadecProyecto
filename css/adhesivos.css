@@ -1239,31 +1239,6 @@ html {
   transform: translateX(3px);
 }
 
-.btn-brand-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-  border: 1.5px solid var(--border-mid);
-  color: var(--color-royal-blue);
-  font-family: var(--font-family);
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 9px 14px;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: all var(--transition-fast);
-}
-
-.btn-brand-secondary:hover {
-  border-color: var(--color-royal-blue);
-  background-color: rgba(10, 37, 64, 0.04);
-}
-
 /* --------------------------------------------------------------------------
    5. Banner de Llamado a la Acción de Ancho Completo (.section-full-cta)
    -------------------------------------------------------------------------- */
@@ -2316,34 +2291,142 @@ a.btn-white:active {
   margin-bottom: 36px;
 }
 
-.pre-footer-divider {
-  border: none;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.1);
-  margin: 0 auto 28px;
-  max-width: 680px;
+/* Tarjeta de Contacto Directo B2B (.direct-contact-card) */
+.direct-contact-card {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg, 12px);
+  padding: 32px;
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-.pre-footer-direct {
-  font-size: 0.875rem;
+.direct-contact-title {
+  color: #FFFFFF;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.direct-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.direct-contact-box {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md, 8px);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  transition: border-color var(--transition-fast, 0.2s ease), background-color var(--transition-fast, 0.2s ease), transform var(--transition-fast, 0.2s ease);
+}
+
+.direct-contact-box:hover {
+  border-color: rgba(0, 168, 232, 0.4);
+  background-color: rgba(0, 0, 0, 0.35);
+  transform: translateY(-2px);
+}
+
+.direct-contact-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--text-on-dark-muted, #94A3B8);
-  line-height: 1.6;
-}
-
-.pre-footer-direct p {
   margin: 0;
 }
 
-.cta-direct-link {
-  color: var(--color-cyan-blue, #38BDF8);
+.direct-contact-link {
+  color: var(--color-cyan-light, #38BDF8);
+  font-size: 1.35rem;
+  font-weight: 700;
   text-decoration: none;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color var(--transition-fast, 0.2s ease), transform var(--transition-fast, 0.2s ease);
+}
+
+.direct-contact-link:hover {
+  color: var(--color-accent-green, #20BF55);
+}
+
+.direct-contact-emails {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.direct-contact-email-link {
+  color: var(--color-cyan-light, #38BDF8);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   transition: color var(--transition-fast, 0.2s ease);
 }
 
-.cta-direct-link:hover {
-  color: #FFFFFF;
-  text-decoration: underline;
+.direct-contact-email-link:hover {
+  color: var(--color-accent-green, #20BF55);
+}
+
+.direct-contact-sep {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 1.1rem;
+  user-select: none;
+}
+
+.direct-contact-icon {
+  width: 17px;
+  height: 17px;
+  stroke-width: 2;
+  color: var(--color-cyan-light, #38BDF8);
+  flex-shrink: 0;
+  transition: color var(--transition-fast, 0.2s ease);
+}
+
+.direct-contact-box:hover .direct-contact-icon {
+  color: var(--color-accent-green, #20BF55);
+}
+
+.direct-contact-schedule {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text-on-dark-muted, #94A3B8);
+  margin: 0;
+}
+
+.direct-contact-clock {
+  width: 15px;
+  height: 15px;
+  stroke-width: 2;
+  color: var(--color-accent-green, #20BF55);
+  opacity: 0.9;
 }
 
 /* --------------------------------------------------------------------------
@@ -2594,6 +2677,37 @@ a.btn-white:active {
   .pre-footer-actions .btn {
     width: 100%;
     justify-content: center;
+  }
+
+  .direct-contact-card {
+    padding: 24px 16px;
+    gap: 16px;
+  }
+
+  .direct-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .direct-contact-box {
+    padding: 18px 16px;
+  }
+
+  .direct-contact-emails {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .direct-contact-sep {
+    display: none;
+  }
+
+  .direct-contact-link {
+    font-size: 1.25rem;
+  }
+
+  .direct-contact-email-link {
+    font-size: 0.92rem;
   }
 
   .footer-main-grid {
