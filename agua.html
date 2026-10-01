@@ -101,26 +101,32 @@
   </section>
 
   <!-- ==========================================================================
-       Contenedor Principal de Contenido
+       Contenedor Principal de Contenido (Full-Width con Banners Panorámicos)
        ========================================================================== -->
-  <main class="sec-padding bg-paper" id="tecnologias">
-    <div class="wrap">
+  <main class="bg-paper" id="tecnologias">
       
-      <!-- ==========================================================================
-           Sección 1: BARNICES BRILLANTES (Grid de 3 Tarjetas Interactivas con Fondo Completo)
-           ========================================================================== -->
-      <section class="seccion-brillantes-agua" id="barnices-brillantes-agua">
-        
-<!-- Encabezado Centrado de Sección -->
-        <div class="sec-head text-center">
-          <span class="sec-head-idx"></span>
-          <h2>BARNICES BRILLANTES</h2>
-          <p class="sec-head-desc mx-auto">
+    <!-- ==========================================================================
+         Sección 1: BARNICES BRILLANTES (Grid de 3 Tarjetas Interactivas con Fondo Completo)
+         ========================================================================== -->
+    <section class="seccion-brillantes-agua" id="barnices-brillantes-agua">
+      
+      <!-- Cenefa Divisoria de Sección Full-Width: BARNICES BRILLANTES -->
+      <header class="cenefa-seccion">
+        <picture class="cenefa-picture">
+          <source srcset="assets/inicio-6.webp 3840w, assets/inicio-6.webp 1920w" type="image/webp">
+          <img src="assets/inicio-6.webp" alt="Línea de Barnices Brillantes Base Agua" class="cenefa-bg" loading="lazy" width="1920" height="600">
+        </picture>
+        <div class="cenefa-overlay" aria-hidden="true"></div>
+        <div class="cenefa-contenido">
+          <h2 class="cenefa-titulo">BARNICES BRILLANTES</h2>
+          <p class="cenefa-desc">
             Formulaciones acuosas de alto impacto óptico, secado ultra veloz y excelente nivelación diseñadas para realzar el contraste y brillo en empaques comerciales y revistas.
           </p>
         </div>
+      </header>
 
-<!-- Grid de 3 Tarjetas con Fondo Completo -->
+      <div class="wrap">
+        <!-- Grid de 3 Tarjetas con Fondo Completo -->
         <div class="grid-tres-brillantes">
           
           <!-- Tarjeta 1: GLOSSCOAT 2 -->
@@ -139,7 +145,7 @@
             </div>
           </article>
 
-<!-- Tarjeta 2: GLOSSCOAT 3 -->
+          <!-- Tarjeta 2: GLOSSCOAT 3 -->
           <article class="tarjeta-brillante-poster" tabindex="0" role="button" aria-label="Ver ficha técnica de GLOSSCOAT 3 - RVG001892">
             <picture class="tarjeta-poster-picture">
               <source srcset="assets/agua-3.webp 3840w, assets/agua-3.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px" type="image/webp">
@@ -155,7 +161,7 @@
             </div>
           </article>
 
-<!-- Tarjeta 3: ULTRASHEEN AQ-GLOSS 900 -->
+          <!-- Tarjeta 3: ULTRASHEEN AQ-GLOSS 900 -->
           <article class="tarjeta-brillante-poster" tabindex="0" role="button" aria-label="Ver ficha técnica de ULTRASHEEN AQ-GLOSS 900">
             <picture class="tarjeta-poster-picture">
               <source srcset="assets/agua-11.webp 3840w, assets/agua-11.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px" type="image/webp">
@@ -172,19 +178,30 @@
           </article>
 
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- ==========================================================================
-           Sección 2: BARNICES MATTE (Layout Asimétrico: Info + Carrusel 2 Slides)
-           ========================================================================== -->
-      <section class="seccion-matte-agua" id="barnices-matte-agua">
-        
-        <!-- Encabezado Centrado de Sección -->
-        <div class="sec-head text-center">
-          <span class="sec-head-idx"></span>
-          <h2>BARNICES MATE</h2>
+    <!-- ==========================================================================
+         Sección 2: BARNICES MATTE (Layout Asimétrico: Info + Carrusel 2 Slides)
+         ========================================================================== -->
+    <section class="seccion-matte-agua" id="barnices-matte-agua">
+      
+      <!-- Cenefa Divisoria de Sección Full-Width: BARNICES MATE -->
+      <header class="cenefa-seccion">
+        <picture class="cenefa-picture">
+          <source srcset="assets/inicio-5.webp 3840w, assets/inicio-5.webp 1920w" type="image/webp">
+          <img src="assets/inicio-5.webp" alt="Línea de Barnices Mate Base Agua" class="cenefa-bg" loading="lazy" width="1920" height="600">
+        </picture>
+        <div class="cenefa-overlay" aria-hidden="true"></div>
+        <div class="cenefa-contenido">
+          <h2 class="cenefa-titulo">BARNICES MATE</h2>
+          <p class="cenefa-desc">
+            Recubrimientos diseñados tecnológicamente para modificar la reflexión de luz, ofreciendo acabados elegantes, táctiles y una protección duradera sobre sustratos de papel y cartón.
+          </p>
         </div>
+      </header>
 
+      <div class="wrap">
         <!-- Layout Grid de 2 Columnas Asimétricas -->
         <div class="layout-dos-columnas-matte">
           
@@ -212,7 +229,7 @@
             <div class="carousel-matte-track-container">
               <div class="carousel-matte-track">
                 
-<!-- Slide 1 -->
+                <!-- Slide 1 -->
                 <div class="carousel-matte-slide active">
                   <div class="carousel-slide-inner">
                     <picture>
@@ -226,7 +243,7 @@
                   </div>
                 </div>
 
-<!-- Slide 2 -->
+                <!-- Slide 2 -->
                 <div class="carousel-matte-slide">
                   <div class="carousel-slide-inner">
                     <picture>
@@ -240,7 +257,7 @@
                   </div>
                 </div>
 
- <!-- Slide 3 -->
+                <!-- Slide 3 -->
                 <div class="carousel-matte-slide active">
                   <div class="carousel-slide-inner">
                     <picture>
@@ -256,7 +273,7 @@
               </div>
             </div>
 
-<!-- Controles Circulares -->
+            <!-- Controles Circulares -->
             <button type="button" class="carousel-btn carousel-btn-prev" aria-label="Anterior producto">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <polyline points="15 18 9 12 15 6"></polyline>
@@ -268,32 +285,37 @@
               </svg>
             </button>
 
-<!-- Paginación de 2 Puntos (Dots) -->
+            <!-- Paginación de 2 Puntos (Dots) -->
             <div class="carousel-dots" role="tablist" aria-label="Paginación de productos matte">
               <button type="button" class="carousel-dot active" role="tab" aria-selected="true" aria-label="Ir a producto 1"></button>
               <button type="button" class="carousel-dot" role="tab" aria-selected="false" aria-label="Ir a producto 2"></button>
             </div>
-           </div>
-           </div>
-           </section>
-
-      <!-- ==========================================================================
-           SECCIÓN 3: BARNICES ESPECIALES (Acordeón Horizontal Interactivo Dark Mode)
-           ========================================================================== -->
-      <section class="seccion-especiales-agua" id="barnices-especiales-agua">
-        
-        <!-- Encabezado Centrado de Sección -->
-        <div class="sec-head text-center">
-          <span class="sec-head-idx"></span>
-          <div class="title-with-action">
-            <h2>BARNICES ESPECIALES</h2>
-            
           </div>
-          <p class="sec-head-desc mx-auto">
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN 3: BARNICES ESPECIALES (Acordeón Horizontal Interactivo Dark Mode)
+         ========================================================================== -->
+    <section class="seccion-especiales-agua" id="barnices-especiales-agua">
+      
+      <!-- Cenefa Divisoria de Sección Full-Width: BARNICES ESPECIALES -->
+      <header class="cenefa-seccion">
+        <picture class="cenefa-picture">
+          <source srcset="assets/inicio-4.webp 3840w, assets/inicio-4.webp 1920w" type="image/webp">
+          <img src="assets/inicio-4.webp" alt="Línea de Barnices Especiales Base Agua" class="cenefa-bg" loading="lazy" width="1920" height="600">
+        </picture>
+        <div class="cenefa-overlay" aria-hidden="true"></div>
+        <div class="cenefa-contenido">
+          <h2 class="cenefa-titulo">BARNICES ESPECIALES</h2>
+          <p class="cenefa-desc">
             Soluciones de recubrimiento funcional formuladas para procesos que demandan termosellado, barrera antigrasa, adhesión sobre sustratos térmicos y máxima durabilidad.
           </p>
         </div>
+      </header>
 
+      <div class="wrap">
         <!-- Contenedor del Acordeón Horizontal Interactivo -->
         <div class="accordion-especiales" id="accordionEspeciales" role="tablist" aria-label="Catálogo interactivo de barnices especiales">
           
@@ -482,9 +504,8 @@
 
 
         </div>
-      </section>
-
-    </div>
+      </div>
+    </section>
   </main>
 
   <!-- ==========================================================================
@@ -492,7 +513,7 @@
        ========================================================================== -->
   <footer>
     <div class="wrap">
-      <p>JADEC Productos Químicos S.A. de C.V. — Distribuidor Autorizado ACTEGA® Artes Gráficas</p>
+      <p>Soluciones Químicas Jadec S.A. de C.V. —  Distribuidor Autorizado en Marcas Líderes Mundiales y Nacionales, Artes Gráficas</p>
     </div>
   </footer>
 
