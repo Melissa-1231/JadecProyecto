@@ -495,6 +495,86 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   initAdditivesSection();
+
+  // 7. Motor de Revelado y Dinamismo al Scroll (Intersection Observer & Staggered Reveal)
+  const initScrollReveal = () => {
+    // Si el usuario prefiere movimiento reducido, mostrar todo inmediatamente
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('[data-scroll]').forEach(el => el.classList.add('is-revealed'));
+      return;
+    }
+
+    const scrollElements = document.querySelectorAll('[data-scroll]');
+    if (scrollElements.length === 0) return;
+
+    // Si el navegador soporta IntersectionObserver
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            // Dejar de observar una vez revelado para optimizar memoria y rendimiento
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.12
+      });
+
+      scrollElements.forEach(el => {
+        // Si el elemento es el hero o está en el primer viewport visible, revelarlo con una suave transición
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.85) {
+          requestAnimationFrame(() => {
+            setTimeout(() => el.classList.add('is-revealed'), 60);
+          });
+        } else {
+          revealObserver.observe(el);
+        }
+      });
+    } else {
+      // Fallback para navegadores antiguos sin IntersectionObserver
+      scrollElements.forEach(el => el.classList.add('is-revealed'));
+    }
+  };
+
+  initScrollReveal();
+
+  // 8. Efecto Parallax Sutil y Fluido en el Hero Section al hacer Scroll
+  const initParallaxEffects = () => {
+    const heroContainer = document.querySelector('.hero-tintas-container');
+    const heroSection = document.querySelector('.hero-tintas');
+    if (!heroContainer || !heroSection) return;
+
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let ticking = false;
+
+    const onScrollParallax = () => {
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      const heroHeight = heroSection.offsetHeight;
+
+      // Solo aplicar parallax mientras el hero esté en pantalla
+      if (scrollY <= heroHeight) {
+        const translateY = (scrollY * 0.25).toFixed(2);
+        const opacity = Math.max(0, 1 - (scrollY / (heroHeight * 0.85))).toFixed(3);
+        heroContainer.style.transform = `translate3d(0, ${translateY}px, 0)`;
+        heroContainer.style.opacity = opacity;
+      }
+      ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(onScrollParallax);
+        ticking = true;
+      }
+    }, { passive: true });
+  };
+
+  initParallaxEffects();
 });
 
 

@@ -212,58 +212,119 @@ a.btn-tintas-green:active {
 
 .tintas-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  max-width: 1200px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1400px;
   margin: 48px auto 0;
+  width: 100%;
 }
 
-/* --------------------------------------------------------------------------
-   5. Tarjetas de Catálogo Luminosas Premium (.catalog-card)
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   5. Tarjetas de Catálogo: Revelado Interactivo & Aura Cromática (.catalog-card)
+   ========================================================================== */
+
+/* Variaciones Cromáticas con Variables CSS Locales */
+.card-color-magenta {
+  --card-accent: #E91E63;
+  --card-accent-rgb: 233, 30, 99;
+  --card-aura: rgba(233, 30, 99, 0.16);
+  --card-aura-glow: 0 20px 42px rgba(233, 30, 99, 0.22), 0 4px 14px rgba(10, 37, 64, 0.06);
+  --card-border-hover: rgba(233, 30, 99, 0.45);
+}
+
+.card-color-white {
+  --card-accent: #00A8E8;
+  --card-accent-rgb: 0, 168, 232;
+  --card-aura: rgba(0, 168, 232, 0.15);
+  --card-aura-glow: 0 20px 42px rgba(0, 168, 232, 0.20), 0 4px 14px rgba(10, 37, 64, 0.06);
+  --card-border-hover: rgba(0, 168, 232, 0.45);
+}
+
+.card-color-gold {
+  --card-accent: #F59E0B;
+  --card-accent-rgb: 245, 158, 11;
+  --card-aura: rgba(245, 158, 11, 0.18);
+  --card-aura-glow: 0 20px 42px rgba(245, 158, 11, 0.24), 0 4px 14px rgba(10, 37, 64, 0.06);
+  --card-border-hover: rgba(245, 158, 11, 0.50);
+}
+
+.card-color-neon {
+  --card-accent: #10B981;
+  --card-accent-rgb: 16, 185, 129;
+  --card-aura: rgba(16, 185, 129, 0.20);
+  --card-aura-glow: 0 20px 42px rgba(16, 185, 129, 0.26), 0 4px 14px rgba(10, 37, 64, 0.06);
+  --card-border-hover: rgba(16, 185, 129, 0.50);
+}
+
+/* Estructura Base de la Tarjeta en Reposo */
 .catalog-card {
   display: flex;
   flex-direction: column;
   background-color: #FFFFFF;
-  border-radius: var(--radius-lg, 16px);
+  border-radius: var(--radius-lg, 18px);
   overflow: hidden;
   border: 1px solid var(--border-light, #EAECF0);
-  box-shadow: 0 4px 20px rgba(10, 37, 64, 0.06), 0 1px 3px rgba(10, 37, 64, 0.03);
+  box-shadow: 0 4px 20px rgba(10, 37, 64, 0.05), 0 1px 3px rgba(10, 37, 64, 0.02);
   cursor: pointer;
   position: relative;
   outline: none;
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), 
-              box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), 
-              border-color 0.3s ease;
+  isolation: isolate;
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              border-color 0.4s ease;
 }
 
+/* Resplandor de Aura Cromática en el Fondo */
+.catalog-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 50% 35%,
+    var(--card-aura, rgba(32, 191, 85, 0.12)) 0%,
+    rgba(255, 255, 255, 0) 72%
+  );
+  opacity: 0;
+  transition: opacity 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Estado Hover / Focus: Aura activa, elevación y borde cromático */
 .catalog-card:hover,
 .catalog-card:focus-visible {
   transform: translateY(-8px);
-  box-shadow: 0 16px 36px rgba(10, 37, 64, 0.12), 0 4px 12px rgba(32, 191, 85, 0.1);
-  border-color: rgba(32, 191, 85, 0.4);
+  box-shadow: var(--card-aura-glow, 0 20px 40px rgba(10, 37, 64, 0.12));
+  border-color: var(--card-border-hover, rgba(32, 191, 85, 0.45));
+}
+
+.catalog-card:hover::before,
+.catalog-card:focus-visible::before {
+  opacity: 1;
 }
 
 .catalog-card:focus-visible {
-  outline: 2px solid var(--color-tintas-green, #20BF55);
+  outline: 2px solid var(--card-accent, #20BF55);
   outline-offset: 3px;
 }
 
-/* Área Superior con Fondo de Estudio Fotográfico (Ciclorama) y Envase Dominante */
+/* Área Superior de Escaparate (Media) */
 .catalog-card__media {
   position: relative;
+  z-index: 1;
   width: 100%;
-  height: 310px;
+  height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at 50% 45%, #FFFFFF 25%, #F6F8FB 70%, #E9EEF5 100%);
-  padding: 10px;
+  background-color: #F8FAFC;
+  padding: 0;
   overflow: hidden;
-  border-bottom: 1px solid rgba(234, 236, 240, 0.8);
+  border-bottom: 1px solid rgba(234, 236, 240, 0.7);
 }
 
-/* Sombra de Suelo (Pedestal de Estudio) */
+/* Sombra de Suelo (Pedestal de Estudio Fotográfico) */
 .catalog-card__media::after {
   content: '';
   position: absolute;
@@ -272,20 +333,21 @@ a.btn-tintas-green:active {
   transform: translateX(-50%);
   width: 58%;
   height: 16px;
-  background: radial-gradient(ellipse at center, rgba(7, 23, 43, 0.3) 0%, rgba(7, 23, 43, 0) 72%);
+  background: radial-gradient(ellipse at center, rgba(7, 23, 43, 0.28) 0%, rgba(7, 23, 43, 0) 72%);
   border-radius: 50%;
   filter: blur(4px);
   z-index: 1;
-  transition: transform 0.45s ease, opacity 0.45s ease;
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.45s ease;
   pointer-events: none;
 }
 
-.catalog-card:hover .catalog-card__media::after {
-  transform: translateX(-50%) scale(1.18);
-  opacity: 0.85;
+.catalog-card:hover .catalog-card__media::after,
+.catalog-card:focus-visible .catalog-card__media::after {
+  transform: translateX(-50%) scale(1.22);
+  opacity: 0.9;
 }
 
-/* Etiqueta Técnica Flotante */
+/* Etiqueta Técnica Flotante (Badge Superior con Glassmorphism y Pulso) */
 .catalog-card__tag {
   position: absolute;
   top: 14px;
@@ -293,115 +355,195 @@ a.btn-tintas-green:active {
   z-index: 5;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background-color: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(16, 24, 40, 0.1);
-  box-shadow: 0 2px 8px rgba(10, 37, 64, 0.08);
+  gap: 7px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(var(--card-accent-rgb, 10, 37, 64), 0.18);
+  box-shadow: 0 2px 10px rgba(10, 37, 64, 0.06);
   padding: 5px 12px;
   border-radius: var(--radius-full, 9999px);
-  font-size: 0.75rem;
-  font-weight: 800;
-  color: #0A2540;
-  letter-spacing: 0.04em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--ink, #0A2540);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+              border-color 0.35s ease,
+              box-shadow 0.35s ease,
+              background-color 0.35s ease;
 }
 
+.catalog-card:hover .catalog-card__tag,
+.catalog-card:focus-visible .catalog-card__tag {
+  transform: translateY(-2px) scale(1.04);
+  border-color: var(--card-accent, rgba(32, 191, 85, 0.6));
+  box-shadow: 0 6px 16px rgba(var(--card-accent-rgb, 10, 37, 64), 0.22);
+  background: rgba(255, 255, 255, 0.96);
+}
+
+/* Punto Cromático con Animación de Pulso Dinámico */
 .tag-color-dot {
-  width: 8px;
-  height: 8px;
+  width: 7.5px;
+  height: 7.5px;
   border-radius: 50%;
   display: inline-block;
   flex-shrink: 0;
+  background-color: var(--card-accent, #20BF55);
+  box-shadow: 0 0 6px rgba(var(--card-accent-rgb, 32, 191, 85), 0.8);
+  animation: pulseDot 2.4s infinite ease-in-out;
 }
 
 .dot-magenta {
   background-color: #E91E63;
-  box-shadow: 0 0 6px rgba(233, 30, 99, 0.7);
+  box-shadow: 0 0 6px rgba(233, 30, 99, 0.8);
 }
 
 .dot-cyan {
   background-color: #00A8E8;
-  box-shadow: 0 0 6px rgba(0, 168, 232, 0.7);
+  box-shadow: 0 0 6px rgba(0, 168, 232, 0.8);
 }
 
 .dot-gold {
-  background-color: #D4AF37;
-  box-shadow: 0 0 6px rgba(212, 175, 55, 0.7);
+  background-color: #F59E0B;
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.8);
 }
 
-/* Imagen del Envase en Alta Resolución y Escala Llena */
+.dot-fluorescent {
+  background-color: #10B981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.85);
+}
+
+@keyframes pulseDot {
+  0% {
+    transform: scale(0.92);
+    box-shadow: 0 0 0 0 rgba(var(--card-accent-rgb, 32, 191, 85), 0.7);
+  }
+  60% {
+    transform: scale(1.18);
+    box-shadow: 0 0 0 6px rgba(var(--card-accent-rgb, 32, 191, 85), 0);
+  }
+  100% {
+    transform: scale(0.92);
+    box-shadow: 0 0 0 0 rgba(var(--card-accent-rgb, 32, 191, 85), 0);
+  }
+}
+
+/* Imagen del Envase: Abarca el recuadro completo a los márgenes con proporción simétrica */
 .catalog-card__img {
   position: relative;
   z-index: 2;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center center;
   display: block;
   margin: 0 auto;
-  transform: scale(1.78);
+  transform: scale(1);
   transform-origin: center center;
-  filter: drop-shadow(0 14px 22px rgba(7, 23, 43, 0.22)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12)) contrast(1.05) brightness(1.02);
-  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), 
-              filter 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+  filter: drop-shadow(0 8px 16px rgba(7, 23, 43, 0.15)) contrast(1.03) brightness(1.01);
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              filter 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .catalog-card:hover .catalog-card__img,
 .catalog-card:focus-visible .catalog-card__img {
-  transform: scale(1.95) translateY(-8px);
-  filter: drop-shadow(0 26px 36px rgba(7, 23, 43, 0.35)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.18)) contrast(1.08) brightness(1.05);
+  transform: scale(1.06);
+  filter: drop-shadow(0 16px 28px rgba(var(--card-accent-rgb, 7, 23, 43), 0.25)) 
+          contrast(1.06) brightness(1.03);
 }
 
 /* Cuerpo de la Tarjeta */
 .catalog-card__body {
-  padding: 24px 28px 28px;
+  position: relative;
+  z-index: 1;
+  padding: 22px 24px 26px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   background-color: #FFFFFF;
 }
 
-/* Categoría / Eyebrow Text en Naranja Vibrante (#FF5722) */
+/* Píldora de Categoría Dinámica y Amigable */
 .catalog-card__category {
-  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.685rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #FF5722;
+  letter-spacing: 0.08em;
+  color: var(--card-accent, #FF5722);
+  background-color: rgba(var(--card-accent-rgb, 255, 87, 34), 0.09);
+  border: 1px solid rgba(var(--card-accent-rgb, 255, 87, 34), 0.2);
+  padding: 4px 10px;
+  border-radius: 6px;
   margin-bottom: 10px;
-  display: block;
   line-height: 1.2;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* Título Principal en Azul Oscuro Corporativo (#0A2540) */
+.catalog-card:hover .catalog-card__category,
+.catalog-card:focus-visible .catalog-card__category {
+  background-color: var(--card-accent, #20BF55);
+  color: #FFFFFF;
+  border-color: var(--card-accent, #20BF55);
+  transform: translateX(3px);
+  box-shadow: 0 2px 8px rgba(var(--card-accent-rgb, 32, 191, 85), 0.35);
+}
+
 .catalog-card__title {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: #0A2540;
   line-height: 1.25;
-  margin: 0 0 12px 0;
+  margin: 0;
   letter-spacing: -0.01em;
-  transition: color var(--transition-fast, 0.2s ease);
+  transition: color 0.3s ease;
 }
 
-.catalog-card:hover .catalog-card__title {
-  color: var(--color-royal-blue-mid, #10375C);
+.catalog-card:hover .catalog-card__title,
+.catalog-card:focus-visible .catalog-card__title {
+  color: var(--card-accent, #0A2540);
 }
 
-/* Párrafo de Descripción en Gris Medio (#4B5563) */
+/* ==========================================================================
+   Contenedor de Revelado Interactivo (Animación Suave en Hover)
+   ========================================================================== */
+.catalog-card__reveal {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: max-height 0.48s cubic-bezier(0.2, 0.8, 0.2, 1),
+              opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 0.48s cubic-bezier(0.2, 0.8, 0.2, 1),
+              margin-top 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  margin-top: 0;
+}
+
+.catalog-card:hover .catalog-card__reveal,
+.catalog-card:focus-visible .catalog-card__reveal {
+  max-height: 240px;
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 14px;
+  pointer-events: auto;
+}
+
 .catalog-card__desc {
-  font-size: 0.925rem;
+  font-size: 0.9rem;
   color: #4B5563;
-  line-height: 1.6;
-  margin: 0 0 22px 0;
-  flex-grow: 1;
+  line-height: 1.55;
+  margin: 0 0 16px 0;
 }
 
-/* Área de Acción / Botón Inferior en Verde Institucional */
 .catalog-card__action {
-  margin-top: auto;
-  padding-top: 16px;
+  padding-top: 14px;
   border-top: 1px solid var(--border-light, #EAECF0);
   display: flex;
   align-items: center;
@@ -409,35 +551,38 @@ a.btn-tintas-green:active {
 }
 
 .catalog-card__btn {
-  font-size: 0.85rem;
+  font-size: 0.825rem;
   font-weight: 800;
-  color: var(--color-tintas-green, #20BF55);
+  color: var(--card-accent, var(--color-tintas-green, #20BF55));
   text-transform: uppercase;
   letter-spacing: 0.06em;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: color var(--transition-fast, 0.2s ease), transform var(--transition-fast, 0.2s ease);
+  transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .catalog-card:hover .catalog-card__btn,
 .catalog-card:focus-visible .catalog-card__btn {
-  color: var(--color-tintas-green-hover, #199E44);
   transform: translateX(4px);
+  color: var(--card-accent, var(--color-tintas-green-hover, #199E44));
 }
 
 /* --------------------------------------------------------------------------
    6. Responsividad del Catálogo
    -------------------------------------------------------------------------- */
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .tintas-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
+    max-width: 900px;
   }
+}
 
+@media (max-width: 992px) {
   .catalog-card__media {
     height: 260px;
-    padding: 14px 18px;
+    padding: 0;
   }
 
   .catalog-card__body {
@@ -478,8 +623,8 @@ a.btn-tintas-green:active {
   }
 
   .catalog-card__media {
-    height: 250px;
-    padding: 12px 16px;
+    height: 240px;
+    padding: 0;
   }
 
   .btn-tintas-green {
@@ -2054,5 +2199,304 @@ header.site.header--hidden,
   .nav-toggle {
     width: 34px;
     height: 34px;
+  }
+}
+
+/* ==========================================================================
+   15. Sistema de Animaciones Dinámicas al Scroll (Scroll-Driven Dynamics)
+   ========================================================================== */
+
+/* Transiciones Base para Elementos con Scroll Reveal */
+[data-scroll] {
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* 1. Hero Dynamic Entrance & Parallax */
+[data-scroll="hero"] {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+[data-scroll="hero"].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-tintas-container .hero-tintas-badge {
+  opacity: 0;
+  transform: translateY(-12px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s,
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+}
+
+.hero-tintas-container .hero-tintas-title {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.22s,
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.22s;
+}
+
+.hero-tintas-container .hero-tintas-desc {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.35s,
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.35s;
+}
+
+.hero-tintas-container .hero-tintas-actions {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.48s,
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.48s;
+}
+
+[data-scroll="hero"].is-revealed .hero-tintas-badge,
+[data-scroll="hero"].is-revealed .hero-tintas-title,
+[data-scroll="hero"].is-revealed .hero-tintas-desc,
+[data-scroll="hero"].is-revealed .hero-tintas-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero Ondas Dinámicas con efecto orgánico continuo */
+.hero-wave-svg {
+  animation: waveSubtleFloat 8s infinite alternate ease-in-out;
+}
+
+@keyframes waveSubtleFloat {
+  0% {
+    transform: translateY(0) scaleY(1);
+  }
+  50% {
+    transform: translateY(-4px) scaleY(1.03);
+  }
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+/* 2. Fade Up (Encabezados y Bloques) */
+[data-scroll="fade-up"] {
+  opacity: 0;
+  transform: translateY(38px);
+}
+
+[data-scroll="fade-up"].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 3. Fade Left & Fade Right (Columnas y Split-screens) */
+[data-scroll="fade-left"] {
+  opacity: 0;
+  transform: translateX(45px);
+}
+
+[data-scroll="fade-left"].is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+[data-scroll="fade-right"] {
+  opacity: 0;
+  transform: translateX(-45px);
+}
+
+[data-scroll="fade-right"].is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 4. Scale Up (Visores y Paneles) */
+[data-scroll="scale-up"] {
+  opacity: 0;
+  transform: scale(0.94) translateY(24px);
+}
+
+[data-scroll="scale-up"].is-revealed {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* 5. Cascada Escalonada para Tarjetas UV (.tintas-grid) */
+[data-scroll="stagger-cards"] .catalog-card {
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+              border-color 0.4s ease;
+}
+
+[data-scroll="stagger-cards"].is-revealed .catalog-card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+[data-scroll="stagger-cards"].is-revealed .catalog-card:nth-child(1) {
+  transition-delay: 0.06s;
+}
+
+[data-scroll="stagger-cards"].is-revealed .catalog-card:nth-child(2) {
+  transition-delay: 0.16s;
+}
+
+[data-scroll="stagger-cards"].is-revealed .catalog-card:nth-child(3) {
+  transition-delay: 0.26s;
+}
+
+[data-scroll="stagger-cards"].is-revealed .catalog-card:nth-child(4) {
+  transition-delay: 0.36s;
+}
+
+/* 6. Cascada Escalonada para Paneles Pantone (.pantone-accordion) */
+[data-scroll="stagger-panels"] .pantone-panel {
+  opacity: 0;
+  transform: translateY(32px) scale(0.97);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              flex 0.65s cubic-bezier(0.25, 1, 0.35, 1),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+}
+
+[data-scroll="stagger-panels"].is-revealed .pantone-panel {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+[data-scroll="stagger-panels"].is-revealed .pantone-panel:nth-child(1) { transition-delay: 0.05s; }
+[data-scroll="stagger-panels"].is-revealed .pantone-panel:nth-child(2) { transition-delay: 0.12s; }
+[data-scroll="stagger-panels"].is-revealed .pantone-panel:nth-child(3) { transition-delay: 0.19s; }
+[data-scroll="stagger-panels"].is-revealed .pantone-panel:nth-child(4) { transition-delay: 0.26s; }
+[data-scroll="stagger-panels"].is-revealed .pantone-panel:nth-child(5) { transition-delay: 0.33s; }
+[data-scroll="stagger-panels"].is-revealed .pantone-panel:nth-child(6) { transition-delay: 0.40s; }
+
+/* 7. Cascada Escalonada para Lista de Pestañas de Aditivos (.additives-list) */
+[data-scroll="stagger-tabs"] .additive-tab {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+[data-scroll="stagger-tabs"].is-revealed .additive-tab {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+[data-scroll="stagger-tabs"].is-revealed .additive-tab.is-active {
+  transform: translateX(6px);
+}
+
+[data-scroll="stagger-tabs"].is-revealed .additive-tab:nth-child(1) { transition-delay: 0.04s; }
+[data-scroll="stagger-tabs"].is-revealed .additive-tab:nth-child(2) { transition-delay: 0.10s; }
+[data-scroll="stagger-tabs"].is-revealed .additive-tab:nth-child(3) { transition-delay: 0.16s; }
+[data-scroll="stagger-tabs"].is-revealed .additive-tab:nth-child(4) { transition-delay: 0.22s; }
+[data-scroll="stagger-tabs"].is-revealed .additive-tab:nth-child(5) { transition-delay: 0.28s; }
+[data-scroll="stagger-tabs"].is-revealed .additive-tab:nth-child(6) { transition-delay: 0.34s; }
+[data-scroll="stagger-tabs"].is-revealed .additive-tab:nth-child(7) { transition-delay: 0.40s; }
+
+/* 8. Dinamismo de Badges Técnicos en Tintas Base Agua */
+.water-inks-info-col.is-revealed .water-inks-badge {
+  animation: badgePopIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.water-inks-info-col.is-revealed .water-inks-badge:nth-child(1) { animation-delay: 0.25s; }
+.water-inks-info-col.is-revealed .water-inks-badge:nth-child(2) { animation-delay: 0.35s; }
+.water-inks-info-col.is-revealed .water-inks-badge:nth-child(3) { animation-delay: 0.45s; }
+
+@keyframes badgePopIn {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 9. Botón Flotante Volver Arriba (.btn-back-to-top) */
+.btn-back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 900;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(10, 37, 64, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #FFFFFF;
+  border: 1.5px solid rgba(32, 191, 85, 0.4);
+  box-shadow: 0 6px 20px rgba(10, 37, 64, 0.25);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.9);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+.btn-back-to-top.show,
+.btn-back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.btn-back-to-top:hover {
+  background: var(--color-tintas-green, #20BF55);
+  border-color: var(--color-tintas-green, #20BF55);
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 8px 24px rgba(32, 191, 85, 0.45);
+}
+
+.btn-back-to-top:active {
+  transform: translateY(0) scale(0.96);
+}
+
+.btn-back-to-top svg {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.3s ease;
+}
+
+.btn-back-to-top:hover svg {
+  transform: translateY(-2px);
+}
+
+/* 10. Accesibilidad: Reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  [data-scroll],
+  [data-scroll="hero"],
+  [data-scroll="fade-up"],
+  [data-scroll="fade-left"],
+  [data-scroll="fade-right"],
+  [data-scroll="scale-up"],
+  [data-scroll="stagger-cards"] .catalog-card,
+  [data-scroll="stagger-panels"] .pantone-panel,
+  [data-scroll="stagger-tabs"] .additive-tab,
+  .hero-tintas-container .hero-tintas-badge,
+  .hero-tintas-container .hero-tintas-title,
+  .hero-tintas-container .hero-tintas-desc,
+  .hero-tintas-container .hero-tintas-actions,
+  .hero-wave-svg,
+  .tag-color-dot {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    transition-delay: 0s !important;
   }
 }

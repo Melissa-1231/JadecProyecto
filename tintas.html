@@ -105,7 +105,7 @@
     <section class="hero-tintas fullscreen">
       <div class="hero-tintas-overlay"></div>
       
-      <div class="hero-tintas-container">
+      <div class="hero-tintas-container" data-scroll="hero">
         <div class="hero-tintas-badge">
           <span class="badge-dot"></span>
           SISTEMAS CROMÁTICOS &mdash; JADEC
@@ -141,7 +141,7 @@
     <section class="section tintas-catalogo bg-beige" id="catalogo-tintas">
       <div class="section-container">
         
-        <div class="section-header text-center">
+        <div class="section-header text-center" data-scroll="fade-up">
           <span class="section-subtitle-green"></span>
           <h2 class="section-title">TINTAS UV</h2>
           <p class="section-description">
@@ -149,65 +149,99 @@
           </p>
         </div>
 
-        <div class="tintas-grid">
+        <div class="tintas-grid" data-scroll="stagger-cards">
           
-          <!-- Tarjeta 1: Magenta Offset UV -->
-          <article class="catalog-card" data-open-modal tabindex="0" role="button" aria-label="Solicitar cotización sobre Magenta Offset UV">
+<!-- Tarjeta 1: Magenta Offset UV -->
+            <article class="catalog-card card-color-magenta" data-open-modal tabindex="0" role="button" aria-label="Solicitar cotización sobre Magenta Offset UV">
             <div class="catalog-card__media">
-              <span class="catalog-card__tag"><span class="tag-color-dot dot-magenta" aria-hidden="true"></span>TOUV-2374</span>
+              <span class="catalog-card__tag">
+                <span class="tag-color-dot dot-magenta" aria-hidden="true"></span>TOUV-2374
+              </span>
               <img src="assets/touv-1.webp" alt="Tinta Magenta Offset UV JADEC" class="catalog-card__img" loading="lazy">
             </div>
             <div class="catalog-card__body">
               <span class="catalog-card__category"></span>
-              <h3 class="catalog-card__title">Tinta Offset UV</h3>
-              <p class="catalog-card__desc">
-                Formulación de alta concentración pigmentaria y viscosidad estable, ideal para cuatricromías de alta fidelidad y velocidad en prensa.
+              <h3 class="catalog-card__title">TINTA OFFSET UV </h3>
+              <div class="catalog-card__reveal">
+                <p class="catalog-card__desc">
+                  Formulación de alta concentración pigmentaria y viscosidad estable, ideal para cuatricromías de alta fidelidad y velocidad en prensa.
               </p>
               <div class="catalog-card__action">
-                <span class="catalog-card__btn">SOLICITAR COTIZACIÓN &rarr;</span>
+              <span class="catalog-card__btn">SOLICITAR COTIZACIÓN &rarr;</span>
               </div>
-            </div>
-          </article>
+              </div>
+              </div>
+            </article>
 
-          <!-- Tarjeta 2: Blanco Opaco Offset UV -->
-          <article class="catalog-card" data-open-modal tabindex="0" role="button" aria-label="Solicitar cotización sobre Blanco Opaco Offset UV">
+<!-- Tarjeta 2: Blanco Opaco Offset UV -->
+            <article class="catalog-card card-color-white" data-open-modal tabindex="0" role="button" aria-label="Solicitar cotización sobre Blanco Opaco Offset UV">
             <div class="catalog-card__media">
-              <span class="catalog-card__tag"><span class="tag-color-dot dot-cyan" aria-hidden="true"></span>TOUV-2473</span>
+              <span class="catalog-card__tag">
+              <span class="tag-color-dot dot-cyan" aria-hidden="true"></span>TOUV-2473
+              </span>
               <img src="assets/touv-2.webp" alt="Tinta Base Blanco Opaco Offset UV JADEC" class="catalog-card__img" loading="lazy">
             </div>
             <div class="catalog-card__body">
               <span class="catalog-card__category"></span>
               <h3 class="catalog-card__title">Blanco Opaco Offset UV</h3>
+              <div class="catalog-card__reveal">
               <p class="catalog-card__desc">
-                Base cubriente de máxima opacidad para fondos uniformes sobre sustratos oscuros, metalizados o transparentes con curado instantáneo.
+                  Base cubriente de máxima opacidad para fondos uniformes sobre sustratos oscuros, metalizados o transparentes con curado instantáneo.
               </p>
               <div class="catalog-card__action">
-                <span class="catalog-card__btn">SOLICITAR COTIZACIÓN &rarr;</span>
+              <span class="catalog-card__btn">SOLICITAR COTIZACIÓN &rarr;</span>
               </div>
-            </div>
+              </div>
+              </div>
           </article>
 
-          <!-- Tarjeta 3: Oro UV -->
-          <article class="catalog-card" data-open-modal tabindex="0" role="button" aria-label="Solicitar cotización sobre Oro UV Metálico">
+<!-- Tarjeta 3: Oro UV -->
+            <article class="catalog-card card-color-gold" data-open-modal tabindex="0" role="button" aria-label="Solicitar cotización sobre Oro UV Metálico">
             <div class="catalog-card__media">
-              <span class="catalog-card__tag"><span class="tag-color-dot dot-gold" aria-hidden="true"></span>TOUV-9509</span>
+              <span class="catalog-card__tag">
+              <span class="tag-color-dot dot-gold" aria-hidden="true"></span>TOUV-9509
+              </span>
               <img src="assets/touvm-3.webp" alt="Tinta Oro Metálico UV JADEC" class="catalog-card__img" loading="lazy">
             </div>
             <div class="catalog-card__body">
               <span class="catalog-card__category"></span>
-              <h3 class="catalog-card__title">Métalico UV</h3>
+              <h3 class="catalog-card__title">Metálico UV</h3>
+              <div class="catalog-card__reveal">
               <p class="catalog-card__desc">
-                Pigmentación metálica prémium de brillo reflectivo superior y resistencia al roce para empaques de lujo y etiquetas de alto impacto visual.
+                  Pigmentación metálica prémium de brillo reflectivo superior y resistencia al roce para empaques de lujo y etiquetas de alto impacto visual.
               </p>
               <div class="catalog-card__action">
-                <span class="catalog-card__btn">SOLICITAR COTIZACIÓN &rarr;</span>
+              <span class="catalog-card__btn">SOLICITAR COTIZACIÓN &rarr;</span>
               </div>
-            </div>
+              </div>
+              </div>
           </article>
 
-        </div>
-          </div>
-          </section>
+<!-- Tarjeta 4: Tinta Offset UV Fluorescente -->
+            <article class="catalog-card card-color-neon" data-open-modal tabindex="0" role="button" aria-label="Solicitar cotización sobre Tinta offset UV fluorescente">
+            <div class="catalog-card__media">
+              <span class="catalog-card__tag">
+              <span class="tag-color-dot dot-fluorescent" aria-hidden="true"></span>TOC-0802
+              </span>
+              <img src="assets/fluo-4.webp" alt="Tinta Offset UV Fluorescente JADEC" class="catalog-card__img" loading="lazy">
+            </div>
+            <div class="catalog-card__body">
+              <span class="catalog-card__category"></span>
+              <h3 class="catalog-card__title">Fluorescente UV</h3>
+              <div class="catalog-card__reveal">
+              <p class="catalog-card__desc">
+                  Formulación de alta luminosidad y viveza cromática bajo luz UV y natural. Brinda máximo impacto visual, excelente transferencia y secado instantáneo en prensa.
+              </p>
+              <div class="catalog-card__action">
+              <span class="catalog-card__btn">SOLICITAR COTIZACIÓN &rarr;</span>
+              </div>
+              </div>
+              </div>
+          </article>
+
+         </div>
+         </div>
+         </section>
 
 <!-- 3. Sección Dividida: TINTAS BASE AGUA (Carrusel + Panel Informativo) -->
         <section id="tintas-base-agua" class="section water-inks-section">
@@ -215,41 +249,41 @@
         <div class="water-inks-layout">
           
 <!-- Columna Principal: Carrusel Deslizador de 5 Fotografías -->
-          <div class="water-inks-slider-col">
-          <div class="water-inks-carousel" id="waterInksCarousel" aria-roledescription="carousel" aria-label="Galería de Tintas Base Agua JADEC" tabindex="0">
-              
+            <div class="water-inks-slider-col" data-scroll="fade-right">
+            <div class="water-inks-carousel" id="waterInksCarousel" aria-roledescription="carousel" aria-label="Galería de Tintas Base Agua JADEC" tabindex="0">
+                
 <!-- Pista Deslizante (Track) -->
-              <div class="carousel-track" id="waterInksTrack">
+            <div class="carousel-track" id="waterInksTrack">
                 
 <!-- Slide 1 -->
-                <div class="carousel-slide is-active" role="group" aria-roledescription="slide" aria-label="1 de 5">
-                  <picture class="carousel-picture">
-                    <source srcset="assets/tbac-1.webp" type="image/webp">
-                    <img src="assets/tbac-1.webp" alt="Formulación y Mezcla de Tintas Base Agua JADEC" class="carousel-img" loading="eager">
+            <div class="carousel-slide is-active" role="group" aria-roledescription="slide" aria-label="1 de 5">
+            <picture class="carousel-picture">
+            <source srcset="assets/tbac-1.webp" type="image/webp">
+            <img src="assets/tbac-1.webp" alt="Formulación y Mezcla de Tintas Base Agua JADEC" class="carousel-img" loading="eager">
                   </picture>
                   <div class="carousel-caption">
-                    <span class="carousel-caption-tag"></span>
-                    <h4 class="carousel-caption-title"></h4>
+                  <span class="carousel-caption-tag"></span>
+                  <h4 class="carousel-caption-title"></h4>
                   </div>
-                </div>
+            </div>
 
 <!-- Slide 2 -->
                 <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 de 5">
-                  <picture class="carousel-picture">
-                    <source srcset="assets/tbac-2.webp" type="image/webp">
+                <picture class="carousel-picture">
+                <source srcset="assets/tbac-2.webp" type="image/webp">
                     <img src="assets/tbac-2.webp" alt="Control Reológico y Estabilidad en Tiraje Continuo" class="carousel-img" loading="lazy">
-                  </picture>
-                  <div class="carousel-caption">
-                    <span class="carousel-caption-tag"></span>
-                    <h4 class="carousel-caption-title"></h4>
-                  </div>
+                </picture>
+                <div class="carousel-caption">
+                <span class="carousel-caption-tag"></span>
+                <h4 class="carousel-caption-title"></h4>
+                </div>
                 </div>
 
 <!-- Slide 3 -->
                 <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 de 5">
-                  <picture class="carousel-picture">
-                    <source srcset="assets/toc-1.webp" type="image/webp">
-                    <img src="assets/toc-1.webp" alt="Transferencia Uniforme en Rodillos Anilox" class="carousel-img" loading="lazy">
+                <picture class="carousel-picture">
+                  <source srcset="assets/toc-1.webp" type="image/webp">
+                  <img src="assets/toc-1.webp" alt="Transferencia Uniforme en Rodillos Anilox" class="carousel-img" loading="lazy">
                   </picture>
                   <div class="carousel-caption">
                     <span class="carousel-caption-tag"></span>
@@ -269,11 +303,9 @@
                   </div>
                 </div>               
 
-                
-
               </div>
 
-<!-- Flechas de Navegación -->
+              <!-- Flechas de Navegación -->
               <button type="button" class="carousel-btn carousel-btn--prev" id="waterInksPrev" aria-label="Diapositiva anterior">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="15 18 9 12 15 6"></polyline>
@@ -285,7 +317,7 @@
                 </svg>
               </button>
 
-<!-- Indicadores / Dots de Paginación -->
+              <!-- Indicadores / Dots de Paginación -->
               <div class="carousel-dots" id="waterInksDots" role="tablist" aria-label="Seleccionar diapositiva">
                 <button type="button" class="carousel-dot is-active" role="tab" aria-selected="true" aria-label="Ir a diapositiva 1" data-slide-to="0"></button>
                 <button type="button" class="carousel-dot" role="tab" aria-selected="false" aria-label="Ir a diapositiva 2" data-slide-to="1"></button>
@@ -297,8 +329,8 @@
             </div>
           </div>
 
-<!-- Columna Secundaria: Panel / Etiqueta Informativa Técnica -->
-            <div class="water-inks-info-col">
+          <!-- Columna Secundaria: Panel / Etiqueta Informativa Técnica -->
+          <div class="water-inks-info-col" data-scroll="fade-left">
             <article class="water-inks-card">
               
               <div class="water-inks-card__header">
@@ -326,8 +358,6 @@
                     <span class="badge-label">Secado rápido</span>
                   </div>
                 </div>
-
-                
               </div>
 
               <div class="water-inks-card__footer">
@@ -335,29 +365,30 @@
                   <span>SOLICITAR ASESORÍA TÉCNICA &rarr;</span>
                 </button>
               </div>
-              </article>
-              </div>
-              </div>
-              </div>
-              </section>
+            </article>
+          </div>
 
-<!-- 4. Sección Interactiva: TINTAS PANTONE (Acordeón Expandible Flex-Grow) -->
-            <section id="tintas-pantone" class="section pantone-section bg-beige">
-            <div class="section-container">
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Sección Interactiva: TINTAS PANTONE (Acordeón Expandible Flex-Grow) -->
+    <section id="tintas-pantone" class="section pantone-section bg-beige">
+      <div class="section-container">
         
-<!-- Encabezado de Sección Centrado -->
-            <header class="section-header text-center">
-            <span class="section-subtitle-green"></span>
-            <h2 class="section-title">TINTAS PANTONE</h2>
-            <p class="section-description">
+        <!-- Encabezado de Sección Centrado -->
+        <header class="section-header text-center" data-scroll="fade-up">
+          <span class="section-subtitle-green"></span>
+          <h2 class="section-title">TINTAS PANTONE</h2>
+          <p class="section-description">
             Especialidad en formulación y desarrollo de pantones con tolerancias estrictas, asegurando máxima repetibilidad y fidelidad de marca en cualquier sustrato.
           </p>
-          </header>
+        </header>
 
-<!-- Contenedor del Acordeón Horizontal Expandible -->
-        <div class="pantone-accordion" id="pantoneAccordion" role="region" aria-label="Catálogo interactivo de Tintas Pantone">
+        <!-- Contenedor del Acordeón Horizontal Expandible -->
+        <div class="pantone-accordion" id="pantoneAccordion" role="region" aria-label="Catálogo interactivo de Tintas Pantone" data-scroll="stagger-panels">
           
-<!-- Panel 1 -->
+          <!-- Panel 1 -->
           <article class="pantone-panel is-active" tabindex="0" role="button" aria-expanded="true" aria-label="Panel 1: Tonos Sólidos y Spot Colors">
             <!-- Imagen de Fondo y Capas de Contraste -->
             <img src="assets/pantone-3.webp" alt="Pantone Sólido y Spot Colors" class="pantone-panel__bg" loading="lazy">
@@ -396,8 +427,8 @@
             </div>
           </article>
 
-<!-- Panel 2 -->
-            <article class="pantone-panel" tabindex="0" role="button" aria-expanded="false" aria-label="Panel 2: Metálicos y Tintas de Alto Impacto">
+          <!-- Panel 2 -->
+          <article class="pantone-panel" tabindex="0" role="button" aria-expanded="false" aria-label="Panel 2: Metálicos y Tintas de Alto Impacto">
             <img src="assets/pantone-1.webp" alt="Pantone Metálicos Premium" class="pantone-panel__bg" loading="lazy">
             <div class="pantone-panel__overlay"></div>
 
@@ -424,10 +455,10 @@
                   
                 </p> 
               </div>
-              </div>
-              </article>
+            </div>
+          </article>
 
-<!-- Panel 3 -->
+          <!-- Panel 3 -->
           <article class="pantone-panel" tabindex="0" role="button" aria-expanded="false" aria-label="Panel 3: Neón y Tonos Fluorescentes">
             <img src="assets/pantone-5.webp" alt="Pantone Neón y Fluorescentes" class="pantone-panel__bg" loading="lazy">
             <div class="pantone-panel__overlay"></div>
@@ -460,13 +491,13 @@
               <!-- Pie Inferior: Descripción y Botón de Acción -->
               <div class="panel-footer-bottom">
                 <p class="panel-desc">
-                  </p>
+                </p>
               </div>
             </div>
           </article>
 
-<!-- Panel 4 -->
-            <article class="pantone-panel" tabindex="0" role="button" aria-expanded="false" aria-label="Panel 4: Gama Extendida ECG">
+          <!-- Panel 4 -->
+          <article class="pantone-panel" tabindex="0" role="button" aria-expanded="false" aria-label="Panel 4: Gama Extendida ECG">
             <img src="assets/pantone-6.webp" alt="Gama Extendida ECG 7 Colores" class="pantone-panel__bg" loading="lazy">
             <div class="pantone-panel__overlay"></div>
 
@@ -480,7 +511,7 @@
               <div class="panel-header-right">
                 <div class="panel-icon-wrap">
                   <svg class="panel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                     <polyline points="2 17 12 22 22 17"></polyline>
                     <polyline points="2 12 12 17 22 12"></polyline>
                   </svg>
@@ -492,12 +523,12 @@
               <!-- Pie Inferior: Descripción y Botón de Acción -->
               <div class="panel-footer-bottom">
                 <p class="panel-desc">
-               </p>               
+                </p>               
               </div>
-              </div>
-              </article>
+            </div>
+          </article>
 
-<!-- Panel 5 -->
+          <!-- Panel 5 -->
           <article class="pantone-panel" tabindex="0" role="button" aria-expanded="false" aria-label="Panel 5: Laboratorio ColorMatch">
             <img src="assets/pantone-7.webp" alt="Laboratorio ColorMatch JADEC" class="pantone-panel__bg" loading="lazy">
             <div class="pantone-panel__overlay"></div>
@@ -531,8 +562,7 @@
             </div>
           </article>
 
-
-<!-- Panel 6 -->
+          <!-- Panel 6 -->
           <article class="pantone-panel" tabindex="0" role="button" aria-expanded="false" aria-label="Panel 5: Laboratorio ColorMatch">
             <img src="assets/pantone-8.webp" alt="Laboratorio ColorMatch JADEC" class="pantone-panel__bg" loading="lazy">
             <div class="pantone-panel__overlay"></div>
@@ -543,7 +573,6 @@
             </div>
 
             <div class="pantone-panel__expanded">
-
               <!-- Cabecera Superior Derecha: Icono, Kicker y Título -->
               <div class="panel-header-right">
                 <div class="panel-icon-wrap">
@@ -563,17 +592,16 @@
             </div>
           </article>
 
-
         </div>
       </div>
     </section>
 
-<!-- 5. Sección Interactiva: ADITIVOS (Índice Vertical Interactivo / Split-Screen Display) -->
-         <section id="aditivos" class="section additives-section">
-         <div class="section-container">
+    <!-- 5. Sección Interactiva: ADITIVOS (Índice Vertical Interactivo / Split-Screen Display) -->
+    <section id="aditivos" class="section additives-section">
+      <div class="section-container">
         
         <!-- Encabezado de Sección Centrado -->
-         <header class="section-header text-center">
+        <header class="section-header text-center" data-scroll="fade-up">
           <span class="section-subtitle-green"></span>
           <h2 class="section-title">ADITIVOS DE PROCESO</h2>
           <p class="section-description">
@@ -585,7 +613,7 @@
         <div class="additives-container" id="additivesContainer">
           
           <!-- Columna Izquierda: Índice Vertical de Aditivos -->
-          <nav class="additives-list" id="additivesList" role="tablist" aria-label="Índice de Aditivos Industriales">
+          <nav class="additives-list" id="additivesList" role="tablist" aria-label="Índice de Aditivos Industriales" data-scroll="stagger-tabs">
             
             <button type="button" class="additive-tab is-active" role="tab" aria-selected="true" aria-controls="panel-aditivo-1" id="tab-aditivo-1" data-target="panel-aditivo-1">
               <span class="tab-indicator" aria-hidden="true"></span>
@@ -673,11 +701,11 @@
 
           </nav>
 
-<!-- Columna Derecha: Visor de Contenido (Display Viewer) -->
-          <div class="additives-display" id="additivesDisplay">
+          <!-- Columna Derecha: Visor de Contenido (Display Viewer) -->
+          <div class="additives-display" id="additivesDisplay" data-scroll="scale-up">
             
-<!-- Panel 1: CATALIZADOR -->
-              <article class="additive-panel is-active" id="panel-aditivo-1" role="tabpanel" aria-labelledby="tab-aditivo-1">
+            <!-- Panel 1: CATALIZADOR -->
+            <article class="additive-panel is-active" id="panel-aditivo-1" role="tabpanel" aria-labelledby="tab-aditivo-1">
               <div class="additive-panel__media">
                 <picture class="additive-panel__picture">
                   <source srcset="assets/aditivo-3.webp" type="image/webp">
@@ -686,7 +714,6 @@
                 <div class="additive-panel__overlay"></div>
               </div>
               <div class="additive-panel__content">
-<!-- Contenedor Superior Derecho: Cabecera y Nomenclatura Técnica -->
                 <div class="additive-panel__top-right">
                   <div class="additive-panel__header">
                     <span class="additive-panel__tag"></span>
@@ -695,10 +722,9 @@
                   </div>
                 </div>
 
-                <!-- Contenedor Inferior: Descripción Técnica, Chips y Botón de Cotización -->
                 <div class="additive-panel__bottom">
                   <p class="additive-panel__desc">
-                    Agente acelerador formulado para maximizar el curado, reticulación y anclaje químico de tintas sobre sustratos plásticos y películas de difícil adherencia. 
+                    Agente acelerador formulado para maximizar el curado, reticulación y anclaje químico de tintas sobre sustratos plásticos y películas de difícil adherencia.
                   </p>
                   
                   <div class="additive-panel__action">
@@ -710,8 +736,7 @@
               </div>
             </article>
 
-
-<!-- Panel 2: RETARDADOR -->
+            <!-- Panel 2: RETARDADOR -->
             <article class="additive-panel" id="panel-aditivo-2" role="tabpanel" aria-labelledby="tab-aditivo-2">
               <div class="additive-panel__media">
                 <picture class="additive-panel__picture">
@@ -721,7 +746,6 @@
                 <div class="additive-panel__overlay"></div>
               </div>
               <div class="additive-panel__content">
-<!-- Contenedor Superior Derecho: Cabecera y Nomenclatura Técnica -->
                 <div class="additive-panel__top-right">
                   <div class="additive-panel__header">
                     <span class="additive-panel__tag"></span>
@@ -730,7 +754,6 @@
                   </div>
                 </div>
 
-<!-- Contenedor Inferior: Descripción Técnica, Chips y Botón de Cotización -->
                 <div class="additive-panel__bottom">
                   <p class="additive-panel__desc">
                     Aditivo regulador que extiende el tiempo abierto en tinteros y cilindros anilox, evitando el secado prematuro.
@@ -745,7 +768,7 @@
               </div>
             </article>
 
-<!-- Panel 3: REDUCTOR VISCOSIDAD -->
+            <!-- Panel 3: REDUCTOR VISCOSIDAD -->
             <article class="additive-panel" id="panel-aditivo-3" role="tabpanel" aria-labelledby="tab-aditivo-3">
               <div class="additive-panel__media">
                 <picture class="additive-panel__picture">
@@ -755,7 +778,6 @@
                 <div class="additive-panel__overlay"></div>
               </div>
               <div class="additive-panel__content">
-                <!-- Contenedor Superior Derecho: Cabecera y Nomenclatura Técnica -->
                 <div class="additive-panel__top-right">
                   <div class="additive-panel__header">
                     <span class="additive-panel__tag"></span>
@@ -764,7 +786,6 @@
                   </div>
                 </div>
 
-                <!-- Contenedor Inferior: Descripción Técnica, Chips y Botón de Cotización -->
                 <div class="additive-panel__bottom">
                   <p class="additive-panel__desc">
                     Formulación fluida que reduce la viscosidad dinámica de la tinta sin alterar el desempeño.
@@ -779,8 +800,8 @@
               </div>
             </article>
 
-<!-- Panel 4: ANTIESPUMANTE -->
-              <article class="additive-panel" id="panel-aditivo-4" role="tabpanel" aria-labelledby="tab-aditivo-4">
+            <!-- Panel 4: ANTIESPUMANTE -->
+            <article class="additive-panel" id="panel-aditivo-4" role="tabpanel" aria-labelledby="tab-aditivo-4">
               <div class="additive-panel__media">
                 <picture class="additive-panel__picture">
                   <source srcset="assets/aditivo-1.webp" type="image/webp">
@@ -789,7 +810,6 @@
                 <div class="additive-panel__overlay"></div>
               </div>
               <div class="additive-panel__content">
- <!-- Contenedor Superior Derecho: Cabecera y Nomenclatura Técnica -->
                 <div class="additive-panel__top-right">
                   <div class="additive-panel__header">
                     <span class="additive-panel__tag"></span>
@@ -798,7 +818,6 @@
                   </div>
                 </div>
 
-                <!-- Contenedor Inferior: Descripción Técnica, Chips y Botón de Cotización -->
                 <div class="additive-panel__bottom">
                   <p class="additive-panel__desc">
                     Compuesto de acción rápida diseñado para eliminar la microespuma y burbujas de aire generadas por la agitación y recirculación de tinta.
@@ -813,8 +832,8 @@
               </div>
             </article>
 
-<!-- Panel 5: INTENSIFICADOR DE COLOR -->
-              <article class="additive-panel" id="panel-aditivo-5" role="tabpanel" aria-labelledby="tab-aditivo-5">
+            <!-- Panel 5: INTENSIFICADOR DE COLOR -->
+            <article class="additive-panel" id="panel-aditivo-5" role="tabpanel" aria-labelledby="tab-aditivo-5">
               <div class="additive-panel__media">
                 <picture class="additive-panel__picture">
                   <source srcset="assets/aditivo-6.webp" type="image/webp">
@@ -823,7 +842,6 @@
                 <div class="additive-panel__overlay"></div>
               </div>
               <div class="additive-panel__content">
-                <!-- Contenedor Superior Derecho: Cabecera y Nomenclatura Técnica -->
                 <div class="additive-panel__top-right">
                   <div class="additive-panel__header">
                     <span class="additive-panel__tag"></span>
@@ -832,7 +850,6 @@
                   </div>
                 </div>
 
-                <!-- Contenedor Inferior: Descripción Técnica, Chips y Botón de Cotización -->
                 <div class="additive-panel__bottom">
                   <p class="additive-panel__desc">
                     Concentrado que eleva la densidad óptica y saturación del color en tirajes donde el sustrato absorben excesivamente el tono.
@@ -847,7 +864,7 @@
               </div>
             </article>
 
-<!-- Panel 6: LIMPIA PANTALLA -->
+            <!-- Panel 6: LIMPIA PANTALLA -->
             <article class="additive-panel" id="panel-aditivo-6" role="tabpanel" aria-labelledby="tab-aditivo-6">
               <div class="additive-panel__media">
                 <picture class="additive-panel__picture">
@@ -857,7 +874,6 @@
                 <div class="additive-panel__overlay"></div>
               </div>
               <div class="additive-panel__content">
-                <!-- Contenedor Superior Derecho: Cabecera y Nomenclatura Técnica -->
                 <div class="additive-panel__top-right">
                   <div class="additive-panel__header">
                     <span class="additive-panel__tag"></span>
@@ -866,7 +882,6 @@
                   </div>
                 </div>
 
-                <!-- Contenedor Inferior: Descripción Técnica, Chips y Botón de Cotización -->
                 <div class="additive-panel__bottom">
                   <p class="additive-panel__desc">
                     Solución técnica diseñada para mantener las impresiones nítidas durante el proceso.
@@ -881,7 +896,7 @@
               </div>
             </article>
 
-<!-- Panel 7: LIMPIADOR MULTIPROPOSITO -->
+            <!-- Panel 7: LIMPIADOR MULTIPROPOSITO -->
             <article class="additive-panel" id="panel-aditivo-7" role="tabpanel" aria-labelledby="tab-aditivo-7">
               <div class="additive-panel__media">
                 <picture class="additive-panel__picture">
@@ -891,7 +906,6 @@
                 <div class="additive-panel__overlay"></div>
               </div>
               <div class="additive-panel__content">
-<!-- Contenedor Superior Derecho: Cabecera y Nomenclatura Técnica -->
                 <div class="additive-panel__top-right">
                   <div class="additive-panel__header">
                     <span class="additive-panel__tag"></span>
@@ -900,7 +914,6 @@
                   </div>
                 </div>
 
-                <!-- Contenedor Inferior: Descripción Técnica, Chips y Botón de Cotización -->
                 <div class="additive-panel__bottom">
                   <p class="additive-panel__desc">
                     Limpiador industrial de baja alcalinidad y alto poder emulsionante. Remueve eficientemente residuos de tintas base agua y UV.
@@ -910,24 +923,25 @@
                     <button type="button" class="btn btn-tintas-green additive-panel__cta" data-open-modal data-product-context="Aditivo: Limpiador Multipropósito (inko cleaner)">
                       <span>COTIZAR ADITIVO &rarr;</span>
                     </button>
-                    </div>
-                    </div>
-                    </div>
-                   </article>
-                 </div>
-                 </div>
-                 </div>
-              </section>
-             </main>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- Cenefa Inferior Minimalista (Footer Simple) -->
-        <footer class="site-footer-simple">
-        <div class="footer-simple-container">
-        <p class="footer-simple-text">
+  <footer class="site-footer-simple" data-scroll="fade-up">
+    <div class="footer-simple-container">
+      <p class="footer-simple-text">
         Soluciones Químicas Jadec S.A. de C.V. —  Distribuidor Autorizado en Marcas Líderes Mundiales y Nacionales, Artes Gráficas
       </p>
-      </div>
-      </footer>
+    </div>
+  </footer>
 
 
       
