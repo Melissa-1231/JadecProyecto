@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. Inicialización del Carrusel Interactivo: Barnices Especiales (5 Slides)
+  // 6. Inicialización del Carrusel Interactivo: Barnices Especiales (11 Productos)
   const carouselEspeciales = document.getElementById('carouselEspeciales');
   if (carouselEspeciales) {
     const track = carouselEspeciales.querySelector('.carousel-especiales-track');
@@ -235,8 +235,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalSlides = slides.length;
     let currentIndex = 0;
 
-    const getItemsPerView = () => (window.innerWidth > 900 ? 2 : 1);
-    const getGap = () => (window.innerWidth > 900 ? 28 : 20);
+    const getItemsPerView = () => {
+      if (window.innerWidth > 1024) return 3;
+      if (window.innerWidth > 640) return 2;
+      return 1;
+    };
+
+    const getGap = () => {
+      if (window.innerWidth > 1024) return 24;
+      if (window.innerWidth > 640) return 20;
+      return 16;
+    };
 
     const updateCarousel = (index) => {
       const itemsPerView = getItemsPerView();
@@ -285,8 +294,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     dots.forEach((dot, idx) => {
       dot.addEventListener('click', () => {
-        updateCarousel(idx);
+        const itemsPerView = getItemsPerView();
+        const maxIndex = Math.max(0, totalSlides - itemsPerView);
+        updateCarousel(Math.min(idx, maxIndex));
       });
+    });
+
+    // Soporte para navegación por teclado (Flechas izquierda / derecha)
+    carouselEspeciales.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        updateCarousel(currentIndex - 1);
+      } else if (e.key === 'ArrowRight') {
+        updateCarousel(currentIndex + 1);
+      }
     });
 
     // Soporte para gestos táctiles (Swipe en móviles y tablets)
