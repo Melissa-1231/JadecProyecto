@@ -554,15 +554,17 @@ header.site.header-hidden,
   font-size: 0.95rem;
   color: var(--text-secondary);
   border-radius: var(--radius-md);
-  transition: all var(--transition-fast);
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   gap: 4px;
 }
 
 .nav-link:hover, .nav-link.active {
-  color: var(--color-royal-blue);
-  background-color: var(--bg-alt);
+  color: var(--color-accent-green); /* Texto en verde #20BF55 */
+  background-color: rgba(32, 191, 85, 0.1); /* Fondo verde translúcido sutil */
+  box-shadow: 0 4px 12px rgba(32, 191, 85, 0.25); /* Sombreado verde exterior */
+  border-radius: var(--radius-md);
 }
 
 .dropdown-chevron {
