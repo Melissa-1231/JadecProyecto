@@ -318,4 +318,114 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inicialización al cargar la página
     updateCarousel(0);
   }
+
+  // 7. Navegación Dinámica ScrollSpy (IntersectionObserver)
+  const navLinksDesktop = document.querySelectorAll('.nav-links .nav-link, .nav-links a');
+  const navLinksDrawer = document.querySelectorAll('.nav-drawer-links .nav-drawer-link');
+  const allNavLinks = [...navLinksDesktop, ...navLinksDrawer];
+
+  if (allNavLinks.length > 0) {
+    // Definir secciones clave en orden de aparición en el DOM
+    const targetSectionIds = [
+      'barnices-tecnologias',
+      'barnices-brillantes',
+      'barnices-base-uv',
+      'barnices-especiales'
+    ];
+
+    const observedSections = [];
+
+    targetSectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        observedSections.push({ id, el });
+      }
+    });
+
+    const setActiveNav = (activeId) => {
+      allNavLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href) return;
+        const target = href.replace(/^#/, '');
+
+        // Soporta coincidencia exacta o alias
+        const isMatch = (target === activeId) ||
+          (activeId === 'barnices-tecnologias' && target === 'barnices-base-agua');
+
+        if (activeId && isMatch) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    };
+
+    if (observedSections.length > 0 && 'IntersectionObserver' in window) {
+      const visibleRatios = new Map();
+
+      const scrollSpyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            visibleRatios.set(entry.target.id, entry.intersectionRatio);
+          } else {
+            visibleRatios.delete(entry.target.id);
+          }
+        });
+
+        // 1. Si el scroll está en el Hero superior, limpiar selección
+        if (window.scrollY < 180) {
+          setActiveNav(null);
+          return;
+        }
+
+        // 2. Si el usuario llega al final de la página (Footer), activar la última sección
+        const isAtBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60);
+        if (isAtBottom) {
+          const lastSec = observedSections[observedSections.length - 1];
+          if (lastSec) {
+            setActiveNav(lastSec.id);
+            return;
+          }
+        }
+
+        // 3. Determinar la sección predominante en el área activa de lectura
+        if (visibleRatios.size > 0) {
+          let maxRatio = -1;
+          let bestSectionId = null;
+
+          observedSections.forEach(({ id }) => {
+            if (visibleRatios.has(id)) {
+              const ratio = visibleRatios.get(id);
+              if (ratio > maxRatio) {
+                maxRatio = ratio;
+                bestSectionId = id;
+              }
+            }
+          });
+
+          if (bestSectionId) {
+            setActiveNav(bestSectionId);
+          }
+        }
+      }, {
+        root: null,
+        rootMargin: '-25% 0px -60% 0px',
+        threshold: [0, 0.2, 0.4, 0.6, 0.8, 1.0]
+      });
+
+      observedSections.forEach(({ el }) => scrollSpyObserver.observe(el));
+
+      // Respaldo de eventos pasivos para tope y fondo de la página
+      window.addEventListener('scroll', () => {
+        if (window.scrollY < 180) {
+          setActiveNav(null);
+        } else if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60)) {
+          const lastSec = observedSections[observedSections.length - 1];
+          if (lastSec) {
+            setActiveNav(lastSec.id);
+          }
+        }
+      }, { passive: true });
+    }
+  }
 });
