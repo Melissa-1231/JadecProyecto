@@ -109,14 +109,18 @@ body {
 .nav-grupo-der {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
+  flex-grow: 1;
+  justify-content: flex-end;
 }
 
 /* Enlaces de Navegación (Desktop > 1024px) */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 24px;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 12px;
 }
 
 .nav-links a {
@@ -126,12 +130,19 @@ body {
   color: var(--ink);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  transition: color 0.25s ease, background-color 0.25s ease;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .nav-links a:hover,
-.nav-links a:focus {
-  color: var(--color-accent-green);
+.nav-links a:focus,
+.nav-links a.activo {
+  background-color: var(--color-accent-green);
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(32, 191, 85, 0.4);
 }
 
 .logo-actega-enlace {
@@ -1342,9 +1353,11 @@ footer p {
   }
 
   .nav-links a:hover,
-  .nav-links a:focus {
-    background-color: var(--color-accent-green-bg);
-    color: var(--color-accent-green);
+  .nav-links a:focus,
+  .nav-links a.activo {
+    background-color: var(--color-accent-green);
+    color: var(--white);
+    box-shadow: 0 2px 8px rgba(32, 191, 85, 0.35);
   }
 
   .grid-tres-brillantes {
@@ -1436,9 +1449,11 @@ footer p {
   }
 
   .nav-links a:hover,
-  .nav-links a:focus {
-    background-color: var(--color-accent-green-bg);
-    color: var(--color-accent-green);
+  .nav-links a:focus,
+  .nav-links a.activo {
+    background-color: var(--color-accent-green);
+    color: var(--white);
+    box-shadow: 0 2px 8px rgba(32, 191, 85, 0.35);
   }
 
   /* Hero en Móviles */

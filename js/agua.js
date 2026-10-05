@@ -366,5 +366,106 @@
         });
       }
     }
+
+    // 8. Navegación Dinámica ScrollSpy (IntersectionObserver)
+    const navLinksMenu = document.getElementById('navLinksMenu');
+    if (navLinksMenu) {
+      const navLinks = navLinksMenu.querySelectorAll('a[href^="#"]');
+      const targetSectionIds = [
+        'barnices-brillantes-agua',
+        'barnices-matte-agua',
+        'barnices-especiales-agua'
+      ];
+
+      const observedSections = [];
+      targetSectionIds.forEach(id => {
+        const sectionEl = document.getElementById(id);
+        if (sectionEl) {
+          observedSections.push({ id, el: sectionEl });
+        }
+      });
+
+      const setActiveNavLink = (activeId) => {
+        navLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          if (!href) return;
+          const target = href.replace(/^#/, '');
+
+          if (activeId && target === activeId) {
+            link.classList.add('activo');
+          } else {
+            link.classList.remove('activo');
+          }
+        });
+      };
+
+      if (observedSections.length > 0 && 'IntersectionObserver' in window) {
+        const visibleSectionRatios = new Map();
+
+        const scrollSpyObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              visibleSectionRatios.set(entry.target.id, entry.intersectionRatio);
+            } else {
+              visibleSectionRatios.delete(entry.target.id);
+            }
+          });
+
+          // Si el usuario está al tope de la página (Hero), limpiar estado activo
+          if (window.scrollY < 180) {
+            setActiveNavLink(null);
+            return;
+          }
+
+          // Si el usuario alcanza el final de la página (Footer), activar la última sección
+          const isAtBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60);
+          if (isAtBottom) {
+            const lastSec = observedSections[observedSections.length - 1];
+            if (lastSec) {
+              setActiveNavLink(lastSec.id);
+              return;
+            }
+          }
+
+          // Determinar la sección predominante en el viewport
+          if (visibleSectionRatios.size > 0) {
+            let maxRatio = -1;
+            let currentActiveId = null;
+
+            observedSections.forEach(({ id }) => {
+              if (visibleSectionRatios.has(id)) {
+                const ratio = visibleSectionRatios.get(id);
+                if (ratio > maxRatio) {
+                  maxRatio = ratio;
+                  currentActiveId = id;
+                }
+              }
+            });
+
+            if (currentActiveId) {
+              setActiveNavLink(currentActiveId);
+            }
+          }
+        }, {
+          root: null,
+          rootMargin: '-20% 0px -50% 0px',
+          threshold: [0, 0.25, 0.5, 0.75, 1.0]
+        });
+
+        observedSections.forEach(({ el }) => scrollSpyObserver.observe(el));
+
+        // Respaldo de eventos pasivos para tope y fondo de página
+        window.addEventListener('scroll', () => {
+          if (window.scrollY < 180) {
+            setActiveNavLink(null);
+          } else if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60)) {
+            const lastSec = observedSections[observedSections.length - 1];
+            if (lastSec) {
+              setActiveNavLink(lastSec.id);
+            }
+          }
+        }, { passive: true });
+      }
+    }
   });
 })();
