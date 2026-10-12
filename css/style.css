@@ -700,14 +700,14 @@ header.site.header-hidden,
 }
 
 .feature-title {
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--color-royal-blue);
   margin-bottom: 10px;
 }
 
 .feature-text {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   color: var(--text-muted);
   line-height: 1.6;
 }

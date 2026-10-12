@@ -388,7 +388,7 @@
 }
 
 .v-card-subtitle {
-  font-size: 0.75rem;
+  font-size: 1.0rem;
   font-weight: 700;
   color: var(--color-cyan-blue);
   text-transform: uppercase;
@@ -397,7 +397,7 @@
 }
 
 .v-card-title {
-  font-size: 1.4rem;
+  font-size: 1.55rem;
   font-weight: 800;
   color: var(--color-royal-blue);
   text-transform: uppercase;
@@ -407,7 +407,7 @@
 }
 
 .v-card-desc {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   color: var(--text-secondary);
   line-height: 1.5;
   margin-bottom: 24px;
@@ -424,7 +424,7 @@
   position: relative;
   padding: 10px 0 10px 20px;
   border-bottom: 1px dashed var(--border-mid);
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--text-secondary);
 }
 
@@ -770,10 +770,10 @@
   left: 16px;
   background-color: rgba(255, 255, 255, 0.94);
   color: var(--color-cyan-blue);
-  font-size: 0.78rem;
+  font-size: 1rem;
   font-weight: 800;
   letter-spacing: 0.08em;
-  padding: 6px 12px;
+  padding: 8px 14px;
   border-radius: 4px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   backdrop-filter: blur(4px);
