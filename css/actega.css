@@ -181,12 +181,12 @@ a.btn-green:active {
 
 .section-subtitle-green {
   display: inline-block;
-  font-size: 0.875rem;
+  font-size: 1.10rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--color-actega-green);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .actega-grid {
@@ -246,7 +246,7 @@ a.btn-green:active {
 }
 
 .actega-card-sub {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -264,7 +264,7 @@ a.btn-green:active {
 }
 
 .actega-card-desc {
-  font-size: 0.95rem;
+  font-size: 1.08rem;
   color: var(--text-secondary, #344054);
   line-height: 1.65;
   margin-bottom: 24px;
@@ -281,7 +281,7 @@ a.btn-green:active {
 .actega-feature-list li {
   position: relative;
   padding: 11px 0 11px 24px;
-  font-size: 0.92rem;
+  font-size: 1.05rem;
   color: var(--text-secondary, #344054);
   border-bottom: 1px solid var(--border-light, #EAECF0);
   line-height: 1.5;
