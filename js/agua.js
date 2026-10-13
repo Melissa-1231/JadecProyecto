@@ -99,78 +99,93 @@
       });
     }
 
-    // 3. Inicialización del Carrusel Interactivo de Productos (Barnices Matte - 2 Slides)
-    const carousel = document.getElementById('carouselMatteAgua');
-    if (carousel) {
-      const track = carousel.querySelector('.carousel-matte-track');
-      const slides = carousel.querySelectorAll('.carousel-matte-slide');
-      const prevBtn = carousel.querySelector('.carousel-btn-prev');
-      const nextBtn = carousel.querySelector('.carousel-btn-next');
-      const dots = carousel.querySelectorAll('.carousel-dot');
-      let currentIndex = 0;
-      const totalSlides = slides.length;
+    // 3. Inicialización del Carrusel Interactivo de Productos (Barnices Mate - 2 Slides)
+    const carruselMate = document.querySelector('.carrusel-contenedor') || document.getElementById('carouselMatteAgua');
+    
+    if (carruselMate) {
+      const track = carruselMate.querySelector('.carrusel-track') || carruselMate.querySelector('.carousel-matte-track');
+      const btnAnt = carruselMate.querySelector('.btn-prev') || carruselMate.querySelector('.carousel-btn-prev');
+      const btnSig = carruselMate.querySelector('.btn-next') || carruselMate.querySelector('.carousel-btn-next');
+      const puntos = carruselMate.querySelectorAll('.carrusel-dot, .carousel-dot');
+      const slides = carruselMate.querySelectorAll('.carrusel-slide, .carousel-matte-slide');
 
-      if (track && totalSlides > 0) {
-        const updateCarousel = (index) => {
-          if (index < 0) {
-            currentIndex = totalSlides - 1;
-          } else if (index >= totalSlides) {
-            currentIndex = 0;
-          } else {
-            currentIndex = index;
-          }
+      let indiceMate = 0;
+      const totalSlides = slides.length > 0 ? slides.length : 2;
 
-          // Desplazamiento del track con animación fluida
-          track.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-          // Actualizar estado activo en slides
-          slides.forEach((slide, idx) => {
-            slide.classList.toggle('active', idx === currentIndex);
-          });
-
-          // Actualizar estado de los dots
-          dots.forEach((dot, idx) => {
-            const isActive = idx === currentIndex;
-            dot.classList.toggle('active', isActive);
-            dot.setAttribute('aria-selected', String(isActive));
-          });
-        };
-
-        if (prevBtn) {
-          prevBtn.addEventListener('click', () => {
-            updateCarousel(currentIndex - 1);
-          });
+      const actualizarCarruselMate = () => {
+        if (track) {
+          track.style.transform = `translateX(-${indiceMate * 100}%)`;
         }
 
-        if (nextBtn) {
-          nextBtn.addEventListener('click', () => {
-            updateCarousel(currentIndex + 1);
-          });
-        }
-
-        dots.forEach((dot, idx) => {
-          dot.addEventListener('click', () => {
-            updateCarousel(idx);
-          });
+        // Actualizar clase .activo en los puntos de paginación
+        puntos.forEach((punto, i) => {
+          const esActivo = i === indiceMate;
+          punto.classList.toggle('activo', esActivo);
+          punto.classList.toggle('active', esActivo);
+          punto.setAttribute('aria-selected', String(esActivo));
         });
 
-        // Soporte para gestos táctiles (Swipe en móviles y tablets)
-        let startX = 0;
-        let endX = 0;
+        // Actualizar estado activo en los slides
+        slides.forEach((slide, i) => {
+          const esActivo = i === indiceMate;
+          slide.classList.toggle('activo', esActivo);
+          slide.classList.toggle('active', esActivo);
+        });
+      };
 
+      // Evento 'click' en el botón Siguiente (Avanzar con loop circular)
+      if (btnSig) {
+        btnSig.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          indiceMate = (indiceMate + 1) % totalSlides;
+          actualizarCarruselMate();
+        });
+      }
+
+      // Evento 'click' en el botón Anterior (Retroceder con loop circular)
+      if (btnAnt) {
+        btnAnt.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          indiceMate = (indiceMate - 1 + totalSlides) % totalSlides;
+          actualizarCarruselMate();
+        });
+      }
+
+      // Evento 'click' en los puntos de paginación
+      puntos.forEach((punto, i) => {
+        punto.addEventListener('click', (e) => {
+          e.preventDefault();
+          indiceMate = i;
+          actualizarCarruselMate();
+        });
+      });
+
+      // Soporte táctil adicional (Swipe para móviles y tablets)
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      if (track) {
         track.addEventListener('touchstart', (e) => {
-          startX = e.changedTouches[0].screenX;
+          touchStartX = e.changedTouches[0].screenX;
         }, { passive: true });
 
         track.addEventListener('touchend', (e) => {
-          endX = e.changedTouches[0].screenX;
-          if (startX - endX > 45) {
-            updateCarousel(currentIndex + 1); // Swipe izquierda -> siguiente
-          } else if (endX - startX > 45) {
-            updateCarousel(currentIndex - 1); // Swipe derecha -> anterior
+          touchEndX = e.changedTouches[0].screenX;
+          const diffX = touchStartX - touchEndX;
+          if (diffX > 40) {
+            indiceMate = (indiceMate + 1) % totalSlides;
+            actualizarCarruselMate();
+          } else if (diffX < -40) {
+            indiceMate = (indiceMate - 1 + totalSlides) % totalSlides;
+            actualizarCarruselMate();
           }
         }, { passive: true });
       }
+
+      // Sincronizar estado inicial
+      actualizarCarruselMate();
     }
 
     // 4. Interacción en Tarjetas de Sección 1: Barnices Brillantes (Preparado para Modales)
@@ -368,7 +383,6 @@
     }
 
     // 8. Navegación Dinámica ScrollSpy (IntersectionObserver)
-    const navLinksMenu = document.getElementById('navLinksMenu');
     if (navLinksMenu) {
       const navLinks = navLinksMenu.querySelectorAll('a[href^="#"]');
       const targetSectionIds = [

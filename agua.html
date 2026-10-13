@@ -28,7 +28,7 @@
 
   <!-- Hojas de Estilo y Scripts Independientes -->
   <link rel="stylesheet" href="css/agua.css">
-  <script src="js/agua.js" defer></script>
+  <script src="js/agua.js?v=2.0" defer></script>
 </head>
 <body>
 
@@ -83,7 +83,7 @@
       <div class="wrap">
         <h1 class="hero-agua-title">BARNICES BASE AGUA</h1>
         <p class="hero-agua-desc">
-          Formulaciones acuosas sostenibles de alto rendimiento, bajo contenido de VOC y excelente brillo y protección, diseñadas para responder a los estándares más exigentes de la industria gráfica y de empaque alimentario.
+          Formulaciones acuosas sostenibles de alto rendimiento y excelente brillo y protección, diseñadas para responder a los estándares más exigentes de la industria gráfica y de empaque alimentario.
         </p>
       </div>
     </div>
@@ -130,7 +130,7 @@
         <div class="cenefa-contenido">
           <h2 class="cenefa-titulo">BARNICES BRILLANTES</h2>
           <p class="cenefa-desc">
-            Formulaciones acuosas de alto impacto óptico, secado ultra veloz y excelente nivelación diseñadas para realzar el contraste y brillo en empaques comerciales y revistas.
+            Formulaciones acuosas de alto impacto óptico, secado rápido y excelente nivelación diseñadas para realzar el contraste y brillo en empaques comerciales y revistas.
           </p>
         </div>
       </header>
@@ -234,71 +234,56 @@
             </ul>
           </article>
 
-          <!-- Columna Derecha: Carrusel Interactivo de 2 Productos -->
-          <div class="carousel-matte-wrapper" id="carouselMatteAgua">
-            <div class="carousel-matte-track-container">
-              <div class="carousel-matte-track">
-                
-                <!-- Slide 1 -->
-                <div class="carousel-matte-slide active">
-                  <div class="carousel-slide-inner">
-                    <picture>
-                      <source srcset="assets/agua-12.webp 3840w, assets/agua-12.webp 1920w" sizes="(max-width: 860px) 100vw, 650px" type="image/webp">
-                      <img src="assets/agua-12.webp" alt="STARKOTE AQ-454-2 Barniz Matte" loading="lazy">
-                    </picture>
-                    <div class="carousel-slide-caption">
-                      <h4>STARKOTE AQ-3010-2</h4>
-                      <p>Acabado Mate Homogéneo y Tacto Sedoso para Empaques</p>
-                    </div>
-                  </div>
+<!-- Columna Derecha: Carrusel Interactivo de 2 Productos -->
+          <div class="carrusel-contenedor carousel-matte-wrapper" id="carouselMatteAgua">
+            <div class="carrusel-track carousel-matte-track">
+              
+<!-- Slide 1 -->
+              <div class="carrusel-slide carousel-matte-slide activo active">
+                <img src="assets/agua-12.webp" alt="STARKOTE AQ-3010-2 Barniz Mate" loading="lazy">
+                <div class="carousel-slide-caption">
+                  <h4>STARKOTE AQ-3010-2</h4>
+                  <p>Acabado Mate Homogéneo y Tacto Sedoso para Empaques</p>
+                </div>
                 </div>
 
-                <!-- Slide 2 -->
-                <div class="carousel-matte-slide">
-                  <div class="carousel-slide-inner">
-                    <picture>
-                      <source srcset="assets/agua-12.webp 3840w, assets/agua-12.webp 1920w" sizes="(max-width: 860px) 100vw, 650px" type="image/webp">
-                      <img src="assets/agua-12.webp" alt="STARKOTE AQ-5011-2 Barniz Matte" loading="lazy">
-                    </picture>
-                    <div class="carousel-slide-caption">
-                      <h4>STARKOTE AQ-3020-2</h4>
-                      <p>Protección Antirreflejo y Secado Eficiente en Prensa</p>
-                    </div>
-                  </div>
+<!-- Slide 2 -->
+              <div class="carrusel-slide carousel-matte-slide">
+                <img src="assets/agua-3020.webp" alt="STARKOTE AQ-3020-2 Barniz Mate" loading="lazy">
+                <div class="carousel-slide-caption">
+                  <h4>STARKOTE AQ-3020-2</h4>
+                  <p>Protección Antirreflejo y Secado Eficiente en Prensa</p>
+                </div>
                 </div>
 
-                <!-- Slide 3 -->
-                <div class="carousel-matte-slide active">
-                  <div class="carousel-slide-inner">
-                    <picture>
-                      <source srcset="assets/agua-8.webp 3840w, assets/agua-8.webp 1920w" sizes="(max-width: 860px) 100vw, 650px" type="image/webp">
-                      <img src="assets/agua-8.webp" alt="STARKOTE AQ-454-2 Barniz Matte" loading="lazy">
-                    </picture>
-                    <div class="carousel-slide-caption">
-                      <h4>STARKOTE AQ-3025-2</h4>
-                      <p>Acabado Mate Homogéneo y Tacto Sedoso para Empaques</p>
-                    </div>
-                  </div>
+
+<!-- Slide 3 -->
+              <div class="carrusel-slide carousel-matte-slide">
+                <img src="assets/agua-8.webp" alt="STARKOTE AQ-3020-2 Barniz Mate" loading="lazy">
+                <div class="carousel-slide-caption">
+                  <h4>STARKOTE AQ-3025-2</h4>
+                  <p>Protección Antirreflejo y Secado Eficiente en Prensa</p>
                 </div>
-              </div>
+                </div>
+
             </div>
 
-            <!-- Controles Circulares -->
-            <button type="button" class="carousel-btn carousel-btn-prev" aria-label="Anterior producto">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
+            <!-- Botones de Navegación Flecha -->
+            <button type="button" class="btn-prev carousel-btn carousel-btn-prev" aria-label="Anterior producto">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <polyline points="15 18 9 12 15 6"></polyline>
               </svg>
             </button>
-            <button type="button" class="carousel-btn carousel-btn-next" aria-label="Siguiente producto">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
+            <button type="button" class="btn-next carousel-btn carousel-btn-next" aria-label="Siguiente producto">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
             </button>
 
-            <!-- Paginación de 2 Puntos (Dots) -->
-            <div class="carousel-dots" role="tablist" aria-label="Paginación de productos matte">
-              <button type="button" class="carousel-dot active" role="tab" aria-selected="true" aria-label="Ir a producto 1"></button>
-              <button type="button" class="carousel-dot" role="tab" aria-selected="false" aria-label="Ir a producto 2"></button>
+            <!-- Paginación de 2 Indicadores -->
+            <div class="carrusel-dots carousel-dots" role="tablist" aria-label="Paginación de productos mate">
+              <button type="button" class="carrusel-dot carousel-dot activo active" role="tab" aria-selected="true" aria-label="Ir a producto 1"></button>
+              <button type="button" class="carrusel-dot carousel-dot" role="tab" aria-selected="false" aria-label="Ir a producto 2"></button>
             </div>
           </div>
         </div>
