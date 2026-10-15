@@ -215,56 +215,73 @@
         <!-- Layout Grid de 2 Columnas Asimétricas -->
         <div class="layout-dos-columnas-matte">
           
-          <!-- Columna Izquierda: Tarjeta Estática de Información con Píldoras -->
+          <!-- Columna Izquierda: Tarjeta Estática de Información con Píldoras Interactivas -->
           <article class="card-info-matte">
             <h3 class="card-info-title">LÍNEA MATE ESPECIALIZADA</h3>
             <p class="card-info-desc">
               Los barnices mate de ACTEGA® han sido diseñados tecnológicamente para modificar sustancialmente la reflexión de luz sobre sustratos de papel, cartón y películas flexibles.
             </p>
-            <ul class="card-product-list">
-              <li class="card-product-item">
+            <ul class="card-product-list" role="tablist" aria-label="Seleccionar producto mate">
+              <li class="card-product-item activo active" data-slide-index="0" role="tab" tabindex="0" aria-selected="true" aria-controls="carouselMatteAgua">
                 <span class="product-sku">STARKOTE AQ-3010-2</span>
+                <svg class="product-sku-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
               </li>
-              <li class="card-product-item">
+              <li class="card-product-item" data-slide-index="1" role="tab" tabindex="0" aria-selected="false" aria-controls="carouselMatteAgua">
                 <span class="product-sku">STARKOTE AQ-3020-2</span>
+                <svg class="product-sku-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
               </li>
-              <li class="card-product-item">
+              <li class="card-product-item" data-slide-index="2" role="tab" tabindex="0" aria-selected="false" aria-controls="carouselMatteAgua">
                 <span class="product-sku">STARKOTE AQ-3025-2</span>
+                <svg class="product-sku-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
               </li>
             </ul>
           </article>
 
-<!-- Columna Derecha: Carrusel Interactivo de 2 Productos -->
+          <!-- Columna Derecha: Carrusel Interactivo de 3 Productos en Escala Protagónica -->
           <div class="carrusel-contenedor carousel-matte-wrapper" id="carouselMatteAgua">
             <div class="carrusel-track carousel-matte-track">
               
-<!-- Slide 1 -->
+              <!-- Slide 1 -->
               <div class="carrusel-slide carousel-matte-slide activo active">
-                <img src="assets/agua-12.webp" alt="STARKOTE AQ-3010-2 Barniz Mate" loading="lazy">
+                <div class="carousel-slide-stage">
+                  <img src="assets/agua-12.webp" alt="STARKOTE AQ-3010-2 Barniz Mate" loading="lazy">
+                </div>
                 <div class="carousel-slide-caption">
+                  <span class="carousel-slide-tag">BARNIZ BASE AGUA MATE</span>
                   <h4>STARKOTE AQ-3010-2</h4>
                   <p>Acabado Mate Homogéneo y Tacto Sedoso para Empaques</p>
                 </div>
-                </div>
+              </div>
 
-<!-- Slide 2 -->
+              <!-- Slide 2 -->
               <div class="carrusel-slide carousel-matte-slide">
-                <img src="assets/agua-3020.webp" alt="STARKOTE AQ-3020-2 Barniz Mate" loading="lazy">
+                <div class="carousel-slide-stage">
+                  <img src="assets/agua-3020.webp" alt="STARKOTE AQ-3020-2 Barniz Mate" loading="lazy">
+                </div>
                 <div class="carousel-slide-caption">
+                  <span class="carousel-slide-tag">BARNIZ BASE AGUA MATE</span>
                   <h4>STARKOTE AQ-3020-2</h4>
                   <p>Protección Antirreflejo y Secado Eficiente en Prensa</p>
                 </div>
-                </div>
+              </div>
 
-
-<!-- Slide 3 -->
+              <!-- Slide 3 -->
               <div class="carrusel-slide carousel-matte-slide">
-                <img src="assets/agua-8.webp" alt="STARKOTE AQ-3020-2 Barniz Mate" loading="lazy">
+                <div class="carousel-slide-stage">
+                  <img src="assets/agua-8.webp" alt="STARKOTE AQ-3025-2 Barniz Mate" loading="lazy">
+                </div>
                 <div class="carousel-slide-caption">
+                  <span class="carousel-slide-tag">BARNIZ BASE AGUA MATE</span>
                   <h4>STARKOTE AQ-3025-2</h4>
                   <p>Protección Antirreflejo y Secado Eficiente en Prensa</p>
                 </div>
-                </div>
+              </div>
 
             </div>
 
@@ -280,10 +297,11 @@
               </svg>
             </button>
 
-            <!-- Paginación de 2 Indicadores -->
+            <!-- Paginación de 3 Indicadores -->
             <div class="carrusel-dots carousel-dots" role="tablist" aria-label="Paginación de productos mate">
-              <button type="button" class="carrusel-dot carousel-dot activo active" role="tab" aria-selected="true" aria-label="Ir a producto 1"></button>
-              <button type="button" class="carrusel-dot carousel-dot" role="tab" aria-selected="false" aria-label="Ir a producto 2"></button>
+              <button type="button" class="carrusel-dot carousel-dot activo active" role="tab" aria-selected="true" aria-label="Ir a STARKOTE AQ-3010-2"></button>
+              <button type="button" class="carrusel-dot carousel-dot" role="tab" aria-selected="false" aria-label="Ir a STARKOTE AQ-3020-2"></button>
+              <button type="button" class="carrusel-dot carousel-dot" role="tab" aria-selected="false" aria-label="Ir a STARKOTE AQ-3025-2"></button>
             </div>
           </div>
         </div>

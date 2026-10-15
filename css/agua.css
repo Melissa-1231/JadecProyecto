@@ -603,7 +603,7 @@ body {
 }
 
 /* ==========================================================================
-   5. Sección 2: BARNICES MATTE (Layout Asimétrico: Info + Carrusel 2 Slides)
+   5. Sección 2: BARNICES MATTE (Layout Asimétrico: Info + Carrusel Protagónico)
    ========================================================================== */
 .seccion-matte-agua {
   margin-top: 0;
@@ -612,18 +612,19 @@ body {
 
 .layout-dos-columnas-matte {
   display: grid;
-  grid-template-columns: 38% 62%;
-  gap: 32px;
+  grid-template-columns: 37% 63%;
+  gap: 30px;
   align-items: stretch;
-  margin-top: 28px;
+  margin-top: 32px;
 }
 
 /* Columna Izquierda: Tarjeta Estática de Información */
 .card-info-matte {
-  background-color: var(--white);
-  border-radius: 12px;
+  background-color: var(--white, #FFFFFF);
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
   border-left: 6px solid var(--color-orange, #E85D04);
-  padding: 44px 38px;
+  padding: 44px 34px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
@@ -645,35 +646,64 @@ body {
   font-family: 'Inter', sans-serif;
   font-size: 15px;
   color: #4F4F4F;
-  line-height: 1.65;
-  margin-bottom: 24px;
+  line-height: 1.6;
+  margin-bottom: 28px;
 }
 
-/* Lista de Productos tipo "Píldora" */
+/* Lista de Productos tipo "Píldora" Interactiva */
 .card-product-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 13px;
   width: 100%;
 }
 
 .card-product-item {
   display: flex;
   align-items: center;
-  padding: 13px 18px;
-  background-color: var(--paper, #F4F3ED);
-  border-radius: 6px;
-  border: 1px solid rgba(10, 37, 64, 0.08);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  justify-content: space-between;
+  padding: 15px 20px;
+  background-color: #F3F4F6;
+  border-radius: 10px;
+  border: 1.5px solid #E5E7EB;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  cursor: pointer;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s ease,
+              border-color 0.25s ease,
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  user-select: none;
+  transform-origin: center left;
 }
 
+/* Hover Interactivo: Resaltar en Verde Corporativo y Agrandar Tamaño */
 .card-product-item:hover {
-  background-color: var(--paper-2, #ECEAE1);
-  border-color: rgba(232, 93, 4, 0.4);
+  background-color: #FFFFFF;
+  border-color: var(--color-accent-green, #20BF55);
+  transform: scale(1.035);
+  box-shadow: 0 6px 20px rgba(32, 191, 85, 0.22);
+}
+
+.card-product-item:focus-visible {
+  border-color: var(--color-accent-green, #20BF55);
+  box-shadow: 0 0 0 3px rgba(32, 191, 85, 0.28);
+}
+
+/* Estado Activo (Elemento seleccionado en el carrusel) */
+.card-product-item.activo,
+.card-product-item.active {
+  background-color: #FFFFFF;
+  border-color: var(--color-accent-green, #20BF55);
+  box-shadow: 0 4px 16px rgba(32, 191, 85, 0.18);
   transform: translateX(4px);
-  box-shadow: 0 3px 10px rgba(232, 93, 4, 0.08);
+}
+
+.card-product-item.activo:hover,
+.card-product-item.active:hover {
+  transform: translateX(4px) scale(1.035);
+  box-shadow: 0 8px 24px rgba(32, 191, 85, 0.26);
 }
 
 .product-sku {
@@ -682,26 +712,52 @@ body {
   font-weight: 700;
   color: var(--ink, #0A2540);
   letter-spacing: 0.02em;
+  transition: color 0.25s ease;
+}
+
+/* Texto de la etiqueta en verde al pasar el puntero o al estar activa */
+.card-product-item:hover .product-sku,
+.card-product-item.activo .product-sku,
+.card-product-item.active .product-sku {
+  color: var(--color-accent-green, #20BF55);
+}
+
+.product-sku-icon {
+  opacity: 0.55;
+  color: #9CA3AF;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.card-product-item:hover .product-sku-icon,
+.card-product-item.activo .product-sku-icon,
+.card-product-item.active .product-sku-icon {
+  opacity: 1;
+  color: var(--color-accent-green, #20BF55);
+  transform: translateX(4px);
 }
 
 /* ==========================================================================
-   Columna Derecha: Carrusel Interactivo de 2 Slides (Línea Matte)
+   Columna Derecha: Carrusel Protagónico Rediseñado (Línea Matte)
    ========================================================================== */
 .carrusel-contenedor,
 .carousel-matte-wrapper {
   position: relative;
   overflow: hidden;
-  background-color: var(--white);
-  border-radius: 12px;
+  background-color: var(--white, #FFFFFF);
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 24px 24px 18px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .carrusel-track,
 .carousel-matte-track {
   display: flex;
-  transition: transform 0.4s ease-in-out;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   width: 100%;
 }
 
@@ -717,74 +773,133 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 32px 28px 20px;
+  padding: 0;
+  position: relative;
 }
 
-/* Las Imágenes (Crítico): Visualización Completa sin Cortes de Tambores Químicos */
-.carrusel-slide img,
-.carousel-matte-slide img {
+/* Escenario de Exhibición Protagónica de Imagen (Fondo Suave Redondeado) */
+.carousel-slide-stage {
   width: 100%;
-  max-width: 450px;
-  height: auto;
-  max-height: 350px;
+  min-height: 380px;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: #F4F7FC;
+  border-radius: 14px;
+  overflow: hidden;
+  padding: 20px;
+  perspective: 900px;
+}
+
+/* Imágenes en Gran Escala: Tambores con Sombra Natural */
+.carrusel-slide img,
+.carousel-matte-slide img,
+.carousel-slide-stage img {
+  width: auto;
+  max-width: 90%;
+  height: 100%;
+  max-height: 340px;
   object-fit: contain;
   margin: 0 auto;
-  border-radius: 8px;
-  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.09));
   display: block;
-  transition: transform 0.3s ease;
+  filter: drop-shadow(0 14px 24px rgba(10, 37, 64, 0.12));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              filter 0.4s ease;
+  will-change: transform;
 }
 
-.carrusel-slide img:hover,
-.carousel-matte-slide img:hover {
-  transform: scale(1.02);
+/* Efecto Suave al Pasar el Cursor por la Imagen */
+.carousel-slide-stage:hover img {
+  transform: translateY(-4px) scale(1.03);
+  filter: drop-shadow(0 20px 32px rgba(10, 37, 64, 0.18));
+}
+
+/* Animación Dinámica de Entrada al Cambiar de Slide */
+.carrusel-slide.activo .carousel-slide-stage img,
+.carousel-matte-slide.active .carousel-slide-stage img {
+  animation: drumEntrance 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes drumEntrance {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.96) translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .carousel-slide-caption {
   width: 100%;
-  max-width: 520px;
+  max-width: 540px;
   margin: 18px auto 0;
   text-align: center;
 }
 
+.carousel-slide-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-orange, #E85D04);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: block;
+}
+
 .carousel-slide-caption h4 {
   font-family: 'Big Shoulders Display', sans-serif;
-  font-size: 24px;
-  font-weight: 800;
+  font-size: 32px;
+  font-weight: 900;
   color: var(--ink, #0A2540);
   text-transform: uppercase;
   margin-bottom: 4px;
   letter-spacing: -0.01em;
+  line-height: 1.1;
 }
 
 .carousel-slide-caption p {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: #555555;
-  line-height: 1.55;
+  font-size: 14.5px;
+  color: #4B5563;
+  line-height: 1.5;
   font-weight: 500;
 }
 
-/* Botones Flecha de Navegación */
+/* Botones Flecha de Navegación Circulares */
 .btn-prev,
 .btn-next,
 .carousel-btn {
   position: absolute;
-  top: 50%;
+  top: 214px; /* Centrado vertical en el escenario de 380px + 24px de padding superior */
   transform: translateY(-50%);
   z-index: 10;
-  background: var(--ink-2, #161435);
-  color: white;
+  background: #111827;
+  color: #FFFFFF;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   cursor: pointer;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
   transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-prev,
+.carousel-btn-prev {
+  left: 40px;
+}
+
+.btn-next,
+.carousel-btn-next {
+  right: 40px;
 }
 
 .btn-prev:hover,
@@ -793,26 +908,16 @@ body {
 .btn-next:focus-visible,
 .carousel-btn:hover,
 .carousel-btn:focus-visible {
-  background-color: var(--color-orange, #E85D04);
-  transform: translateY(-50%) scale(1.08);
-  box-shadow: 0 6px 16px rgba(232, 93, 4, 0.35);
-}
-
-.btn-prev,
-.carousel-btn-prev {
-  left: 10px;
-}
-
-.btn-next,
-.carousel-btn-next {
-  right: 10px;
+  background-color: var(--color-accent-green, #20BF55);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 18px rgba(32, 191, 85, 0.4);
 }
 
 .btn-prev svg,
 .btn-next svg,
 .carousel-btn svg {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   stroke: currentColor;
   fill: none;
   stroke-width: 2.5;
@@ -821,26 +926,32 @@ body {
   pointer-events: none;
 }
 
-/* Paginación Dots con Indicador Activo Naranja */
+/* Paginación Dots Dinámica */
 .carrusel-dots,
 .carousel-dots {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  padding: 16px 0 20px;
+  padding: 16px 0 4px;
 }
 
 .carrusel-dot,
 .carousel-dot {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: #D1D5DB;
   border: none;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   padding: 0;
+}
+
+.carrusel-dot:hover,
+.carousel-dot:hover {
+  background-color: #9CA3AF;
+  transform: scale(1.25);
 }
 
 .carrusel-dot.activo,
@@ -848,8 +959,10 @@ body {
 .carousel-dot.activo,
 .carousel-dot.active {
   background-color: var(--color-orange, #E85D04);
-  width: 26px;
-  border-radius: 5px;
+  width: 32px;
+  height: 7px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(232, 93, 4, 0.35);
 }
 
 /* ==========================================================================
@@ -1494,24 +1607,49 @@ footer p {
   }
 
   .card-info-matte {
-    padding: 24px 18px;
+    padding: 30px 20px;
+    border-radius: 14px;
+  }
+
+  .carousel-matte-wrapper {
+    padding: 18px 16px 14px;
+    border-radius: 14px;
   }
 
   .carrusel-slide,
   .carousel-matte-slide {
-    padding: 24px 16px 16px;
+    padding: 0;
+  }
+
+  .carousel-slide-stage {
+    min-height: 280px;
+    height: 280px;
+    padding: 12px;
+    border-radius: 12px;
   }
 
   .carrusel-slide img,
-  .carousel-matte-slide img {
-    max-height: 280px;
+  .carousel-matte-slide img,
+  .carousel-slide-stage img {
+    max-height: 250px;
   }
 
   .btn-prev,
   .btn-next,
   .carousel-btn {
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
+    top: 158px;
+  }
+
+  .btn-prev,
+  .carousel-btn-prev {
+    left: 24px;
+  }
+
+  .btn-next,
+  .carousel-btn-next {
+    right: 24px;
   }
 
   /* Acordeón Especiales en Móvil: Apilado Vertical */

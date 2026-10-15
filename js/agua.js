@@ -99,7 +99,7 @@
       });
     }
 
-    // 3. Inicialización del Carrusel Interactivo de Productos (Barnices Mate - 2 Slides)
+    // 3. Inicialización del Carrusel Interactivo de Productos (Barnices Mate - 3 Slides Protagónicos)
     const carruselMate = document.querySelector('.carrusel-contenedor') || document.getElementById('carouselMatteAgua');
     
     if (carruselMate) {
@@ -108,9 +108,10 @@
       const btnSig = carruselMate.querySelector('.btn-next') || carruselMate.querySelector('.carousel-btn-next');
       const puntos = carruselMate.querySelectorAll('.carrusel-dot, .carousel-dot');
       const slides = carruselMate.querySelectorAll('.carrusel-slide, .carousel-matte-slide');
+      const pildoras = document.querySelectorAll('.card-info-matte .card-product-item');
 
       let indiceMate = 0;
-      const totalSlides = slides.length > 0 ? slides.length : 2;
+      const totalSlides = slides.length > 0 ? slides.length : 3;
 
       const actualizarCarruselMate = () => {
         if (track) {
@@ -130,6 +131,14 @@
           const esActivo = i === indiceMate;
           slide.classList.toggle('activo', esActivo);
           slide.classList.toggle('active', esActivo);
+        });
+
+        // Sincronizar píldoras interactivas de la columna izquierda
+        pildoras.forEach((pildora, i) => {
+          const esActivo = i === indiceMate;
+          pildora.classList.toggle('activo', esActivo);
+          pildora.classList.toggle('active', esActivo);
+          pildora.setAttribute('aria-selected', String(esActivo));
         });
       };
 
@@ -159,6 +168,59 @@
           e.preventDefault();
           indiceMate = i;
           actualizarCarruselMate();
+        });
+      });
+
+      // Sincronización al pasar el puntero (hover), clic y teclado en las etiquetas de la lista izquierda
+      let hoverMateTimer = null;
+      pildoras.forEach((pildora, i) => {
+        // Al pasar el cursor por cada etiqueta, activa suavemente el slide correspondiente
+        pildora.addEventListener('mouseenter', () => {
+          clearTimeout(hoverMateTimer);
+          hoverMateTimer = setTimeout(() => {
+            indiceMate = i;
+            actualizarCarruselMate();
+          }, 60);
+        });
+
+        pildora.addEventListener('mouseleave', () => {
+          clearTimeout(hoverMateTimer);
+        });
+
+        pildora.addEventListener('click', (e) => {
+          e.preventDefault();
+          clearTimeout(hoverMateTimer);
+          indiceMate = i;
+          actualizarCarruselMate();
+        });
+
+        pildora.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            clearTimeout(hoverMateTimer);
+            indiceMate = i;
+            actualizarCarruselMate();
+          }
+        });
+      });
+
+      // Efecto interactivo y dinámico de seguimiento suave del cursor sobre las imágenes
+      const stages = carruselMate.querySelectorAll('.carousel-slide-stage');
+      stages.forEach(stage => {
+        const img = stage.querySelector('img');
+        if (!img) return;
+
+        stage.addEventListener('mousemove', (e) => {
+          const rect = stage.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          const rotateX = (y / (rect.height / 2)) * -5;
+          const rotateY = (x / (rect.width / 2)) * 5;
+          img.style.transform = `perspective(800px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale(1.05)`;
+        });
+
+        stage.addEventListener('mouseleave', () => {
+          img.style.transform = '';
         });
       });
 
