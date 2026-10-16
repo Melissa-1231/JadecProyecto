@@ -1,0 +1,868 @@
+/* ==========================================================================
+   JADEC - Capa Premium Barnices ACTEGA (css/premium-barnices.css)
+   Requiere premium-core.css. Compartida por agua.html (Base Agua) y
+   uv.html (Barnices UV): ambas comparten la plantilla de componentes
+   (barra superior, hero dividido, cenefas de sección, ficha + carrusel).
+   - Sustituye las tipografías de plantilla (Big Shoulders / IBM Plex Mono)
+     por Inter, unificando con el resto del sitio.
+   - Reasigna los acentos naranja/morado a la paleta JADEC.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Tokens de la plantilla reasignados a la paleta del sistema
+   -------------------------------------------------------------------------- */
+:root {
+  --ink: var(--p-ink);
+  --paper: var(--p-beige);
+  --steel: var(--p-cyan-deep);
+  --color-accent-green: var(--p-green-deep);
+  --color-accent-green-hover: #14883D;
+  --color-orange: var(--p-cyan-deep);
+  --color-orange-hover: var(--p-cyan-deep);
+  --purple-btn: var(--p-ink);
+  --purple-btn-hover: var(--p-navy-2);
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--p-ink);
+  background: var(--p-white);
+}
+
+.bg-paper {
+  background: var(--p-white);
+}
+
+/* --------------------------------------------------------------------------
+   2. Tipografía unificada (Inter)
+   -------------------------------------------------------------------------- */
+.accordion-idx,
+.accordion-tag,
+.banner-seccion-tag,
+.btn-regresar,
+.card-info-subtitle,
+.card-info-tag,
+.carousel-slide-caption p,
+.carousel-slide-tag,
+.modal-kicker,
+.nav-drawer-badge,
+.nav-drawer-title,
+.product-sku,
+.sec-head-idx,
+.slide-especial-badge,
+.slide-especial-code,
+.slide-especial-tag,
+.spec-chip,
+.tarjeta-catalogo-tag,
+.tarjeta-poster-sub,
+.tarjeta-tag {
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.accordion-title-expanded,
+.accordion-title-vertical,
+.banner-seccion-title,
+.card-info-title,
+.carousel-slide-caption h4,
+.cenefa-titulo,
+.hero-agua-title,
+.hero-uv-title,
+.modal-title,
+.sec-head h2,
+.slide-especial-title,
+.tarjeta-catalogo-title,
+.tarjeta-info h3,
+.tarjeta-poster-title,
+.tarjeta-titulo,
+.titulo-centrado {
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  text-transform: none;
+  text-shadow: none;
+}
+
+/* Etiquetas de acento: cian legible en lugar de verde/naranja */
+.sec-head-idx,
+.card-info-tag,
+.card-info-subtitle,
+.tarjeta-catalogo-tag,
+.tarjeta-poster-sub,
+.carousel-slide-tag {
+  font-size: 0.72rem;
+  color: var(--p-cyan-deep);
+}
+
+.banner-seccion-tag,
+.tarjeta-tag,
+.slide-especial-tag,
+.slide-especial-badge,
+.accordion-tag,
+.accordion-idx {
+  font-size: 0.72rem;
+  color: var(--p-cyan);
+  text-shadow: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. Barra superior translúcida
+   -------------------------------------------------------------------------- */
+.nav-bar-custom {
+  min-height: var(--header-height);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--p-line-soft);
+  box-shadow: none;
+}
+
+.logo-daka {
+  height: 40px;
+}
+
+.logo-actega {
+  height: 26px;
+  opacity: 0.9;
+}
+
+.nav-links a,
+.nav-links .nav-link {
+  position: relative;
+  padding: 8px 14px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: rgba(11, 22, 40, 0.72);
+  background: none;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.nav-links a:hover,
+.nav-links a:focus,
+.nav-links a.activo,
+.nav-links a.active,
+.nav-links .nav-link:hover,
+.nav-links .nav-link.active {
+  color: var(--p-ink);
+  background: none;
+  box-shadow: none;
+}
+
+.btn-regresar {
+  padding: 8px 16px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--p-ink);
+  background: transparent;
+  border: 1px solid var(--p-line);
+  border-radius: 980px;
+  box-shadow: none;
+}
+
+.btn-regresar:hover,
+.btn-regresar:focus {
+  color: var(--p-white);
+  background: var(--p-ink);
+  border-color: var(--p-ink);
+  box-shadow: none;
+  transform: none;
+}
+
+.btn-menu-movil,
+.btn-menu-movil.activo,
+.btn-menu-movil.is-active {
+  color: var(--p-ink);
+  border-color: var(--p-line);
+  border-radius: 12px;
+}
+
+.btn-menu-movil.is-active .hamburger-bar {
+  background-color: var(--p-ink);
+}
+
+/* Menú lateral (uv.html) */
+.nav-drawer {
+  background: rgba(255, 255, 255, 0.98);
+  border-left: 1px solid var(--p-line-soft);
+  box-shadow: -30px 0 60px -30px rgba(11, 22, 40, 0.3);
+}
+
+.nav-drawer-link {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--p-ink);
+  border-bottom: 1px solid var(--p-line-soft);
+}
+
+.nav-drawer-link:hover,
+.nav-drawer-link:active,
+.nav-drawer-link.active {
+  color: var(--p-ink);
+  background: var(--p-beige);
+  box-shadow: none;
+}
+
+.nav-drawer-title,
+.nav-drawer-badge {
+  color: var(--p-cyan-deep);
+}
+
+/* --------------------------------------------------------------------------
+   4. Hero cinematográfico: el texto pasa sobre la fotografía
+   -------------------------------------------------------------------------- */
+.hero-agua-wrapper,
+.hero-uv-wrapper {
+  position: relative;
+  justify-content: center;
+  min-height: min(calc(100svh - var(--header-height)), 900px);
+  background: var(--p-navy);
+  isolation: isolate;
+}
+
+.hero-agua-imagen,
+.hero-uv-imagen {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+}
+
+.hero-agua-imagen::after,
+.hero-uv-imagen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 75% 55% at 50% 45%, rgba(7, 23, 43, 0.55), transparent 75%),
+    linear-gradient(180deg, rgba(7, 23, 43, 0.6) 0%, rgba(7, 23, 43, 0.4) 45%, rgba(7, 23, 43, 0.88) 100%);
+}
+
+.hero-agua-img,
+.hero-uv-img {
+  animation: p-hero-zoom 2.4s var(--p-ease) both;
+}
+
+.hero-agua-texto,
+.hero-uv-texto {
+  padding: 96px var(--p-gutter);
+  background: transparent;
+}
+
+.hero-agua-title,
+.hero-uv-title {
+  margin-bottom: 24px;
+  font-size: var(--p-display);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  color: var(--p-white);
+  text-shadow: 0 2px 30px rgba(7, 23, 43, 0.35);
+}
+
+.hero-agua-desc,
+.hero-uv-desc {
+  max-width: 40rem;
+  font-size: var(--p-lead);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.agua-wave-divider,
+.hero-uv-wave {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-agua-texto .wrap > *,
+  .hero-uv-texto .wrap > * {
+    animation: p-rise 1s var(--p-ease) both;
+  }
+
+  .hero-agua-texto .wrap > :nth-child(2),
+  .hero-uv-texto .wrap > :nth-child(2) {
+    animation-delay: 0.1s;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Cenefas / banners de sección (intro a sangre completa)
+   -------------------------------------------------------------------------- */
+.cenefa-seccion,
+.banner-seccion {
+  min-height: clamp(380px, 46vw, 560px);
+  margin: 0 0 clamp(56px, 3rem + 2vw, 96px);
+  border: 0;
+  box-shadow: none;
+}
+
+.cenefa-overlay,
+.banner-seccion-overlay {
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(7, 23, 43, 0.5), transparent 75%),
+    linear-gradient(180deg, rgba(7, 23, 43, 0.62) 0%, rgba(7, 23, 43, 0.82) 100%);
+}
+
+.cenefa-bg,
+.banner-seccion-bg {
+  transition: transform 1.6s var(--p-ease);
+}
+
+.cenefa-contenido,
+.banner-seccion-content {
+  max-width: 980px;
+  padding: 64px var(--p-gutter);
+}
+
+.cenefa-titulo,
+.banner-seccion-title {
+  margin-bottom: 20px;
+  font-size: var(--p-h2);
+  line-height: 1.04;
+  color: var(--p-white);
+}
+
+.cenefa-desc,
+.banner-seccion-desc {
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: var(--p-lead);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.78);
+  text-shadow: none;
+}
+
+/* Encabezado de sección simple (uv.html) */
+.sec-padding {
+  padding-top: var(--p-space);
+  padding-bottom: var(--p-space);
+}
+
+.sec-head h2,
+.titulo-centrado {
+  font-size: var(--p-h2);
+  line-height: 1.04;
+  color: var(--p-ink);
+}
+
+.sec-head-desc {
+  font-size: var(--p-lead);
+  line-height: 1.55;
+  color: var(--p-gray);
+}
+
+/* Separación inferior de cada sección de producto */
+.seccion-brillantes-agua,
+.seccion-matte-agua,
+.seccion-especiales-agua,
+.sec-barnices-brillantes,
+.sec-barnices-uv,
+.sec-barnices-especiales {
+  padding-bottom: var(--p-space);
+  background: var(--p-white);
+}
+
+.seccion-matte-agua,
+.sec-barnices-uv {
+  background: var(--p-beige);
+}
+
+/* --------------------------------------------------------------------------
+   6. Tarjetas póster (agua: brillantes) y tarjetas interactivas (uv)
+   -------------------------------------------------------------------------- */
+.grid-tres-brillantes,
+.grid-seis-dinamico,
+.grid-tres-productos {
+  gap: 20px;
+}
+
+.tarjeta-brillante-poster,
+.tarjeta-interactiva {
+  border: 0;
+  border-radius: var(--p-tile);
+  box-shadow: none;
+}
+
+.tarjeta-brillante-poster:hover,
+.tarjeta-brillante-poster:focus-visible,
+.tarjeta-interactiva:hover,
+.tarjeta-interactiva:focus-visible {
+  transform: none;
+  border-color: transparent;
+  box-shadow: 0 30px 60px -30px rgba(11, 22, 40, 0.45);
+}
+
+.tarjeta-poster-img,
+.tarjeta-bg img {
+  transition: transform 1.2s var(--p-ease);
+}
+
+.tarjeta-poster-overlay,
+.tarjeta-overlay {
+  background: linear-gradient(180deg, rgba(7, 23, 43, 0.05) 0%, rgba(7, 23, 43, 0.2) 40%, rgba(7, 23, 43, 0.9) 100%);
+}
+
+.tarjeta-poster-content,
+.tarjeta-info {
+  padding: 28px;
+}
+
+.tarjeta-poster-title,
+.tarjeta-titulo,
+.tarjeta-info h3 {
+  font-size: clamp(1.35rem, 1.1rem + 0.6vw, 1.75rem);
+  line-height: 1.1;
+  color: var(--p-white);
+}
+
+.tarjeta-poster-desc,
+.tarjeta-info p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.tarjeta-poster-sub {
+  color: var(--p-cyan);
+}
+
+/* Tarjetas de catálogo (uv: brillantes) */
+.tarjeta-catalogo {
+  overflow: hidden;
+  background: var(--p-beige);
+  border: 0;
+  border-radius: var(--p-tile);
+  box-shadow: none;
+}
+
+.tarjeta-catalogo:hover,
+.tarjeta-catalogo:focus-visible,
+.tarjeta-catalogo.is-hovered {
+  transform: none;
+  border-color: transparent;
+  box-shadow: 0 30px 60px -30px rgba(11, 22, 40, 0.28);
+}
+
+.tarjeta-catalogo-img {
+  background: var(--p-white);
+}
+
+.tarjeta-catalogo-img img {
+  transition: transform 1.2s var(--p-ease);
+}
+
+.tarjeta-catalogo-info,
+.tarjeta-catalogo:hover .tarjeta-catalogo-info,
+.tarjeta-catalogo.is-hovered .tarjeta-catalogo-info {
+  margin: 0;
+  padding: 26px 28px 30px;
+  background: transparent;
+  border-left: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.tarjeta-catalogo-tag,
+.tarjeta-catalogo:hover .tarjeta-catalogo-tag,
+.tarjeta-catalogo.is-hovered .tarjeta-catalogo-tag {
+  padding: 0;
+  color: var(--p-cyan-deep);
+  background: none;
+  border: 0;
+}
+
+.tarjeta-catalogo-title {
+  font-size: 1.375rem;
+  line-height: 1.15;
+  color: var(--p-ink);
+}
+
+.tarjeta-catalogo-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--p-gray);
+}
+
+/* --------------------------------------------------------------------------
+   7. Ficha de línea mate + lista de productos + carrusel
+   -------------------------------------------------------------------------- */
+.layout-dos-columnas-matte {
+  gap: 20px;
+}
+
+.card-info-matte {
+  padding: clamp(32px, 1.5rem + 2vw, 52px);
+  background: var(--p-white);
+  border: 0;
+  border-radius: var(--p-tile);
+  box-shadow: none;
+}
+
+.card-info-matte:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.card-info-title {
+  font-size: var(--p-h3);
+  line-height: 1.06;
+  color: var(--p-ink);
+}
+
+.card-info-desc {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--p-gray);
+}
+
+.card-info-divider {
+  background: var(--p-line);
+}
+
+.card-product-item {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--p-line-soft);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.card-product-item:hover,
+.card-product-item:focus-visible {
+  background: var(--p-beige);
+  border-color: var(--p-line-soft);
+  box-shadow: none;
+  transform: none;
+}
+
+.card-product-item.active,
+.card-product-item.activo,
+.card-product-item.active:hover,
+.card-product-item.activo:hover {
+  background: var(--p-ink);
+  border-color: var(--p-ink);
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.product-sku {
+  letter-spacing: 0.08em;
+  color: var(--p-ink);
+}
+
+.card-product-item:hover .product-sku,
+.card-product-item:hover .product-sku-icon {
+  color: var(--p-ink);
+}
+
+.card-product-item.active .product-sku,
+.card-product-item.activo .product-sku,
+.card-product-item.active .product-sku-icon,
+.card-product-item.activo .product-sku-icon {
+  color: var(--p-white);
+}
+
+.carousel-matte-wrapper {
+  overflow: hidden;
+  background: var(--p-white);
+  border: 0;
+  border-radius: var(--p-tile);
+  box-shadow: none;
+}
+
+.carousel-slide-stage {
+  background: var(--p-white);
+  border-radius: 0;
+}
+
+.carousel-slide-caption h4 {
+  color: var(--p-ink);
+}
+
+.carousel-slide-caption p {
+  letter-spacing: 0.04em;
+  color: var(--p-gray);
+}
+
+.carousel-btn,
+.carousel-btn-especial {
+  color: var(--p-ink);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--p-line-soft);
+  box-shadow: 0 6px 20px -8px rgba(11, 22, 40, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.carousel-btn:hover,
+.carousel-btn:focus-visible,
+.carousel-btn-especial:hover {
+  color: var(--p-white);
+  background: var(--p-ink);
+  border-color: var(--p-ink);
+  box-shadow: none;
+  transform: translateY(-50%);
+}
+
+.carousel-dot,
+.carousel-dot-especial {
+  background: rgba(11, 22, 40, 0.18);
+  box-shadow: none;
+}
+
+.carousel-dot.active,
+.carousel-dot-especial.active {
+  width: 22px;
+  background: var(--p-ink);
+  border-radius: 980px;
+  box-shadow: none;
+}
+
+/* --------------------------------------------------------------------------
+   8. Especiales: acordeón (agua) y carrusel de fichas (uv)
+   -------------------------------------------------------------------------- */
+.accordion-especiales {
+  gap: 12px;
+}
+
+.accordion-item {
+  border: 0;
+  border-radius: var(--p-radius);
+  box-shadow: none;
+}
+
+.accordion-item.activo,
+.accordion-item:hover:not(.activo) {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.accordion-overlay,
+.accordion-item.activo .accordion-overlay {
+  background: linear-gradient(180deg, rgba(7, 23, 43, 0.4) 0%, rgba(7, 23, 43, 0.1) 35%, rgba(7, 23, 43, 0.88) 100%);
+}
+
+.accordion-title-expanded {
+  color: var(--p-white);
+}
+
+.accordion-desc {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.btn-accordion-cta,
+.btn-cotizacion-header {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--p-ink);
+  background: var(--p-white);
+  border: 1px solid var(--p-white);
+  border-radius: 980px;
+  box-shadow: none;
+}
+
+.btn-accordion-cta:hover,
+.btn-accordion-cta:focus-visible,
+.btn-cotizacion-header:hover {
+  color: var(--p-ink);
+  background: #E9EEF3;
+  border-color: #E9EEF3;
+  box-shadow: none;
+  transform: none;
+}
+
+.btn-cotizacion-header {
+  color: var(--p-white);
+  background: var(--p-green-deep);
+  border-color: var(--p-green-deep);
+}
+
+.btn-cotizacion-header:hover {
+  color: var(--p-white);
+  background: #14883D;
+  border-color: #14883D;
+}
+
+.slide-especial {
+  background: var(--p-navy);
+  border: 0;
+  border-radius: var(--p-tile);
+  box-shadow: none;
+}
+
+.slide-especial:hover,
+.slide-especial:focus-visible {
+  transform: none;
+  border-color: transparent;
+  box-shadow: 0 30px 60px -30px rgba(11, 22, 40, 0.5);
+}
+
+.slide-especial-visual {
+  background: var(--p-white);
+}
+
+.slide-especial-title {
+  font-size: 1.375rem;
+  line-height: 1.15;
+  color: var(--p-white);
+}
+
+.slide-especial-line {
+  background: var(--p-line-dark);
+}
+
+.slide-especial-desc {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.slide-especial-code {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.spec-chip,
+.slide-especial:hover .spec-chip {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--p-white);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 980px;
+}
+
+.badge-dot {
+  background-color: var(--p-green);
+  box-shadow: none;
+}
+
+/* --------------------------------------------------------------------------
+   9. Footer, botón volver arriba y modal de la plantilla
+   -------------------------------------------------------------------------- */
+footer {
+  padding: 40px 0;
+  background: var(--p-navy);
+  border-top: 0;
+}
+
+footer p {
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-volver-arriba {
+  color: var(--p-white);
+  background: rgba(11, 22, 40, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 980px;
+  box-shadow: 0 12px 28px -10px rgba(11, 22, 40, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.btn-volver-arriba:hover,
+.btn-volver-arriba:focus-visible {
+  background: var(--p-ink);
+  box-shadow: 0 12px 28px -10px rgba(11, 22, 40, 0.5);
+}
+
+.modal-box {
+  border: 0;
+  border-radius: var(--p-tile);
+  box-shadow: 0 40px 80px -24px rgba(7, 23, 43, 0.45);
+}
+
+.btn-modal-submit {
+  color: var(--p-white);
+  background: var(--p-ink);
+  border-color: var(--p-ink);
+  border-radius: 980px;
+}
+
+.btn-modal-submit:hover {
+  background: var(--p-navy-2);
+  border-color: var(--p-navy-2);
+}
+
+.btn-modal-cancel {
+  border-radius: 980px;
+}
+
+/* --------------------------------------------------------------------------
+   10. Revelado al hacer scroll
+   -------------------------------------------------------------------------- */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .cenefa-contenido,
+    .banner-seccion-content,
+    .tarjeta-brillante-poster,
+    .tarjeta-catalogo,
+    .card-info-matte,
+    .carousel-matte-wrapper {
+      animation: p-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   11. Responsivo
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  /* Menú desplegable de la plantilla: hoja blanca sin bordes de color */
+  .nav-links {
+    background: rgba(255, 255, 255, 0.98);
+    border-top: 0;
+    border-bottom: 1px solid var(--p-line-soft);
+    box-shadow: 0 24px 48px -16px rgba(11, 22, 40, 0.22);
+  }
+
+  .nav-links a,
+  .nav-links .nav-link {
+    padding: 16px 20px;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--p-ink);
+    border-bottom: 1px solid var(--p-line-soft);
+    border-radius: 0;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.activo,
+  .nav-links a.active {
+    color: var(--p-ink);
+    background: var(--p-beige);
+  }
+
+  .nav-bar-custom {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.97);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-agua-texto,
+  .hero-uv-texto {
+    padding: 72px var(--p-gutter);
+  }
+
+  .hero-agua-title,
+  .hero-uv-title {
+    font-size: 2.6rem;
+  }
+
+  .tarjeta-poster-content,
+  .tarjeta-info,
+  .tarjeta-catalogo-info {
+    padding: 22px;
+  }
+}

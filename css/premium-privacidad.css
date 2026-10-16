@@ -1,0 +1,171 @@
+/* ==========================================================================
+   JADEC - Capa Premium Aviso de Privacidad (css/premium-privacidad.css)
+   Requiere premium-core.css. Columna de lectura editorial estilo Apple
+   Legal: sin tarjeta, titular grande y tipografía cómoda (aviso-privacidad.html).
+   ========================================================================== */
+
+.site-header-privacy {
+  box-shadow: none;
+}
+
+.legal-section {
+  padding: clamp(72px, 4rem + 3vw, 128px) var(--p-gutter) var(--p-space);
+  background: var(--p-white);
+}
+
+.legal-container {
+  max-width: 760px;
+}
+
+.legal-card {
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.legal-header {
+  margin-bottom: 56px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--p-line);
+}
+
+.legal-kicker {
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--p-cyan-deep);
+  background: none;
+  border: 0;
+}
+
+.legal-title {
+  margin-bottom: 20px;
+  font-size: var(--p-h2);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  color: var(--p-ink);
+}
+
+.legal-updated {
+  font-size: 0.875rem;
+  color: var(--p-gray);
+}
+
+.legal-updated::before {
+  background: var(--p-green-deep);
+}
+
+.legal-body {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--p-ink-soft, #3A4556);
+}
+
+.legal-body p {
+  margin-bottom: 22px;
+  color: #3A4556;
+}
+
+.legal-body strong {
+  font-weight: 600;
+  color: var(--p-ink);
+}
+
+.legal-body h2 {
+  margin: 64px 0 20px;
+  padding: 0;
+  font-size: clamp(1.5rem, 1.2rem + 0.8vw, 1.875rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--p-ink);
+  border: 0;
+}
+
+.legal-body h3 {
+  margin: 36px 0 14px;
+  font-size: 1.1875rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--p-ink);
+}
+
+.legal-body ul {
+  margin: 0 0 24px;
+  padding: 0;
+}
+
+.legal-body ul li {
+  padding-left: 22px;
+  margin-bottom: 12px;
+}
+
+.legal-body ul li::before {
+  content: '';
+  left: 2px;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--p-ink);
+}
+
+.legal-body a,
+.legal-card-info a {
+  font-weight: 500;
+  color: var(--p-cyan-deep);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.legal-body a:hover,
+.legal-card-info a:hover {
+  color: var(--p-ink);
+}
+
+.legal-card-info {
+  margin: 36px 0 8px;
+  padding: 28px 32px;
+  font-size: 0.975rem;
+  line-height: 1.8;
+  background: var(--p-beige);
+  border: 0;
+  border-radius: var(--p-radius);
+  box-shadow: none;
+}
+
+.legal-card-info strong {
+  color: var(--p-ink);
+}
+
+.footer-simple {
+  padding: 40px 0;
+  background: var(--p-navy);
+  border-top: 0;
+}
+
+.footer-simple-text {
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-simple-link {
+  color: var(--p-white);
+}
+
+.footer-simple-link:hover {
+  color: var(--p-cyan);
+}
+
+@media (max-width: 640px) {
+  .legal-card-info {
+    padding: 22px 20px;
+  }
+}

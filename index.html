@@ -3,23 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JADEC | Soluciones Químicas para Pinturas, Barnices y Adhesivos</title>
   <meta name="description" content="JADEC Soluciones Químicas - Proveedor líder en materias primas y aditivos químicos para la industria de pinturas, barnices y adhesivos.">
   <meta name="keywords" content="JADEC, Soluciones Químicas, Insumos Químicos, Pinturas, Barnices, Adhesivos, Resinas, Pigmentos, Recubrimientos">
-  
+  <meta name="author" content="Soluciones Químicas Jadec S.A. de C.V.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#07172B">
+  <meta name="color-scheme" content="light">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- SEO: URL canónica e idioma -->
   <link rel="canonical" href="https://www.jadec-quimica.com/" />
+  <link rel="alternate" hreflang="es-MX" href="https://www.jadec-quimica.com/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.jadec-quimica.com/" />
+
+  <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+  <meta property="og:site_name" content="JADEC Soluciones Químicas">
+  <meta property="og:locale" content="es_MX">
   <meta property="og:title" content="JADEC | Soluciones Químicas para Pinturas, Barnices y Adhesivos">
   <meta property="og:description" content="Suministramos materias primas, resinas y aditivos especializados de alto rendimiento para recubrimientos y adhesión industrial.">
   <meta property="og:image" content="https://www.jadec-quimica.com/og-image.jpg">
   <meta property="og:url" content="https://www.jadec-quimica.com/">
   <meta property="og:type" content="website">
+  <meta property="og:image:alt" content="JADEC | Soluciones Químicas para Pinturas, Barnices y Adhesivos">
 
-  <title>JADEC | Soluciones Químicas para Pinturas, Barnices y Adhesivos</title>
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JADEC | Soluciones Químicas para Pinturas, Barnices y Adhesivos">
+  <meta name="twitter:description" content="Suministramos materias primas, resinas y aditivos especializados de alto rendimiento para recubrimientos y adhesión industrial.">
+  <meta name="twitter:image" content="https://www.jadec-quimica.com/og-image.jpg">
+  <meta name="twitter:image:alt" content="JADEC | Soluciones Químicas para Pinturas, Barnices y Adhesivos">
+
+  <!-- Datos estructurados (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Soluciones Químicas Jadec S.A. de C.V.",
+    "alternateName": "JADEC",
+    "url": "https://www.jadec-quimica.com/",
+    "logo": "https://www.jadec-quimica.com/images/logo/jadec-logo.png",
+    "description": "JADEC Soluciones Químicas - Proveedor líder en materias primas y aditivos químicos para la industria de pinturas, barnices y adhesivos.",
+    "email": "administracion@jadec.mx",
+    "telephone": "+52 55 5116 1225",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ecatepec de Morelos",
+      "addressRegion": "Estado de México",
+      "addressCountry": "MX"
+    },
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+52 55 5116 1225",
+      "email": "ventas@jadec.mx",
+      "contactType": "sales",
+      "areaServed": "MX",
+      "availableLanguage": "es"
+    }]
+  }
+  </script>
 
   <!-- Favicons y Accesos Directos Móviles -->
   <link rel="icon" type="image/x-icon" href="images/favicon/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/favicon.ico">
+
+  <!-- Preload de la imagen LCP del Hero -->
+  <link rel="preload" as="image" href="assets/inicio-1.webp" type="image/webp" fetchpriority="high">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,11 +81,14 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/modal.css">
+  <!-- Capa visual premium (solo presentación; se carga al final para sobrescribir) -->
+  <link rel="stylesheet" href="css/premium-core.css">
+  <link rel="stylesheet" href="css/premium-home.css">
 </head>
 <body>
 
 <!-- Topbar Superior Corporativa -->
-      <div class="topbar">
+      <aside class="topbar" aria-label="Contacto del Departamento Técnico">
       <div class="topbar-container">
 <!-- Columna Izquierda: Identidad y Línea Autorizada -->
       <div class="topbar-brand-meta">
@@ -46,17 +100,17 @@
       <div class="topbar-tech-contact">
         <span class="topbar-tech-label">DEPARTAMENTO TÉCNICO ARTES GRÁFICAS:</span>
         <a href="tel:+525543390652" class="topbar-tech-link">55 5116 1225</a>
-        <span class="topbar-tech-sep">|</span>
+        <span class="topbar-tech-sep" aria-hidden="true">|</span>
         <a href="mailto:administracion@jadec.mx" class="topbar-tech-link">administracion@jadec.mx</a>
       </div>
     </div>
-  </div>
+  </aside>
 
 <!-- Header y Navegación Principal -->
        <header class="site">
       <div class="header-container">
       <a href="index.html" class="logo" aria-label="JADEC Soluciones Químicas - Inicio">
-      <img src="images/logo/jadec-logo.png" alt="Logotipo Corporativo de JADEC Soluciones Químicas" class="logo-img" width="180" height="48">
+      <img src="images/logo/jadec-logo.png" alt="Logotipo Corporativo de JADEC Soluciones Químicas" class="logo-img" width="156" height="48">
       </a>
 
       <nav id="siteNav" class="site-nav" aria-label="Navegación Principal">
@@ -95,17 +149,17 @@
         <main id="main-content">
     
 <!-- Hero Section -->
-        <section class="intro-fullscreen">
-        <img src="assets/inicio-1.webp" alt="Laboratorio de Formulación JADEC" class="hero-bg-img" fetchpriority="high">
+        <section class="intro-fullscreen" aria-labelledby="hero-title">
+        <img src="assets/inicio-1.webp" alt="Laboratorio de Formulación JADEC" class="hero-bg-img" width="3652" height="1120" fetchpriority="high" decoding="async">
         <div class="intro-container hero-grid">
 
 <!-- Columna Izquierda: Mensaje Principal y Propuesta de Valor -->
          <div class="intro-content">
          <div class="badge badge-accent">
-         <span class="badge-dot"></span>
+         <span class="badge-dot" aria-hidden="true"></span>
             Especialistas en Recubrimientos
          </div>
-         <h1 class="hero-title">Adhesivos, tintas y barnices para la industria de artes gráficas y empaques.</h1>
+         <h1 class="hero-title" id="hero-title">Adhesivos, tintas y barnices para la industria de artes gráficas y empaques.</h1>
          <p class="hero-subtitle">
             Garantizan máxima durabilidad, adherencia y acabado perfecto para tus formulaciones.
           </p>
@@ -157,12 +211,12 @@
               <span class="stat-number">+150</span>
               <span class="stat-label">Productos y Especialidades</span>
             </div>
-            <div class="stat-divider"></div>
+            <div class="stat-divider" aria-hidden="true"></div>
             <div class="stat-item">
               <span class="stat-number">100%</span>
               <span class="stat-label">Alta calidad</span>
             </div>
-            <div class="stat-divider"></div>
+            <div class="stat-divider" aria-hidden="true"></div>
             <div class="stat-item">
               <span class="stat-number">+15 Años</span>
               <span class="stat-label">Abasteciendo a la Industria</span>
@@ -172,7 +226,7 @@
             </div>
 
 <!-- SEPARADOR DE OLAS SVG -->
-      <div class="wave-divider">
+      <div class="wave-divider" aria-hidden="true">
         <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
           <!-- Capa 1: Verde Translúcido (Onda profunda) -->
           <path fill="var(--color-accent-green)" fill-opacity="0.3" d="M0,96L80,106.7C160,117,320,139,480,122.7C640,107,800,53,960,42.7C1120,32,1280,64,1360,80L1440,96L1440,220L1360,220C1280,220,1120,220,960,220C800,220,640,220,480,220C320,220,160,220,80,220L0,220Z"></path>
@@ -185,30 +239,30 @@
     </section>
 
 <!-- Sección: Identificación / Nosotros -->
-        <section class="section bg-identificacion" id="nosotros">
+        <section class="section bg-identificacion" id="nosotros" aria-labelledby="nosotros-title">
         <div class="identificacion-container">
-        <h2 class="identificacion-title">NOSOTROS</h2>
-        <hr class="identificacion-divider">
+        <h2 class="identificacion-title" id="nosotros-title">NOSOTROS</h2>
+        <hr class="identificacion-divider" aria-hidden="true">
         
         <div class="identificacion-grid">
-        <div class="identificacion-data">
+        <dl class="identificacion-data">
         <div class="data-row">
-              <span class="data-label">EMPRESA</span>
-              <span class="data-value">Soluciones Químicas Jadec S.A. de C.V.</span>
+              <dt class="data-label">EMPRESA</dt>
+              <dd class="data-value">Soluciones Químicas Jadec S.A. de C.V.</dd>
             </div>
             <div class="data-row">
-              <span class="data-label">GIRO</span>
-              <span class="data-value">Distribución y fabricación de productos químicos</span>
+              <dt class="data-label">GIRO</dt>
+              <dd class="data-value">Distribución y fabricación de productos químicos</dd>
             </div>
             <div class="data-row">
-              <span class="data-label">MARCAS</span>
-              <span class="data-value"> Marcas líderes nacionales y mundiales. </span>
+              <dt class="data-label">MARCAS</dt>
+              <dd class="data-value"> Marcas líderes nacionales y mundiales. </dd>
             </div>
             <div class="data-row">
-              <span class="data-label">SEDE</span>
-              <span class="data-value">Ecatepec de Morelos, Edo. de México</span>
+              <dt class="data-label">SEDE</dt>
+              <dd class="data-value">Ecatepec de Morelos, Edo. de México</dd>
             </div>
-          </div>
+          </dl>
           
           <div class="identificacion-text">
             <p>Soluciones químicas Jadec es una empresa Mexicana dedicada a la distribución de adhesivos, barnices y tintas para la industria de recubrimientos, empaque y artes gráficas. Trabajamos como distribuidor autorizado de las marcas más reconocidas de la industria, llevando productos de calidad internacional a fabricantes en todo el país.</p>
@@ -219,16 +273,16 @@
         </section>
 
 <!-- Sección: Propuesta de Valor con Imagen de Fondo Full Screen -->
-      <section class="section ventajas-bg-section" id="ventajas">
+      <section class="section ventajas-bg-section" id="ventajas" aria-labelledby="ventajas-title">
 <!-- Imagen de fondo (Reemplaza el src por la imagen que desees usar) -->
-      <img src="assets/inicio-2.webp" alt="Planta de Producción JADEC" class="ventajas-bg-img">
+      <img src="assets/inicio-2.webp" alt="Planta de Producción JADEC" class="ventajas-bg-img" width="2528" height="1682" loading="lazy" decoding="async">
       
 <!-- Capa de color superpuesta para no perder la legibilidad del texto -->
-      <div class="ventajas-overlay"></div>
+      <div class="ventajas-overlay" aria-hidden="true"></div>
       <div class="section-container content-relative">
         <div class="section-header text-center header-light">
           <span class="section-subtitle">Ventajas Competitivas</span>
-          <h2 class="section-title">¿Por qué elegir a JADEC como tu proveedor de soluciones?</h2>
+          <h2 class="section-title" id="ventajas-title">¿Por qué elegir a JADEC como tu proveedor de soluciones?</h2>
           <p class="section-description">
             Combinamos conocimiento técnico avanzado en formulación de recubrimientos, tintas y adhesivos.
           </p>
@@ -236,7 +290,7 @@
 
         <div class="features-grid">
           <div class="feature-card">
-            <div class="feature-icon">
+            <div class="feature-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             </div>
             <h3 class="feature-title">Consistencia de Lote a Lote</h3>
@@ -245,7 +299,7 @@
             </p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon">
+            <div class="feature-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
             </div>
             <h3 class="feature-title">Logística Especializada</h3>
@@ -254,7 +308,7 @@
             </p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon">
+            <div class="feature-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
             </div>
             <h3 class="feature-title">Apoyo Técnico</h3>
@@ -263,7 +317,7 @@
             </p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon">
+            <div class="feature-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
             <h3 class="feature-title">Cumplimientos Normativos</h3>
@@ -276,12 +330,12 @@
           </section>
 
 <!-- Sección: Productos Destacados -->
-      <section class="section" id="productos">
+      <section class="section" id="productos" aria-labelledby="productos-title">
       <div class="section-container">
       <div class="section-header flex-between">
       <div>
          <span class="section-subtitle">Portafolio Químico</span>
-      <h2 class="section-title">Productos Destacados</h2>
+      <h2 class="section-title" id="productos-title">Productos Destacados</h2>
       </div>
       <button type="button" class="btn btn-ghost" data-open-modal>
       <span>Solicitar Presentación Comercial</span>
@@ -294,7 +348,7 @@
 <!-- Tarjeta 1: Adhesivos -->
           <article class="v-card">
           <div class="v-card-image">
-              <img src="assets/industria-5.webp" alt="Productos Adhesivos Industriales">
+              <img src="assets/industria-5.webp" alt="Productos Adhesivos Industriales" width="3168" height="1344" loading="lazy" decoding="async">
           </div>
           <div class="v-card-content">
           <span class="v-card-subtitle">Sistemas de adherencia</span>
@@ -314,7 +368,7 @@
 <!-- Tarjeta 2: Actega Offset -->
           <article class="v-card">
           <div class="v-card-image">
-          <img src="assets/uv-7.webp" alt="Tintas Actega Offset">
+          <img src="assets/uv-7.webp" alt="Tintas Actega Offset" width="2752" height="1536" loading="lazy" decoding="async">
           </div>
           <div class="v-card-content">
               <span class="v-card-subtitle">Recubrimientos</span>
@@ -335,7 +389,7 @@
 <!-- Tarjeta 3: Tintas -->
           <article class="v-card">
             <div class="v-card-image">
-              <img src="assets/tintas-3.webp" alt="Tintas de Alta Pigmentación">
+              <img src="assets/tintas-3.webp" alt="Tintas de Alta Pigmentación" width="2160" height="1984" loading="lazy" decoding="async">
             </div>
             <div class="v-card-content">
               <span class="v-card-subtitle">Sistemas Cromáticos</span>
@@ -357,7 +411,7 @@
 
 
 <!-- Separador SVG de Olas Productos -> Industrias Atendidas -->
-        <div class="wave-divider-productos">
+        <div class="wave-divider-productos" aria-hidden="true">
         <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
 <!-- Capa 1: Verde Translúcido -->
         <path fill="var(--color-accent-green)" fill-opacity="0.3" d="M0,96L80,106.7C160,117,320,139,480,122.7C640,107,800,53,960,42.7C1120,32,1280,64,1360,80L1440,96L1440,220L1360,220C1280,220,1120,220,960,220C800,220,640,220,480,220C320,220,160,220,80,220L0,220Z"></path>
@@ -369,18 +423,18 @@
         </div>
 
 <!-- Sección: Industrias Atendidas -->
-       <section class="section bg-beige" id="industrias-atendidas">
+       <section class="section bg-beige" id="industrias-atendidas" aria-labelledby="industrias-title">
        <div class="section-container">
        <div class="section-header text-left">
-          <h2 class="industrias-title">INDUSTRIAS ATENDIDAS</h2>
-          <hr class="industrias-divider">
+          <h2 class="industrias-title" id="industrias-title">INDUSTRIAS ATENDIDAS</h2>
+          <hr class="industrias-divider" aria-hidden="true">
         </div>
         <div class="industrias-grid">
 
 <!-- Tarjeta 1: Sacos y bolsas de papel -->
           <article class="ind-atendida-card">
             <div class="ind-img-box">
-              <img src="assets/industria-1.webp" alt="Sacos y bolsas de papel" loading="lazy">
+              <img src="assets/industria-1.webp" alt="Sacos y bolsas de papel" width="2752" height="1536" loading="lazy" decoding="async">
               <span class="ind-badge">IND.01</span>
             </div>
             <div class="ind-card-content">
@@ -391,7 +445,7 @@
 <!-- Tarjeta 2: Tintas y barnices -->
           <article class="ind-atendida-card">
           <div class="ind-img-box">
-          <img src="assets/tintas-3.webp" alt="Tintas y barnices" loading="lazy">
+          <img src="assets/tintas-3.webp" alt="Tintas y barnices" width="2160" height="1984" loading="lazy" decoding="async">
           <span class="ind-badge">IND.02</span>
           </div>
           <div class="ind-card-content">
@@ -402,7 +456,7 @@
 <!-- Tarjeta 3: Adhesivos -->
           <article class="ind-atendida-card">
           <div class="ind-img-box">
-          <img src="assets/industria-3.webp" alt="Adhesivos" loading="lazy">
+          <img src="assets/industria-3.webp" alt="Adhesivos" width="2048" height="2048" loading="lazy" decoding="async">
           <span class="ind-badge">IND.03</span>
           </div>
           <div class="ind-card-content">
@@ -413,7 +467,7 @@
 <!-- Tarjeta 4: Etiquetas y mangas -->
           <article class="ind-atendida-card">
             <div class="ind-img-box">
-              <img src="assets/industria-4.webp" alt="Etiquetas y mangas" loading="lazy">
+              <img src="assets/industria-4.webp" alt="Etiquetas y mangas" width="3168" height="1344" loading="lazy" decoding="async">
               <span class="ind-badge">IND.04</span>
             </div>
             <div class="ind-card-content">
@@ -425,9 +479,9 @@
           </section>
 
 <!-- Banner CTA Oscuro (Asesoría Técnica y Contacto) -->
-      <section class="section-cta-dark" id="industrias">
+      <section class="section-cta-dark" id="industrias" aria-labelledby="contacto-title">
       <div class="cta-dark-container">
-      <h2 class="cta-dark-title">¿NECESITA EL ADHESIVO, TINTA, BARNIZ O RECUBRIMIENTO CORRECTO PARA SU LÍNEA?</h2>
+      <h2 class="cta-dark-title" id="contacto-title">¿NECESITA EL ADHESIVO, TINTA, BARNIZ O RECUBRIMIENTO CORRECTO PARA SU LÍNEA?</h2>
       <p class="cta-dark-desc">
           Cuéntenos la aplicación, el sustrato y el volumen que maneja. Le recomendamos el producto adecuado y lo acompañamos en la prueba dentro de su planta.
       </p>
@@ -467,7 +521,7 @@
                     </svg>
                     <span>administracion@jadec.mx</span>
                   </a>
-                  <span class="cta-email-sep">&middot;</span>
+                  <span class="cta-email-sep" aria-hidden="true">&middot;</span>
                   <a href="mailto:ventas@jadec.mx" class="cta-email-link">
                     <span>ventas@jadec.mx</span>
                   </a>
@@ -495,7 +549,7 @@
         <!-- Columna 1: Brand & Contacto Principal -->
         <div class="footer-brand">
           <div class="logo">
-            <div class="logo-icon">
+            <div class="logo-icon" aria-hidden="true">
               <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="3.5" class="logo-circle-bg"/>
                 <path d="M12 24C12 17.3726 17.3726 12 24 12V17C20.134 17 17 20.134 17 24H12Z" fill="currentColor" class="logo-path-primary"/>
@@ -504,7 +558,7 @@
             </div>
             <div class="logo-text">
               <a href="index.html" class="logo" aria-label="JADEC Soluciones Químicas - Inicio">
-                <img src="images/logo/jadec-logo.png" alt="Logotipo Corporativo de JADEC Soluciones Químicas" class="logo-img" width="180" height="48">
+                <img src="images/logo/jadec-logo.png" alt="Logotipo Corporativo de JADEC Soluciones Químicas" class="logo-img" width="156" height="48">
               </a>
               <span class="logo-tagline">Soluciones Químicas</span>
             </div>
@@ -525,54 +579,54 @@
         </div>
 
         <!-- Columna 2: Líneas de Producto -->
-        <div class="footer-col">
-          <h4 class="footer-heading">LÍNEAS DE PRODUCTO</h4>
+        <nav class="footer-col" aria-label="Líneas de producto">
+          <h2 class="footer-heading">LÍNEAS DE PRODUCTO</h2>
           <ul class="footer-links">
             <li><a href="adhesivos.html">Adhesivos industriales</a></li>
             <li><a href="actega.html">Barnices UV &amp; Base agua</a></li>
             <li><a href="tintas.html">Tintas</a></li>
             <li><a href="#productos">Ver todas las líneas</a></li>
           </ul>
-        </div>
+        </nav>
 
         <!-- Columna 3: Industrias -->
-        <div class="footer-col">
-          <h4 class="footer-heading">INDUSTRIAS</h4>
+        <nav class="footer-col" aria-label="Industrias">
+          <h2 class="footer-heading">INDUSTRIAS</h2>
           <ul class="footer-links">
             <li><a href="#industrias-atendidas">Sacos y bolsas de papel</a></li>
             <li><a href="#industrias-atendidas">Tintas y barnices</a></li>
             <li><a href="#industrias-atendidas">Adhesivos</a></li>
             <li><a href="#industrias-atendidas">Etiquetas y mangas</a></li>
           </ul>
-        </div>
+        </nav>
 
         <!-- Columna 4: Marcas -->
-        <div class="footer-col">
-          <h4 class="footer-heading">MARCAS</h4>
+        <nav class="footer-col" aria-label="Marcas">
+          <h2 class="footer-heading">MARCAS</h2>
           <ul class="footer-links">
             <li><a href="index.html">Jadec</a></li>
             <li><a href="adhesivos.html">Marcas líderes en adhesivos</a></li>
             <li><a href="actega.html">Recubrimientos</a></li>
             <li><a href="tintas.html">Tintas</a></li>
           </ul>
-        </div>
+        </nav>
 
         <!-- Columna 5: Compañía -->
-        <div class="footer-col">
-          <h4 class="footer-heading">COMPAÑÍA</h4>
+        <nav class="footer-col" aria-label="Compañía">
+          <h2 class="footer-heading">COMPAÑÍA</h2>
           <ul class="footer-links">
             <li><a href="#nosotros">Nosotros</a></li>
             <li><a href="#ventajas">Ventajas</a></li>
             <li><a href="#industrias-atendidas">Industrias atendidas</a></li>
             <li><a href="#industrias">Contacto</a></li>
           </ul>
-        </div>
+        </nav>
       </div>
       <div class="footer-bottom">
         <!-- Grupo Izquierdo: Copyright + Enlaces Legales -->
         <div class="footer-legal-group">
           <span class="copyright-text">&copy; 2026 Soluciones Químicas Jadec S.A. de C.V. Todos los derechos reservados.</span>
-          <span class="legal-separator">|</span>
+          <span class="legal-separator" aria-hidden="true">|</span>
           <div class="legal-links">
             <a href="aviso-privacidad.html">Aviso de privacidad</a>
             <span>Términos y condiciones</span>

@@ -1,0 +1,607 @@
+/* ==========================================================================
+   JADEC - Capa Premium Tintas (css/premium-tintas.css)
+   Requiere premium-core.css. Hero cinematográfico, mosaicos de catálogo,
+   tintas base agua, acordeón Pantone y aditivos (tintas.html).
+   Las animaciones de entrada propias de tintas.js (data-scroll) se respetan.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Botones de la página (tintas.css los fuerza con !important)
+   -------------------------------------------------------------------------- */
+.btn-tintas-green,
+button.btn-tintas-green,
+a.btn-tintas-green {
+  padding: 14px 26px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--p-white) !important;
+  background-color: var(--p-green-deep) !important;
+  border: 1px solid var(--p-green-deep) !important;
+  border-radius: 980px;
+  box-shadow: none;
+}
+
+.btn-tintas-green:hover,
+button.btn-tintas-green:hover,
+a.btn-tintas-green:hover {
+  color: var(--p-white) !important;
+  background-color: #14883D !important;
+  border-color: #14883D !important;
+  box-shadow: none;
+  transform: none;
+}
+
+.btn-tintas-secondary {
+  padding: 14px 26px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 980px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.btn-tintas-secondary:hover {
+  color: var(--p-ink) !important;
+  background: var(--p-white);
+  border-color: var(--p-white);
+  transform: none;
+}
+
+/* Acciones sobre fotografía oscura: píldora blanca (estilo Tesla) */
+button.btn-tintas-green.btn-panel-cta,
+button.btn-tintas-green.additive-panel__cta {
+  color: var(--p-ink) !important;
+  background-color: var(--p-white) !important;
+  border-color: var(--p-white) !important;
+  box-shadow: none;
+}
+
+button.btn-tintas-green.btn-panel-cta:hover,
+button.btn-tintas-green.additive-panel__cta:hover {
+  color: var(--p-ink) !important;
+  background-color: #E9EEF3 !important;
+  border-color: #E9EEF3 !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. Hero cinematográfico
+   -------------------------------------------------------------------------- */
+.hero-tintas {
+  min-height: min(calc(100svh - var(--header-height)), 920px);
+  padding: 96px var(--p-gutter) 120px;
+}
+
+.hero-tintas-overlay {
+  background:
+    radial-gradient(ellipse 75% 55% at 50% 45%, rgba(7, 23, 43, 0.55), transparent 75%),
+    linear-gradient(180deg, rgba(7, 23, 43, 0.62) 0%, rgba(7, 23, 43, 0.45) 45%, rgba(7, 23, 43, 0.9) 100%);
+}
+
+.hero-tintas-container {
+  max-width: 1040px;
+}
+
+.hero-tintas-badge {
+  padding: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.85);
+  background: none;
+  border: 0;
+}
+
+.hero-tintas-badge .badge-dot {
+  width: 6px;
+  height: 6px;
+}
+
+.hero-tintas-title {
+  margin: 22px 0 24px;
+  font-size: var(--p-display);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  color: var(--p-white);
+  text-shadow: 0 2px 30px rgba(7, 23, 43, 0.35);
+}
+
+.hero-tintas-desc {
+  max-width: 38rem;
+  margin: 0 auto 44px;
+  font-size: var(--p-lead);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.hero-tintas-actions {
+  gap: 12px;
+}
+
+.hero-wave-divider {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. Encabezados de sección
+   -------------------------------------------------------------------------- */
+.tintas-catalogo,
+.water-inks-section,
+.pantone-section,
+.additives-section {
+  padding: var(--p-space) var(--p-gutter);
+}
+
+.tintas-catalogo,
+.pantone-section {
+  background: var(--p-beige);
+}
+
+/* Las animaciones de entrada (fade-left/right de tintas.js) desplazan
+   bloques fuera del viewport; sin esto el móvil tiene scroll lateral. */
+.tintas-catalogo,
+.water-inks-section,
+.pantone-section,
+.additives-section {
+  overflow-x: clip;
+}
+
+.water-inks-section,
+.additives-section {
+  background: var(--p-white);
+}
+
+.tintas-catalogo .section-header.text-center,
+.pantone-section .section-header.text-center,
+.additives-section .section-header.text-center {
+  max-width: 900px;
+}
+
+.tintas-catalogo .section-description,
+.pantone-section .section-description,
+.additives-section .section-description {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --------------------------------------------------------------------------
+   4. Catálogo Tintas UV: mosaicos estilo Apple
+   -------------------------------------------------------------------------- */
+.tintas-grid {
+  gap: 20px;
+}
+
+.catalog-card {
+  background: var(--p-white);
+  border: 0;
+  border-radius: var(--p-tile);
+  box-shadow: none;
+  transition: box-shadow 0.6s var(--p-ease);
+}
+
+.catalog-card::before {
+  display: none;
+}
+
+.catalog-card:hover,
+.catalog-card:focus-visible {
+  transform: none;
+  border-color: transparent;
+  box-shadow: 0 30px 60px -30px rgba(11, 22, 40, 0.28);
+}
+
+.catalog-card:focus-visible {
+  outline: 2px solid var(--p-cyan);
+  outline-offset: 3px;
+}
+
+.catalog-card__img {
+  filter: none;
+  transition: transform 1.2s var(--p-ease);
+}
+
+.catalog-card:hover .catalog-card__img,
+.catalog-card:focus-visible .catalog-card__img {
+  transform: scale(1.04);
+  filter: none;
+}
+
+.catalog-card__tag {
+  padding: 6px 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--p-ink);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--p-line-soft);
+  border-radius: 980px;
+  box-shadow: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Etiquetas vacías en el HTML: no se muestran como píldoras huecas */
+.catalog-card__category:empty,
+.section-subtitle-green:empty,
+.carousel-caption-tag:empty,
+.carousel-caption-title:empty {
+  display: none;
+}
+
+.catalog-card__body {
+  padding: 26px 28px 28px;
+  background: var(--p-white);
+}
+
+.catalog-card__title {
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--p-ink);
+}
+
+/* La descripción siempre visible: el hover no existe en pantallas táctiles */
+.catalog-card__reveal {
+  max-height: none;
+  margin-top: 12px;
+  opacity: 1;
+  overflow: visible;
+  transform: none;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.catalog-card:hover .catalog-card__reveal,
+.catalog-card:focus-visible .catalog-card__reveal {
+  max-height: none;
+  margin-top: 12px;
+}
+
+.catalog-card__desc {
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--p-gray);
+}
+
+.catalog-card__action {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--p-line-soft);
+}
+
+.catalog-card__btn {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--p-ink);
+}
+
+.catalog-card:hover .catalog-card__btn,
+.catalog-card:focus-visible .catalog-card__btn {
+  color: var(--p-cyan-deep);
+  transform: translateX(3px);
+}
+
+/* --------------------------------------------------------------------------
+   5. Tintas Base Agua: carrusel + ficha
+   -------------------------------------------------------------------------- */
+.water-inks-layout {
+  gap: 20px;
+}
+
+/* Evita que el carrusel ensanche la columna de la retícula (scroll lateral en móvil) */
+.water-inks-layout > *,
+.water-inks-carousel {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.water-inks-carousel {
+  border-radius: var(--p-tile);
+  box-shadow: none;
+}
+
+.carousel-btn {
+  width: 44px;
+  height: 44px;
+  color: var(--p-ink);
+  background: rgba(255, 255, 255, 0.85);
+  border: 0;
+  box-shadow: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.carousel-btn:hover {
+  color: var(--p-ink);
+  background: var(--p-white);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.carousel-dots {
+  background: rgba(7, 23, 43, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.carousel-dot.is-active {
+  width: 22px;
+  background: var(--p-white);
+  border-radius: 980px;
+  box-shadow: none;
+}
+
+.water-inks-card {
+  padding: clamp(32px, 1.5rem + 2vw, 56px);
+  background: var(--p-beige);
+  border: 0;
+  border-radius: var(--p-tile);
+  box-shadow: none;
+}
+
+.water-inks-card:hover {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.water-inks-kicker {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--p-cyan-deep);
+}
+
+.water-inks-title {
+  font-size: var(--p-h3);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: var(--p-ink);
+}
+
+.water-inks-desc {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--p-gray);
+}
+
+.water-inks-badge {
+  padding: 7px 12px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--p-ink);
+  background: var(--p-white);
+  border: 0;
+  border-radius: 980px;
+}
+
+.water-inks-badge .badge-icon-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--p-green-deep);
+}
+
+.water-inks-specs {
+  background: var(--p-white);
+  border-left: 0;
+  border-radius: 16px;
+}
+
+.water-inks-specs .spec-label {
+  color: var(--p-ink);
+}
+
+.water-inks-specs .spec-val {
+  color: var(--p-gray);
+}
+
+/* --------------------------------------------------------------------------
+   6. Acordeón Pantone
+   -------------------------------------------------------------------------- */
+.pantone-accordion {
+  gap: 12px;
+}
+
+.pantone-panel {
+  border: 0;
+  border-radius: var(--p-radius);
+  box-shadow: none;
+}
+
+.pantone-panel:hover:not(.is-active),
+.pantone-panel.is-active {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.pantone-panel__overlay {
+  background: linear-gradient(180deg, rgba(7, 23, 43, 0.35) 0%, rgba(7, 23, 43, 0.05) 35%, rgba(7, 23, 43, 0.85) 100%);
+}
+
+.collapsed-num {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.collapsed-title {
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.panel-header-right .panel-icon-wrap {
+  color: var(--p-white);
+  background: rgba(255, 255, 255, 0.14);
+  border: 0;
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.panel-header-right .panel-kicker {
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--p-cyan);
+}
+
+.panel-header-right .panel-title {
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.panel-footer-bottom .panel-desc {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* --------------------------------------------------------------------------
+   7. Aditivos de proceso: pestañas + panel
+   -------------------------------------------------------------------------- */
+.additives-list {
+  gap: 0;
+}
+
+.additive-tab {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--p-line-soft);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.additive-tab:hover:not(.is-active) {
+  background: var(--p-beige);
+  border-color: var(--p-line-soft);
+}
+
+.additive-tab.is-active {
+  background: var(--p-ink);
+  border-color: var(--p-ink);
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+.additive-tab.is-active .tab-indicator {
+  background: var(--p-cyan);
+}
+
+.tab-name {
+  font-weight: 600;
+  color: var(--p-ink);
+}
+
+.tab-sub,
+.tab-num {
+  color: var(--p-gray-2);
+}
+
+.additive-tab.is-active .tab-sub,
+.additive-tab.is-active .tab-num,
+.additive-tab.is-active .tab-arrow,
+.tab-arrow {
+  color: var(--p-cyan);
+}
+
+.additives-display {
+  border-radius: var(--p-tile);
+  box-shadow: none;
+}
+
+.additive-panel__tag {
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--p-cyan);
+}
+
+.additive-panel__title {
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.additive-panel__desc {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.feature-chip {
+  color: var(--p-white);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* --------------------------------------------------------------------------
+   8. Footer simple
+   -------------------------------------------------------------------------- */
+.site-footer-simple {
+  padding: 40px 0;
+  background: var(--p-navy);
+  border-top: 0;
+}
+
+.footer-simple-text {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* --------------------------------------------------------------------------
+   9. Responsivo
+   -------------------------------------------------------------------------- */
+@media (max-width: 1100px) {
+  .tintas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .additive-tab.is-active {
+    border-radius: 14px 14px 0 0;
+  }
+
+  .additives-display {
+    border-radius: 0 0 var(--p-tile) var(--p-tile);
+  }
+
+  /* En móvil el texto queda sobre la parte clara de la foto */
+  .additive-panel__overlay {
+    background: linear-gradient(180deg, rgba(7, 23, 43, 0.82) 0%, rgba(7, 23, 43, 0.6) 55%, rgba(7, 23, 43, 0.88) 100%);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-tintas {
+    padding: 72px var(--p-gutter) 88px;
+  }
+
+  .hero-tintas-title {
+    font-size: 2.6rem;
+  }
+
+  .hero-tintas-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-tintas-actions .btn {
+    justify-content: center;
+  }
+
+  .tintas-grid {
+    grid-template-columns: 1fr;
+  }
+}

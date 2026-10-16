@@ -1,0 +1,1049 @@
+/* ==========================================================================
+   JADEC - Capa Premium Adhesivos (css/premium-adhesivos.css)
+   Requiere premium-core.css. Navegación local con megamenú, hero con
+   cifras, selector por pestañas, catálogo de marcas, métricas, CTA,
+   formatos de suministro, testimonios, contacto y mega footer
+   (adhesivos.html).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Header: botón Inicio discreto
+   -------------------------------------------------------------------------- */
+header.site .header-actions .btn-primary {
+  padding: 8px 16px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--p-ink);
+  background: transparent;
+  border: 1px solid var(--p-line);
+  border-radius: 980px;
+  box-shadow: none;
+}
+
+header.site .header-actions .btn-primary:hover {
+  color: var(--p-white);
+  background: var(--p-ink);
+  border-color: var(--p-ink);
+}
+
+/* --------------------------------------------------------------------------
+   2. Navegación local (cenefa) + megamenú
+   -------------------------------------------------------------------------- */
+.cenefa-adhesivos {
+  background: rgba(255, 255, 255, 0.92);
+  border-top: 0;
+  border-bottom: 1px solid var(--p-line-soft);
+  box-shadow: none;
+}
+
+.cenefa-toggle,
+.cenefa-direct-link {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: rgba(11, 22, 40, 0.72);
+}
+
+.cenefa-toggle::after,
+.cenefa-direct-link::after {
+  left: 16px;
+  right: 16px;
+  height: 1.5px;
+  background: var(--p-ink);
+  border-radius: 0;
+  transform-origin: left;
+}
+
+.cenefa-toggle:hover,
+.cenefa-toggle:focus-visible,
+.cenefa-toggle.is-active,
+.cenefa-direct-link:hover,
+.cenefa-direct-link:focus-visible,
+.cenefa-nav-item.is-open .cenefa-toggle {
+  color: var(--p-ink);
+  background: transparent;
+}
+
+.cenefa-btn-advisor {
+  padding: 8px 16px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--p-white);
+  background: var(--p-green-deep);
+  border: 1px solid var(--p-green-deep);
+  border-radius: 980px;
+}
+
+.cenefa-btn-advisor:hover {
+  color: var(--p-white);
+  background: #14883D;
+  border-color: #14883D;
+  box-shadow: none;
+  transform: none;
+}
+
+.megamenu-panel {
+  border-top: 0;
+  border-bottom: 1px solid var(--p-line-soft);
+  box-shadow: 0 30px 60px -30px rgba(11, 22, 40, 0.3);
+}
+
+.megamenu-container {
+  padding-top: 40px;
+  padding-bottom: 44px;
+}
+
+.megamenu-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--p-ink);
+}
+
+.megamenu-desc {
+  color: var(--p-gray);
+}
+
+.megamenu-col-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--p-gray);
+}
+
+.megamenu-link {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--p-ink);
+}
+
+.megamenu-link:hover {
+  color: var(--p-cyan-deep);
+  background: none;
+}
+
+.megamenu-card-featured,
+.partner-card,
+.formato-item {
+  background: var(--p-beige);
+  border: 0;
+  border-radius: var(--p-radius);
+  box-shadow: none;
+}
+
+.partner-card:hover,
+.formato-item:hover {
+  background: #ECEBE3;
+  border-color: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+.featured-badge {
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--p-cyan-deep);
+  background: none;
+  padding: 0;
+}
+
+.megamenu-card-featured .btn-primary {
+  background: var(--p-ink);
+  border-color: var(--p-ink);
+}
+
+/* --------------------------------------------------------------------------
+   3. Hero
+   -------------------------------------------------------------------------- */
+.page-hero {
+  padding: clamp(88px, 8vw, 140px) var(--p-gutter) 0;
+  background-image:
+    radial-gradient(ellipse 70% 60% at 20% 40%, rgba(7, 23, 43, 0.6), transparent 75%),
+    linear-gradient(180deg, rgba(7, 23, 43, 0.6) 0%, rgba(7, 23, 43, 0.5) 45%, rgba(7, 23, 43, 0.92) 100%),
+    url("../assets/adhesivos-1.webp");
+  border-bottom: 0;
+}
+
+.page-hero-header {
+  max-width: 980px;
+}
+
+.page-hero-title {
+  margin-bottom: 24px;
+  font-size: clamp(2.5rem, 1.1rem + 4vw, 4.75rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+.page-hero-desc {
+  max-width: 44rem;
+  margin-bottom: 36px;
+  font-size: var(--p-lead);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-pill {
+  padding: 8px 14px;
+  font-size: 0.8125rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.hero-pill svg {
+  color: var(--p-green);
+}
+
+/* Cifras como franja con hairlines (sin tarjetas) */
+.hero-stats-grid {
+  gap: 0 32px;
+  margin-top: clamp(64px, 6vw, 112px);
+  padding-bottom: 40px;
+}
+
+.hero-stat-card {
+  padding: 24px 0 0;
+  background: none;
+  border: 0;
+  border-top: 1px solid var(--p-line-dark);
+  border-radius: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.hero-stat-card:hover {
+  transform: none;
+  background: none;
+  border-top-color: var(--p-line-dark);
+  box-shadow: none;
+}
+
+.stat-value {
+  font-size: clamp(1.75rem, 1.2rem + 1.4vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.stat-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.hero-wave-transition {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   4. Selector por pestañas (control segmentado)
+   -------------------------------------------------------------------------- */
+.section-tabs-filter {
+  padding: var(--p-space) var(--p-gutter);
+  background: var(--p-white);
+}
+
+.tabs-filter-header {
+  margin-bottom: 40px;
+}
+
+.tabs-filter-kicker,
+.supply-kicker,
+.testi-kicker,
+.cta-kicker {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--p-cyan-deep);
+}
+
+.tabs-filter-title,
+.supply-title,
+.testi-title {
+  font-size: var(--p-h2);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  text-transform: none;
+  color: var(--p-ink);
+}
+
+.tabs-filter-desc,
+.supply-desc {
+  max-width: 40rem;
+  font-size: var(--p-lead);
+  line-height: 1.55;
+  color: var(--p-gray);
+}
+
+.tabs-nav {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  margin-bottom: 40px;
+  background: var(--p-beige);
+  border: 0;
+  border-radius: 980px;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--p-gray);
+  border-radius: 980px;
+  transition: background-color 0.3s var(--p-ease), color 0.3s var(--p-ease), box-shadow 0.3s var(--p-ease);
+}
+
+.tab-btn:hover {
+  color: var(--p-ink);
+}
+
+.tab-btn.is-active {
+  color: var(--p-ink);
+  background: var(--p-white);
+  box-shadow: 0 1px 3px rgba(11, 22, 40, 0.12);
+}
+
+.tab-btn::after {
+  display: none;
+}
+
+.tab-grid {
+  gap: 16px;
+}
+
+.tab-card {
+  padding: 32px;
+  background: var(--p-beige);
+  border: 0;
+  border-radius: 24px;
+  box-shadow: none;
+  transition: background-color 0.4s var(--p-ease);
+}
+
+.tab-card:hover {
+  transform: none;
+  background: #ECEBE3;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.tab-card-badge {
+  padding: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--p-gray);
+  background: none;
+  border: 0;
+}
+
+.tab-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--p-ink);
+}
+
+.tab-card-desc {
+  font-size: 0.975rem;
+  line-height: 1.6;
+  color: var(--p-gray);
+}
+
+.tab-card-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--p-ink);
+}
+
+.tab-card-link:hover {
+  color: var(--p-cyan-deep);
+}
+
+.tab-card-divider {
+  border-color: var(--p-line);
+}
+
+.tab-card-footer {
+  font-size: 0.72rem;
+  color: var(--p-gray);
+}
+
+/* --------------------------------------------------------------------------
+   5. Catálogo de marcas
+   -------------------------------------------------------------------------- */
+#catalogo-adhesivos {
+  background: var(--p-beige);
+}
+
+.adhesivos-grid {
+  gap: 20px;
+}
+
+.brand-card {
+  overflow: hidden;
+  background: var(--p-white);
+  border: 0;
+  border-radius: var(--p-tile);
+  box-shadow: none;
+  transition: box-shadow 0.6s var(--p-ease);
+}
+
+.brand-card:hover {
+  transform: none;
+  border-color: transparent;
+  box-shadow: 0 30px 60px -30px rgba(11, 22, 40, 0.28);
+}
+
+.brand-card-header {
+  padding: 18px 28px 0;
+  color: var(--p-gray);
+  background: transparent;
+  border: 0;
+}
+
+.brand-card-index {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--p-ink);
+}
+
+.brand-card-tech {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--p-gray);
+}
+
+.brand-card-image {
+  margin: 14px 0 0;
+  background: var(--p-white);
+}
+
+.brand-card-image img {
+  transition: transform 1.2s var(--p-ease);
+}
+
+.brand-card:hover .brand-card-image img {
+  transform: scale(1.04);
+}
+
+.brand-card-body {
+  padding: 28px;
+}
+
+.brand-card-title {
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  text-transform: none;
+  color: var(--p-ink);
+}
+
+.brand-card-subtitle {
+  font-weight: 500;
+  color: var(--p-cyan-deep);
+}
+
+.brand-card-desc {
+  font-size: 0.975rem;
+  line-height: 1.6;
+  color: var(--p-gray);
+}
+
+.brand-tags-section {
+  border-top: 1px solid var(--p-line-soft);
+}
+
+.brand-tags-title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--p-gray);
+}
+
+.brand-pill,
+.brand-card:hover .brand-pill {
+  font-weight: 500;
+  color: var(--p-ink);
+  background: var(--p-beige);
+  border: 0;
+  border-radius: 980px;
+}
+
+.btn-brand-primary {
+  flex: 0 0 auto;
+  width: auto;
+  align-self: flex-start;
+  padding: 13px 24px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--p-white);
+  background: var(--p-ink);
+  border-radius: 980px;
+  box-shadow: none;
+}
+
+.btn-brand-primary:hover {
+  background: var(--p-navy-2);
+  box-shadow: none;
+  transform: none;
+}
+
+/* Séptima marca: mosaico horizontal a todo el ancho para cerrar la retícula */
+@media (min-width: 993px) {
+  .adhesivos-grid .brand-card:last-child:nth-child(3n + 1) {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .adhesivos-grid .brand-card:last-child:nth-child(3n + 1) .brand-card-header {
+    grid-column: 1 / -1;
+  }
+
+  /* La altura la define la columna de texto; la foto nunca dimensiona la tarjeta */
+  .adhesivos-grid .brand-card:last-child:nth-child(3n + 1) .brand-card-image {
+    position: relative;
+    height: auto;
+    min-height: 340px;
+    margin: 0;
+    background: var(--p-white);
+    border: 0;
+  }
+
+  /* Foto de producto completa y centrada (sin recorte ni bordes pegados) */
+  .adhesivos-grid .brand-card:last-child:nth-child(3n + 1) .brand-card-image img {
+    position: absolute;
+    inset: 32px 40px;
+    width: calc(100% - 80px);
+    height: calc(100% - 64px);
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .adhesivos-grid .brand-card:last-child:nth-child(3n + 1):hover .brand-card-image img {
+    transform: none;
+  }
+
+  .adhesivos-grid .brand-card:last-child:nth-child(3n + 1) .brand-card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 56px 48px 24px;
+  }
+
+}
+
+/* --------------------------------------------------------------------------
+   6. Métricas de confianza
+   -------------------------------------------------------------------------- */
+.section-trust-metrics {
+  padding: var(--p-space) var(--p-gutter) 0;
+  background: var(--p-white);
+  border: 0;
+}
+
+.trust-grid {
+  gap: 0 32px;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.trust-item,
+.trust-item:last-child {
+  align-items: flex-start;
+  padding: 28px 0 0;
+  text-align: left;
+  border: 0;
+  border-top: 1px solid var(--p-ink);
+}
+
+.trust-item:hover {
+  background: none;
+}
+
+.trust-value {
+  font-size: clamp(2.5rem, 1.6rem + 2.4vw, 4rem);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  color: var(--p-ink);
+}
+
+.trust-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--p-gray);
+}
+
+.trust-label--highlight {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--p-ink);
+}
+
+/* --------------------------------------------------------------------------
+   7. CTA de formulación a la medida
+   -------------------------------------------------------------------------- */
+.section-full-cta {
+  margin-top: var(--p-space);
+  padding: var(--p-space) var(--p-gutter);
+  background: radial-gradient(ellipse 60% 45% at 50% 0%, rgba(0, 168, 232, 0.16), transparent 70%), var(--p-navy);
+  border: 0;
+}
+
+.section-full-cta::before {
+  display: none;
+}
+
+.cta-kicker {
+  color: var(--p-cyan);
+}
+
+.cta-title {
+  font-size: var(--p-h2);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+}
+
+.cta-features-grid {
+  gap: 32px;
+}
+
+.cta-feature-card {
+  padding: 28px 0 0;
+  text-align: left;
+  background: none;
+  border: 0;
+  border-top: 1px solid var(--p-line-dark);
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.cta-feature-card:hover {
+  transform: none;
+  background: none;
+  border-color: var(--p-line-dark);
+  box-shadow: none;
+}
+
+.cta-feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+.cta-feature-desc {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.cta-action-wrap .btn {
+  padding: 15px 28px;
+  font-size: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   8. Formatos de suministro
+   -------------------------------------------------------------------------- */
+.section-supply {
+  padding: var(--p-space) var(--p-gutter);
+  background: var(--p-white);
+}
+
+.supply-header {
+  margin-bottom: 56px;
+}
+
+.supply-grid-premium {
+  gap: 20px;
+}
+
+.supply-card-horizontal {
+  overflow: hidden;
+  background: var(--p-beige);
+  border: 0;
+  border-radius: var(--p-tile);
+  box-shadow: none;
+}
+
+.supply-card-horizontal:hover {
+  transform: none;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.supply-visual img {
+  transition: transform 1.2s var(--p-ease);
+}
+
+.supply-content {
+  padding: 32px;
+}
+
+.supply-content .supply-card-title {
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  text-transform: none;
+  color: var(--p-ink);
+}
+
+.supply-content .supply-card-desc {
+  color: var(--p-gray);
+}
+
+.supply-content .supply-features-label {
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--p-gray);
+  border-color: var(--p-line);
+}
+
+.supply-content .supply-card-features li {
+  color: var(--p-ink);
+}
+
+.supply-content .supply-card-features li::before {
+  background: var(--p-green-deep);
+}
+
+/* --------------------------------------------------------------------------
+   9. Testimonios
+   -------------------------------------------------------------------------- */
+.section-testimonials {
+  padding: var(--p-space) var(--p-gutter);
+  background: var(--p-beige);
+}
+
+.testimonials-header {
+  margin-bottom: 56px;
+}
+
+.testimonials-grid {
+  gap: 20px;
+}
+
+.testi-card {
+  display: flex;
+  flex-direction: column;
+  padding: 36px;
+  background: var(--p-white);
+  border: 0;
+  border-radius: var(--p-tile);
+  box-shadow: none;
+}
+
+.testi-card:hover {
+  transform: none;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.testi-quote {
+  flex-grow: 1;
+  margin-bottom: 32px;
+  font-size: 1.1875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  font-style: normal;
+  color: var(--p-ink);
+}
+
+.testi-avatar {
+  font-weight: 600;
+  color: var(--p-ink);
+  background: var(--p-beige);
+  border: 0;
+}
+
+.testi-role {
+  font-weight: 600;
+  color: var(--p-ink);
+}
+
+.testi-context {
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--p-gray);
+}
+
+/* --------------------------------------------------------------------------
+   10. Contacto de cierre
+   -------------------------------------------------------------------------- */
+.pre-footer-cta {
+  padding: var(--p-space) var(--p-gutter);
+  background: radial-gradient(ellipse 60% 45% at 50% 0%, rgba(0, 168, 232, 0.16), transparent 70%), var(--p-navy);
+  border: 0;
+}
+
+.pre-footer-title {
+  font-size: var(--p-h2);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+}
+
+.pre-footer-desc {
+  font-size: var(--p-lead);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.pre-footer-actions {
+  gap: 12px;
+}
+
+.pre-footer-actions .btn {
+  padding: 15px 28px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 980px;
+  box-shadow: none;
+}
+
+/* adhesivos.css define .btn-accent / .btn-white con selectores de elemento
+   y color !important: se igualan aquí. */
+.btn-accent,
+button.btn-accent,
+a.btn-accent {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--p-white) !important;
+  background-color: var(--p-green-deep);
+  border: 1px solid var(--p-green-deep);
+  border-radius: 980px;
+  box-shadow: none;
+}
+
+.btn-accent:hover,
+button.btn-accent:hover,
+a.btn-accent:hover {
+  color: var(--p-white) !important;
+  background-color: #14883D;
+  border-color: #14883D;
+  box-shadow: none;
+  transform: none;
+}
+
+.btn-white,
+button.btn-white,
+a.btn-white {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--p-white) !important;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 980px;
+  box-shadow: none;
+}
+
+.btn-white:hover,
+button.btn-white:hover,
+a.btn-white:hover {
+  color: var(--p-ink) !important;
+  background-color: var(--p-white);
+  border-color: var(--p-white);
+  box-shadow: none;
+  transform: none;
+}
+
+.direct-contact-card {
+  padding: 40px 0 0;
+  background: none;
+  border: 0;
+  border-top: 1px solid var(--p-line-dark);
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.direct-contact-title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.direct-contact-grid {
+  gap: 0;
+}
+
+.direct-contact-box {
+  background: none;
+  border: 0;
+  border-radius: 0;
+}
+
+.direct-contact-box + .direct-contact-box {
+  border-left: 1px solid var(--p-line-dark);
+}
+
+.direct-contact-box:hover {
+  background: none;
+  border-color: var(--p-line-dark);
+  transform: none;
+}
+
+.direct-contact-label {
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.direct-contact-link,
+.direct-contact-email-link {
+  font-weight: 500;
+  color: var(--p-white);
+}
+
+.direct-contact-link:hover,
+.direct-contact-email-link:hover {
+  color: var(--p-cyan);
+}
+
+/* --------------------------------------------------------------------------
+   11. Mega footer claro (como el inicio)
+   -------------------------------------------------------------------------- */
+.mega-footer {
+  padding-top: clamp(64px, 3rem + 2vw, 96px);
+  color: var(--p-gray);
+  background: var(--p-beige);
+}
+
+.footer-brand-col .logo-img {
+  filter: none;
+  opacity: 1;
+}
+
+.footer-brand-desc,
+.footer-contact-info,
+.footer-contact-info p {
+  font-size: 0.875rem;
+  color: var(--p-gray);
+}
+
+.footer-col-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--p-ink);
+}
+
+.footer-nav-list a {
+  font-size: 0.875rem;
+  color: var(--p-gray);
+}
+
+.footer-nav-list a:hover {
+  color: var(--p-ink);
+}
+
+.footer-bottom-bar {
+  border-top: 1px solid var(--p-line);
+}
+
+/* --------------------------------------------------------------------------
+   12. Movimiento
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .page-hero-header > *,
+  .hero-stats-grid {
+    animation: p-rise 1s var(--p-ease) both;
+  }
+
+  .page-hero-header > :nth-child(2) { animation-delay: 0.08s; }
+  .page-hero-header > :nth-child(3) { animation-delay: 0.16s; }
+  .hero-stats-grid { animation-delay: 0.3s; }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .tab-card,
+    .brand-card,
+    .trust-item,
+    .cta-feature-card,
+    .supply-card-horizontal,
+    .testi-card {
+      animation: p-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   13. Responsivo
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .hero-stats-grid {
+    gap: 28px 24px;
+  }
+
+  .trust-grid {
+    gap: 40px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .direct-contact-box + .direct-contact-box {
+    border-left: 0;
+    border-top: 1px solid var(--p-line-dark);
+  }
+}
+
+@media (max-width: 640px) {
+  .page-hero-title {
+    font-size: 2.4rem;
+  }
+
+  .tabs-nav {
+    display: flex;
+    width: 100%;
+  }
+
+  .tab-btn {
+    flex: 1;
+    padding: 10px 12px;
+  }
+
+  .tab-card,
+  .testi-card {
+    padding: 26px;
+  }
+
+  .btn-brand-primary {
+    flex: 1 1 auto;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pre-footer-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

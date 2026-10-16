@@ -1,0 +1,748 @@
+/* ==========================================================================
+   JADEC - Sistema Visual Premium: Núcleo compartido (css/premium-core.css)
+   Dirección "cinematic industrial": secciones a sangre completa con
+   fotografía (Tesla / SpaceX), escala tipográfica y mosaicos de producto
+   (Apple), retículas B2B estructuradas (Henkel / Actega).
+   Paleta corporativa existente: navy, cian, verde y beige.
+   Tokens, base, tipografía, botones, topbar, header, footer, modal y
+   movimiento compartidos por todas las páginas. Cada página carga además
+   su propia capa (premium-home.css, premium-actega.css, etc.).
+   Se carga después de las hojas originales para sobrescribirlas sin
+   modificar contenido ni lógica JS.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Tokens
+   -------------------------------------------------------------------------- */
+:root {
+  --p-white: #FFFFFF;
+  --p-beige: #F4F3ED;
+  --p-navy: #07172B;
+  --p-navy-2: #0A2540;
+  --p-ink: #0B1628;
+  --p-gray: #5B6676;
+  --p-gray-2: #8A93A0;
+  --p-line: rgba(11, 22, 40, 0.12);
+  --p-line-soft: rgba(11, 22, 40, 0.07);
+  --p-line-dark: rgba(255, 255, 255, 0.18);
+
+  --p-cyan: #00A8E8;
+  --p-cyan-deep: #0077B6;   /* cian legible sobre blanco/beige (AA) */
+  --p-green: #20BF55;
+  --p-green-deep: #179A45;  /* verde para botones con texto blanco */
+
+  --p-tile: 28px;
+  --p-radius: 18px;
+
+  --p-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --p-dur: 0.4s;
+
+  --p-space: clamp(88px, 6rem + 4vw, 168px);
+  --p-gutter: 24px;
+
+  --header-height: 64px;
+
+  --p-display: clamp(2.75rem, 1rem + 4.8vw, 5.25rem);
+  --p-h2: clamp(2.25rem, 1.1rem + 3.1vw, 4rem);
+  --p-h3: clamp(1.6rem, 1.1rem + 1.2vw, 2.4rem);
+  --p-lead: clamp(1.125rem, 1rem + 0.35vw, 1.3125rem);
+}
+
+/* --------------------------------------------------------------------------
+   2. Base
+   -------------------------------------------------------------------------- */
+html {
+  background-color: var(--p-white);
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  background-color: var(--p-white);
+  color: var(--p-ink);
+  font-feature-settings: 'cv11', 'ss01', 'ss03';
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(0, 168, 232, 0.2);
+  color: var(--p-ink);
+}
+
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--p-cyan);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* --------------------------------------------------------------------------
+   3. Sistema tipográfico de secciones
+   -------------------------------------------------------------------------- */
+.section {
+  padding: var(--p-space) var(--p-gutter);
+}
+
+.section-header {
+  margin-bottom: clamp(48px, 3rem + 2vw, 80px);
+}
+
+/* Eyebrow: etiqueta discreta sobre el titular */
+.section-subtitle,
+.identificacion-title {
+  display: block;
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--p-cyan-deep);
+  background: none;
+  border: 0;
+  box-shadow: none;
+  transform: none;
+}
+
+.section-title,
+.industrias-title {
+  font-size: var(--p-h2);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  color: var(--p-ink);
+  transform: none;
+}
+
+.section-description {
+  max-width: 40rem;
+  margin-top: 24px;
+  font-size: var(--p-lead);
+  line-height: 1.55;
+  color: var(--p-gray);
+}
+
+/* Sin divisores decorativos ni olas: el ritmo lo dan los cambios de fondo */
+.identificacion-divider,
+.wave-divider,
+.wave-divider-productos {
+  display: none;
+}
+
+.industrias-divider {
+  height: 1px;
+  border: 0;
+  margin: 0;
+  background: var(--p-line);
+}
+
+/* --------------------------------------------------------------------------
+   4. Botones (píldora estilo Apple)
+   -------------------------------------------------------------------------- */
+.btn {
+  border-radius: 980px;
+  padding: 13px 24px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  transition: background-color var(--p-dur) var(--p-ease), color var(--p-dur) var(--p-ease),
+              border-color var(--p-dur) var(--p-ease), transform 0.2s var(--p-ease);
+}
+
+.btn:hover {
+  transform: none;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-ghost {
+  color: var(--p-ink);
+  background: transparent;
+  border: 1px solid var(--p-ink);
+  box-shadow: none;
+}
+
+.btn-ghost:hover {
+  color: var(--p-white);
+  background: var(--p-ink);
+  border-color: var(--p-ink);
+}
+
+.btn-ghost .btn-icon path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.btn-accent,
+.btn-primary {
+  color: var(--p-white);
+  background: var(--p-green-deep);
+  border: 1px solid var(--p-green-deep);
+  box-shadow: none;
+}
+
+.btn-accent:hover,
+.btn-primary:hover {
+  background: #14883D;
+  border-color: #14883D;
+  box-shadow: none;
+}
+
+/* --------------------------------------------------------------------------
+   5. Topbar
+   -------------------------------------------------------------------------- */
+.topbar {
+  height: 36px;
+  font-size: 0.72rem;
+  background: var(--p-navy);
+  border-bottom: 0;
+}
+
+.topbar-brand-meta {
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.topbar-dot-orange {
+  width: 6px;
+  height: 6px;
+  background: var(--p-green);
+  box-shadow: none;
+}
+
+.topbar-tech-label {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.topbar-tech-link {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.topbar-tech-link:hover {
+  color: var(--p-white);
+  opacity: 1;
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   6. Header & Navegación (barra translúcida mínima)
+   -------------------------------------------------------------------------- */
+header.site {
+  height: var(--header-height);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--p-line-soft);
+  box-shadow: none;
+}
+
+.logo-img {
+  height: 40px;
+}
+
+.navlinks {
+  gap: 4px;
+}
+
+.nav-link {
+  position: relative;
+  padding: 8px 14px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(11, 22, 40, 0.72);
+  background: none;
+  border-radius: 8px;
+  transition: color 0.25s var(--p-ease);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--p-ink);
+  background: none;
+  box-shadow: none;
+}
+
+/* Indicador de sección activa: línea fina inferior */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 2px;
+  height: 1.5px;
+  background: var(--p-ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--p-ease);
+}
+
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.dropdown-toggle::after {
+  right: 34px;
+}
+
+.dropdown-menu {
+  width: 260px;
+  padding: 8px;
+  margin-top: 12px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--p-line-soft);
+  border-radius: var(--p-radius);
+  box-shadow: 0 24px 48px -16px rgba(11, 22, 40, 0.22);
+  transition: opacity 0.25s var(--p-ease), transform 0.25s var(--p-ease), visibility 0.25s;
+}
+
+/* Puente invisible para no perder el hover entre enlace y menú */
+.has-dropdown .dropdown-menu::before {
+  content: '';
+  position: absolute;
+  inset: -14px 0 auto 0;
+  height: 14px;
+}
+
+.dropdown-item {
+  padding: 11px 14px;
+  font-size: 0.9rem;
+  color: var(--p-gray);
+  border-radius: 10px;
+}
+
+.dropdown-item:hover {
+  color: var(--p-ink);
+  background: var(--p-beige);
+}
+
+.hamburger-bar {
+  height: 1.5px;
+  background-color: var(--p-ink);
+}
+
+/* Icono de cierre (X) siempre en tinta, nunca en verde de las hojas originales */
+#navToggle.is-active .hamburger-bar:nth-child(n),
+.nav-toggle.is-active .hamburger-bar:nth-child(n),
+.nav-toggle.is-open .hamburger-bar:nth-child(n) {
+  background-color: var(--p-ink);
+}
+
+.nav-toggle.is-active,
+.nav-toggle.is-open {
+  border-color: var(--p-line);
+}
+
+/* Extras del header en páginas internas: logo de socio y botón INICIO */
+.logo-secundario-derecha,
+.header-secondary-logo {
+  max-height: 28px;
+  width: auto;
+  opacity: 0.9;
+}
+
+.btn-header-inicio,
+.btn-return-index,
+.btn-return-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--p-ink) !important;
+  background: transparent;
+  border: 1px solid var(--p-line);
+  border-radius: 980px;
+  box-shadow: none;
+  transition: background-color 0.25s var(--p-ease), color 0.25s var(--p-ease), border-color 0.25s var(--p-ease);
+}
+
+.btn-header-inicio:hover,
+.btn-return-index:hover,
+.btn-return-home:hover {
+  color: var(--p-white) !important;
+  background: var(--p-ink);
+  border-color: var(--p-ink);
+  box-shadow: none;
+  transform: none;
+}
+
+.btn-header-inicio:active,
+.btn-return-index:active,
+.btn-return-home:active {
+  transform: scale(0.97);
+}
+
+.btn-header-icon,
+.btn-return-icon {
+  width: 15px;
+  height: 15px;
+  stroke-width: 2;
+}
+
+/* Botón verde de marca (páginas internas).
+   actega.css lo fuerza con !important, por eso se iguala aquí. */
+.btn-green,
+button.btn-green,
+a.btn-green {
+  color: var(--p-white) !important;
+  background-color: var(--p-green-deep) !important;
+  border: 1px solid var(--p-green-deep) !important;
+  border-radius: 980px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  box-shadow: none;
+}
+
+.btn-green:hover,
+button.btn-green:hover,
+a.btn-green:hover {
+  color: var(--p-white) !important;
+  background-color: #14883D !important;
+  border-color: #14883D !important;
+  box-shadow: none;
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   13. Footer claro (beige corporativo, estilo Apple)
+   -------------------------------------------------------------------------- */
+.site-footer {
+  margin: 0;
+  padding-top: clamp(64px, 3rem + 2vw, 96px);
+  padding-bottom: 32px;
+  background: var(--p-beige);
+  border: 0;
+  border-radius: 0;
+  color: var(--p-gray);
+}
+
+.footer-grid {
+  gap: 40px;
+  margin-bottom: 64px;
+}
+
+.footer-brand .logo-img {
+  filter: none;
+  opacity: 1;
+}
+
+.footer-brand .logo-icon {
+  display: none;
+}
+
+.logo-tagline {
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--p-gray);
+}
+
+.footer-desc,
+.footer-brand-info,
+.footer-brand-info p {
+  font-size: 0.875rem;
+  color: var(--p-gray);
+}
+
+.footer-heading {
+  margin-bottom: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--p-ink);
+}
+
+.footer-links {
+  gap: 12px;
+}
+
+.footer-links a {
+  font-size: 0.875rem;
+  color: var(--p-gray);
+  transition: color 0.25s var(--p-ease);
+}
+
+.footer-links a:hover {
+  color: var(--p-ink);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--p-line);
+}
+
+.footer-legal-group,
+.legal-links a,
+.legal-links span {
+  font-size: 0.8125rem;
+  color: var(--p-gray-2);
+}
+
+.legal-links a:hover {
+  color: var(--p-ink);
+  text-decoration: none;
+}
+
+.social-box {
+  width: 38px;
+  height: 38px;
+  font-weight: 600;
+  text-transform: lowercase;
+  color: var(--p-ink);
+  border: 1px solid var(--p-line);
+  border-radius: 980px;
+  transition: background-color 0.25s var(--p-ease), color 0.25s var(--p-ease), border-color 0.25s var(--p-ease);
+}
+
+.social-box:hover {
+  color: var(--p-white);
+  background: var(--p-ink);
+  border-color: var(--p-ink);
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   14. Modal
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+  background-color: rgba(7, 23, 43, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.modal-card {
+  max-width: 620px;
+  padding: 44px;
+  border: 0;
+  border-radius: var(--p-tile);
+  box-shadow: 0 40px 80px -24px rgba(7, 23, 43, 0.45);
+  transition: transform 0.5s var(--p-ease);
+}
+
+.modal-close {
+  top: 18px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  font-size: 22px;
+  color: var(--p-ink);
+  background: var(--p-beige);
+  border: 0;
+  border-radius: 980px;
+}
+
+.modal-close:hover {
+  background: #E9E8E1;
+}
+
+.modal-header {
+  margin-bottom: 32px;
+}
+
+.modal-kicker {
+  margin-bottom: 14px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--p-cyan-deep);
+}
+
+.modal-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--p-ink);
+}
+
+.modal-desc {
+  font-size: 0.95rem;
+  color: var(--p-gray);
+}
+
+.form-label {
+  letter-spacing: 0.08em;
+  color: var(--p-ink);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  padding: 13px 14px;
+  font-size: 0.95rem;
+  background-color: var(--p-white);
+  border: 1px solid var(--p-line);
+  border-radius: 12px;
+  transition: border-color 0.2s var(--p-ease), box-shadow 0.2s var(--p-ease);
+}
+
+.form-input:hover,
+.form-select:hover,
+.form-textarea:hover {
+  border-color: rgba(11, 22, 40, 0.3);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--p-cyan-deep);
+  box-shadow: 0 0 0 4px rgba(0, 168, 232, 0.15);
+}
+
+.btn-modal-cancel,
+.btn-submit {
+  border-radius: 980px;
+}
+
+.btn-submit {
+  background: var(--p-ink);
+  border-color: var(--p-ink);
+  box-shadow: none;
+}
+
+.btn-submit:hover {
+  background: var(--p-navy-2);
+  border-color: var(--p-navy-2);
+  box-shadow: none;
+}
+
+/* --------------------------------------------------------------------------
+   15. Botón Volver Arriba
+   -------------------------------------------------------------------------- */
+.btn-back-to-top {
+  background: rgba(11, 22, 40, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 12px 28px -10px rgba(11, 22, 40, 0.5);
+}
+
+.btn-back-to-top:hover {
+  background: var(--p-ink);
+  box-shadow: 0 12px 28px -10px rgba(11, 22, 40, 0.5);
+}
+
+/* --------------------------------------------------------------------------
+   16. Movimiento
+   -------------------------------------------------------------------------- */
+@keyframes p-hero-zoom {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+
+@keyframes p-rise {
+  from { opacity: 0; translate: 0 24px; }
+  to { opacity: 1; translate: 0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   17. Responsivo (núcleo)
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  /* Un backdrop-filter anidado (header > menú) deja el menú transparente en Chromium:
+     el header pasa a fondo casi sólido y el blur queda solo en el menú. */
+  header.site {
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .site-nav {
+    align-items: stretch;
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid var(--p-line-soft);
+    border-radius: 0 0 var(--p-radius) var(--p-radius);
+    box-shadow: 0 24px 48px -16px rgba(11, 22, 40, 0.22);
+  }
+
+  .navlinks {
+    padding: 12px 16px 20px;
+  }
+
+  .nav-link {
+    padding: 16px 8px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--p-ink);
+    border-bottom: 1px solid var(--p-line-soft);
+    border-radius: 0;
+  }
+
+  .nav-link:hover,
+  .nav-link:active,
+  .nav-link.active {
+    color: var(--p-ink);
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  .has-dropdown .dropdown-menu {
+    margin: 8px 0;
+    padding: 4px;
+    background: var(--p-beige);
+    border: 0;
+    border-radius: 12px;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .has-dropdown .dropdown-menu::before {
+    display: none;
+  }
+
+  .dropdown-item:hover {
+    background: rgba(11, 22, 40, 0.05);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 60px;
+    --p-tile: 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --p-gutter: 20px;
+  }
+
+  .modal-card {
+    padding: 28px 20px;
+  }
+
+  .modal-header {
+    padding: 0 36px;
+  }
+}

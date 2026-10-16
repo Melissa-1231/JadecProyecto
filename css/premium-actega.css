@@ -1,0 +1,293 @@
+/* ==========================================================================
+   JADEC - Capa Premium ACTEGA (css/premium-actega.css)
+   Requiere premium-core.css. Hero cinematográfico y mosaicos horizontales
+   de las líneas Barnices UV y Base Agua (actega.html).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Hero cinematográfico
+   -------------------------------------------------------------------------- */
+.hero-actega {
+  min-height: min(calc(100svh - var(--header-height) - 36px), 920px);
+  padding: 96px var(--p-gutter) 120px;
+  background-position: center;
+}
+
+.hero-actega-overlay {
+  background:
+    radial-gradient(ellipse 75% 55% at 50% 45%, rgba(7, 23, 43, 0.55), transparent 75%),
+    linear-gradient(180deg, rgba(7, 23, 43, 0.62) 0%, rgba(7, 23, 43, 0.45) 45%, rgba(7, 23, 43, 0.9) 100%);
+}
+
+.hero-actega-container {
+  max-width: 1040px;
+}
+
+.hero-actega-title {
+  margin-bottom: 24px;
+  font-size: var(--p-display);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  color: var(--p-white);
+  text-shadow: 0 2px 30px rgba(7, 23, 43, 0.35);
+}
+
+.hero-actega-desc {
+  max-width: 38rem;
+  margin: 0 auto 44px;
+  font-size: var(--p-lead);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.hero-actega-actions {
+  gap: 12px;
+}
+
+.hero-actega-actions .btn {
+  padding: 15px 28px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Acción secundaria (explorar): contorno blanco translúcido */
+.hero-actega-actions .btn:first-child {
+  color: var(--p-white) !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.hero-actega-actions .btn:first-child:hover {
+  color: var(--p-ink) !important;
+  background-color: var(--p-white) !important;
+  border-color: var(--p-white) !important;
+}
+
+.actega-wave-divider {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   2. Catálogo: mosaicos horizontales estilo Apple sobre beige
+   -------------------------------------------------------------------------- */
+.productos-actega-section {
+  padding: var(--p-space) var(--p-gutter);
+}
+
+.bg-actega-beige {
+  background: var(--p-beige);
+}
+
+.productos-actega-section .section-header.text-center {
+  max-width: 900px;
+}
+
+.section-subtitle-green {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--p-cyan-deep);
+}
+
+.productos-actega-section .section-description {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.actega-grid {
+  max-width: none;
+  margin: 0;
+  gap: 20px;
+}
+
+.actega-card {
+  min-height: 560px;
+  background: var(--p-white);
+  border: 0;
+  border-radius: var(--p-tile);
+  box-shadow: none;
+  transition: box-shadow 0.6s var(--p-ease);
+}
+
+/* Alterna imagen izquierda / derecha para dar ritmo */
+.actega-card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.actega-card:hover {
+  transform: none;
+  border-color: transparent;
+  box-shadow: 0 30px 60px -30px rgba(11, 22, 40, 0.28);
+}
+
+.actega-card-img-wrap {
+  flex: 0 0 52%;
+  min-height: 100%;
+  background: #E9E8E1;
+}
+
+.actega-card-img {
+  position: absolute;
+  inset: 0;
+  transition: transform 1.2s var(--p-ease);
+}
+
+.actega-card:hover .actega-card-img {
+  transform: scale(1.04);
+}
+
+.actega-card-body {
+  padding: clamp(32px, 1.5rem + 2vw, 64px);
+}
+
+.actega-card-sub {
+  margin-bottom: 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--p-cyan-deep);
+}
+
+.actega-card-title {
+  margin-bottom: 18px;
+  font-size: var(--p-h3);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: var(--p-ink);
+}
+
+.actega-card-desc {
+  margin-bottom: 28px;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--p-gray);
+}
+
+.actega-feature-list {
+  margin-bottom: 36px;
+}
+
+.actega-feature-list li {
+  padding: 14px 0 14px 30px;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--p-ink);
+  border-bottom: 1px solid var(--p-line-soft);
+}
+
+.actega-feature-list li:first-child {
+  border-top: 1px solid var(--p-line-soft);
+}
+
+.actega-feature-list li:last-child {
+  border-bottom: 1px solid var(--p-line-soft);
+}
+
+.actega-feature-list li::before {
+  top: 16px;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23179A45' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 16px no-repeat;
+}
+
+.actega-card-body .btn-green {
+  padding: 13px 24px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--p-white) !important;
+  background-color: var(--p-ink) !important;
+  border-color: var(--p-ink) !important;
+}
+
+.actega-card-body .btn-green:hover,
+.actega-card:hover .actega-card-body .btn-green {
+  background-color: var(--p-navy-2) !important;
+  border-color: var(--p-navy-2) !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. Movimiento
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-actega-container > * {
+    animation: p-rise 1s var(--p-ease) both;
+  }
+
+  .hero-actega-container > :nth-child(2) { animation-delay: 0.08s; }
+  .hero-actega-container > :nth-child(3) { animation-delay: 0.18s; }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .productos-actega-section .section-header,
+    .actega-card {
+      animation: p-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. Responsivo
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  /* Menú lateral: se alinea con la altura del header del sistema */
+  .site-nav {
+    justify-content: flex-start;
+    left: auto;
+    right: 0;
+    top: var(--header-height);
+    height: calc(100svh - var(--header-height));
+    border-left: 1px solid var(--p-line-soft);
+    border-bottom: 0;
+    border-radius: 0;
+  }
+
+  .site-nav .nav-link:hover,
+  .site-nav .nav-link:active {
+    color: var(--p-ink);
+    background: var(--p-beige);
+    padding-left: 8px;
+  }
+
+  .actega-card,
+  .actega-card:nth-child(even) {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .actega-card-img-wrap {
+    flex: none;
+    aspect-ratio: 16 / 10;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-actega {
+    padding: 72px var(--p-gutter) 88px;
+  }
+
+  .hero-actega-title {
+    font-size: 2.6rem;
+  }
+
+  .hero-actega-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actega-actions .btn {
+    justify-content: center;
+  }
+}
