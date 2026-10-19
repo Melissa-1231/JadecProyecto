@@ -248,101 +248,45 @@ body {
 }
 
 /* ==========================================================================
-   2. Cenefa Principal Hero: Texto Superior + Imagen Panorámica con Ondas SVG
+   2. Cenefa Principal: BARNICES BASE AGUA (Cenefa Lisa Color Azul)
    ========================================================================== */
-.hero-agua-wrapper {
+.cenefa-lisa-azul {
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  background: #0A2540;
   background-color: var(--ink, #0A2540);
-  overflow: hidden;
-}
-
-/* Bloque 1: Cenefa de Texto Superior */
-.hero-agua-texto {
-  width: 100%;
-  padding: 60px 5%;
-  background-color: var(--ink, #0A2540);
+  background: linear-gradient(180deg, #0A2540 0%, #07172B 100%);
+  padding: clamp(52px, 5.5vw, 76px) 5%;
   text-align: center;
+  position: relative;
+  z-index: 5;
+  border-bottom: 2px solid rgba(0, 168, 232, 0.25);
+  box-shadow: 0 4px 20px rgba(7, 23, 43, 0.15);
 }
 
-.hero-agua-title {
+.cenefa-lisa-contenido {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cenefa-lisa-title {
   font-family: 'Big Shoulders Display', sans-serif;
-  font-size: clamp(40px, 6vw, 68px);
+  font-size: clamp(38px, 5.5vw, 62px);
   font-weight: 900;
   color: var(--white, #FFFFFF);
   line-height: 1.05;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   letter-spacing: -0.01em;
   text-transform: uppercase;
 }
 
-.hero-agua-desc {
+.cenefa-lisa-desc {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(15.5px, 1.6vw, 18px);
+  font-size: clamp(15.5px, 1.4vw, 17.5px);
   font-weight: 400;
-  color: var(--white, #FFFFFF);
-  line-height: 1.65;
-  max-width: 800px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  max-width: 820px;
   margin: 0 auto;
-}
-
-/* Bloque 2: Cenefa de Imagen Inferior Panorámica (WebP 4K/8K) */
-.hero-agua-imagen {
-  position: relative;
-  width: 100%;
-  height: 60vh;
-  min-height: 380px;
-  max-height: 620px;
-  overflow: hidden;
-  background-color: var(--ink, #0A2540);
-}
-
-.hero-agua-picture {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.hero-agua-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-/* Divisor de Ondas SVG al Pie de la Imagen */
-.agua-wave-divider {
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  z-index: 5;
-  pointer-events: none;
-}
-
-.agua-wave-divider svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 90px;
-}
-
-.wave-layer-1 {
-  fill: var(--color-accent-green, #20BF55);
-  fill-opacity: 0.28;
-}
-
-.wave-layer-2 {
-  fill: var(--color-accent-green, #20BF55);
-  fill-opacity: 0.52;
-}
-
-.wave-layer-3 {
-  fill: var(--paper, #F4F3ED);
 }
 
 /* ==========================================================================

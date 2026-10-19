@@ -250,14 +250,14 @@
       actualizarCarruselMate();
     }
 
-    // 4. Interacción en Tarjetas de Sección 1: Barnices Brillantes (Preparado para Modales)
-    const tarjetasBrillantes = document.querySelectorAll('.tarjeta-brillante-poster');
+    // 4. Interacción en Tarjetas: Tecnologías y Barnices Brillantes (Preparado para Modales)
+    const tarjetasBrillantes = document.querySelectorAll('.tarjeta-brillante-poster, .tarjeta-interactiva');
     tarjetasBrillantes.forEach(tarjeta => {
-      const tituloElemento = tarjeta.querySelector('.tarjeta-poster-title');
-      const tituloProducto = tituloElemento ? tituloElemento.textContent.trim() : 'Barniz Brillante';
+      const tituloElemento = tarjeta.querySelector('.tarjeta-poster-title, .tarjeta-titulo');
+      const tituloProducto = tituloElemento ? tituloElemento.textContent.trim() : 'Recubrimiento Base Agua';
 
       tarjeta.addEventListener('click', () => {
-        console.log('Abriendo ficha técnica de:', tituloProducto);
+        console.log('Interacción en tarjeta:', tituloProducto);
       });
 
       // Accesibilidad por teclado (Enter / Space)
