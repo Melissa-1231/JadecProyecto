@@ -1239,6 +1239,12 @@ html {
   transform: translateX(3px);
 }
 
+.section-header.flex-between .btn-brand-primary {
+  flex: 0 0 auto;
+  width: auto;
+  align-self: flex-end;
+}
+
 /* --------------------------------------------------------------------------
    5. Banner de Llamado a la Acción de Ancho Completo (.section-full-cta)
    -------------------------------------------------------------------------- */
