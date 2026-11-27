@@ -1,5 +1,5 @@
 /**
- * JADEC (Soluciones Químicas) - Catálogo ACTEGA (js/actega.js)
+ * JADEC (Soluciones Químicas) - Catálogo ACTEGA (js/barnices.js)
  */
 (function () {
   'use strict';
