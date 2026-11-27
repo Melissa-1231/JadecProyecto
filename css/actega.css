@@ -1,0 +1,308 @@
+/* =============================================================================
+   TINTAS.CSS — Estilos específicos para la página de Tintas Flexo
+   ========================================================================== */
+
+/* =============================================================================
+   ENCABEZADO ESPECÍFICO DE LA PÁGINA TINTAS
+   ========================================================================== */
+header.site-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-bar-custom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.nav-izq {
+  display: flex;
+  align-items: center;
+}
+.nav-centro {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.nav-titulo {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+.nav-links a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+.nav-links a:hover {
+  color: var(--orange);
+}
+.nav-der {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* --- ESTILOS DEL BOTÓN DE REGRESAR (AQUÍ SE ARREGLA LA FLECHA GIGANTE) --- */
+.site-header .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1px solid var(--steel);
+  color: var(--ink);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+}
+.site-header .btn-ghost:hover {
+  background: var(--steel);
+  color: var(--white);
+}
+
+/* Obligamos al SVG a medir 16 pixeles */
+.site-header .btn-ghost svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* Responsivo para el encabezado secundario */
+@media (max-width: 860px) {
+  .nav-bar-custom {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+  .nav-centro {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 16px;
+  }
+}
+
+/* ---------- Hero Secundario ---------- */
+.hero-subpage {
+  background: linear-gradient(to right, var(--ink) 0%, var(--ink) 45%, rgba(30,16,84,0) 85%), url('../assets/maquina-4.webp') right center / cover no-repeat, var(--ink);
+  color: var(--white);
+  padding: 64px 0;
+  border-bottom: 4px solid var(--steel);
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+}
+.hero-content {
+  max-width: 50%;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+}
+.eyebrow-hero {
+  /* Antes var(--steel): azul acero sobre el azul DAKA daba 2,4:1, muy por debajo
+     del 4,5:1 de WCAG AA. Se unifica con el naranja que ya usan los rótulos
+     equivalentes de index.html, actega.html y flexografia.html (4,46:1). */
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.hero-subpage h1 {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  margin-bottom: 12px;
+  line-height: 1.05;
+}
+.hero-subpage p {
+  font-size: 18px;
+  color: var(--paper-2);
+  max-width: 100%;
+}
+
+/* ---------- Banner Full Screen ---------- */
+.banner-full-width {
+  width: 100%;
+  height: 70vh; 
+  min-height: 500px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+.banner-full-width img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  object-position: center center; 
+  display: block;
+}
+.sec-padding { padding: 64px 0; }
+
+/* ---------- Grid Dinámico 2x2 Tintas Base Agua ---------- */
+.agua-grid-dinamico {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  width: 100%;
+}
+.tarjeta-agua-hover {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  min-height: 450px;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  background: #000;
+  border: 1px solid var(--line);
+}
+.tarjeta-bg-img {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;
+}
+.tarjeta-bg-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s ease, opacity 0.6s ease; opacity: 0.8;
+}
+.tarjeta-contenido {
+  position: relative; z-index: 2; padding: 40px; width: 100%;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.6) 50%, transparent 100%);
+  color: var(--white); transform: translateY(0); transition: transform 0.4s ease;
+}
+.tarjeta-contenido h3 {
+  font-family: 'Big Shoulders Display', sans-serif; font-size: 32px; font-weight: 900;
+  color: var(--white); margin-bottom: 8px; line-height: 1.1; letter-spacing: 0.03em;
+}
+.tarjeta-contenido p {
+  font-size: 15px; color: var(--paper-2); line-height: 1.6;
+}
+.tarjeta-agua-hover:hover {
+  transform: translateY(-10px); box-shadow: 0 20px 40px rgba(30, 16, 84, 0.25); border-color: var(--orange);
+}
+.tarjeta-agua-hover:hover .tarjeta-bg-img img {
+  transform: scale(1.08); opacity: 1;
+}
+
+/* ---------- Banner Separador Fullscreen ---------- */
+.banner-separador-fullscreen {
+  width: 100%; margin: 64px 0 48px; padding: 90px 20px;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  background: linear-gradient(90deg, rgba(30,16,84, 0.85) 0%, rgba(30,16,84, 0.4) 100%), url('../assets/especiales-1.webp') center/cover no-repeat;
+}
+.banner-separador-fullscreen h2 {
+  font-family: 'Big Shoulders Display', sans-serif; font-size: 46px; 
+  color: var(--white); margin: 0; text-transform: uppercase;
+  letter-spacing: 0.03em; text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+/* ---------- Carrusel UV ---------- */
+.uv-carousel-wrapper {
+  position: relative; overflow: hidden; border-radius: 4px;
+  background: var(--ink); border: 1px solid var(--line);
+  box-shadow: 0 10px 30px rgba(30, 16, 84, 0.08);
+}
+.uv-carousel-track {
+  display: flex; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); width: 100%;
+}
+.uv-slide {
+  min-width: 100%; position: relative; height: 500px; background: #000;
+}
+.uv-slide img {
+  width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: transform 0.8s ease;
+}
+.uv-carousel-wrapper:hover .uv-slide img { transform: scale(1.03); }
+.uv-slide-caption {
+  position: absolute; bottom: 48px; left: 48px; max-width: 550px;
+  background: rgba(30, 16, 84, 0.8); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  padding: 32px; border-left: 4px solid var(--orange); border-radius: 2px;
+  color: var(--white); box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+.uv-slide-caption h3 {
+  font-family: 'Big Shoulders Display', sans-serif; font-size: 38px; font-weight: 900;
+  margin: 12px 0; line-height: 1.1; color: var(--white);
+}
+.uv-slide-caption p { font-size: 15px; color: var(--paper); line-height: 1.6; }
+
+.uv-nav-btn {
+  position: absolute; top: 50%; transform: translateY(-50%); width: 52px; height: 52px;
+  border-radius: 50%; background: rgba(255, 255, 255, 0.9); border: none;
+  color: var(--ink); font-size: 20px; cursor: pointer; z-index: 10;
+  transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.uv-nav-btn:hover { background: var(--orange); color: var(--white); transform: translateY(-50%) scale(1.05); }
+.uv-nav-btn.prev { left: 24px; }
+.uv-nav-btn.next { right: 24px; }
+
+.uv-dots {
+  position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 10px; z-index: 10; background: rgba(0, 0, 0, 0.4);
+  padding: 8px 16px; border-radius: 20px;
+}
+.uv-dot {
+  width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.4);
+  cursor: pointer; transition: all 0.3s;
+}
+.uv-dot.active { background: var(--orange); width: 24px; border-radius: 10px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .hero-subpage {
+    background: linear-gradient(to bottom, var(--ink) 0%, var(--ink) 60%, rgba(30,16,84,0) 100%), url('../assets/maquina-4.webp') bottom center / auto 50% no-repeat, var(--ink);
+    min-height: auto; padding: 48px 0;
+  }
+  .hero-content { width: 100%; max-width: 100%; }
+  .banner-full-width { height: 350px; }
+  .agua-grid-dinamico { grid-template-columns: 1fr; gap: 24px; }
+  .tarjeta-agua-hover { min-height: 350px; }
+  .tarjeta-contenido { padding: 24px; }
+  .tarjeta-contenido h3 { font-size: 26px; }
+  .banner-separador-fullscreen { padding: 50px 20px; margin: 40px 0 32px; }
+  .banner-separador-fullscreen h2 { font-size: 30px; }
+  .uv-slide { height: 420px; }
+  .uv-slide-caption { left: 20px; right: 20px; bottom: 60px; padding: 24px; }
+  .uv-slide-caption h3 { font-size: 28px; }
+  .uv-nav-btn { width: 40px; height: 40px; font-size: 16px; }
+  .uv-nav-btn.prev { left: 12px; }
+  .uv-nav-btn.next { right: 12px; }
+}
+/* =============================================================================
+   PIE DE PÁGINA (CENEFA FINAL)
+   ========================================================================== */
+.site-footer {
+  background-color: var(--ink); 
+  color: var(--white);
+  text-align: center;
+  padding: 40px 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea sutil de separación opcional */
+}
+.site-footer p {
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  opacity: 0.9;
+}

@@ -344,10 +344,12 @@
 /* --------------------------------------------------------------------------
    3. Tarjetas de Productos Verticales (.v-card)
    -------------------------------------------------------------------------- */
-.showcase-grid {
+.showcase-grid,
+#productos .showcase-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 32px;
+  align-items: stretch;
 }
 
 .v-card {
@@ -364,6 +366,19 @@
 .v-card:hover {
   box-shadow: 0 12px 24px rgba(26, 43, 136, 0.12);
   transform: translateY(-4px);
+}
+
+/* Uniformidad vertical 2x2 para las 4 tarjetas (anula el mosaico horizontal de la primera) */
+#productos .showcase-grid .v-card {
+  grid-column: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#productos .showcase-grid .v-card .v-card-image {
+  height: 260px;
+  aspect-ratio: auto;
+  min-height: 0;
 }
 
 .v-card-image {
@@ -1069,7 +1084,8 @@
   }
 }
 @media (max-width: 992px) {
-  .showcase-grid {
+  .showcase-grid,
+  #productos .showcase-grid {
     grid-template-columns: 1fr; /* Colapsa a 1 sola columna en dispositivos móviles */
   }
 }
